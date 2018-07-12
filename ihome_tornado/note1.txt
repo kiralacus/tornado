@@ -64,3 +64,11 @@ Json格式：
  Json格式
  {'errcode':, 'errmsg':}
 
+4. 登录检查接口
+url: /api/check_login
+传入参数:
+无
+返回参数
+Json格式
+{'errcode':, 'errmsg':}
+

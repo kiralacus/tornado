@@ -102,7 +102,14 @@ class LoginHandler(BaseHandler):
                             session.data['username'] = mobile
                             session.save()
 
-class
+
+class CheckLoginHandler(BaseHandler):
+    def get(self):
+        if self.get_current_user():
+            return self.write(dict(errcode=RET.OK, errmsg='用户已登录'))
+        else:
+            return self.write(dict(errcode=RET.SESSIONERR, errmsg='用户未登录'))
+
 
 
 
