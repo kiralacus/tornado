@@ -1,0 +1,66 @@
+1. 图片验证码接口
+
+url: /api/pitcode
+method: get
+传入参数：
+/api/pitcode/?codeid=123&precodeid=
+参数名     参数类型   是否必须    参数说明
+codeid    string    是         当前图片id
+precodeid string    可为空      上一次的图片id
+
+返回参数：
+验证码图片
+
+流程：
+1. 网页端加载时显示图片
+2. 点击验证码时刷新图片
+3. 输入手机号时验证验证码， 错误时刷新图片
+
+
+2. 短信验证码接口
+
+url: /api/smscode
+method: post,
+传入参数：
+param = {
+    'mobile':18351922521,(脚本提取)
+    'piccode': 'abcd',
+    'piccode_id': '',
+}
+
+参数名   参数类型    是否必须    参数说明
+mobile  string/int  是        用户手机号
+piccode  string     是        图片验证码
+piccode_id  string/int 是     图片验证码id
+
+返回参数：
+Json格式：
+ {'errcode': 0, 'errmsg': '', 'data':{}}
+ 参数名    参数类型    是否必须     参数说明
+ errcode   int       是          返回状态码
+ errmsg    string    是          状态描述
+ data      dict      否          附带数据
+
+ 流程：
+ 1. 接受客户端的数据
+ 2. 检查数据是否传递
+ 3. 判断手机格式是否正确
+ ***4. 检查图片验证码是否正确， 正确返回状态码, 向客户手机发送验证码
+ ***5. 不正确时重新刷新图片二维码，并返回错误的状态码，并显示验证码错误字样
+
+ 3. 登录接口
+ url: /api/login
+ 传入参数:
+ param = {
+    'mobile':
+    'password':
+ }
+
+ 参数名        参数类型       是否必须        参数说明
+ mobile       string        是             用户手机号
+ password     string        是             用户登录密码
+
+ 返回参数
+ Json格式
+ {'errcode':, 'errmsg':}
+

@@ -1,0 +1,3 @@
+import urlparse
+print urlparse.urlparse('https://www.baidu.com/s?ie=utf-8&f=3&rsv_bp=1&rsv_idx=1&tn=baidu&wd=urlparse.urlsplit&oq=functools.wraps&rsv_pq=cbaaa11000038f66&rsv_t=1896nBCE%2FvsTgji7OXB24XyalQ1lvlRu5DuKSMsEHyVntB7qFRdxlYuOpfk&rqlang=cn&rsv_enter=1&inputT=6623&rsv_sug3=35&rsv_sug2=0&prefixsug=urlparse.urlsplit&rsp=0&rsv_sug4=6624')
+print urlparse.urlsplit('https://www.baidu.com/s?ie=utf-8&f=3&rsv_bp=1&rsv_idx=1&tn=baidu&wd=urlparse.urlsplit&oq=functools.wraps&rsv_pq=cbaaa11000038f66&rsv_t=1896nBCE%2FvsTgji7OXB24XyalQ1lvlRu5DuKSMsEHyVntB7qFRdxlYuOpfk&rqlang=cn&rsv_enter=1&inputT=6623&rsv_sug3=35&rsv_sug2=0&prefixsug=urlparse.urlsplit&rsp=0&rsv_sug4=6624')
