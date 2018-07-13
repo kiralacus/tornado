@@ -16,8 +16,8 @@ class Session(object):
         self.session_id = self.requestHandler.get_secure_cookie('sess_id')
         # 如果cookie中不含有session_id
         if not self.session_id:
-            session_id = uuid.uuid4().get_hex()
-            self.requestHandler.set_secure_cookie('sess_id', session_id)
+            self.session_id = uuid.uuid4().get_hex()
+            self.requestHandler.set_secure_cookie('sess_id', self.session_id)
             self.data = {}
 
         else:
@@ -31,7 +31,7 @@ class Session(object):
                 if not json_data:
                     self.data = {}
                 else:
-                    json_data = json.loads(json_data)
+                    self.data = json.loads(json_data)
 
     def save(self):
         json_data = json.dumps(self.data)
@@ -44,7 +44,7 @@ class Session(object):
     def clear(self):
         self.requestHandler.clear_cookie('sess_id')
         try:
-            self.requestHandler.delete("sess_id_%s"%self.session_id)
+            self.requestHandler.redis.delete("sess_id_%s"%self.session_id)
         except Exception as e:
             logging.error(e)
             pass

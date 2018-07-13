@@ -10,6 +10,8 @@ from hashlib import sha256
 
 from utils.session import Session
 
+from utils.commons import require_login
+
 
 class RegisterHandler(BaseHandler):
     '''存储用户信息'''
@@ -104,11 +106,29 @@ class LoginHandler(BaseHandler):
 
 
 class CheckLoginHandler(BaseHandler):
+    '''检查是否登录'''
     def get(self):
         if self.get_current_user():
-            return self.write(dict(errcode=RET.OK, errmsg='用户已登录'))
+            return self.write(dict(errcode=RET.OK, errmsg='用户已登录', data=self.get_current_user()['username']))
         else:
             return self.write(dict(errcode=RET.SESSIONERR, errmsg='用户未登录'))
+
+
+class LogoutHandler(BaseHandler):
+    '''登出操作'''
+    @require_login
+    def get(self):
+        session = Session(self)
+        sess_id = session.session_id
+        session.clear()
+        # 判断是否删除session数据
+        user = self.redis.get('sess_id_%s'%sess_id)
+        print user
+        if not user:
+            print 'logout'
+            self.write(dict(errcode=RET.OK, errmsg='登出成功'))
+        else:
+            self.write(dict(errcode=RET.DBERR, errmsg='登出失败'))
 
 
 

@@ -25,7 +25,6 @@ class PicCodeHandler(BaseHandler):
         try:
             if pre_code_id:
                 self.redis.delete('pic_code_%s'%pre_code_id)
-                print('kiralacus')
 
             self.redis.setex('pic_code_%s'%cur_code_id, constants.PIC_CODE_EXPIRE_SECONDS, text)
         except Exception as e:
@@ -48,7 +47,6 @@ class SMSCodeHandler(BaseHandler):
         else:
             # 判断数据库中该手机是否存在
             try:
-                print 'i am in '
                 sql = "select up_mobile from ih_user_profile where up_mobile=%(mobile)s"
                 sql_mobile = self.db.get(sql, **dict(mobile=mobile))
             except Exception as e:

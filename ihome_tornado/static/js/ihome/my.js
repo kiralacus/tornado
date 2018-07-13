@@ -1,7 +1,14 @@
 function logout() {
     $.get("/api/logout", function(data){
         if (0 == data.errcode) {
-            location.href = "/";
+            alert(1);
+            window.location.href='/'
+        }
+        else if('4101' == data.errcode){
+            window.location.href='/login.html'
+        }
+        else{
+            alert('登出失败')
         }
     })
 }

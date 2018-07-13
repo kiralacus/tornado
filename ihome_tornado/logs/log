@@ -1129,3 +1129,397 @@
 [W 180712 17:30:39 web:2106] 404 GET /api/house/index (127.0.0.1) 1.46ms
 [W 180712 17:30:39 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.33ms
 [I 180712 17:39:47 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180713 09:15:09 web:2106] 200 GET /api/check_login (127.0.0.1) 17.76ms
+[I 180713 09:17:11 web:2106] 200 GET /login.html (127.0.0.1) 492.66ms
+[I 180713 09:17:12 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 530.81ms
+[I 180713 09:17:12 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 419.38ms
+[I 180713 09:17:12 web:2106] 200 GET /static/css/ihome/login.css (127.0.0.1) 299.39ms
+[I 180713 09:17:12 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 277.79ms
+[I 180713 09:17:12 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 234.33ms
+[I 180713 09:17:12 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 160.19ms
+[I 180713 09:17:12 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 86.84ms
+[I 180713 09:17:12 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 59.97ms
+[I 180713 09:17:12 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 110.24ms
+[I 180713 09:17:12 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 43.18ms
+[I 180713 09:17:13 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.69ms
+[I 180713 09:17:18 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 185.05ms
+[I 180713 09:17:37 web:2106] 200 POST /api/login (127.0.0.1) 911.56ms
+[I 180713 09:17:38 web:2106] 200 GET / (127.0.0.1) 61.07ms
+[I 180713 09:17:39 web:2106] 200 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 393.11ms
+[I 180713 09:17:39 web:2106] 200 GET /static/css/ihome/index.css (127.0.0.1) 304.05ms
+[I 180713 09:17:39 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 239.68ms
+[I 180713 09:17:39 web:2106] 200 GET /static/js/template.js (127.0.0.1) 19.18ms
+[I 180713 09:17:39 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 6.28ms
+[I 180713 09:17:39 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 4.72ms
+[I 180713 09:17:39 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 31.48ms
+[I 180713 09:17:39 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 69.00ms
+[W 180713 09:17:41 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 53.08ms
+[I 180713 09:21:13 autoreload:196] /home/kiralacus/tornado/ihome_tornado/utils/session.py modified; restarting server
+[I 180713 09:21:56 web:2106] 200 POST /api/login (127.0.0.1) 4.04ms
+[W 180713 09:21:57 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 2.33ms
+[I 180713 09:25:17 web:2106] 200 GET /api/check_login (127.0.0.1) 1.65ms
+[I 180713 09:29:24 web:2106] 200 GET /api/check_login (127.0.0.1) 2.27ms
+[I 180713 09:29:31 web:2106] 200 GET /api/check_login (127.0.0.1) 1.30ms
+[I 180713 09:30:00 web:2106] 200 GET /api/check_login (127.0.0.1) 2.31ms
+[I 180713 09:40:59 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180713 09:44:19 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180713 09:46:11 web:2106] 304 GET / (127.0.0.1) 113.12ms
+[I 180713 09:46:12 web:2106] 304 GET / (127.0.0.1) 1.37ms
+[I 180713 09:47:09 web:2106] 304 GET / (127.0.0.1) 1.37ms
+[W 180713 09:47:11 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 71.96ms
+[I 180713 09:48:41 web:2106] 200 GET / (127.0.0.1) 2.04ms
+[I 180713 09:48:41 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 136.12ms
+[I 180713 09:48:41 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 77.83ms
+[I 180713 09:48:41 web:2106] 200 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 67.19ms
+[I 180713 09:48:41 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 48.24ms
+[I 180713 09:48:41 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 29.44ms
+[I 180713 09:48:41 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 270.84ms
+[I 180713 09:48:41 web:2106] 200 GET /static/css/ihome/index.css (127.0.0.1) 31.88ms
+[I 180713 09:48:41 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 14.73ms
+[I 180713 09:48:41 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 9.71ms
+[I 180713 09:48:41 web:2106] 200 GET /static/js/template.js (127.0.0.1) 6.86ms
+[I 180713 09:48:41 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 29.93ms
+[I 180713 09:48:41 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 24.63ms
+[I 180713 09:48:42 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 46.67ms
+[I 180713 09:48:42 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 33.00ms
+[I 180713 09:48:42 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 4.66ms
+[I 180713 09:48:42 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 32.16ms
+[I 180713 09:48:42 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 18.75ms
+[W 180713 09:48:42 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.17ms
+[I 180713 09:48:42 web:2106] 200 GET /favicon.ico (127.0.0.1) 35.68ms
+[I 180713 09:49:09 web:2106] 304 GET / (127.0.0.1) 1.37ms
+[I 180713 09:49:10 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 1.56ms
+[I 180713 09:49:10 web:2106] 200 GET /api/check_login (127.0.0.1) 18.30ms
+[W 180713 09:49:10 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.17ms
+[I 180713 09:49:36 web:2106] 200 GET /login.html (127.0.0.1) 108.96ms
+[I 180713 09:49:36 web:2106] 200 GET /static/css/ihome/login.css (127.0.0.1) 30.11ms
+[I 180713 09:49:36 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 73.31ms
+[I 180713 09:49:47 web:2106] 200 POST /api/login (127.0.0.1) 785.07ms
+[I 180713 09:49:48 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 1.05ms
+[I 180713 09:49:49 web:2106] 304 GET /api/check_login (127.0.0.1) 1.42ms
+[I 180713 09:50:29 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180713 09:50:38 web:2106] 304 GET / (127.0.0.1) 38.38ms
+[I 180713 09:50:38 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 1.13ms
+[I 180713 09:50:38 web:2106] 304 GET /api/check_login (127.0.0.1) 1.86ms
+[I 180713 09:50:38 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.71ms
+[I 180713 09:51:53 autoreload:196] /home/kiralacus/tornado/ihome_tornado/utils/session.py modified; restarting server
+[I 180713 09:51:55 web:2106] 304 GET / (127.0.0.1) 8.89ms
+[I 180713 09:51:55 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 1.16ms
+[I 180713 09:51:55 web:2106] 304 GET /api/check_login (127.0.0.1) 1.74ms
+[I 180713 09:51:55 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.66ms
+[I 180713 09:52:20 web:2106] 304 GET / (127.0.0.1) 1.32ms
+[I 180713 09:52:20 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 1.20ms
+[I 180713 09:52:21 web:2106] 304 GET /api/check_login (127.0.0.1) 1.74ms
+[I 180713 09:52:21 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.53ms
+[I 180713 09:56:07 autoreload:196] /home/kiralacus/tornado/ihome_tornado/utils/session.py modified; restarting server
+[I 180713 09:56:10 web:2106] 304 GET / (127.0.0.1) 6.77ms
+[I 180713 09:56:10 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 1.15ms
+[I 180713 09:56:10 web:2106] 200 GET /api/check_login (127.0.0.1) 2.20ms
+[I 180713 09:56:10 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.70ms
+[I 180713 09:57:06 web:2106] 200 GET / (127.0.0.1) 2.07ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 2.68ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 1.74ms
+[I 180713 09:57:06 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 9.42ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 8.75ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 7.79ms
+[I 180713 09:57:06 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 6.68ms
+[I 180713 09:57:06 web:2106] 200 GET /static/css/ihome/index.css (127.0.0.1) 12.77ms
+[I 180713 09:57:06 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 11.19ms
+[I 180713 09:57:06 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 10.88ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 1.63ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 2.14ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 1.76ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 1.55ms
+[I 180713 09:57:06 web:2106] 200 GET /static/js/template.js (127.0.0.1) 1.57ms
+[I 180713 09:57:06 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 1.60ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 2.41ms
+[E 180713 09:57:07 web:1621] Uncaught exception GET /api/check_login (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/check_login', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Passport.py", line 108, in get
+        if self.get_current_user():
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/BaseHandler.py", line 43, in get_current_user
+        self.session = Session(self)
+      File "/home/kiralacus/tornado/ihome_tornado/utils/session.py", line 17, in __init__
+        print '========'+self.session_id
+    TypeError: cannot concatenate 'str' and 'NoneType' objects
+[E 180713 09:57:07 web:2106] 500 GET /api/check_login (127.0.0.1) 49.93ms
+[I 180713 09:57:07 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.62ms
+[W 180713 09:57:17 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.33ms
+[I 180713 09:57:17 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 7.59ms
+[I 180713 09:58:59 web:2106] 200 GET /login.html (127.0.0.1) 1.84ms
+[I 180713 09:58:59 web:2106] 200 GET /static/css/ihome/login.css (127.0.0.1) 1.51ms
+[I 180713 09:59:00 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 1.47ms
+[E 180713 09:59:11 web:1621] Uncaught exception POST /api/login (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/login', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Passport.py", line 100, in post
+        session = Session(self)
+      File "/home/kiralacus/tornado/ihome_tornado/utils/session.py", line 17, in __init__
+        print '========'+self.session_id
+    TypeError: cannot concatenate 'str' and 'NoneType' objects
+[E 180713 09:59:11 web:2106] 500 POST /api/login (127.0.0.1) 4.77ms
+[I 180713 10:00:12 autoreload:196] /home/kiralacus/tornado/ihome_tornado/utils/session.py modified; restarting server
+[I 180713 10:00:15 web:2106] 304 GET /login.html (127.0.0.1) 9.22ms
+[I 180713 10:00:27 web:2106] 200 POST /api/login (127.0.0.1) 4.35ms
+[I 180713 10:00:28 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 1.13ms
+[I 180713 10:00:29 web:2106] 200 GET /api/check_login (127.0.0.1) 1.98ms
+[W 180713 10:00:29 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 2.33ms
+[I 180713 10:00:59 web:2106] 200 GET /my.html (127.0.0.1) 35.20ms
+[I 180713 10:00:59 web:2106] 200 GET /static/css/ihome/my.css (127.0.0.1) 53.10ms
+[I 180713 10:00:59 web:2106] 200 GET /static/js/ihome/my.js (127.0.0.1) 11.73ms
+[W 180713 10:01:00 web:2106] 404 GET /api/profile (127.0.0.1) 1.41ms
+[I 180713 10:26:49 autoreload:196] /home/kiralacus/tornado/ihome_tornado/urls.py modified; restarting server
+[I 180713 10:30:03 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180713 10:30:05 web:2106] 304 GET /my.html (127.0.0.1) 374.77ms
+[W 180713 10:30:10 web:2106] 404 GET /api/profile (127.0.0.1) 242.39ms
+[I 180713 10:30:37 web:2106] 304 GET /my.html (127.0.0.1) 1.45ms
+[W 180713 10:30:37 web:2106] 404 GET /api/profile (127.0.0.1) 1.68ms
+[I 180713 10:31:51 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180713 10:31:53 web:2106] 304 GET /my.html (127.0.0.1) 49.68ms
+[W 180713 10:31:55 web:2106] 404 GET /api/profile (127.0.0.1) 191.09ms
+[E 180713 10:31:59 session:49] HTTP 405: Method Not Allowed
+[I 180713 10:31:59 web:2106] 200 GET /api/logout (127.0.0.1) 478.71ms
+[I 180713 10:32:47 web:2106] 304 GET /my.html (127.0.0.1) 1.53ms
+[W 180713 10:32:47 web:2106] 404 GET /api/profile (127.0.0.1) 1.37ms
+[I 180713 10:33:10 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 11.82ms
+[I 180713 10:33:10 web:2106] 200 GET /api/check_login (127.0.0.1) 1.49ms
+[W 180713 10:33:10 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 38.22ms
+[I 180713 10:33:27 web:2106] 200 POST /api/login (127.0.0.1) 538.07ms
+[I 180713 10:33:29 web:2106] 200 GET /api/check_login (127.0.0.1) 1.69ms
+[W 180713 10:33:29 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.27ms
+[W 180713 10:33:31 web:2106] 404 GET /api/profile (127.0.0.1) 1.41ms
+[E 180713 10:33:34 session:49] HTTP 405: Method Not Allowed
+[I 180713 10:33:34 web:2106] 304 GET /api/logout (127.0.0.1) 3.00ms
+[I 180713 10:34:09 web:2106] 200 GET /my.html (127.0.0.1) 23.84ms
+[I 180713 10:34:09 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 126.13ms
+[I 180713 10:34:09 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 34.56ms
+[I 180713 10:34:09 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 24.09ms
+[I 180713 10:34:09 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 18.80ms
+[I 180713 10:34:09 web:2106] 200 GET /static/css/ihome/my.css (127.0.0.1) 4.54ms
+[I 180713 10:34:09 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 166.87ms
+[I 180713 10:34:09 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 10.09ms
+[I 180713 10:34:09 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 13.79ms
+[I 180713 10:34:09 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 2.01ms
+[I 180713 10:34:10 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 67.94ms
+[I 180713 10:34:10 web:2106] 200 GET /static/js/ihome/my.js (127.0.0.1) 63.41ms
+[I 180713 10:34:10 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 47.72ms
+[I 180713 10:34:10 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 18.26ms
+[W 180713 10:34:10 web:2106] 404 GET /api/profile (127.0.0.1) 1.39ms
+[I 180713 10:34:11 web:2106] 200 GET /favicon.ico (127.0.0.1) 27.46ms
+[I 180713 10:34:15 web:2106] 200 GET /api/logout (127.0.0.1) 1.39ms
+[I 180713 10:34:19 web:2106] 200 GET / (127.0.0.1) 23.73ms
+[I 180713 10:34:19 web:2106] 200 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 48.62ms
+[I 180713 10:34:19 web:2106] 200 GET /static/css/ihome/index.css (127.0.0.1) 26.10ms
+[I 180713 10:34:19 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 14.65ms
+[I 180713 10:34:19 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 5.75ms
+[I 180713 10:34:19 web:2106] 200 GET /static/js/template.js (127.0.0.1) 67.55ms
+[I 180713 10:34:19 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 35.32ms
+[I 180713 10:34:19 web:2106] 200 GET /api/check_login (127.0.0.1) 1.34ms
+[W 180713 10:34:19 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.24ms
+[I 180713 10:34:26 web:2106] 200 GET /login.html (127.0.0.1) 88.51ms
+[I 180713 10:34:26 web:2106] 200 GET /static/css/ihome/login.css (127.0.0.1) 229.91ms
+[I 180713 10:34:26 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 65.41ms
+[I 180713 10:34:43 web:2106] 200 POST /api/login (127.0.0.1) 410.33ms
+[I 180713 10:34:44 web:2106] 200 GET /api/check_login (127.0.0.1) 1.62ms
+[W 180713 10:34:44 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.18ms
+[I 180713 10:34:47 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.16ms
+[W 180713 10:34:47 web:2106] 404 GET /api/profile (127.0.0.1) 1.44ms
+[E 180713 10:34:52 session:49] HTTP 405: Method Not Allowed
+[I 180713 10:34:52 web:2106] 200 GET /api/logout (127.0.0.1) 2.70ms
+[I 180713 10:35:40 web:2106] 304 GET /my.html (127.0.0.1) 29.84ms
+[I 180713 10:35:40 web:2106] 200 GET /static/js/ihome/my.js (127.0.0.1) 1.65ms
+[W 180713 10:35:40 web:2106] 404 GET /api/profile (127.0.0.1) 1.37ms
+[W 180713 10:35:47 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.16ms
+[I 180713 10:35:49 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.17ms
+[W 180713 10:35:49 web:2106] 404 GET /api/profile (127.0.0.1) 1.54ms
+[I 180713 10:35:56 web:2106] 304 GET /my.html (127.0.0.1) 1.29ms
+[I 180713 10:35:56 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.13ms
+[W 180713 10:35:56 web:2106] 404 GET /api/profile (127.0.0.1) 1.39ms
+[W 180713 10:35:58 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.25ms
+[W 180713 10:36:01 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.31ms
+[I 180713 10:36:03 web:2106] 304 GET / (127.0.0.1) 27.25ms
+[I 180713 10:36:03 web:2106] 200 GET /api/check_login (127.0.0.1) 1.44ms
+[W 180713 10:36:03 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.16ms
+[I 180713 10:36:18 web:2106] 200 POST /api/login (127.0.0.1) 145.96ms
+[I 180713 10:36:19 web:2106] 200 GET /api/check_login (127.0.0.1) 1.87ms
+[W 180713 10:36:19 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.17ms
+[I 180713 10:36:21 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.16ms
+[W 180713 10:36:21 web:2106] 404 GET /api/profile (127.0.0.1) 1.55ms
+[E 180713 10:36:25 session:49] HTTP 405: Method Not Allowed
+[I 180713 10:36:25 web:2106] 304 GET /api/logout (127.0.0.1) 4.40ms
+[I 180713 10:37:07 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180713 10:37:26 web:2106] 200 POST /api/login (127.0.0.1) 194.72ms
+[I 180713 10:37:27 web:2106] 304 GET /api/check_login (127.0.0.1) 2.05ms
+[W 180713 10:37:27 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 54.10ms
+[I 180713 10:37:28 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 24.95ms
+[W 180713 10:37:29 web:2106] 404 GET /api/profile (127.0.0.1) 1.49ms
+[E 180713 10:37:31 session:49] HTTP 405: Method Not Allowed
+[I 180713 10:37:31 web:2106] 304 GET /api/logout (127.0.0.1) 2.72ms
+[I 180713 10:41:29 autoreload:196] /home/kiralacus/tornado/ihome_tornado/utils/session.py modified; restarting server
+[I 180713 10:41:56 web:2106] 200 POST /api/login (127.0.0.1) 9.89ms
+[I 180713 10:41:56 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 15.00ms
+[I 180713 10:41:57 web:2106] 304 GET /api/check_login (127.0.0.1) 1.79ms
+[W 180713 10:41:57 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 2.22ms
+[I 180713 10:41:58 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.23ms
+[W 180713 10:41:59 web:2106] 404 GET /api/profile (127.0.0.1) 1.55ms
+[I 180713 10:42:00 web:2106] 200 GET /api/logout (127.0.0.1) 2.78ms
+[I 180713 10:42:02 web:2106] 200 GET /api/check_login (127.0.0.1) 1.28ms
+[W 180713 10:42:02 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.15ms
+[I 180713 10:43:09 web:2106] 200 GET /profile.html (127.0.0.1) 190.63ms
+[I 180713 10:43:09 web:2106] 200 GET /static/css/ihome/profile.css (127.0.0.1) 449.74ms
+[I 180713 10:43:09 web:2106] 200 GET /static/js/jquery.form.min.js (127.0.0.1) 150.87ms
+[I 180713 10:43:09 web:2106] 200 GET /static/js/ihome/profile.js (127.0.0.1) 121.51ms
+[W 180713 10:43:11 web:2106] 404 GET /api/profile (127.0.0.1) 1.65ms
+[I 180713 10:49:40 autoreload:196] /home/kiralacus/tornado/ihome_tornado/urls.py modified; restarting server
+[I 180713 11:00:06 web:2106] 304 GET /my.html (127.0.0.1) 139.71ms
+[I 180713 11:00:06 web:2106] 200 GET /static/js/ihome/my.js (127.0.0.1) 57.11ms
+[W 180713 11:00:09 web:2106] 405 GET /api/profile (127.0.0.1) 1.03ms
+[I 180713 11:00:12 web:2106] 200 GET /api/logout (127.0.0.1) 71.40ms
+[I 180713 11:00:37 web:2106] 200 POST /api/login (127.0.0.1) 489.41ms
+[I 180713 11:00:39 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 5.52ms
+[I 180713 11:00:39 web:2106] 200 GET /api/check_login (127.0.0.1) 1.63ms
+[W 180713 11:00:40 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 448.13ms
+[I 180713 11:00:42 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.25ms
+[W 180713 11:00:42 web:2106] 405 GET /api/profile (127.0.0.1) 0.92ms
+[I 180713 11:00:45 web:2106] 200 GET /api/logout (127.0.0.1) 3.01ms
+[I 180713 11:00:47 web:2106] 200 GET /api/check_login (127.0.0.1) 1.27ms
+[W 180713 11:00:47 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.27ms
+[I 180713 11:01:05 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.15ms
+[W 180713 11:01:06 web:2106] 405 GET /api/profile (127.0.0.1) 0.90ms
+[I 180713 11:01:08 web:2106] 200 GET /api/logout (127.0.0.1) 1.59ms
+[I 180713 11:01:16 web:2106] 304 GET /login.html (127.0.0.1) 7.36ms
+[I 180713 11:01:56 web:2106] 200 POST /api/login (127.0.0.1) 10.34ms
+[I 180713 11:01:57 web:2106] 200 GET /api/check_login (127.0.0.1) 1.74ms
+[W 180713 11:01:57 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.25ms
+[I 180713 11:01:59 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.25ms
+[W 180713 11:02:00 web:2106] 405 GET /api/profile (127.0.0.1) 0.92ms
+[I 180713 11:02:49 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180713 15:55:47 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180713 16:00:55 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180713 16:03:09 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[E 180713 16:05:01 session:27] Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180713 16:05:01 web:1621] Uncaught exception POST /api/profile/avatar (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/profile/avatar', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1520, in _execute
+        result = self.prepare()
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/BaseHandler.py", line 16, in prepare
+        self.xsrf_token
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1264, in xsrf_token
+        expires_days = 30 if self.current_user else None
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1184, in current_user
+        self._current_user = self.get_current_user()
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/BaseHandler.py", line 43, in get_current_user
+        self.session = Session(self)
+      File "/home/kiralacus/tornado/ihome_tornado/utils/session.py", line 28, in __init__
+        raise e
+    ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180713 16:05:01 web:2106] 500 POST /api/profile/avatar (127.0.0.1) 104.66ms
+[D 180713 16:05:50 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Fri, 13 Jul 2018 08:05:50 GMT
+    /kiralacus/f2535a08ebb84533a126e29dc6e4ca3a.jpg
+[D 180713 16:05:50 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180713 16:05:50 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /f2535a08ebb84533a126e29dc6e4ca3a.jpg HTTP/1.1" 200 0
+[E 180713 16:05:50 web:1621] Uncaught exception POST /api/profile/avatar (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/profile/avatar', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Profile.py", line 21, in post
+        url = pre_url + imageName
+    TypeError: cannot concatenate 'str' and 'NoneType' objects
+[E 180713 16:05:50 web:2106] 500 POST /api/profile/avatar (127.0.0.1) 453.57ms
+[I 180713 16:07:10 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[D 180713 16:07:11 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Fri, 13 Jul 2018 08:07:11 GMT
+    /kiralacus/c64330f5d465459f8134de7b6a210301.jpg
+[D 180713 16:07:11 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180713 16:07:12 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /c64330f5d465459f8134de7b6a210301.jpg HTTP/1.1" 200 0
+[E 180713 16:07:12 web:1621] Uncaught exception POST /api/profile/avatar (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/profile/avatar', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Profile.py", line 21, in post
+        url = pre_url + imageName
+    TypeError: cannot concatenate 'str' and 'NoneType' objects
+[E 180713 16:07:12 web:2106] 500 POST /api/profile/avatar (127.0.0.1) 233.95ms
+[I 180713 16:07:59 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[D 180713 16:08:15 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Fri, 13 Jul 2018 08:08:15 GMT
+    /kiralacus/d7cd40e1c7034050a6a149ee15534376.jpg
+[D 180713 16:08:15 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180713 16:08:15 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /d7cd40e1c7034050a6a149ee15534376.jpg HTTP/1.1" 200 0
+[E 180713 16:08:15 web:1621] Uncaught exception POST /api/profile/avatar (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/profile/avatar', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Profile.py", line 22, in post
+        url = pre_url + imageName
+    TypeError: cannot concatenate 'str' and 'NoneType' objects
+[E 180713 16:08:15 web:2106] 500 POST /api/profile/avatar (127.0.0.1) 1054.62ms
+[I 180713 16:08:50 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[D 180713 16:08:53 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Fri, 13 Jul 2018 08:08:53 GMT
+    /kiralacus/eea78a9735a746778564f9ad6be0b64f.jpg
+[D 180713 16:08:53 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180713 16:08:53 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /eea78a9735a746778564f9ad6be0b64f.jpg HTTP/1.1" 200 0
+[E 180713 16:08:53 web:1621] Uncaught exception POST /api/profile/avatar (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/profile/avatar', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Profile.py", line 23, in post
+        url = pre_url + imageName
+    TypeError: cannot concatenate 'str' and 'NoneType' objects
+[E 180713 16:08:53 web:2106] 500 POST /api/profile/avatar (127.0.0.1) 453.41ms
+[I 180713 16:09:09 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[D 180713 16:09:15 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Fri, 13 Jul 2018 08:09:15 GMT
+    /kiralacus/bb417edb90b3465aaf3d4eb211da3837.jpg
+[D 180713 16:09:15 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180713 16:09:16 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /bb417edb90b3465aaf3d4eb211da3837.jpg HTTP/1.1" 200 0
+[E 180713 16:09:16 web:1621] Uncaught exception POST /api/profile/avatar (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/profile/avatar', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Profile.py", line 23, in post
+        url = pre_url + imageName
+    TypeError: cannot concatenate 'str' and 'NoneType' objects
+[E 180713 16:09:16 web:2106] 500 POST /api/profile/avatar (127.0.0.1) 243.35ms
+[I 180713 16:10:17 autoreload:196] /home/kiralacus/tornado/ihome_tornado/utils/aliyun_storage.py modified; restarting server
+[D 180713 16:10:18 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Fri, 13 Jul 2018 08:10:18 GMT
+    /kiralacus/abc0c8787e1746ed89e382b51c8d401f.jpg
+[D 180713 16:10:18 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180713 16:10:19 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /abc0c8787e1746ed89e382b51c8d401f.jpg HTTP/1.1" 200 0
+[I 180713 16:10:19 web:2106] 200 POST /api/profile/avatar (127.0.0.1) 594.11ms
+[I 180713 16:13:39 autoreload:196] /home/kiralacus/tornado/ihome_tornado/utils/aliyun_storage.py modified; restarting server
+[D 180713 16:17:04 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Fri, 13 Jul 2018 08:17:04 GMT
+    /kiralacus/229921899ec643edaf922f69af1c70fa.jpg
+[D 180713 16:17:04 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180713 16:17:05 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /229921899ec643edaf922f69af1c70fa.jpg HTTP/1.1" 200 0
+[I 180713 16:17:05 web:2106] 200 POST /api/profile/avatar (127.0.0.1) 419.01ms
+[I 180713 16:48:39 autoreload:196] /home/kiralacus/tornado/ihome_tornado/constants.py modified; restarting server

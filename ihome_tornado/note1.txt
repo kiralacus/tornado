@@ -64,11 +64,36 @@ Json格式：
  Json格式
  {'errcode':, 'errmsg':}
 
+
 4. 登录检查接口
 url: /api/check_login
 传入参数:
 无
 返回参数
 Json格式
-{'errcode':, 'errmsg':}
+{'errcode':, 'errmsg': 'data':}
 
+
+5.头像上传操作
+url: /api/profile/avator
+传入参数：
+文件类型
+返回参数：
+url = 'https://kiralacus.oss-cn-beijing.aliyuncs.com/'+文件名
+{
+    'errcode':,
+    'errmsg':,
+    'data':url,
+}
+
+
+6. 登出操作
+url: /api/logout
+传入参数
+无
+返回参数：
+Json格式
+{
+    'errcode':,
+    'errmsg':,
+}
