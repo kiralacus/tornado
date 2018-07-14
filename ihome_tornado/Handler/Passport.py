@@ -12,6 +12,8 @@ from utils.session import Session
 
 from utils.commons import require_login
 
+import config
+
 
 class RegisterHandler(BaseHandler):
     '''存储用户信息'''
@@ -93,7 +95,7 @@ class LoginHandler(BaseHandler):
 
                     else:
                         # 密码错误
-                        if sql_password['up_passwd'] != sha256(password).hexdigest():
+                        if sql_password['up_passwd'] != sha256(config.passwd_salt+password).hexdigest():
                             print sha256(password).hexdigest()
                             self.write(dict(errcode=RET.PWDERR, errmsg='密码错误'))
 
@@ -101,7 +103,6 @@ class LoginHandler(BaseHandler):
                             self.write(dict(errcode=RET.OK, errmsg='登陆成功'))
                             session = Session(self)
                             session.data['mobile'] = mobile
-                            session.data['username'] = mobile
                             session.save()
 
 
@@ -129,16 +130,4 @@ class LogoutHandler(BaseHandler):
             self.write(dict(errcode=RET.OK, errmsg='登出成功'))
         else:
             self.write(dict(errcode=RET.DBERR, errmsg='登出失败'))
-
-
-
-
-
-
-
-
-
-
-
-
 

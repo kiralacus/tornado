@@ -24,3 +24,4 @@ log_level = 'debug'
 log_path = os.path.join(os.path.dirname(__file__), 'logs/log')
 
 session_expire_seconds = 86400 # session 数据有效期， 秒
+passwd_salt = 'ihome*^&'

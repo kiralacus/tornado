@@ -8,6 +8,10 @@ from utils.response_code import RET
 
 
 def require_login(func):
+    '''
+        1. 用户登录时执行装饰器下的函数
+        2. 未登录时返回4101
+    '''
     @functools.wraps(func)
     def wrapper(self, *args, **kwargs):
         if not self.get_current_user():

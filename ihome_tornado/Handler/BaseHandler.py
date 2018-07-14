@@ -40,6 +40,12 @@ class BaseHandler(tornado.web.RequestHandler):
         return self.application.redis
 
     def get_current_user(self):
+        '''
+            self.session.data = {
+                'mobile':
+                'username':
+            }
+        '''
         self.session = Session(self)
         return self.session.data
 

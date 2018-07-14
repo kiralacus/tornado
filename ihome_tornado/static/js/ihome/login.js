@@ -13,7 +13,6 @@ $(function(){
     $('.form-login').submit(function(event) {
         /* Act on the event */
         event.preventDefault();
-        alert('kira');
         var mobile = $('#mobile').val();
         var password = $('#password').val();
         if(!mobile){
@@ -29,7 +28,8 @@ $(function(){
         var data = {};
         $('.form-login').serializeArray().map(function(x){
             data[x.name] = x.value;
-        })
+        });
+
         $.ajax({
             url: '/api/login',
             method: 'POST',
@@ -40,17 +40,14 @@ $(function(){
             contentType: 'application/json',
             dataType: 'json',
             success: function(e){
-                if(e.errcode == '0'){
-                    alert(1);
+                if(e.errcode == 0){
                     window.location.href='/';
                 }
-                else if(e.errcode == '4106'){
-                    alert(2);
+                else if(e.errcode == 4106){
                     $('#password-err span').html('密码错误');
                     $('#password-err').show();
                 }
-                else if(e.errcode == '4104'){
-                    alert(3);
+                else if(e.errcode == 4104){
                     $('#mobile-err span').html('该用户不存在');
                     $('#mobile-err').show();
                 }
