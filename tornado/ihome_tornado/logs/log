@@ -1,0 +1,1876 @@
+
+[D 180702 12:09:13 selector_events:53] Using selector: EpollSelector
+[D 180702 12:09:15 selector_events:53] Using selector: EpollSelector
+[D 180702 12:09:20 Passport:10] this is debug msg
+[W 180702 12:09:20 Passport:11] this is warning msg
+[I 180702 12:09:20 web:2106] 304 GET / (127.0.0.1) 2.34ms
+[D 180706 13:49:24 selector_events:53] Using selector: EpollSelector
+[I 180706 13:50:00 web:2106] 200 GET / (127.0.0.1) 38.54ms
+[I 180706 13:50:01 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 530.65ms
+[I 180706 13:50:01 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 363.28ms
+[I 180706 13:50:01 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 303.96ms
+[I 180706 13:50:01 web:2106] 200 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 226.78ms
+[I 180706 13:50:01 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 152.63ms
+[I 180706 13:50:01 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 56.27ms
+[I 180706 13:50:01 web:2106] 200 GET /static/css/ihome/index.css (127.0.0.1) 60.65ms
+[I 180706 13:50:01 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 18.32ms
+[I 180706 13:50:01 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 43.93ms
+[I 180706 13:50:01 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 18.22ms
+[I 180706 13:50:01 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 11.82ms
+[I 180706 13:50:01 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 10.35ms
+[I 180706 13:50:01 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 26.41ms
+[I 180706 13:50:01 web:2106] 200 GET /static/js/template.js (127.0.0.1) 7.61ms
+[I 180706 13:50:01 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 23.74ms
+[I 180706 13:50:01 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 9.55ms
+[W 180706 13:50:01 web:2106] 404 GET /api/check_login (127.0.0.1) 30.87ms
+[W 180706 13:50:01 web:2106] 404 GET /api/house/index (127.0.0.1) 1.35ms
+[I 180706 13:50:01 web:2106] 200 GET /favicon.ico (127.0.0.1) 33.05ms
+[W 180706 13:50:29 web:1618] 400 GET /api/pitcode (127.0.0.1): Missing argument precodeid
+[W 180706 13:50:29 web:2106] 400 GET /api/pitcode (127.0.0.1) 1.29ms
+[W 180706 13:51:31 web:2106] 404 GET /api/pitcode/?codeid=123&precodeid= (127.0.0.1) 1.34ms
+[W 180706 13:54:29 web:2106] 404 GET /api/pitcode/ (127.0.0.1) 1.36ms
+[W 180706 13:54:31 web:2106] 404 GET /api/pitcode/ (127.0.0.1) 2.06ms
+[I 180706 13:54:31 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.92ms
+[W 180706 13:54:32 web:2106] 404 GET /api/pitcode/ (127.0.0.1) 1.34ms
+[I 180706 13:54:32 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.95ms
+[W 180706 13:55:13 web:1618] 400 GET /api/pitcode (127.0.0.1): Missing argument precodeid
+[W 180706 13:55:13 web:2106] 400 GET /api/pitcode (127.0.0.1) 1.25ms
+[W 180706 13:55:16 web:1618] 400 GET /api/pitcode (127.0.0.1): Missing argument precodeid
+[W 180706 13:55:16 web:2106] 400 GET /api/pitcode (127.0.0.1) 1.22ms
+[E 180706 13:55:38 web:1621] Uncaught exception GET /api/pitcode?codeid=123&precodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/pitcode?codeid=123&precodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py3env/lib/python3.5/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/ihome_tornado/Handler/Verifycode.py", line 18, in get
+        name, text, pic = captcha.generate_captcha()
+      File "/home/kiralacus/ihome_tornado/utils/captcha/captcha.py", line 219, in generate_captcha
+        return self.captcha("")
+      File "/home/kiralacus/ihome_tornado/utils/captcha/captcha.py", line 207, in captcha
+        image = self.noise(image)
+      File "/home/kiralacus/ihome_tornado/utils/captcha/captcha.py", line 118, in noise
+        for i in xrange(number):
+    NameError: name 'xrange' is not defined
+[E 180706 13:55:38 web:2106] 500 GET /api/pitcode?codeid=123&precodeid= (127.0.0.1) 254.06ms
+[I 180706 13:56:43 autoreload:196] /home/kiralacus/ihome_tornado/utils/captcha/captcha.py modified; restarting server
+[D 180706 13:56:44 selector_events:53] Using selector: EpollSelector
+[E 180706 13:56:45 web:1621] Uncaught exception GET /api/pitcode?codeid=123&precodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/pitcode?codeid=123&precodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py3env/lib/python3.5/site-packages/PIL/ImageFile.py", line 477, in _save
+        fh = fp.fileno()
+    io.UnsupportedOperation: fileno
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py3env/lib/python3.5/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/ihome_tornado/Handler/Verifycode.py", line 18, in get
+        name, text, pic = captcha.generate_captcha()
+      File "/home/kiralacus/ihome_tornado/utils/captcha/captcha.py", line 219, in generate_captcha
+        return self.captcha("")
+      File "/home/kiralacus/ihome_tornado/utils/captcha/captcha.py", line 212, in captcha
+        image.save(out, format=fmt)
+      File "/home/kiralacus/pyenv/py3env/lib/python3.5/site-packages/PIL/Image.py", line 1935, in save
+        save_handler(self, fp, filename)
+      File "/home/kiralacus/pyenv/py3env/lib/python3.5/site-packages/PIL/JpegImagePlugin.py", line 761, in _save
+        ImageFile._save(im, fp, [("jpeg", (0, 0)+im.size, 0, rawmode)], bufsize)
+      File "/home/kiralacus/pyenv/py3env/lib/python3.5/site-packages/PIL/ImageFile.py", line 492, in _save
+        fp.write(d)
+    TypeError: string argument expected, got 'bytes'
+[E 180706 13:56:45 web:2106] 500 GET /api/pitcode?codeid=123&precodeid= (127.0.0.1) 127.91ms
+[E 180706 13:56:46 web:1621] Uncaught exception GET /api/pitcode?codeid=123&precodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/pitcode?codeid=123&precodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py3env/lib/python3.5/site-packages/PIL/ImageFile.py", line 477, in _save
+        fh = fp.fileno()
+    io.UnsupportedOperation: fileno
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py3env/lib/python3.5/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/ihome_tornado/Handler/Verifycode.py", line 18, in get
+        name, text, pic = captcha.generate_captcha()
+      File "/home/kiralacus/ihome_tornado/utils/captcha/captcha.py", line 219, in generate_captcha
+        return self.captcha("")
+      File "/home/kiralacus/ihome_tornado/utils/captcha/captcha.py", line 212, in captcha
+        image.save(out, format=fmt)
+      File "/home/kiralacus/pyenv/py3env/lib/python3.5/site-packages/PIL/Image.py", line 1935, in save
+        save_handler(self, fp, filename)
+      File "/home/kiralacus/pyenv/py3env/lib/python3.5/site-packages/PIL/JpegImagePlugin.py", line 761, in _save
+        ImageFile._save(im, fp, [("jpeg", (0, 0)+im.size, 0, rawmode)], bufsize)
+      File "/home/kiralacus/pyenv/py3env/lib/python3.5/site-packages/PIL/ImageFile.py", line 492, in _save
+        fp.write(d)
+    TypeError: string argument expected, got 'bytes'
+[E 180706 13:56:46 web:2106] 500 GET /api/pitcode?codeid=123&precodeid= (127.0.0.1) 18.44ms
+[E 180706 13:56:47 web:1621] Uncaught exception GET /api/pitcode?codeid=123&precodeid= (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/pitcode?codeid=123&precodeid=', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py3env/lib/python3.5/site-packages/PIL/ImageFile.py", line 477, in _save
+        fh = fp.fileno()
+    io.UnsupportedOperation: fileno
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py3env/lib/python3.5/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/ihome_tornado/Handler/Verifycode.py", line 18, in get
+        name, text, pic = captcha.generate_captcha()
+      File "/home/kiralacus/ihome_tornado/utils/captcha/captcha.py", line 219, in generate_captcha
+        return self.captcha("")
+      File "/home/kiralacus/ihome_tornado/utils/captcha/captcha.py", line 212, in captcha
+        image.save(out, format=fmt)
+      File "/home/kiralacus/pyenv/py3env/lib/python3.5/site-packages/PIL/Image.py", line 1935, in save
+        save_handler(self, fp, filename)
+      File "/home/kiralacus/pyenv/py3env/lib/python3.5/site-packages/PIL/JpegImagePlugin.py", line 761, in _save
+        ImageFile._save(im, fp, [("jpeg", (0, 0)+im.size, 0, rawmode)], bufsize)
+      File "/home/kiralacus/pyenv/py3env/lib/python3.5/site-packages/PIL/ImageFile.py", line 492, in _save
+        fp.write(d)
+    TypeError: string argument expected, got 'bytes'
+[E 180706 13:56:47 web:2106] 500 GET /api/pitcode?codeid=123&precodeid= (127.0.0.1) 20.44ms
+[W 180706 14:23:59 web:2106] 404 GET /api/check_login (127.0.0.1) 3.18ms
+[W 180706 14:23:59 web:2106] 404 GET /api/house/index (127.0.0.1) 1.86ms
+[W 180706 14:24:10 web:1618] 400 GET /api/pitcode (127.0.0.1): Missing argument precodeid
+[W 180706 14:24:10 web:2106] 400 GET /api/pitcode (127.0.0.1) 1.30ms
+[E 180706 14:25:07 Verifycode:25] 'Application' object has no attribute 'redis'
+[I 180706 14:25:07 web:2106] 200 GET /api/pitcode?codeid=123&precodeid= (127.0.0.1) 171.06ms
+[E 180706 14:32:02 Verifycode:25] 'Application' object has no attribute 'redis'
+[I 180706 14:32:02 web:2106] 304 GET /api/pitcode?codeid=123&precodeid= (127.0.0.1) 15.93ms
+[I 180706 14:32:02 web:2106] 200 GET /favicon.ico (127.0.0.1) 36.56ms
+[E 180706 14:32:02 Verifycode:25] 'Application' object has no attribute 'redis'
+[I 180706 14:32:02 web:2106] 304 GET /api/pitcode?codeid=123&precodeid= (127.0.0.1) 14.39ms
+[I 180706 14:32:02 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.52ms
+[I 180706 14:33:46 autoreload:196] server.py modified; restarting server
+[I 180706 14:35:55 autoreload:196] server.py modified; restarting server
+[I 180706 14:36:00 web:2106] 200 GET /api/pitcode?codeid=123&precodeid= (127.0.0.1) 31.98ms
+[I 180706 14:36:00 web:2106] 200 GET /favicon.ico (127.0.0.1) 7.60ms
+[I 180706 14:41:16 autoreload:196] /home/kiralacus/ihome_tornado/urls.py modified; restarting server
+[I 180706 14:51:13 web:2106] 200 GET /register.html (127.0.0.1) 59.79ms
+[I 180706 14:51:13 web:2106] 200 GET /static/css/ihome/register.css (127.0.0.1) 166.09ms
+[I 180706 14:51:13 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 111.71ms
+[W 180706 14:51:13 web:1618] 400 GET /api/pitcode (127.0.0.1): Missing argument precodeid
+[W 180706 14:51:13 web:2106] 400 GET /api/pitcode (127.0.0.1) 1.03ms
+[W 180706 14:51:13 web:2106] 404 GET /api/piccode?pre=&cur=5e8ec648-343a-402b-8337-22c1cba9730b (127.0.0.1) 4.12ms
+[W 180706 14:51:16 web:2106] 404 GET /api/piccode?pre=5e8ec648-343a-402b-8337-22c1cba9730b&cur=86e963b4-4b8e-4770-845f-080f668f4b94 (127.0.0.1) 2.44ms
+[I 180706 14:51:19 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 90.83ms
+[I 180706 14:53:00 web:2106] 304 GET /register.html (127.0.0.1) 2.24ms
+[W 180706 14:53:00 web:1618] 400 GET /api/pitcode (127.0.0.1): Missing argument precodeid
+[W 180706 14:53:00 web:2106] 400 GET /api/pitcode (127.0.0.1) 1.04ms
+[W 180706 14:53:00 web:2106] 404 GET /api/piccode?pre=&cur=5b89cb1f-3721-4d69-a1e6-226281916774 (127.0.0.1) 1.26ms
+[I 180706 14:53:03 web:2106] 304 GET /register.html (127.0.0.1) 1.31ms
+[W 180706 14:53:03 web:1618] 400 GET /api/pitcode (127.0.0.1): Missing argument precodeid
+[W 180706 14:53:03 web:2106] 400 GET /api/pitcode (127.0.0.1) 1.03ms
+[W 180706 14:53:03 web:2106] 404 GET /api/piccode?pre=&cur=c2b9c6f1-60ce-4fff-a63d-6210f4ce39f3 (127.0.0.1) 1.21ms
+[I 180706 14:53:04 web:2106] 304 GET /register.html (127.0.0.1) 1.29ms
+[W 180706 14:53:04 web:1618] 400 GET /api/pitcode (127.0.0.1): Missing argument precodeid
+[W 180706 14:53:04 web:2106] 400 GET /api/pitcode (127.0.0.1) 1.02ms
+[W 180706 14:53:04 web:2106] 404 GET /api/piccode?pre=&cur=ab7ef783-ced3-40b5-b445-eefbd1b9a7c1 (127.0.0.1) 1.24ms
+[I 180706 14:53:45 web:2106] 200 GET /register.html (127.0.0.1) 1.72ms
+[I 180706 14:53:45 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 48.24ms
+[I 180706 14:53:45 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 34.43ms
+[I 180706 14:53:45 web:2106] 200 GET /static/css/ihome/register.css (127.0.0.1) 25.54ms
+[I 180706 14:53:45 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 91.93ms
+[I 180706 14:53:45 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 15.00ms
+[I 180706 14:53:45 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 26.50ms
+[W 180706 14:53:45 web:1618] 400 GET /api/pitcode (127.0.0.1): Missing argument precodeid
+[W 180706 14:53:45 web:2106] 400 GET /api/pitcode (127.0.0.1) 1.01ms
+[I 180706 14:53:45 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 33.90ms
+[I 180706 14:53:45 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 10.12ms
+[I 180706 14:53:45 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 8.97ms
+[I 180706 14:53:45 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 3.03ms
+[W 180706 14:53:45 web:1618] 400 GET /api/pitcode?pre=&cur=cf9cae8e-e5d9-46cf-9ae1-d981517add49 (127.0.0.1): Missing argument precodeid
+[W 180706 14:53:45 web:2106] 400 GET /api/pitcode?pre=&cur=cf9cae8e-e5d9-46cf-9ae1-d981517add49 (127.0.0.1) 1.30ms
+[I 180706 14:53:45 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 6.52ms
+[I 180706 14:54:02 web:2106] 200 GET / (127.0.0.1) 28.20ms
+[I 180706 14:54:02 web:2106] 200 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 631.07ms
+[I 180706 14:54:02 web:2106] 200 GET /static/css/ihome/index.css (127.0.0.1) 418.49ms
+[I 180706 14:54:02 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 330.68ms
+[I 180706 14:54:02 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 126.55ms
+[I 180706 14:54:02 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 38.60ms
+[I 180706 14:54:02 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 1.78ms
+[I 180706 14:54:02 web:2106] 200 GET /static/js/template.js (127.0.0.1) 16.10ms
+[I 180706 14:54:02 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 1.76ms
+[W 180706 14:54:02 web:2106] 404 GET /api/check_login (127.0.0.1) 1.25ms
+[W 180706 14:54:02 web:2106] 404 GET /api/house/index (127.0.0.1) 1.20ms
+[W 180706 14:54:09 web:1618] 400 GET /api/pitcode?pre=&cur=cf9cae8e-e5d9-46cf-9ae1-d981517add49 (127.0.0.1): Missing argument precodeid
+[W 180706 14:54:09 web:2106] 400 GET /api/pitcode?pre=&cur=cf9cae8e-e5d9-46cf-9ae1-d981517add49 (127.0.0.1) 1.20ms
+[I 180706 15:00:16 web:2106] 200 GET /register.html (127.0.0.1) 1.93ms
+[I 180706 15:00:16 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 3.20ms
+[I 180706 15:00:16 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 1.94ms
+[I 180706 15:00:16 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 15.86ms
+[I 180706 15:00:16 web:2106] 200 GET /static/css/ihome/register.css (127.0.0.1) 12.30ms
+[I 180706 15:00:16 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 11.45ms
+[I 180706 15:00:16 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 8.31ms
+[W 180706 15:00:16 web:1618] 400 GET /api/pitcode (127.0.0.1): Missing argument precodeid
+[W 180706 15:00:16 web:2106] 400 GET /api/pitcode (127.0.0.1) 0.98ms
+[I 180706 15:00:16 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 3.58ms
+[I 180706 15:00:16 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 2.70ms
+[I 180706 15:00:16 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 8.30ms
+[I 180706 15:00:16 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 2.25ms
+[I 180706 15:00:16 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 6.48ms
+[I 180706 15:00:16 web:2106] 200 GET /api/pitcode?precodeid=&codeid=54b418fb-31da-49a4-bd34-2569f321ed67 (127.0.0.1) 49.20ms
+[I 180706 15:00:19 web:2106] 200 GET /api/pitcode?precodeid=54b418fb-31da-49a4-bd34-2569f321ed67&codeid=f92a603c-fcc5-4615-9ae7-a30014a12d2b (127.0.0.1) 18.05ms
+[I 180706 15:00:20 web:2106] 200 GET /api/pitcode?precodeid=f92a603c-fcc5-4615-9ae7-a30014a12d2b&codeid=a841be3d-bb3a-4051-a833-1d1ff59ec606 (127.0.0.1) 16.07ms
+[I 180706 15:00:21 web:2106] 200 GET /api/pitcode?precodeid=a841be3d-bb3a-4051-a833-1d1ff59ec606&codeid=a984cfc5-bca7-491a-8756-862e2b350b9f (127.0.0.1) 20.39ms
+[I 180706 15:26:10 web:2106] 200 GET /api/pitcode?precodeid=a984cfc5-bca7-491a-8756-862e2b350b9f&codeid=6443023c-650a-4c21-aa15-f1d83aeb36cb (127.0.0.1) 22.91ms
+[I 180706 15:27:02 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[I 180706 15:27:29 web:2106] 200 GET /api/pitcode?precodeid=1&codeid=6443023c-650a-4c21-aa15-f1d83aeb36cb (127.0.0.1) 312.49ms
+[I 180707 15:06:24 web:2106] 200 GET /register.html (127.0.0.1) 493.07ms
+[E 180707 15:06:24 web:1621] Uncaught exception GET /api/pitcode (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/pitcode', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1520, in _execute
+        result = self.prepare()
+      File "/home/kiralacus/ihome_tornado/Handler/BaseHandler.py", line 14, in prepare
+        if self.request.headers.get('Content-Type').startswith('application/json'):
+    AttributeError: 'NoneType' object has no attribute 'startswith'
+[E 180707 15:06:24 web:2106] 500 GET /api/pitcode (127.0.0.1) 145.33ms
+[I 180707 15:06:24 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 56.72ms
+[I 180707 15:06:24 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 58.48ms
+[I 180707 15:11:03 autoreload:196] /home/kiralacus/ihome_tornado/Handler/BaseHandler.py modified; restarting server
+[I 180707 15:12:13 web:2106] 304 GET /register.html (127.0.0.1) 7.52ms
+[I 180707 15:12:13 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.19ms
+[W 180707 15:12:13 web:1618] 400 GET /api/pitcode (127.0.0.1): Missing argument precodeid
+[W 180707 15:12:13 web:2106] 400 GET /api/pitcode (127.0.0.1) 1.05ms
+[I 180707 15:14:08 web:2106] 200 GET /register.html (127.0.0.1) 2.10ms
+[I 180707 15:14:08 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 95.24ms
+[I 180707 15:14:08 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 60.22ms
+[I 180707 15:14:08 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 46.44ms
+[I 180707 15:14:08 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 13.36ms
+[I 180707 15:14:08 web:2106] 200 GET /static/css/ihome/register.css (127.0.0.1) 4.82ms
+[I 180707 15:14:09 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 79.09ms
+[I 180707 15:14:09 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 34.37ms
+[I 180707 15:14:09 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 24.25ms
+[I 180707 15:14:09 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.56ms
+[I 180707 15:14:09 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 2.92ms
+[I 180707 15:14:09 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 6.06ms
+[I 180707 15:14:10 web:2106] 200 GET /api/pitcode?precodeid=&codeid=170ccd73-5841-4b11-b1df-c72628c0d220 (127.0.0.1) 188.55ms
+[I 180707 15:15:24 web:2106] 200 GET /register.html (127.0.0.1) 1.57ms
+[I 180707 15:15:24 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 2.40ms
+[I 180707 15:15:24 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 1.64ms
+[I 180707 15:15:24 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 1.47ms
+[I 180707 15:15:24 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 1.56ms
+[I 180707 15:15:24 web:2106] 200 GET /static/css/ihome/register.css (127.0.0.1) 1.57ms
+[I 180707 15:15:24 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 2.27ms
+[I 180707 15:15:24 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 1.72ms
+[I 180707 15:15:24 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.88ms
+[I 180707 15:15:24 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 1.60ms
+[I 180707 15:15:24 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 2.21ms
+[I 180707 15:15:24 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 6.33ms
+[I 180707 15:15:24 web:2106] 200 GET /api/pitcode?precodeid=&codeid=96460959-7dee-46ee-af26-20e9a81573a1 (127.0.0.1) 19.66ms
+[I 180707 15:15:38 autoreload:196] /home/kiralacus/ihome_tornado/Handler/BaseHandler.py modified; restarting server
+[I 180707 15:16:08 web:2106] 304 GET /register.html (127.0.0.1) 6.22ms
+[I 180707 15:16:08 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.27ms
+[E 180707 15:16:08 web:1621] Uncaught exception GET /api/pitcode?precodeid=&codeid=cea7e9ff-172a-4cb6-969c-24f02305ffb5 (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/pitcode?precodeid=&codeid=cea7e9ff-172a-4cb6-969c-24f02305ffb5', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1520, in _execute
+        result = self.prepare()
+      File "/home/kiralacus/ihome_tornado/Handler/BaseHandler.py", line 14, in prepare
+        if self.request.headers.get('Content-Type').startswith('application/json'):
+    AttributeError: 'NoneType' object has no attribute 'startswith'
+[E 180707 15:16:08 web:2106] 500 GET /api/pitcode?precodeid=&codeid=cea7e9ff-172a-4cb6-969c-24f02305ffb5 (127.0.0.1) 2.90ms
+[I 180707 15:19:34 autoreload:196] /home/kiralacus/ihome_tornado/Handler/BaseHandler.py modified; restarting server
+[I 180707 15:19:35 web:2106] 304 GET /register.html (127.0.0.1) 6.44ms
+[I 180707 15:19:35 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.18ms
+[I 180707 15:19:35 web:2106] 200 GET /api/pitcode?precodeid=&codeid=88ab9084-1913-447b-842f-8f8de4401439 (127.0.0.1) 53.20ms
+[I 180707 15:20:07 web:2106] 200 GET /api/pitcode?precodeid=88ab9084-1913-447b-842f-8f8de4401439&codeid=c3207a17-0e97-472c-9d8e-0b3747ff9721 (127.0.0.1) 25.15ms
+[I 180707 15:21:01 web:2106] 200 GET /api/pitcode?precodeid=c3207a17-0e97-472c-9d8e-0b3747ff9721&codeid=1778b461-0e21-445f-ae2f-8a7e246c5eec (127.0.0.1) 17.01ms
+[I 180707 15:21:01 web:2106] 200 GET /api/pitcode?precodeid=1778b461-0e21-445f-ae2f-8a7e246c5eec&codeid=93b0ce31-7478-44f3-bb5c-5f1ebce9f429 (127.0.0.1) 19.33ms
+[I 180707 15:21:02 web:2106] 200 GET /api/pitcode?precodeid=93b0ce31-7478-44f3-bb5c-5f1ebce9f429&codeid=25c6f38b-09b2-437c-ba74-00220cca333a (127.0.0.1) 17.79ms
+[I 180707 15:21:03 web:2106] 200 GET /api/pitcode?precodeid=25c6f38b-09b2-437c-ba74-00220cca333a&codeid=8c923ffb-ed70-4f5b-b919-525dabd5c2a1 (127.0.0.1) 16.15ms
+[I 180707 15:21:03 web:2106] 200 GET /api/pitcode?precodeid=8c923ffb-ed70-4f5b-b919-525dabd5c2a1&codeid=075fcac4-3ce3-4dbc-bb95-c560ce3af784 (127.0.0.1) 17.69ms
+[I 180707 15:26:15 web:2106] 304 GET /register.html (127.0.0.1) 1.07ms
+[I 180707 15:26:16 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.57ms
+[I 180707 15:26:16 web:2106] 200 GET /api/pitcode?precodeid=&codeid=e0eb8f0f-fbef-48bb-b16b-a307a2605c4b (127.0.0.1) 34.99ms
+[I 180707 15:26:16 web:2106] 304 GET /register.html (127.0.0.1) 1.27ms
+[I 180707 15:26:17 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.16ms
+[I 180707 15:26:17 web:2106] 200 GET /api/pitcode?precodeid=&codeid=10707fbd-6279-4270-a992-68325ae3d81e (127.0.0.1) 30.47ms
+[I 180707 15:26:25 web:2106] 200 GET /api/pitcode?precodeid=10707fbd-6279-4270-a992-68325ae3d81e&codeid=bbee96f2-9739-4293-a0d0-aa49d265f25f (127.0.0.1) 17.50ms
+[I 180707 15:26:26 web:2106] 200 GET /api/pitcode?precodeid=bbee96f2-9739-4293-a0d0-aa49d265f25f&codeid=302cb04b-99bf-4c4e-8830-63e16dae33b1 (127.0.0.1) 15.31ms
+[I 180707 15:26:27 web:2106] 200 GET /api/pitcode?precodeid=302cb04b-99bf-4c4e-8830-63e16dae33b1&codeid=5bcf3abf-b85e-4d83-90e0-fda0b282ddbe (127.0.0.1) 14.93ms
+[I 180707 15:26:27 web:2106] 200 GET /api/pitcode?precodeid=5bcf3abf-b85e-4d83-90e0-fda0b282ddbe&codeid=b2e1b095-4ed8-4547-8eab-acc4de9559f8 (127.0.0.1) 17.01ms
+[I 180707 15:26:28 web:2106] 200 GET /api/pitcode?precodeid=b2e1b095-4ed8-4547-8eab-acc4de9559f8&codeid=9ff149bc-9c4f-452e-8667-2dd4185f51f6 (127.0.0.1) 16.15ms
+[I 180707 15:26:28 web:2106] 200 GET /api/pitcode?precodeid=9ff149bc-9c4f-452e-8667-2dd4185f51f6&codeid=2ce22a82-9211-4710-bcbd-38ed9c0bbfc8 (127.0.0.1) 15.71ms
+[I 180707 15:26:28 web:2106] 200 GET /api/pitcode?precodeid=2ce22a82-9211-4710-bcbd-38ed9c0bbfc8&codeid=daedbf6b-c4d1-4d35-839f-c20bf6f6e1d6 (127.0.0.1) 16.31ms
+[I 180707 15:27:17 web:2106] 304 GET /register.html (127.0.0.1) 1.15ms
+[I 180707 15:27:17 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.52ms
+[I 180707 15:27:17 web:2106] 200 GET /api/pitcode?precodeid=&codeid=f9580741-4e4e-4feb-be10-1d1c2a8da418 (127.0.0.1) 29.60ms
+[I 180707 15:27:17 web:2106] 304 GET /register.html (127.0.0.1) 1.13ms
+[I 180707 15:27:18 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.22ms
+[I 180707 15:27:18 web:2106] 200 GET /api/pitcode?precodeid=&codeid=e702373c-5755-49d4-950d-1f22b87b8c1c (127.0.0.1) 20.60ms
+[I 180707 15:27:31 web:2106] 200 GET /register.html (127.0.0.1) 1.56ms
+[I 180707 15:27:31 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 2.28ms
+[I 180707 15:27:31 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 1.86ms
+[I 180707 15:27:31 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 1.49ms
+[I 180707 15:27:31 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 1.54ms
+[I 180707 15:27:31 web:2106] 200 GET /static/css/ihome/register.css (127.0.0.1) 1.54ms
+[I 180707 15:27:31 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 2.20ms
+[I 180707 15:27:31 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 1.87ms
+[I 180707 15:27:31 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.58ms
+[I 180707 15:27:31 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 1.55ms
+[I 180707 15:27:31 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 2.30ms
+[I 180707 15:27:31 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 6.74ms
+[I 180707 15:27:31 web:2106] 200 GET /api/pitcode?precodeid=&codeid=32203b7e-0ce6-4bc1-9869-ef21c57aacab (127.0.0.1) 22.72ms
+[I 180707 15:27:38 web:2106] 200 GET /api/pitcode?precodeid=32203b7e-0ce6-4bc1-9869-ef21c57aacab&codeid=9b70b5b3-89f2-460a-a1b6-a36ad3be97dd (127.0.0.1) 21.49ms
+[I 180707 15:27:39 web:2106] 200 GET /api/pitcode?precodeid=9b70b5b3-89f2-460a-a1b6-a36ad3be97dd&codeid=cbfcb002-98aa-4c3a-a665-fb0870e5c2c2 (127.0.0.1) 16.65ms
+[I 180707 15:27:39 web:2106] 200 GET /api/pitcode?precodeid=cbfcb002-98aa-4c3a-a665-fb0870e5c2c2&codeid=015938c8-713b-4312-9eb2-9b6993f89a4d (127.0.0.1) 16.28ms
+[I 180707 15:27:39 web:2106] 200 GET /api/pitcode?precodeid=015938c8-713b-4312-9eb2-9b6993f89a4d&codeid=607a46d2-620c-48d3-9604-f7c68b4f38b7 (127.0.0.1) 18.62ms
+[I 180707 15:29:26 web:2106] 304 GET /register.html (127.0.0.1) 1.07ms
+[I 180707 15:29:26 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.58ms
+[I 180707 15:29:26 web:2106] 200 GET /api/pitcode?precodeid=&codeid=eacb5af6-3a4f-417a-ac99-3f0901268918 (127.0.0.1) 23.21ms
+[I 180707 15:29:27 web:2106] 304 GET /register.html (127.0.0.1) 1.12ms
+[I 180707 15:29:27 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.24ms
+[I 180707 15:29:27 web:2106] 200 GET /api/pitcode?precodeid=&codeid=678fd2fa-c2a0-495d-b5a5-568e4f9670e3 (127.0.0.1) 21.18ms
+[I 180707 15:29:27 web:2106] 304 GET /register.html (127.0.0.1) 1.13ms
+[I 180707 15:29:27 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.10ms
+[I 180707 15:29:27 web:2106] 200 GET /api/pitcode?precodeid=&codeid=a84eade0-e9dd-4167-a9b2-96e636f9c62c (127.0.0.1) 20.76ms
+[I 180707 15:32:00 web:2106] 304 GET /register.html (127.0.0.1) 1.16ms
+[I 180707 15:32:00 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.67ms
+[I 180707 15:32:00 web:2106] 200 GET /api/pitcode?precodeid=&codeid=f76398d4-e79a-4b79-a154-7f71fdf2b040 (127.0.0.1) 16.77ms
+[I 180707 15:32:00 web:2106] 304 GET /register.html (127.0.0.1) 1.17ms
+[I 180707 15:32:00 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.32ms
+[I 180707 15:32:01 web:2106] 200 GET /api/pitcode?precodeid=&codeid=5ddf0e19-e4a9-4cc4-bd91-b7da27155ff0 (127.0.0.1) 21.95ms
+[I 180707 15:32:03 web:2106] 200 GET /api/pitcode?precodeid=5ddf0e19-e4a9-4cc4-bd91-b7da27155ff0&codeid=1d85ce3b-533a-42ba-8b38-a1b4f67ee78e (127.0.0.1) 20.48ms
+[I 180707 15:32:07 web:2106] 200 GET /api/pitcode?precodeid=1d85ce3b-533a-42ba-8b38-a1b4f67ee78e&codeid=207e35ca-e001-41e9-9950-9408800623e0 (127.0.0.1) 19.22ms
+[I 180707 15:32:22 web:2106] 304 GET /register.html (127.0.0.1) 1.38ms
+[I 180707 15:32:22 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.14ms
+[I 180707 15:32:22 web:2106] 200 GET /api/pitcode?precodeid=&codeid=f64ca506-ad19-4f71-8d88-c9282c98d1aa (127.0.0.1) 23.65ms
+[I 180707 15:32:23 web:2106] 304 GET /register.html (127.0.0.1) 1.10ms
+[I 180707 15:32:23 web:2106] 200 GET /api/pitcode?precodeid=&codeid=7dab1aac-d5bf-4aa5-96d2-704dcd0ab5a0 (127.0.0.1) 27.58ms
+[I 180707 15:32:46 web:2106] 200 GET /api/pitcode?precodeid=7dab1aac-d5bf-4aa5-96d2-704dcd0ab5a0&codeid=449c489c-a9ca-447f-a0e6-a3175535ffff (127.0.0.1) 23.98ms
+[I 180707 15:33:28 web:2106] 304 GET /register.html (127.0.0.1) 1.08ms
+[I 180707 15:33:28 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.56ms
+[I 180707 15:33:28 web:2106] 200 GET /api/pitcode?precodeid=&codeid=17853e01-08e3-4aee-bfc1-703129a6a4ee (127.0.0.1) 17.45ms
+[I 180707 15:33:29 web:2106] 304 GET /register.html (127.0.0.1) 1.17ms
+[I 180707 15:33:29 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.30ms
+[I 180707 15:33:29 web:2106] 200 GET /api/pitcode?precodeid=&codeid=22da4d59-d6bb-4b5b-8b52-51bc11a5b1c3 (127.0.0.1) 21.02ms
+[I 180707 15:33:46 web:2106] 304 GET /register.html (127.0.0.1) 1.47ms
+[I 180707 15:33:46 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.89ms
+[I 180707 15:33:46 web:2106] 200 GET /api/pitcode?precodeid=&codeid=9acba279-ccb6-4e5c-8e91-a1f7f6f2fad5 (127.0.0.1) 30.10ms
+[I 180707 15:33:47 web:2106] 304 GET /register.html (127.0.0.1) 1.19ms
+[I 180707 15:33:47 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.08ms
+[I 180707 15:33:47 web:2106] 200 GET /api/pitcode?precodeid=&codeid=ca93863b-e4aa-4f29-91fc-76f0a6c29a70 (127.0.0.1) 22.29ms
+[I 180707 15:34:39 web:2106] 304 GET /register.html (127.0.0.1) 1.21ms
+[I 180707 15:34:39 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.80ms
+[I 180707 15:34:39 web:2106] 200 GET /api/pitcode?precodeid=&codeid=4883628b-cc6f-485c-9e16-9bd3ffc72e83 (127.0.0.1) 21.21ms
+[I 180707 15:34:40 web:2106] 304 GET /register.html (127.0.0.1) 1.20ms
+[I 180707 15:34:40 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.12ms
+[I 180707 15:34:40 web:2106] 200 GET /api/pitcode?precodeid=&codeid=594101df-c478-4dad-84a6-983e9307501b (127.0.0.1) 29.74ms
+[I 180707 15:34:40 web:2106] 304 GET /register.html (127.0.0.1) 1.12ms
+[I 180707 15:34:40 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.09ms
+[I 180707 15:34:40 web:2106] 200 GET /api/pitcode?precodeid=&codeid=4ab44797-8d22-460d-b781-b3b91a6ffa46 (127.0.0.1) 19.11ms
+[I 180707 15:35:23 web:2106] 304 GET /register.html (127.0.0.1) 1.20ms
+[I 180707 15:35:23 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.57ms
+[I 180707 15:35:24 web:2106] 304 GET /register.html (127.0.0.1) 1.17ms
+[I 180707 15:35:24 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.07ms
+[I 180707 15:35:24 web:2106] 304 GET /register.html (127.0.0.1) 1.20ms
+[I 180707 15:35:24 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.12ms
+[I 180707 15:36:05 web:2106] 304 GET /register.html (127.0.0.1) 1.04ms
+[I 180707 15:36:05 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.62ms
+[I 180707 15:36:06 web:2106] 200 GET /api/pitcode?precodeid=&codeid=213c603b-8905-44f8-a5eb-5f461050d059 (127.0.0.1) 20.06ms
+[I 180707 15:37:43 web:2106] 304 GET /register.html (127.0.0.1) 1.02ms
+[I 180707 15:37:44 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.62ms
+[I 180707 15:37:44 web:2106] 200 GET /api/pitcode?precodeid=&codeid=f0154106-5db8-4130-bde1-f703ffd8e6e5 (127.0.0.1) 19.45ms
+[I 180707 15:37:45 web:2106] 304 GET /register.html (127.0.0.1) 1.28ms
+[I 180707 15:37:45 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.19ms
+[I 180707 15:37:45 web:2106] 200 GET /api/pitcode?precodeid=&codeid=71a0e5d7-79da-4a59-9056-c5389585b0fb (127.0.0.1) 27.01ms
+[I 180707 15:39:07 web:2106] 200 GET / (127.0.0.1) 38.27ms
+[I 180707 15:39:07 web:2106] 200 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 76.58ms
+[I 180707 15:39:07 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 23.69ms
+[I 180707 15:39:07 web:2106] 200 GET /static/css/ihome/index.css (127.0.0.1) 5.03ms
+[I 180707 15:39:07 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 105.15ms
+[I 180707 15:39:08 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 119.54ms
+[I 180707 15:39:08 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 93.40ms
+[I 180707 15:39:08 web:2106] 200 GET /static/js/template.js (127.0.0.1) 10.54ms
+[I 180707 15:39:08 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 1.82ms
+[W 180707 15:39:08 web:2106] 404 GET /api/check_login (127.0.0.1) 2.18ms
+[W 180707 15:39:08 web:2106] 404 GET /api/house/index (127.0.0.1) 1.25ms
+[I 180707 15:39:12 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.58ms
+[I 180707 15:39:12 web:2106] 200 GET /api/pitcode?precodeid=&codeid=7e5c8d05-76c9-47f6-827e-c7ec0ac9d4cd (127.0.0.1) 15.04ms
+[I 180707 15:41:04 web:2106] 304 GET /register.html (127.0.0.1) 1.12ms
+[I 180707 15:41:04 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.61ms
+[I 180707 15:41:04 web:2106] 200 GET /api/pitcode?precodeid=&codeid=0699d1e2-b1f8-45df-bc08-f00aa68bfe20 (127.0.0.1) 14.33ms
+[I 180707 15:41:04 web:2106] 200 GET /favicon.ico (127.0.0.1) 27.81ms
+[I 180707 15:41:04 web:2106] 304 GET /register.html (127.0.0.1) 1.49ms
+[I 180707 15:41:04 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.20ms
+[I 180707 15:41:05 web:2106] 200 GET /api/pitcode?precodeid=&codeid=24e8b39e-4525-413e-8299-797a47c0e04e (127.0.0.1) 24.49ms
+[I 180707 15:41:05 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.62ms
+[I 180707 15:41:05 web:2106] 304 GET /register.html (127.0.0.1) 1.48ms
+[I 180707 15:41:05 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.30ms
+[I 180707 15:41:05 web:2106] 200 GET /api/pitcode?precodeid=&codeid=2409ea80-7ec0-4fc3-b933-a321131e0b4c (127.0.0.1) 19.01ms
+[I 180707 15:41:05 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.49ms
+[I 180707 15:42:53 web:2106] 304 GET /register.html (127.0.0.1) 1.27ms
+[I 180707 15:42:53 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.62ms
+[I 180707 15:42:53 web:2106] 200 GET /api/pitcode?precodeid=&codeid=454a623e-226a-41d9-9e2b-67590559fd48 (127.0.0.1) 15.11ms
+[I 180707 15:42:53 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.59ms
+[I 180707 15:42:53 web:2106] 304 GET /register.html (127.0.0.1) 1.27ms
+[I 180707 15:42:53 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.14ms
+[I 180707 15:42:53 web:2106] 200 GET /api/pitcode?precodeid=&codeid=b9039609-0eb7-4c7b-a355-52cf44d985bb (127.0.0.1) 24.06ms
+[I 180707 15:42:53 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.52ms
+[I 180707 15:42:53 web:2106] 304 GET /register.html (127.0.0.1) 1.11ms
+[I 180707 15:42:53 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.04ms
+[I 180707 15:42:53 web:2106] 200 GET /api/pitcode?precodeid=&codeid=e24f38dc-e3ea-43d2-99ac-ab9cb2098666 (127.0.0.1) 18.46ms
+[I 180707 15:42:53 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.59ms
+[I 180707 15:44:14 web:2106] 304 GET /register.html (127.0.0.1) 1.03ms
+[I 180707 15:44:14 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.60ms
+[I 180707 15:44:14 web:2106] 200 GET /api/pitcode?precodeid=&codeid=6aac4c50-425a-416a-b79f-a69599ca714e (127.0.0.1) 18.38ms
+[I 180707 15:44:14 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.64ms
+[I 180707 15:44:14 web:2106] 304 GET /register.html (127.0.0.1) 1.36ms
+[I 180707 15:44:14 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.16ms
+[I 180707 15:44:14 web:2106] 200 GET /api/pitcode?precodeid=&codeid=bc2ca3bc-f511-4d6a-a667-d710106bcc21 (127.0.0.1) 22.48ms
+[I 180707 15:44:14 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.97ms
+[W 180707 15:44:35 web:1618] 403 POST /api/smscode (127.0.0.1): '_xsrf' argument missing from POST
+[W 180707 15:44:35 web:2106] 403 POST /api/smscode (127.0.0.1) 1.61ms
+[I 180707 15:45:14 web:2106] 304 GET /register.html (127.0.0.1) 1.22ms
+[I 180707 15:45:14 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.58ms
+[I 180707 15:45:14 web:2106] 200 GET /api/pitcode?precodeid=&codeid=8aa1fe2b-2113-47c5-823a-f5e751475670 (127.0.0.1) 25.97ms
+[I 180707 15:45:14 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.55ms
+[I 180707 15:45:14 web:2106] 304 GET /register.html (127.0.0.1) 1.14ms
+[I 180707 15:45:14 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.14ms
+[I 180707 15:45:14 web:2106] 200 GET /api/pitcode?precodeid=&codeid=ccad7b31-88f5-4992-b28c-e6cf418c578d (127.0.0.1) 19.87ms
+[I 180707 15:45:14 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.54ms
+[I 180707 15:45:14 web:2106] 304 GET /register.html (127.0.0.1) 1.08ms
+[I 180707 15:45:14 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.10ms
+[I 180707 15:45:14 web:2106] 200 GET /api/pitcode?precodeid=&codeid=e7eec4d5-7edd-4a47-8102-ce0f5e4ddac1 (127.0.0.1) 21.57ms
+[I 180707 15:45:14 web:2106] 200 GET /favicon.ico (127.0.0.1) 2.04ms
+[I 180707 15:48:56 web:2106] 304 GET /register.html (127.0.0.1) 1.08ms
+[I 180707 15:48:56 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.55ms
+[I 180707 15:48:56 web:2106] 200 GET /api/pitcode?precodeid=&codeid=588316cf-9077-4259-b6b0-c668da38778d (127.0.0.1) 20.02ms
+[I 180707 15:48:56 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.52ms
+[I 180707 15:48:56 web:2106] 304 GET /register.html (127.0.0.1) 1.24ms
+[I 180707 15:48:56 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.15ms
+[I 180707 15:48:56 web:2106] 200 GET /api/pitcode?precodeid=&codeid=bed06ab3-e87f-4538-bf9d-848569fc5253 (127.0.0.1) 16.11ms
+[I 180707 15:48:56 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.54ms
+[I 180707 15:48:56 web:2106] 304 GET /register.html (127.0.0.1) 1.32ms
+[I 180707 15:48:56 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.08ms
+[I 180707 15:48:57 web:2106] 200 GET /api/pitcode?precodeid=&codeid=3eb1f3f0-a1e8-4fab-bcf1-8301d5cb334a (127.0.0.1) 21.45ms
+[I 180707 15:48:57 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.56ms
+[I 180707 15:48:57 web:2106] 304 GET /register.html (127.0.0.1) 1.21ms
+[I 180707 15:48:57 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.19ms
+[I 180707 15:48:57 web:2106] 200 GET /api/pitcode?precodeid=&codeid=1a76b0be-ea14-48a1-9bcd-643abd622cf4 (127.0.0.1) 34.65ms
+[I 180707 15:48:57 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.51ms
+[I 180707 15:50:02 web:2106] 304 GET /register.html (127.0.0.1) 1.43ms
+[I 180707 15:50:02 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.76ms
+[I 180707 15:50:02 web:2106] 200 GET /api/pitcode?precodeid=&codeid=44e4460f-ac15-4f62-ac34-ddcbbff797a6 (127.0.0.1) 22.81ms
+[I 180707 15:50:02 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.57ms
+[I 180707 15:50:03 web:2106] 304 GET /register.html (127.0.0.1) 1.20ms
+[I 180707 15:50:03 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.20ms
+[I 180707 15:50:03 web:2106] 200 GET /api/pitcode?precodeid=&codeid=82f1108e-5e61-4540-b30f-bc8f2829c307 (127.0.0.1) 16.74ms
+[I 180707 15:50:03 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.58ms
+[I 180707 15:51:44 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[I 180707 15:51:44 web:2106] 304 GET /register.html (127.0.0.1) 7.21ms
+[I 180707 15:51:44 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.61ms
+[I 180707 15:51:44 web:2106] 200 GET /api/pitcode?precodeid=&codeid=9264145c-006a-4de3-8e31-e3f5388885b7 (127.0.0.1) 37.46ms
+[I 180707 15:51:45 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.66ms
+[W 180707 15:51:56 web:1618] 403 POST /api/smscode (127.0.0.1): '_xsrf' argument missing from POST
+[W 180707 15:51:56 web:2106] 403 POST /api/smscode (127.0.0.1) 1.31ms
+[I 180707 15:53:56 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[I 180707 15:59:41 web:2106] 304 GET /register.html (127.0.0.1) 6.56ms
+[I 180707 15:59:41 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.79ms
+[I 180707 15:59:41 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.53ms
+[I 180707 15:59:42 web:2106] 304 GET /register.html (127.0.0.1) 1.05ms
+[I 180707 15:59:42 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.16ms
+[I 180707 15:59:42 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.60ms
+[I 180707 16:01:00 web:2106] 304 GET /register.html (127.0.0.1) 4.26ms
+[I 180707 16:01:00 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.65ms
+[I 180707 16:01:00 web:2106] 200 GET /api/pitcode?precodeid=&codeid=48a37929-b29e-44e8-8db3-00fbcb0d69e2 (127.0.0.1) 42.94ms
+[I 180707 16:01:00 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.54ms
+[I 180707 16:01:00 web:2106] 304 GET /register.html (127.0.0.1) 1.38ms
+[I 180707 16:01:00 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.18ms
+[I 180707 16:01:00 web:2106] 200 GET /api/pitcode?precodeid=&codeid=c9372737-c4cc-4776-8e0e-70c15a378087 (127.0.0.1) 14.64ms
+[I 180707 16:01:00 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.61ms
+[I 180707 16:01:45 web:2106] 304 GET /register.html (127.0.0.1) 9.42ms
+[I 180707 16:01:45 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.15ms
+[I 180707 16:01:46 web:2106] 200 GET /api/pitcode?precodeid=&codeid=ade61c69-6386-46da-8d4c-6941cc98a52a (127.0.0.1) 35.40ms
+[I 180707 16:01:46 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.61ms
+[I 180707 16:01:46 web:2106] 304 GET /register.html (127.0.0.1) 1.22ms
+[I 180707 16:01:46 web:2106] 200 GET /api/pitcode?precodeid=&codeid=0cd8883a-9e77-43b1-8157-c8b862e77149 (127.0.0.1) 24.87ms
+[I 180707 16:01:46 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.52ms
+[I 180707 16:03:13 web:2106] 304 GET /register.html (127.0.0.1) 1.17ms
+[I 180707 16:03:13 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.70ms
+[I 180707 16:03:13 web:2106] 200 GET /api/pitcode?precodeid=&codeid=c9f26bf6-1325-41f9-bdc5-a23e2310373c (127.0.0.1) 17.88ms
+[I 180707 16:03:13 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.53ms
+[W 180707 16:05:04 web:2106] 405 GET /api/smscode (127.0.0.1) 0.67ms
+[W 180707 16:05:07 web:2106] 405 GET /api/smscode (127.0.0.1) 0.68ms
+[W 180707 16:05:07 web:2106] 405 GET /api/smscode (127.0.0.1) 0.72ms
+[I 180707 16:07:48 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[W 180707 16:07:50 web:2106] 405 GET /api/smscode (127.0.0.1) 1.05ms
+[W 180707 16:07:51 web:2106] 405 GET /api/smscode (127.0.0.1) 0.71ms
+[I 180707 16:07:52 web:2106] 200 GET /api/pitcode?precodeid=&codeid=df8cd3bf-99a6-47f2-80cd-d0dd13eb4e99 (127.0.0.1) 59.00ms
+[W 180707 16:07:53 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 2.99ms
+[I 180707 16:07:54 web:2106] 200 GET /api/pitcode?precodeid=&codeid=92d4747a-c3bd-4d8b-b220-47539495943a (127.0.0.1) 22.43ms
+[I 180707 16:08:38 web:2106] 304 GET /register.html (127.0.0.1) 7.06ms
+[I 180707 16:08:38 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.61ms
+[I 180707 16:08:38 web:2106] 200 GET /api/pitcode?precodeid=&codeid=c97a8907-319a-4dcf-9276-4f40730282a8 (127.0.0.1) 24.19ms
+[W 180707 16:08:52 web:1618] 403 POST /api/smscode (127.0.0.1): '_xsrf' argument missing from POST
+[W 180707 16:08:52 web:2106] 403 POST /api/smscode (127.0.0.1) 1.21ms
+[W 180708 15:19:21 web:2106] 404 GET /api/check_login (127.0.0.1) 143.64ms
+[W 180708 15:19:21 web:2106] 404 GET /api/house/index (127.0.0.1) 1.37ms
+[I 180708 15:19:29 web:2106] 304 GET /register.html (127.0.0.1) 475.37ms
+[I 180708 15:19:29 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 30.22ms
+[I 180708 15:19:29 web:2106] 200 GET /api/pitcode?precodeid=&codeid=dd6a2a2d-b5c7-4642-8d64-0ab6eb594a91 (127.0.0.1) 259.12ms
+[I 180708 15:22:28 web:2106] 200 GET /api/pitcode?precodeid=dd6a2a2d-b5c7-4642-8d64-0ab6eb594a91&codeid=088e1bf9-5b50-4c58-89fd-0b1a3c429751 (127.0.0.1) 19.41ms
+[I 180708 15:22:29 web:2106] 200 GET /api/pitcode?precodeid=088e1bf9-5b50-4c58-89fd-0b1a3c429751&codeid=3ed98032-f8b7-4204-a9ba-b3e5dab23d24 (127.0.0.1) 16.96ms
+[E 180708 15:22:56 web:1621] Uncaught exception POST /api/smscode (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/smscode', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1520, in _execute
+        result = self.prepare()
+      File "/home/kiralacus/ihome_tornado/Handler/BaseHandler.py", line 15, in prepare
+        self.json_dict = json.loads(self.request.body)
+      File "/usr/lib/python2.7/json/__init__.py", line 339, in loads
+        return _default_decoder.decode(s)
+      File "/usr/lib/python2.7/json/decoder.py", line 364, in decode
+        obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+      File "/usr/lib/python2.7/json/decoder.py", line 380, in raw_decode
+        obj, end = self.scan_once(s, idx)
+    ValueError: Expecting property name: line 2 column 5 (char 6)
+[E 180708 15:22:57 web:2106] 500 POST /api/smscode (127.0.0.1) 142.35ms
+[E 180708 15:23:10 web:1621] Uncaught exception POST /api/smscode (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/smscode', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1520, in _execute
+        result = self.prepare()
+      File "/home/kiralacus/ihome_tornado/Handler/BaseHandler.py", line 15, in prepare
+        self.json_dict = json.loads(self.request.body)
+      File "/usr/lib/python2.7/json/__init__.py", line 339, in loads
+        return _default_decoder.decode(s)
+      File "/usr/lib/python2.7/json/decoder.py", line 364, in decode
+        obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+      File "/usr/lib/python2.7/json/decoder.py", line 380, in raw_decode
+        obj, end = self.scan_once(s, idx)
+    ValueError: Expecting property name: line 2 column 5 (char 6)
+[E 180708 15:23:10 web:2106] 500 POST /api/smscode (127.0.0.1) 1.63ms
+[I 180708 15:26:13 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[I 180708 15:26:17 web:2106] 200 GET /api/pitcode?precodeid=3ed98032-f8b7-4204-a9ba-b3e5dab23d24&codeid=d7017c41-75c6-4272-a72c-a63e388d33ae (127.0.0.1) 31.40ms
+[E 180708 15:26:59 web:1621] Uncaught exception POST /api/smscode (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/smscode', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1520, in _execute
+        result = self.prepare()
+      File "/home/kiralacus/ihome_tornado/Handler/BaseHandler.py", line 15, in prepare
+        self.json_dict = json.loads(self.request.body)
+      File "/usr/lib/python2.7/json/__init__.py", line 339, in loads
+        return _default_decoder.decode(s)
+      File "/usr/lib/python2.7/json/decoder.py", line 364, in decode
+        obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+      File "/usr/lib/python2.7/json/decoder.py", line 380, in raw_decode
+        obj, end = self.scan_once(s, idx)
+    ValueError: Expecting property name: line 5 column 1 (char 112)
+[E 180708 15:26:59 web:2106] 500 POST /api/smscode (127.0.0.1) 2.89ms
+[E 180708 15:30:28 web:1621] Uncaught exception POST /api/smscode (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/smscode', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1520, in _execute
+        result = self.prepare()
+      File "/home/kiralacus/ihome_tornado/Handler/BaseHandler.py", line 15, in prepare
+        self.json_dict = json.loads(self.request.body)
+      File "/usr/lib/python2.7/json/__init__.py", line 339, in loads
+        return _default_decoder.decode(s)
+      File "/usr/lib/python2.7/json/decoder.py", line 364, in decode
+        obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+      File "/usr/lib/python2.7/json/decoder.py", line 380, in raw_decode
+        obj, end = self.scan_once(s, idx)
+    ValueError: Expecting property name: line 5 column 1 (char 112)
+[E 180708 15:30:28 web:2106] 500 POST /api/smscode (127.0.0.1) 1.70ms
+[E 180708 15:31:08 web:1621] Uncaught exception POST /api/smscode (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/smscode', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/ihome_tornado/Handler/Verifycode.py", line 47, in post
+        piccode = self.json_dict['piccode']
+    KeyError: 'piccode'
+[E 180708 15:31:08 web:2106] 500 POST /api/smscode (127.0.0.1) 1.57ms
+[E 180708 15:31:16 web:1621] Uncaught exception POST /api/smscode (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/smscode', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/ihome_tornado/Handler/Verifycode.py", line 47, in post
+        piccode = self.json_dict['piccode']
+    KeyError: 'piccode'
+[E 180708 15:31:16 web:2106] 500 POST /api/smscode (127.0.0.1) 1.58ms
+[E 180708 15:31:18 web:1621] Uncaught exception POST /api/smscode (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/smscode', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/ihome_tornado/Handler/Verifycode.py", line 47, in post
+        piccode = self.json_dict['piccode']
+    KeyError: 'piccode'
+[E 180708 15:31:18 web:2106] 500 POST /api/smscode (127.0.0.1) 1.68ms
+[E 180708 15:32:05 web:1621] Uncaught exception POST /api/smscode (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/smscode', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/ihome_tornado/Handler/Verifycode.py", line 49, in post
+        piccode_id = self.json_dic['piccode_id']
+    AttributeError: 'SMSCodeHandler' object has no attribute 'json_dic'
+[E 180708 15:32:05 web:2106] 500 POST /api/smscode (127.0.0.1) 1.54ms
+[I 180708 15:33:08 web:2106] 200 GET /api/pitcode?precodeid=d7017c41-75c6-4272-a72c-a63e388d33ae&codeid=6caf8400-7041-4222-8b33-c05f781af74a (127.0.0.1) 18.54ms
+[E 180708 15:33:43 web:1621] Uncaught exception POST /api/smscode (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/smscode', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/ihome_tornado/Handler/Verifycode.py", line 49, in post
+        piccode_id = self.json_dic['piccode_id']
+    AttributeError: 'SMSCodeHandler' object has no attribute 'json_dic'
+[E 180708 15:33:43 web:2106] 500 POST /api/smscode (127.0.0.1) 1.54ms
+[E 180708 15:33:49 web:1621] Uncaught exception POST /api/smscode (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/smscode', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/ihome_tornado/Handler/Verifycode.py", line 49, in post
+        piccode_id = self.json_dic['piccode_id']
+    AttributeError: 'SMSCodeHandler' object has no attribute 'json_dic'
+[E 180708 15:33:49 web:2106] 500 POST /api/smscode (127.0.0.1) 1.64ms
+[I 180708 15:34:35 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[I 180708 15:34:36 web:2106] 304 GET /register.html (127.0.0.1) 8.18ms
+[I 180708 15:34:36 web:2106] 200 GET /api/pitcode?precodeid=&codeid=f2579f2d-c3d8-4211-bdef-aec77f617cf8 (127.0.0.1) 37.01ms
+[I 180708 15:34:36 web:2106] 200 GET /favicon.ico (127.0.0.1) 13.94ms
+[I 180708 15:34:37 web:2106] 200 GET /api/pitcode?precodeid=f2579f2d-c3d8-4211-bdef-aec77f617cf8&codeid=742d553b-8b68-455f-9351-72b47c820ec6 (127.0.0.1) 17.20ms
+[I 180708 15:34:39 web:2106] 200 GET /api/pitcode?precodeid=742d553b-8b68-455f-9351-72b47c820ec6&codeid=b365991c-c454-406b-b1aa-2099134c3ccc (127.0.0.1) 17.93ms
+[I 180708 15:34:54 web:2106] 304 GET /register.html (127.0.0.1) 1.31ms
+[I 180708 15:34:54 web:2106] 200 GET /api/pitcode?precodeid=&codeid=cc8a5789-b398-4b72-9e66-bf3fcdf70b0b (127.0.0.1) 18.07ms
+[I 180708 15:34:54 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.58ms
+[I 180708 15:34:57 web:2106] 200 GET /api/pitcode?precodeid=cc8a5789-b398-4b72-9e66-bf3fcdf70b0b&codeid=962e14a3-b421-4bec-9993-f6035d6400f2 (127.0.0.1) 17.15ms
+[I 180708 15:35:17 web:2106] 200 GET /api/pitcode?precodeid=962e14a3-b421-4bec-9993-f6035d6400f2&codeid=2ba3d841-bcb1-4e58-a7cf-6644a9d46f96 (127.0.0.1) 20.62ms
+[I 180708 15:35:27 web:2106] 304 GET /register.html (127.0.0.1) 1.24ms
+[I 180708 15:35:27 web:2106] 200 GET /api/pitcode?precodeid=&codeid=97c541e9-f0a2-4c1f-a2b7-351bf9dc7d1e (127.0.0.1) 13.57ms
+[I 180708 15:35:27 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.61ms
+[I 180708 15:37:09 web:2106] 200 GET /api/pitcode?precodeid=97c541e9-f0a2-4c1f-a2b7-351bf9dc7d1e&codeid=015ada41-2b94-413f-80bd-4cf6d8539723 (127.0.0.1) 17.38ms
+[I 180708 15:37:45 web:2106] 200 POST /api/smscode (127.0.0.1) 1.24ms
+[I 180708 15:37:57 web:2106] 200 GET /api/pitcode?precodeid=015ada41-2b94-413f-80bd-4cf6d8539723&codeid=de146846-aa8c-4dfc-89e9-ac07ac7c2e6c (127.0.0.1) 17.25ms
+[I 180708 15:38:31 web:2106] 200 POST /api/smscode (127.0.0.1) 1.31ms
+[I 180708 15:41:09 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[I 180708 15:41:11 web:2106] 304 GET /register.html (127.0.0.1) 8.07ms
+[I 180708 15:41:11 web:2106] 200 GET /api/pitcode?precodeid=&codeid=13e2c238-9e04-4879-b246-df50b2c12c88 (127.0.0.1) 39.32ms
+[I 180708 15:41:11 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.52ms
+[I 180708 15:41:12 web:2106] 304 GET /register.html (127.0.0.1) 1.26ms
+[I 180708 15:41:12 web:2106] 200 GET /api/pitcode?precodeid=&codeid=5698c4b6-4206-4528-a10b-dc4b969c3bd1 (127.0.0.1) 16.17ms
+[I 180708 15:41:12 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.64ms
+[I 180708 15:41:30 web:2106] 200 GET /api/pitcode?precodeid=5698c4b6-4206-4528-a10b-dc4b969c3bd1&codeid=66f8b08f-d161-4495-bd01-5c11e82b411d (127.0.0.1) 15.69ms
+[I 180708 15:42:02 web:2106] 200 POST /api/smscode (127.0.0.1) 1.38ms
+[I 180708 15:42:36 web:2106] 200 POST /api/smscode (127.0.0.1) 579.12ms
+[I 180708 15:52:54 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[I 180708 15:54:00 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[I 180708 15:56:20 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[I 180708 16:02:18 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[I 180708 16:07:45 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[I 180708 16:14:51 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[W 180708 16:19:29 web:1618] 400 POST /api/smscode (127.0.0.1): Missing argument mobile
+[W 180708 16:19:29 web:2106] 400 POST /api/smscode (127.0.0.1) 1.98ms
+[W 180708 16:19:53 web:1618] 400 POST /api/smscode (127.0.0.1): Missing argument mobile
+[W 180708 16:19:53 web:2106] 400 POST /api/smscode (127.0.0.1) 1.87ms
+[I 180708 16:22:02 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[E 180708 16:22:03 web:1621] Uncaught exception POST /api/smscode (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/smscode', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/ihome_tornado/Handler/Verifycode.py", line 42, in post
+        mobile = self.json_dict('mobile')
+    TypeError: 'dict' object is not callable
+[E 180708 16:22:03 web:2106] 500 POST /api/smscode (127.0.0.1) 3.02ms
+[I 180708 16:22:52 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[I 180708 16:22:57 web:2106] 200 POST /api/smscode (127.0.0.1) 1.84ms
+[I 180708 16:23:02 web:2106] 200 GET /api/pitcode?precodeid=66f8b08f-d161-4495-bd01-5c11e82b411d&codeid=886e643f-5f0d-47e5-99b5-91d3adf1400c (127.0.0.1) 33.69ms
+[I 180708 16:23:32 web:2106] 200 POST /api/smscode (127.0.0.1) 2.26ms
+[I 180708 16:23:50 web:2106] 200 POST /api/smscode (127.0.0.1) 1.29ms
+[I 180708 16:24:18 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[I 180708 16:24:20 web:2106] 304 GET /register.html (127.0.0.1) 7.40ms
+[I 180708 16:24:20 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.16ms
+[I 180708 16:24:20 web:2106] 200 GET /api/pitcode?precodeid=&codeid=d7423f13-1c83-4d11-aff8-6ff766a861b8 (127.0.0.1) 52.67ms
+[I 180708 16:24:20 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.49ms
+[I 180708 16:24:29 web:2106] 200 GET /api/pitcode?precodeid=d7423f13-1c83-4d11-aff8-6ff766a861b8&codeid=95c0192d-8abd-45bc-9e88-8038861cb831 (127.0.0.1) 18.78ms
+[I 180708 16:25:08 web:2106] 200 POST /api/smscode (127.0.0.1) 1.25ms
+[I 180708 16:25:39 web:2106] 200 POST /api/smscode (127.0.0.1) 1.43ms
+[I 180708 16:26:15 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[I 180708 16:26:16 web:2106] 200 GET /api/pitcode?precodeid=95c0192d-8abd-45bc-9e88-8038861cb831&codeid=30f116e0-1ad3-4378-8efa-1a61880214ff (127.0.0.1) 27.42ms
+[I 180708 16:26:53 web:2106] 200 POST /api/smscode (127.0.0.1) 191.08ms
+[I 180708 17:05:16 web:2106] 304 GET /register.html (127.0.0.1) 71.94ms
+[I 180708 17:05:16 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.64ms
+[I 180708 17:05:16 web:2106] 200 GET /api/pitcode?precodeid=&codeid=b7e2bf1f-1812-4059-bea7-30f7b8373720 (127.0.0.1) 87.95ms
+[I 180708 17:05:16 web:2106] 200 GET /favicon.ico (127.0.0.1) 33.03ms
+[E 180708 17:05:46 web:1621] Uncaught exception POST /api/smscode (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/smscode', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/ihome_tornado/Handler/Verifycode.py", line 42, in post
+        mobile = self.json_dict['mobile']
+    TypeError: 'NoneType' object has no attribute '__getitem__'
+[E 180708 17:05:46 web:2106] 500 POST /api/smscode (127.0.0.1) 19.90ms
+[I 180708 17:06:40 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[I 180708 17:06:43 web:2106] 304 GET /register.html (127.0.0.1) 6.48ms
+[I 180708 17:06:43 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.22ms
+[I 180708 17:06:43 web:2106] 200 GET /api/pitcode?precodeid=&codeid=90bb21a7-5ffd-452a-b94f-303dc8fe5f53 (127.0.0.1) 117.24ms
+[I 180708 17:06:43 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.58ms
+[I 180708 17:08:13 web:2106] 304 GET /register.html (127.0.0.1) 1.89ms
+[I 180708 17:08:13 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.54ms
+[I 180708 17:08:13 web:2106] 200 GET /api/pitcode?precodeid=&codeid=2a5963bf-c342-494c-8ab4-7585c3cca3ba (127.0.0.1) 19.91ms
+[I 180708 17:08:13 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.57ms
+[I 180708 17:10:38 web:2106] 304 GET /register.html (127.0.0.1) 1.37ms
+[I 180708 17:10:38 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.17ms
+[I 180708 17:10:38 web:2106] 200 GET /api/pitcode?precodeid=&codeid=980f036a-df50-4069-bf11-4c5242c286dc (127.0.0.1) 21.48ms
+[I 180708 17:10:38 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.60ms
+[I 180708 17:13:24 web:2106] 304 GET /register.html (127.0.0.1) 1.34ms
+[I 180708 17:13:24 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.52ms
+[I 180708 17:13:24 web:2106] 200 GET /api/pitcode?precodeid=&codeid=fcf52ef6-d99d-486a-b832-fdfedc93f48f (127.0.0.1) 19.46ms
+[I 180708 17:13:24 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.63ms
+[I 180708 17:14:08 web:2106] 304 GET /register.html (127.0.0.1) 1.27ms
+[I 180708 17:14:08 web:2106] 304 GET /register.html (127.0.0.1) 1.42ms
+[I 180708 17:14:08 web:2106] 304 GET /register.html (127.0.0.1) 1.59ms
+[I 180708 17:14:08 web:2106] 304 GET /register.html (127.0.0.1) 5.67ms
+[I 180708 17:14:12 web:2106] 304 GET /register.html (127.0.0.1) 1.74ms
+[W 180708 17:14:30 web:2106] 404 GET /api/house/index (127.0.0.1) 54.53ms
+[W 180708 17:14:30 web:2106] 404 GET /api/check_login (127.0.0.1) 1.80ms
+[I 180708 17:14:32 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.41ms
+[I 180708 17:14:33 web:2106] 200 GET /api/pitcode?precodeid=&codeid=fefbff04-8808-41c8-8e87-9a447cde59a5 (127.0.0.1) 29.89ms
+[I 180711 14:14:08 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180711 14:21:59 autoreload:196] /home/kiralacus/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[E 180711 14:22:32 web:1621] Uncaught exception POST /api/login (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/login', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1520, in _execute
+        result = self.prepare()
+      File "/home/kiralacus/ihome_tornado/Handler/BaseHandler.py", line 15, in prepare
+        self.json_dict = json.loads(self.request.body)
+      File "/usr/lib/python2.7/json/__init__.py", line 339, in loads
+        return _default_decoder.decode(s)
+      File "/usr/lib/python2.7/json/decoder.py", line 364, in decode
+        obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+      File "/usr/lib/python2.7/json/decoder.py", line 380, in raw_decode
+        obj, end = self.scan_once(s, idx)
+    ValueError: Expecting property name: line 5 column 1 (char 61)
+[E 180711 14:22:33 web:2106] 500 POST /api/login (127.0.0.1) 147.40ms
+[E 180711 14:23:34 web:1621] Uncaught exception POST /api/login (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/login', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1520, in _execute
+        result = self.prepare()
+      File "/home/kiralacus/ihome_tornado/Handler/BaseHandler.py", line 15, in prepare
+        self.json_dict = json.loads(self.request.body)
+      File "/usr/lib/python2.7/json/__init__.py", line 339, in loads
+        return _default_decoder.decode(s)
+      File "/usr/lib/python2.7/json/decoder.py", line 364, in decode
+        obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+      File "/usr/lib/python2.7/json/decoder.py", line 380, in raw_decode
+        obj, end = self.scan_once(s, idx)
+    ValueError: Expecting property name: line 5 column 1 (char 61)
+[E 180711 14:23:34 web:2106] 500 POST /api/login (127.0.0.1) 1.69ms
+[E 180711 14:24:16 web:1621] Uncaught exception POST /api/login (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/login', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1520, in _execute
+        result = self.prepare()
+      File "/home/kiralacus/ihome_tornado/Handler/BaseHandler.py", line 15, in prepare
+        self.json_dict = json.loads(self.request.body)
+      File "/usr/lib/python2.7/json/__init__.py", line 339, in loads
+        return _default_decoder.decode(s)
+      File "/usr/lib/python2.7/json/decoder.py", line 364, in decode
+        obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+      File "/usr/lib/python2.7/json/decoder.py", line 380, in raw_decode
+        obj, end = self.scan_once(s, idx)
+    ValueError: Expecting property name: line 5 column 1 (char 61)
+[E 180711 14:24:16 web:2106] 500 POST /api/login (127.0.0.1) 1.62ms
+[I 180711 14:26:20 web:2106] 200 POST /api/login (127.0.0.1) 2.05ms
+[I 180711 14:31:37 autoreload:196] /home/kiralacus/ihome_tornado/Handler/BaseHandler.py modified; restarting server
+[I 180712 14:20:07 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 207.04ms
+[I 180712 14:20:07 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 3.75ms
+[I 180712 14:20:07 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 1.70ms
+[I 180712 14:20:07 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 2.07ms
+[I 180712 14:20:07 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 1.65ms
+[I 180712 14:20:07 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 2.37ms
+[W 180712 14:20:07 web:2106] 404 GET /api/check_login (127.0.0.1) 47.02ms
+[W 180712 14:20:07 web:2106] 404 GET /api/house/index (127.0.0.1) 1.58ms
+[I 180712 14:20:12 web:2106] 304 GET /register.html (127.0.0.1) 1.62ms
+[I 180712 14:20:12 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.92ms
+[E 180712 14:20:14 Verifycode:32] Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[I 180712 14:20:14 web:2106] 200 GET /api/pitcode?precodeid=&codeid=f0d63d85-d853-4ccb-b0bc-355443f1dbb1 (127.0.0.1) 539.28ms
+[I 180712 14:20:18 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 6.70ms
+[I 180712 14:20:43 web:2106] 304 GET /register.html (127.0.0.1) 1.36ms
+[I 180712 14:20:43 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.28ms
+[I 180712 14:20:43 web:2106] 200 GET /api/pitcode?precodeid=&codeid=c2987043-c07f-403c-929d-8e325d86c296 (127.0.0.1) 22.65ms
+[I 180712 14:20:50 web:2106] 200 GET /api/pitcode?precodeid=c2987043-c07f-403c-929d-8e325d86c296&codeid=79d16ad7-175a-40df-89e0-e1488826e9b2 (127.0.0.1) 23.33ms
+[I 180712 14:20:51 web:2106] 200 GET /api/pitcode?precodeid=79d16ad7-175a-40df-89e0-e1488826e9b2&codeid=53567986-8b31-44c7-a3c6-52249f5ae7ac (127.0.0.1) 17.54ms
+[I 180712 14:20:53 web:2106] 200 GET /api/pitcode?precodeid=53567986-8b31-44c7-a3c6-52249f5ae7ac&codeid=008cb349-3059-4b59-adab-28f1beec321a (127.0.0.1) 22.31ms
+[I 180712 14:23:19 web:2106] 200 POST /api/smscode (127.0.0.1) 129420.97ms
+[I 180712 14:23:20 web:2106] 200 GET /api/pitcode?precodeid=008cb349-3059-4b59-adab-28f1beec321a&codeid=a63dfc78-ac8a-46f9-a7db-364c6cef4716 (127.0.0.1) 26.19ms
+[I 180712 14:24:08 web:2106] 304 GET /register.html (127.0.0.1) 1.47ms
+[I 180712 14:24:08 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.29ms
+[I 180712 14:24:09 web:2106] 200 GET /api/pitcode?precodeid=&codeid=0054f849-5c2f-4b75-917a-be38d7519925 (127.0.0.1) 17.46ms
+[I 180712 14:24:22 web:2106] 200 GET /api/pitcode?precodeid=0054f849-5c2f-4b75-917a-be38d7519925&codeid=f7d47974-c02e-4419-b3c2-898fbc971e2a (127.0.0.1) 22.82ms
+[I 180712 14:24:23 web:2106] 200 GET /api/pitcode?precodeid=f7d47974-c02e-4419-b3c2-898fbc971e2a&codeid=ff66edf4-61a7-4aa5-a35c-bea00f54165c (127.0.0.1) 14.32ms
+[I 180712 14:26:37 web:2106] 200 POST /api/smscode (127.0.0.1) 129569.42ms
+[I 180712 14:26:39 web:2106] 200 GET /api/pitcode?precodeid=ff66edf4-61a7-4aa5-a35c-bea00f54165c&codeid=e20aacaa-f9f9-48dd-8551-4625d7f26d39 (127.0.0.1) 17.73ms
+[W 180712 14:29:55 web:2106] 404 GET /api/check_login (127.0.0.1) 239.77ms
+[W 180712 14:29:55 web:2106] 404 GET /api/house/index (127.0.0.1) 1.60ms
+[I 180712 14:29:57 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 112.17ms
+[I 180712 14:29:59 web:2106] 200 GET /api/pitcode?precodeid=&codeid=80209115-90b6-43bb-a64c-ad7851b87ca3 (127.0.0.1) 782.05ms
+[I 180712 14:30:19 web:2106] 200 POST /api/smscode (127.0.0.1) 2.27ms
+[I 180712 14:30:20 web:2106] 200 GET /api/pitcode?precodeid=80209115-90b6-43bb-a64c-ad7851b87ca3&codeid=b4bcc524-4a91-44bd-8974-00172510f687 (127.0.0.1) 17.55ms
+[I 180712 14:30:25 web:2106] 200 GET /api/pitcode?precodeid=b4bcc524-4a91-44bd-8974-00172510f687&codeid=675bd7af-93d2-4243-ab44-37b117c69d74 (127.0.0.1) 19.43ms
+[I 180712 14:32:43 web:2106] 200 POST /api/smscode (127.0.0.1) 129693.75ms
+[I 180712 14:32:43 web:2106] 304 GET /register.html (127.0.0.1) 15.13ms
+[I 180712 14:32:53 web:2106] 200 GET /api/pitcode?precodeid=675bd7af-93d2-4243-ab44-37b117c69d74&codeid=1e339cfb-1474-447f-8ae8-0d6fd8ba3684 (127.0.0.1) 22.50ms
+[I 180712 14:32:53 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.19ms
+[I 180712 14:32:53 web:2106] 200 GET /api/pitcode?precodeid=&codeid=c5f9510b-cbed-4a01-8ef4-395de2045a6e (127.0.0.1) 19.55ms
+[I 180712 14:32:53 web:2106] 200 GET /favicon.ico (127.0.0.1) 9.55ms
+[I 180712 14:33:03 web:2106] 200 POST /api/smscode (127.0.0.1) 1.18ms
+[I 180712 14:33:04 web:2106] 200 GET /api/pitcode?precodeid=c5f9510b-cbed-4a01-8ef4-395de2045a6e&codeid=b1b8ad7a-2a3b-4355-9983-360324e86b1a (127.0.0.1) 18.00ms
+[I 180712 14:33:06 web:2106] 200 GET /api/pitcode?precodeid=b1b8ad7a-2a3b-4355-9983-360324e86b1a&codeid=f0437bc8-4513-4eb3-8e48-865c12fffe90 (127.0.0.1) 19.45ms
+[I 180712 14:35:27 web:2106] 200 POST /api/smscode (127.0.0.1) 130187.19ms
+[I 180712 14:35:29 web:2106] 200 GET /api/pitcode?precodeid=f0437bc8-4513-4eb3-8e48-865c12fffe90&codeid=25cb1695-56ec-4ba6-8cf2-15577a63618b (127.0.0.1) 14.49ms
+[I 180712 14:36:41 web:2106] 304 GET /register.html (127.0.0.1) 6.30ms
+[I 180712 14:36:42 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.19ms
+[I 180712 14:36:42 web:2106] 200 GET /api/pitcode?precodeid=&codeid=9442bab3-e41c-4198-9f34-fadb37b2af8d (127.0.0.1) 33.86ms
+[I 180712 14:36:42 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.57ms
+[I 180712 14:36:52 web:2106] 200 POST /api/smscode (127.0.0.1) 139.75ms
+[W 180712 14:52:24 web:2106] 404 GET /api/check_login (127.0.0.1) 2.60ms
+[W 180712 14:52:24 web:2106] 404 GET /api/house/index (127.0.0.1) 1.63ms
+[I 180712 14:52:26 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.22ms
+[I 180712 14:52:26 web:2106] 200 GET /api/pitcode?precodeid=&codeid=1ed6f5b8-5bad-4a26-9adc-696ee1168176 (127.0.0.1) 16.18ms
+[I 180712 14:52:38 web:2106] 200 POST /api/smscode (127.0.0.1) 171.71ms
+[W 180712 14:53:04 web:2106] 405 POST /api/register (127.0.0.1) 1.21ms
+[W 180712 14:53:06 web:2106] 405 POST /api/register (127.0.0.1) 1.52ms
+[I 180712 14:54:36 web:2106] 304 GET /register.html (127.0.0.1) 1.30ms
+[I 180712 14:54:36 web:2106] 200 GET /api/pitcode?precodeid=&codeid=8cf257a2-acd5-4402-8d7c-c25bf35847f6 (127.0.0.1) 21.81ms
+[I 180712 14:54:36 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.54ms
+[I 180712 14:54:37 web:2106] 304 GET /register.html (127.0.0.1) 1.35ms
+[I 180712 14:54:37 web:2106] 200 GET /api/pitcode?precodeid=&codeid=d23b5fa6-78eb-4137-a1bf-a4e223aeaca9 (127.0.0.1) 20.60ms
+[I 180712 14:54:37 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.65ms
+[I 180712 14:54:37 web:2106] 304 GET /register.html (127.0.0.1) 1.31ms
+[I 180712 14:54:38 web:2106] 200 GET /api/pitcode?precodeid=&codeid=be3dd267-023a-4a74-87ce-47b3c06347ed (127.0.0.1) 18.57ms
+[I 180712 14:54:38 web:2106] 200 GET /favicon.ico (127.0.0.1) 2.19ms
+[I 180712 14:54:38 web:2106] 304 GET /register.html (127.0.0.1) 1.41ms
+[I 180712 14:54:38 web:2106] 200 GET /api/pitcode?precodeid=&codeid=3e83ba7c-96ae-4efb-a7d7-78f43ffdec89 (127.0.0.1) 20.58ms
+[I 180712 14:54:38 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.54ms
+[I 180712 14:54:38 web:2106] 304 GET /register.html (127.0.0.1) 1.28ms
+[I 180712 14:54:38 web:2106] 200 GET /api/pitcode?precodeid=&codeid=d7d30285-f66a-4967-8586-e659a752f991 (127.0.0.1) 19.46ms
+[I 180712 14:54:38 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.54ms
+[I 180712 14:54:38 web:2106] 304 GET /register.html (127.0.0.1) 1.42ms
+[I 180712 14:54:38 web:2106] 200 GET /api/pitcode?precodeid=&codeid=b251827e-a299-4064-82ce-527e0d053a8a (127.0.0.1) 22.36ms
+[I 180712 14:54:38 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.58ms
+[I 180712 14:54:38 web:2106] 304 GET /register.html (127.0.0.1) 1.33ms
+[I 180712 14:54:38 web:2106] 200 GET /api/pitcode?precodeid=&codeid=eab3c371-3210-416e-8369-c6ad2892bf87 (127.0.0.1) 16.40ms
+[I 180712 14:54:38 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.68ms
+[I 180712 14:54:38 web:2106] 304 GET /register.html (127.0.0.1) 1.30ms
+[I 180712 14:54:39 web:2106] 200 GET /api/pitcode?precodeid=&codeid=7a4ccce1-5eca-4abf-ab2e-562ac15bb465 (127.0.0.1) 19.61ms
+[I 180712 14:54:39 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.63ms
+[I 180712 14:57:54 web:2106] 200 GET /api/pitcode?precodeid=7a4ccce1-5eca-4abf-ab2e-562ac15bb465&codeid=e3a03a92-a758-4b4d-8544-d0718aabada9 (127.0.0.1) 16.89ms
+[I 180712 14:58:03 web:2106] 200 POST /api/smscode (127.0.0.1) 166.30ms
+[W 180712 14:58:26 web:2106] 405 POST /api/register (127.0.0.1) 1.25ms
+[I 180712 15:00:07 web:2106] 200 GET /register.html (127.0.0.1) 1.74ms
+[I 180712 15:00:07 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 81.17ms
+[I 180712 15:00:07 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 33.94ms
+[I 180712 15:00:07 web:2106] 200 GET /static/css/ihome/register.css (127.0.0.1) 25.15ms
+[I 180712 15:00:07 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 119.17ms
+[I 180712 15:00:07 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 14.08ms
+[I 180712 15:00:07 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 24.65ms
+[I 180712 15:00:07 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 43.63ms
+[I 180712 15:00:07 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 32.85ms
+[I 180712 15:00:07 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 31.79ms
+[I 180712 15:00:07 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 5.03ms
+[I 180712 15:00:07 web:2106] 200 GET /api/pitcode?precodeid=&codeid=c01c15df-4b33-4738-aadc-d55bf9238774 (127.0.0.1) 33.10ms
+[I 180712 15:00:07 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.56ms
+[I 180712 15:00:13 web:2106] 200 GET /api/pitcode?precodeid=c01c15df-4b33-4738-aadc-d55bf9238774&codeid=e41b6558-8b9b-497f-90ca-d0f80df1fd0b (127.0.0.1) 18.77ms
+[I 180712 15:00:14 web:2106] 200 GET /api/pitcode?precodeid=e41b6558-8b9b-497f-90ca-d0f80df1fd0b&codeid=2b7b80d4-b50e-4daf-ac9d-31802d1d1656 (127.0.0.1) 19.42ms
+[I 180712 15:00:15 web:2106] 200 GET /api/pitcode?precodeid=2b7b80d4-b50e-4daf-ac9d-31802d1d1656&codeid=2a8272a3-915c-4c86-8f67-1e1adfe14b50 (127.0.0.1) 19.41ms
+[I 180712 15:00:16 web:2106] 200 GET /api/pitcode?precodeid=2a8272a3-915c-4c86-8f67-1e1adfe14b50&codeid=55484995-8974-4ff9-8746-2257cd741c56 (127.0.0.1) 22.82ms
+[I 180712 15:00:23 web:2106] 200 POST /api/smscode (127.0.0.1) 211.43ms
+[W 180712 15:00:42 web:2106] 405 POST /api/register (127.0.0.1) 1.25ms
+[I 180712 15:04:24 autoreload:196] /home/kiralacus/tornado/ihome_tornado/urls.py modified; restarting server
+[I 180712 15:04:26 web:2106] 304 GET /register.html (127.0.0.1) 63.40ms
+[I 180712 15:04:26 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.22ms
+[I 180712 15:04:26 web:2106] 200 GET /api/pitcode?precodeid=&codeid=b819f85b-923f-4f47-97e0-311345c6f5dc (127.0.0.1) 36.85ms
+[I 180712 15:04:26 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.65ms
+[I 180712 15:04:38 web:2106] 200 POST /api/smscode (127.0.0.1) 203.16ms
+[E 180712 15:05:00 web:1621] Uncaught exception POST /api/register (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/register', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Passport.py", line 47, in post
+        up_password = sha256(up_password).hexdigest()
+    NameError: global name 'sha256' is not defined
+[E 180712 15:05:00 web:2106] 500 POST /api/register (127.0.0.1) 63.31ms
+[I 180712 15:05:03 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 20.31ms
+[I 180712 15:07:42 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180712 15:07:43 web:2106] 304 GET /register.html (127.0.0.1) 9.38ms
+[I 180712 15:07:43 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.17ms
+[I 180712 15:07:43 web:2106] 200 GET /api/pitcode?precodeid=&codeid=f70e09b0-fbf3-4a21-b3b8-f05baccef39a (127.0.0.1) 42.82ms
+[I 180712 15:07:52 web:2106] 200 GET /api/pitcode?precodeid=f70e09b0-fbf3-4a21-b3b8-f05baccef39a&codeid=ccd353e9-435a-4221-b8a7-c88d4425c3a6 (127.0.0.1) 21.31ms
+[I 180712 15:08:03 web:2106] 200 POST /api/smscode (127.0.0.1) 148.18ms
+[I 180712 15:08:26 web:2106] 200 POST /api/register (127.0.0.1) 135.70ms
+[I 180712 15:08:26 web:2106] 200 GET / (127.0.0.1) 20.89ms
+[I 180712 15:08:26 web:2106] 200 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 36.04ms
+[I 180712 15:08:26 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 24.84ms
+[I 180712 15:08:26 web:2106] 200 GET /static/css/ihome/index.css (127.0.0.1) 16.93ms
+[I 180712 15:08:26 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 3.13ms
+[I 180712 15:08:26 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 1.98ms
+[I 180712 15:08:26 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 10.29ms
+[I 180712 15:08:26 web:2106] 200 GET /static/js/template.js (127.0.0.1) 3.08ms
+[I 180712 15:08:26 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 1.74ms
+[W 180712 15:08:26 web:2106] 404 GET /api/check_login (127.0.0.1) 10.96ms
+[W 180712 15:08:26 web:2106] 404 GET /api/house/index (127.0.0.1) 1.34ms
+[I 180712 15:14:56 web:2106] 200 GET /login.html (127.0.0.1) 27.78ms
+[I 180712 15:14:56 web:2106] 200 GET /static/css/ihome/login.css (127.0.0.1) 122.99ms
+[I 180712 15:14:56 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 61.77ms
+[I 180712 15:15:13 web:2106] 200 GET /login.html?mobile=18351922521&password=kiralacus (127.0.0.1) 1.93ms
+[I 180712 15:16:08 web:2106] 304 GET /login.html?mobile=18351922521&password=kiralacus (127.0.0.1) 1.35ms
+[I 180712 15:16:08 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.54ms
+[I 180712 15:16:09 web:2106] 304 GET /login.html?mobile=18351922521&password=kiralacus (127.0.0.1) 1.93ms
+[I 180712 15:16:09 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.43ms
+[I 180712 15:16:10 web:2106] 304 GET /login.html?mobile=18351922521&password=kiralacus (127.0.0.1) 1.51ms
+[I 180712 15:16:10 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.46ms
+[I 180712 15:16:16 web:2106] 200 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 1.64ms
+[I 180712 15:16:33 web:2106] 200 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 1.79ms
+[I 180712 15:16:33 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 5.04ms
+[I 180712 15:16:33 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 1.73ms
+[I 180712 15:16:33 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 1.40ms
+[I 180712 15:16:33 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 1.39ms
+[I 180712 15:16:33 web:2106] 200 GET /static/css/ihome/login.css (127.0.0.1) 1.39ms
+[I 180712 15:16:33 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 2.18ms
+[I 180712 15:16:33 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 1.67ms
+[I 180712 15:16:33 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 1.51ms
+[I 180712 15:16:33 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 1.54ms
+[I 180712 15:16:33 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 2.21ms
+[I 180712 15:16:35 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 1.51ms
+[I 180712 15:16:36 web:2106] 304 GET /static/js/ihome/login.js (127.0.0.1) 1.14ms
+[I 180712 15:16:36 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.49ms
+[I 180712 15:16:36 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 1.57ms
+[I 180712 15:16:36 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.64ms
+[I 180712 15:16:36 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 1.45ms
+[I 180712 15:16:36 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.55ms
+[I 180712 15:16:38 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 5.88ms
+[I 180712 15:17:11 web:2106] 200 GET /login.html?mobile=18351922521&password=kiralacus (127.0.0.1) 1.75ms
+[I 180712 15:17:11 web:2106] 304 GET /static/js/ihome/login.js (127.0.0.1) 1.14ms
+[I 180712 15:17:36 web:2106] 200 GET /register.html (127.0.0.1) 1.75ms
+[I 180712 15:17:36 web:2106] 200 GET /static/css/ihome/register.css (127.0.0.1) 1.54ms
+[I 180712 15:17:36 web:2106] 200 GET /static/js/ihome/register.js (127.0.0.1) 1.62ms
+[I 180712 15:17:37 web:2106] 200 GET /api/pitcode?precodeid=&codeid=d0d862a3-b80b-41de-b84c-d7f56fd62a22 (127.0.0.1) 18.30ms
+[I 180712 15:18:46 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180712 15:18:46 web:2106] 304 GET /register.html (127.0.0.1) 9.28ms
+[I 180712 15:18:46 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.43ms
+[I 180712 15:18:47 web:2106] 200 GET /api/pitcode?precodeid=&codeid=0bd327f8-fe4e-4be9-acbe-cd3db28c9d7e (127.0.0.1) 42.89ms
+[I 180712 15:19:18 web:2106] 200 POST /api/smscode (127.0.0.1) 176.65ms
+[E 180712 15:19:46 web:1621] Uncaught exception POST /api/register (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/register', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Passport.py", line 31, in post
+        self.write(dict(RET.DATAEXIST, errmsg='该手机号已存在'))
+    ValueError: dictionary update sequence element #0 has length 1; 2 is required
+[E 180712 15:19:46 web:2106] 500 POST /api/register (127.0.0.1) 3.55ms
+[E 180712 15:19:59 web:1621] Uncaught exception POST /api/register (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/register', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Passport.py", line 31, in post
+        self.write(dict(RET.DATAEXIST, errmsg='该手机号已存在'))
+    ValueError: dictionary update sequence element #0 has length 1; 2 is required
+[E 180712 15:19:59 web:2106] 500 POST /api/register (127.0.0.1) 2.51ms
+[I 180712 15:21:11 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180712 15:21:12 web:2106] 304 GET /register.html (127.0.0.1) 7.77ms
+[I 180712 15:21:12 web:2106] 304 GET /static/js/ihome/register.js (127.0.0.1) 1.17ms
+[I 180712 15:21:13 web:2106] 200 GET /api/pitcode?precodeid=&codeid=148e9670-ce33-4c8b-b63a-1f4d0e2ae406 (127.0.0.1) 44.22ms
+[I 180712 15:21:13 web:2106] 304 GET /register.html (127.0.0.1) 1.46ms
+[I 180712 15:21:13 web:2106] 200 GET /api/pitcode?precodeid=&codeid=bee2e60a-0419-4d01-969b-f7e88f9a427c (127.0.0.1) 21.60ms
+[I 180712 15:21:23 web:2106] 200 POST /api/smscode (127.0.0.1) 173.67ms
+[I 180712 15:21:38 web:2106] 200 POST /api/register (127.0.0.1) 2.54ms
+[I 180712 15:22:26 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Verifycode.py modified; restarting server
+[I 180712 15:22:40 web:2106] 200 GET /login.html (127.0.0.1) 7.24ms
+[I 180712 15:22:40 web:2106] 304 GET /static/js/ihome/login.js (127.0.0.1) 1.55ms
+[I 180712 15:26:30 web:2106] 200 GET /login.html?mobile=18351922521&password=kiralacus (127.0.0.1) 2.23ms
+[I 180712 15:26:31 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 2.39ms
+[I 180712 15:26:31 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 11.07ms
+[I 180712 15:26:31 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 9.63ms
+[I 180712 15:26:31 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 8.73ms
+[I 180712 15:26:31 web:2106] 200 GET /static/css/ihome/login.css (127.0.0.1) 7.58ms
+[I 180712 15:26:31 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 4.37ms
+[I 180712 15:26:31 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 5.64ms
+[I 180712 15:26:31 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 4.82ms
+[I 180712 15:26:31 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 8.91ms
+[I 180712 15:26:31 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 2.88ms
+[I 180712 15:26:31 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 6.14ms
+[I 180712 15:26:43 web:2106] 304 GET /static/js/ihome/login.js (127.0.0.1) 1.14ms
+[I 180712 15:27:14 web:2106] 304 GET /login.html?mobile=18351922521&password=kiralacus (127.0.0.1) 1.29ms
+[I 180712 15:27:14 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 1.51ms
+[I 180712 15:27:22 web:2106] 200 GET /login.html?mobile=18&password=19950303a (127.0.0.1) 1.82ms
+[I 180712 15:27:22 web:2106] 304 GET /static/js/ihome/login.js (127.0.0.1) 1.18ms
+[I 180712 15:27:28 web:2106] 200 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 1.72ms
+[I 180712 15:27:29 web:2106] 304 GET /static/js/ihome/login.js (127.0.0.1) 1.14ms
+[I 180712 15:32:02 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 1.29ms
+[I 180712 15:32:02 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 1.60ms
+[I 180712 15:32:35 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 1.38ms
+[I 180712 15:32:35 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 1.72ms
+[E 180712 15:32:43 web:1621] Uncaught exception POST /api/login (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/login', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Passport.py", line 61, in post
+        mobile = self.json_dict.get('mobile')
+    AttributeError: 'NoneType' object has no attribute 'get'
+[E 180712 15:32:43 web:2106] 500 POST /api/login (127.0.0.1) 2.77ms
+[I 180712 15:37:04 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 1.61ms
+[I 180712 15:37:04 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 1.56ms
+[I 180712 15:37:14 web:2106] 200 POST /api/login (127.0.0.1) 19.63ms
+[E 180712 15:37:23 Passport:84] (1146, "Table 'ihome.ih_use_profile' doesn't exist")
+[I 180712 15:37:23 web:2106] 200 POST /api/login (127.0.0.1) 34.89ms
+[E 180712 15:37:25 Passport:84] (1146, "Table 'ihome.ih_use_profile' doesn't exist")
+[I 180712 15:37:25 web:2106] 200 POST /api/login (127.0.0.1) 2.94ms
+[I 180712 15:39:07 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180712 15:39:08 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 9.68ms
+[I 180712 15:39:08 web:2106] 304 GET /static/js/ihome/login.js (127.0.0.1) 1.13ms
+[E 180712 15:39:15 Passport:83] (1146, "Table 'ihome.ih_use_profile' doesn't exist")
+[I 180712 15:39:15 web:2106] 200 POST /api/login (127.0.0.1) 2.57ms
+[I 180712 15:39:51 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180712 15:39:51 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 10.04ms
+[I 180712 15:39:52 web:2106] 304 GET /static/js/ihome/login.js (127.0.0.1) 1.09ms
+[I 180712 15:39:52 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 1.33ms
+[E 180712 15:39:59 torndb:236] Error connecting to MySQL on 127.0.0.1
+[E 180712 15:39:59 Passport:83] (1054, "Unknown column 'up_password' in 'field list'")
+[I 180712 15:39:59 web:2106] 200 POST /api/login (127.0.0.1) 22.55ms
+[I 180712 15:40:25 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180712 15:40:26 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 8.20ms
+[I 180712 15:40:26 web:2106] 304 GET /static/js/ihome/login.js (127.0.0.1) 1.23ms
+[I 180712 15:40:33 web:2106] 200 POST /api/login (127.0.0.1) 119.33ms
+[I 180712 15:40:43 web:2106] 200 POST /api/login (127.0.0.1) 2.99ms
+[I 180712 15:40:51 web:2106] 200 POST /api/login (127.0.0.1) 2.77ms
+[I 180712 15:41:05 web:2106] 200 POST /api/login (127.0.0.1) 2.43ms
+[I 180712 15:41:12 web:2106] 200 POST /api/login (127.0.0.1) 3.31ms
+[I 180712 15:42:31 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180712 15:42:31 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 8.43ms
+[I 180712 15:42:32 web:2106] 304 GET /static/js/ihome/login.js (127.0.0.1) 1.10ms
+[I 180712 15:42:44 web:2106] 200 POST /api/login (127.0.0.1) 3.00ms
+[I 180712 15:44:29 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180712 15:44:30 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 8.11ms
+[I 180712 15:44:30 web:2106] 304 GET /static/js/ihome/login.js (127.0.0.1) 1.15ms
+[I 180712 15:44:31 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 1.36ms
+[I 180712 15:44:46 web:2106] 200 POST /api/login (127.0.0.1) 3.40ms
+[I 180712 15:46:06 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180712 15:48:08 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180712 15:48:08 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 6.77ms
+[I 180712 15:48:09 web:2106] 304 GET /static/js/ihome/login.js (127.0.0.1) 1.14ms
+[I 180712 15:48:09 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 1.36ms
+[I 180712 15:48:20 web:2106] 200 POST /api/login (127.0.0.1) 2.64ms
+[I 180712 15:49:47 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180712 15:49:48 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 6.54ms
+[I 180712 15:49:48 web:2106] 304 GET /static/js/ihome/login.js (127.0.0.1) 1.12ms
+[I 180712 15:50:00 web:2106] 200 POST /api/login (127.0.0.1) 3.48ms
+[I 180712 15:50:41 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180712 15:50:41 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 7.09ms
+[I 180712 15:50:42 web:2106] 304 GET /login.html?mobile=18351922521&password=19950303a (127.0.0.1) 1.43ms
+[I 180712 15:50:57 web:2106] 200 POST /api/login (127.0.0.1) 2.43ms
+[I 180712 15:50:58 web:2106] 200 GET / (127.0.0.1) 1.73ms
+[I 180712 15:50:58 web:2106] 200 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 8.70ms
+[I 180712 15:50:58 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 7.96ms
+[I 180712 15:50:58 web:2106] 200 GET /static/css/ihome/index.css (127.0.0.1) 6.99ms
+[I 180712 15:50:58 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 3.93ms
+[I 180712 15:50:58 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 13.39ms
+[I 180712 15:50:58 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 1.48ms
+[I 180712 15:50:58 web:2106] 200 GET /static/js/template.js (127.0.0.1) 1.67ms
+[I 180712 15:50:58 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 1.68ms
+[W 180712 15:50:58 web:2106] 404 GET /api/check_login (127.0.0.1) 2.98ms
+[W 180712 15:50:58 web:2106] 404 GET /api/house/index (127.0.0.1) 1.45ms
+[W 180712 15:50:59 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.20ms
+[W 180712 15:59:32 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.30ms
+[I 180712 17:28:20 web:2106] 200 GET /auth.html (127.0.0.1) 66.49ms
+[I 180712 17:28:20 web:2106] 200 GET /static/css/ihome/profile.css (127.0.0.1) 4.86ms
+[I 180712 17:28:20 web:2106] 200 GET /static/js/jquery.form.min.js (127.0.0.1) 4.17ms
+[I 180712 17:28:20 web:2106] 200 GET /static/js/ihome/auth.js (127.0.0.1) 3.25ms
+[W 180712 17:28:21 web:2106] 404 GET /api/profile/auth (127.0.0.1) 61.56ms
+[I 180712 17:28:35 web:2106] 200 GET /booking.html (127.0.0.1) 4.90ms
+[I 180712 17:28:35 web:2106] 200 GET /static/css/ihome/booking.css (127.0.0.1) 2.97ms
+[I 180712 17:28:35 web:2106] 200 GET /static/js/ihome/booking.js (127.0.0.1) 2.24ms
+[W 180712 17:28:35 web:2106] 404 GET /api/check_login (127.0.0.1) 1.52ms
+[W 180712 17:28:36 web:2106] 404 GET /api/house/info?house_id=undefined (127.0.0.1) 1.50ms
+[I 180712 17:28:50 web:2106] 200 GET /lorders.html (127.0.0.1) 1.76ms
+[I 180712 17:28:50 web:2106] 200 GET /static/css/ihome/orders.css (127.0.0.1) 3.16ms
+[I 180712 17:28:50 web:2106] 200 GET /static/js/ihome/lorders.js (127.0.0.1) 2.28ms
+[W 180712 17:28:50 web:2106] 404 GET /api/order/my?role=landlord (127.0.0.1) 1.45ms
+[I 180712 17:29:05 web:2106] 200 GET /my.html (127.0.0.1) 1.88ms
+[I 180712 17:29:05 web:2106] 200 GET /static/css/ihome/my.css (127.0.0.1) 1.55ms
+[I 180712 17:29:05 web:2106] 200 GET /static/js/ihome/my.js (127.0.0.1) 1.62ms
+[W 180712 17:29:06 web:2106] 404 GET /api/profile (127.0.0.1) 1.41ms
+[I 180712 17:29:28 web:2106] 200 GET /myhouse.html (127.0.0.1) 1.94ms
+[I 180712 17:29:28 web:2106] 200 GET /static/css/ihome/myhouse.css (127.0.0.1) 3.13ms
+[I 180712 17:29:28 web:2106] 200 GET /static/js/ihome/myhouse.js (127.0.0.1) 2.51ms
+[W 180712 17:29:28 web:2106] 404 GET /api/profile/auth (127.0.0.1) 1.38ms
+[I 180712 17:29:38 web:2106] 200 GET /newhouse.html (127.0.0.1) 1.70ms
+[I 180712 17:29:38 web:2106] 200 GET /static/css/ihome/newhouse.css (127.0.0.1) 1.54ms
+[I 180712 17:29:38 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.56ms
+[W 180712 17:29:38 web:2106] 404 GET /api/house/area (127.0.0.1) 1.37ms
+[W 180712 17:29:49 web:2106] 404 GET /order.html (127.0.0.1) 1.25ms
+[I 180712 17:30:06 web:2106] 200 GET /orders.html (127.0.0.1) 1.98ms
+[I 180712 17:30:06 web:2106] 200 GET /static/js/ihome/orders.js (127.0.0.1) 1.50ms
+[W 180712 17:30:06 web:2106] 404 GET /api/order/my?role=custom (127.0.0.1) 1.41ms
+[I 180712 17:30:18 web:2106] 200 GET /profile.html (127.0.0.1) 1.67ms
+[I 180712 17:30:18 web:2106] 200 GET /static/js/ihome/profile.js (127.0.0.1) 1.75ms
+[W 180712 17:30:18 web:2106] 404 GET /api/profile (127.0.0.1) 1.33ms
+[I 180712 17:30:32 web:2106] 200 GET /search.html (127.0.0.1) 2.16ms
+[I 180712 17:30:32 web:2106] 200 GET /static/css/ihome/search.css (127.0.0.1) 1.55ms
+[I 180712 17:30:32 web:2106] 200 GET /static/js/ihome/search.js (127.0.0.1) 1.69ms
+[W 180712 17:30:32 web:2106] 404 GET /api/house/area (127.0.0.1) 1.43ms
+[W 180712 17:30:39 web:2106] 404 GET /api/check_login (127.0.0.1) 1.39ms
+[W 180712 17:30:39 web:2106] 404 GET /api/house/index (127.0.0.1) 1.46ms
+[W 180712 17:30:39 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.33ms
+[I 180712 17:39:47 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180713 09:15:09 web:2106] 200 GET /api/check_login (127.0.0.1) 17.76ms
+[I 180713 09:17:11 web:2106] 200 GET /login.html (127.0.0.1) 492.66ms
+[I 180713 09:17:12 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 530.81ms
+[I 180713 09:17:12 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 419.38ms
+[I 180713 09:17:12 web:2106] 200 GET /static/css/ihome/login.css (127.0.0.1) 299.39ms
+[I 180713 09:17:12 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 277.79ms
+[I 180713 09:17:12 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 234.33ms
+[I 180713 09:17:12 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 160.19ms
+[I 180713 09:17:12 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 86.84ms
+[I 180713 09:17:12 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 59.97ms
+[I 180713 09:17:12 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 110.24ms
+[I 180713 09:17:12 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 43.18ms
+[I 180713 09:17:13 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.69ms
+[I 180713 09:17:18 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 185.05ms
+[I 180713 09:17:37 web:2106] 200 POST /api/login (127.0.0.1) 911.56ms
+[I 180713 09:17:38 web:2106] 200 GET / (127.0.0.1) 61.07ms
+[I 180713 09:17:39 web:2106] 200 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 393.11ms
+[I 180713 09:17:39 web:2106] 200 GET /static/css/ihome/index.css (127.0.0.1) 304.05ms
+[I 180713 09:17:39 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 239.68ms
+[I 180713 09:17:39 web:2106] 200 GET /static/js/template.js (127.0.0.1) 19.18ms
+[I 180713 09:17:39 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 6.28ms
+[I 180713 09:17:39 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 4.72ms
+[I 180713 09:17:39 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 31.48ms
+[I 180713 09:17:39 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 69.00ms
+[W 180713 09:17:41 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 53.08ms
+[I 180713 09:21:13 autoreload:196] /home/kiralacus/tornado/ihome_tornado/utils/session.py modified; restarting server
+[I 180713 09:21:56 web:2106] 200 POST /api/login (127.0.0.1) 4.04ms
+[W 180713 09:21:57 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 2.33ms
+[I 180713 09:25:17 web:2106] 200 GET /api/check_login (127.0.0.1) 1.65ms
+[I 180713 09:29:24 web:2106] 200 GET /api/check_login (127.0.0.1) 2.27ms
+[I 180713 09:29:31 web:2106] 200 GET /api/check_login (127.0.0.1) 1.30ms
+[I 180713 09:30:00 web:2106] 200 GET /api/check_login (127.0.0.1) 2.31ms
+[I 180713 09:40:59 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180713 09:44:19 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180713 09:46:11 web:2106] 304 GET / (127.0.0.1) 113.12ms
+[I 180713 09:46:12 web:2106] 304 GET / (127.0.0.1) 1.37ms
+[I 180713 09:47:09 web:2106] 304 GET / (127.0.0.1) 1.37ms
+[W 180713 09:47:11 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 71.96ms
+[I 180713 09:48:41 web:2106] 200 GET / (127.0.0.1) 2.04ms
+[I 180713 09:48:41 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 136.12ms
+[I 180713 09:48:41 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 77.83ms
+[I 180713 09:48:41 web:2106] 200 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 67.19ms
+[I 180713 09:48:41 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 48.24ms
+[I 180713 09:48:41 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 29.44ms
+[I 180713 09:48:41 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 270.84ms
+[I 180713 09:48:41 web:2106] 200 GET /static/css/ihome/index.css (127.0.0.1) 31.88ms
+[I 180713 09:48:41 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 14.73ms
+[I 180713 09:48:41 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 9.71ms
+[I 180713 09:48:41 web:2106] 200 GET /static/js/template.js (127.0.0.1) 6.86ms
+[I 180713 09:48:41 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 29.93ms
+[I 180713 09:48:41 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 24.63ms
+[I 180713 09:48:42 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 46.67ms
+[I 180713 09:48:42 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 33.00ms
+[I 180713 09:48:42 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 4.66ms
+[I 180713 09:48:42 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 32.16ms
+[I 180713 09:48:42 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 18.75ms
+[W 180713 09:48:42 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.17ms
+[I 180713 09:48:42 web:2106] 200 GET /favicon.ico (127.0.0.1) 35.68ms
+[I 180713 09:49:09 web:2106] 304 GET / (127.0.0.1) 1.37ms
+[I 180713 09:49:10 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 1.56ms
+[I 180713 09:49:10 web:2106] 200 GET /api/check_login (127.0.0.1) 18.30ms
+[W 180713 09:49:10 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.17ms
+[I 180713 09:49:36 web:2106] 200 GET /login.html (127.0.0.1) 108.96ms
+[I 180713 09:49:36 web:2106] 200 GET /static/css/ihome/login.css (127.0.0.1) 30.11ms
+[I 180713 09:49:36 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 73.31ms
+[I 180713 09:49:47 web:2106] 200 POST /api/login (127.0.0.1) 785.07ms
+[I 180713 09:49:48 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 1.05ms
+[I 180713 09:49:49 web:2106] 304 GET /api/check_login (127.0.0.1) 1.42ms
+[I 180713 09:50:29 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180713 09:50:38 web:2106] 304 GET / (127.0.0.1) 38.38ms
+[I 180713 09:50:38 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 1.13ms
+[I 180713 09:50:38 web:2106] 304 GET /api/check_login (127.0.0.1) 1.86ms
+[I 180713 09:50:38 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.71ms
+[I 180713 09:51:53 autoreload:196] /home/kiralacus/tornado/ihome_tornado/utils/session.py modified; restarting server
+[I 180713 09:51:55 web:2106] 304 GET / (127.0.0.1) 8.89ms
+[I 180713 09:51:55 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 1.16ms
+[I 180713 09:51:55 web:2106] 304 GET /api/check_login (127.0.0.1) 1.74ms
+[I 180713 09:51:55 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.66ms
+[I 180713 09:52:20 web:2106] 304 GET / (127.0.0.1) 1.32ms
+[I 180713 09:52:20 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 1.20ms
+[I 180713 09:52:21 web:2106] 304 GET /api/check_login (127.0.0.1) 1.74ms
+[I 180713 09:52:21 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.53ms
+[I 180713 09:56:07 autoreload:196] /home/kiralacus/tornado/ihome_tornado/utils/session.py modified; restarting server
+[I 180713 09:56:10 web:2106] 304 GET / (127.0.0.1) 6.77ms
+[I 180713 09:56:10 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 1.15ms
+[I 180713 09:56:10 web:2106] 200 GET /api/check_login (127.0.0.1) 2.20ms
+[I 180713 09:56:10 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.70ms
+[I 180713 09:57:06 web:2106] 200 GET / (127.0.0.1) 2.07ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 2.68ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 1.74ms
+[I 180713 09:57:06 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 9.42ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 8.75ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 7.79ms
+[I 180713 09:57:06 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 6.68ms
+[I 180713 09:57:06 web:2106] 200 GET /static/css/ihome/index.css (127.0.0.1) 12.77ms
+[I 180713 09:57:06 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 11.19ms
+[I 180713 09:57:06 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 10.88ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 1.63ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 2.14ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 1.76ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 1.55ms
+[I 180713 09:57:06 web:2106] 200 GET /static/js/template.js (127.0.0.1) 1.57ms
+[I 180713 09:57:06 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 1.60ms
+[I 180713 09:57:06 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 2.41ms
+[E 180713 09:57:07 web:1621] Uncaught exception GET /api/check_login (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/check_login', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Passport.py", line 108, in get
+        if self.get_current_user():
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/BaseHandler.py", line 43, in get_current_user
+        self.session = Session(self)
+      File "/home/kiralacus/tornado/ihome_tornado/utils/session.py", line 17, in __init__
+        print '========'+self.session_id
+    TypeError: cannot concatenate 'str' and 'NoneType' objects
+[E 180713 09:57:07 web:2106] 500 GET /api/check_login (127.0.0.1) 49.93ms
+[I 180713 09:57:07 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.62ms
+[W 180713 09:57:17 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.33ms
+[I 180713 09:57:17 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 7.59ms
+[I 180713 09:58:59 web:2106] 200 GET /login.html (127.0.0.1) 1.84ms
+[I 180713 09:58:59 web:2106] 200 GET /static/css/ihome/login.css (127.0.0.1) 1.51ms
+[I 180713 09:59:00 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 1.47ms
+[E 180713 09:59:11 web:1621] Uncaught exception POST /api/login (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/login', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Passport.py", line 100, in post
+        session = Session(self)
+      File "/home/kiralacus/tornado/ihome_tornado/utils/session.py", line 17, in __init__
+        print '========'+self.session_id
+    TypeError: cannot concatenate 'str' and 'NoneType' objects
+[E 180713 09:59:11 web:2106] 500 POST /api/login (127.0.0.1) 4.77ms
+[I 180713 10:00:12 autoreload:196] /home/kiralacus/tornado/ihome_tornado/utils/session.py modified; restarting server
+[I 180713 10:00:15 web:2106] 304 GET /login.html (127.0.0.1) 9.22ms
+[I 180713 10:00:27 web:2106] 200 POST /api/login (127.0.0.1) 4.35ms
+[I 180713 10:00:28 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 1.13ms
+[I 180713 10:00:29 web:2106] 200 GET /api/check_login (127.0.0.1) 1.98ms
+[W 180713 10:00:29 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 2.33ms
+[I 180713 10:00:59 web:2106] 200 GET /my.html (127.0.0.1) 35.20ms
+[I 180713 10:00:59 web:2106] 200 GET /static/css/ihome/my.css (127.0.0.1) 53.10ms
+[I 180713 10:00:59 web:2106] 200 GET /static/js/ihome/my.js (127.0.0.1) 11.73ms
+[W 180713 10:01:00 web:2106] 404 GET /api/profile (127.0.0.1) 1.41ms
+[I 180713 10:26:49 autoreload:196] /home/kiralacus/tornado/ihome_tornado/urls.py modified; restarting server
+[I 180713 10:30:03 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180713 10:30:05 web:2106] 304 GET /my.html (127.0.0.1) 374.77ms
+[W 180713 10:30:10 web:2106] 404 GET /api/profile (127.0.0.1) 242.39ms
+[I 180713 10:30:37 web:2106] 304 GET /my.html (127.0.0.1) 1.45ms
+[W 180713 10:30:37 web:2106] 404 GET /api/profile (127.0.0.1) 1.68ms
+[I 180713 10:31:51 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180713 10:31:53 web:2106] 304 GET /my.html (127.0.0.1) 49.68ms
+[W 180713 10:31:55 web:2106] 404 GET /api/profile (127.0.0.1) 191.09ms
+[E 180713 10:31:59 session:49] HTTP 405: Method Not Allowed
+[I 180713 10:31:59 web:2106] 200 GET /api/logout (127.0.0.1) 478.71ms
+[I 180713 10:32:47 web:2106] 304 GET /my.html (127.0.0.1) 1.53ms
+[W 180713 10:32:47 web:2106] 404 GET /api/profile (127.0.0.1) 1.37ms
+[I 180713 10:33:10 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 11.82ms
+[I 180713 10:33:10 web:2106] 200 GET /api/check_login (127.0.0.1) 1.49ms
+[W 180713 10:33:10 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 38.22ms
+[I 180713 10:33:27 web:2106] 200 POST /api/login (127.0.0.1) 538.07ms
+[I 180713 10:33:29 web:2106] 200 GET /api/check_login (127.0.0.1) 1.69ms
+[W 180713 10:33:29 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.27ms
+[W 180713 10:33:31 web:2106] 404 GET /api/profile (127.0.0.1) 1.41ms
+[E 180713 10:33:34 session:49] HTTP 405: Method Not Allowed
+[I 180713 10:33:34 web:2106] 304 GET /api/logout (127.0.0.1) 3.00ms
+[I 180713 10:34:09 web:2106] 200 GET /my.html (127.0.0.1) 23.84ms
+[I 180713 10:34:09 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 126.13ms
+[I 180713 10:34:09 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 34.56ms
+[I 180713 10:34:09 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 24.09ms
+[I 180713 10:34:09 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 18.80ms
+[I 180713 10:34:09 web:2106] 200 GET /static/css/ihome/my.css (127.0.0.1) 4.54ms
+[I 180713 10:34:09 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 166.87ms
+[I 180713 10:34:09 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 10.09ms
+[I 180713 10:34:09 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 13.79ms
+[I 180713 10:34:09 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 2.01ms
+[I 180713 10:34:10 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 67.94ms
+[I 180713 10:34:10 web:2106] 200 GET /static/js/ihome/my.js (127.0.0.1) 63.41ms
+[I 180713 10:34:10 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 47.72ms
+[I 180713 10:34:10 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 18.26ms
+[W 180713 10:34:10 web:2106] 404 GET /api/profile (127.0.0.1) 1.39ms
+[I 180713 10:34:11 web:2106] 200 GET /favicon.ico (127.0.0.1) 27.46ms
+[I 180713 10:34:15 web:2106] 200 GET /api/logout (127.0.0.1) 1.39ms
+[I 180713 10:34:19 web:2106] 200 GET / (127.0.0.1) 23.73ms
+[I 180713 10:34:19 web:2106] 200 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 48.62ms
+[I 180713 10:34:19 web:2106] 200 GET /static/css/ihome/index.css (127.0.0.1) 26.10ms
+[I 180713 10:34:19 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 14.65ms
+[I 180713 10:34:19 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 5.75ms
+[I 180713 10:34:19 web:2106] 200 GET /static/js/template.js (127.0.0.1) 67.55ms
+[I 180713 10:34:19 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 35.32ms
+[I 180713 10:34:19 web:2106] 200 GET /api/check_login (127.0.0.1) 1.34ms
+[W 180713 10:34:19 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.24ms
+[I 180713 10:34:26 web:2106] 200 GET /login.html (127.0.0.1) 88.51ms
+[I 180713 10:34:26 web:2106] 200 GET /static/css/ihome/login.css (127.0.0.1) 229.91ms
+[I 180713 10:34:26 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 65.41ms
+[I 180713 10:34:43 web:2106] 200 POST /api/login (127.0.0.1) 410.33ms
+[I 180713 10:34:44 web:2106] 200 GET /api/check_login (127.0.0.1) 1.62ms
+[W 180713 10:34:44 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.18ms
+[I 180713 10:34:47 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.16ms
+[W 180713 10:34:47 web:2106] 404 GET /api/profile (127.0.0.1) 1.44ms
+[E 180713 10:34:52 session:49] HTTP 405: Method Not Allowed
+[I 180713 10:34:52 web:2106] 200 GET /api/logout (127.0.0.1) 2.70ms
+[I 180713 10:35:40 web:2106] 304 GET /my.html (127.0.0.1) 29.84ms
+[I 180713 10:35:40 web:2106] 200 GET /static/js/ihome/my.js (127.0.0.1) 1.65ms
+[W 180713 10:35:40 web:2106] 404 GET /api/profile (127.0.0.1) 1.37ms
+[W 180713 10:35:47 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.16ms
+[I 180713 10:35:49 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.17ms
+[W 180713 10:35:49 web:2106] 404 GET /api/profile (127.0.0.1) 1.54ms
+[I 180713 10:35:56 web:2106] 304 GET /my.html (127.0.0.1) 1.29ms
+[I 180713 10:35:56 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.13ms
+[W 180713 10:35:56 web:2106] 404 GET /api/profile (127.0.0.1) 1.39ms
+[W 180713 10:35:58 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.25ms
+[W 180713 10:36:01 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.31ms
+[I 180713 10:36:03 web:2106] 304 GET / (127.0.0.1) 27.25ms
+[I 180713 10:36:03 web:2106] 200 GET /api/check_login (127.0.0.1) 1.44ms
+[W 180713 10:36:03 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.16ms
+[I 180713 10:36:18 web:2106] 200 POST /api/login (127.0.0.1) 145.96ms
+[I 180713 10:36:19 web:2106] 200 GET /api/check_login (127.0.0.1) 1.87ms
+[W 180713 10:36:19 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.17ms
+[I 180713 10:36:21 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.16ms
+[W 180713 10:36:21 web:2106] 404 GET /api/profile (127.0.0.1) 1.55ms
+[E 180713 10:36:25 session:49] HTTP 405: Method Not Allowed
+[I 180713 10:36:25 web:2106] 304 GET /api/logout (127.0.0.1) 4.40ms
+[I 180713 10:37:07 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Passport.py modified; restarting server
+[I 180713 10:37:26 web:2106] 200 POST /api/login (127.0.0.1) 194.72ms
+[I 180713 10:37:27 web:2106] 304 GET /api/check_login (127.0.0.1) 2.05ms
+[W 180713 10:37:27 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 54.10ms
+[I 180713 10:37:28 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 24.95ms
+[W 180713 10:37:29 web:2106] 404 GET /api/profile (127.0.0.1) 1.49ms
+[E 180713 10:37:31 session:49] HTTP 405: Method Not Allowed
+[I 180713 10:37:31 web:2106] 304 GET /api/logout (127.0.0.1) 2.72ms
+[I 180713 10:41:29 autoreload:196] /home/kiralacus/tornado/ihome_tornado/utils/session.py modified; restarting server
+[I 180713 10:41:56 web:2106] 200 POST /api/login (127.0.0.1) 9.89ms
+[I 180713 10:41:56 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 15.00ms
+[I 180713 10:41:57 web:2106] 304 GET /api/check_login (127.0.0.1) 1.79ms
+[W 180713 10:41:57 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 2.22ms
+[I 180713 10:41:58 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.23ms
+[W 180713 10:41:59 web:2106] 404 GET /api/profile (127.0.0.1) 1.55ms
+[I 180713 10:42:00 web:2106] 200 GET /api/logout (127.0.0.1) 2.78ms
+[I 180713 10:42:02 web:2106] 200 GET /api/check_login (127.0.0.1) 1.28ms
+[W 180713 10:42:02 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.15ms
+[I 180713 10:43:09 web:2106] 200 GET /profile.html (127.0.0.1) 190.63ms
+[I 180713 10:43:09 web:2106] 200 GET /static/css/ihome/profile.css (127.0.0.1) 449.74ms
+[I 180713 10:43:09 web:2106] 200 GET /static/js/jquery.form.min.js (127.0.0.1) 150.87ms
+[I 180713 10:43:09 web:2106] 200 GET /static/js/ihome/profile.js (127.0.0.1) 121.51ms
+[W 180713 10:43:11 web:2106] 404 GET /api/profile (127.0.0.1) 1.65ms
+[I 180713 10:49:40 autoreload:196] /home/kiralacus/tornado/ihome_tornado/urls.py modified; restarting server
+[I 180713 11:00:06 web:2106] 304 GET /my.html (127.0.0.1) 139.71ms
+[I 180713 11:00:06 web:2106] 200 GET /static/js/ihome/my.js (127.0.0.1) 57.11ms
+[W 180713 11:00:09 web:2106] 405 GET /api/profile (127.0.0.1) 1.03ms
+[I 180713 11:00:12 web:2106] 200 GET /api/logout (127.0.0.1) 71.40ms
+[I 180713 11:00:37 web:2106] 200 POST /api/login (127.0.0.1) 489.41ms
+[I 180713 11:00:39 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 5.52ms
+[I 180713 11:00:39 web:2106] 200 GET /api/check_login (127.0.0.1) 1.63ms
+[W 180713 11:00:40 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 448.13ms
+[I 180713 11:00:42 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.25ms
+[W 180713 11:00:42 web:2106] 405 GET /api/profile (127.0.0.1) 0.92ms
+[I 180713 11:00:45 web:2106] 200 GET /api/logout (127.0.0.1) 3.01ms
+[I 180713 11:00:47 web:2106] 200 GET /api/check_login (127.0.0.1) 1.27ms
+[W 180713 11:00:47 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.27ms
+[I 180713 11:01:05 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.15ms
+[W 180713 11:01:06 web:2106] 405 GET /api/profile (127.0.0.1) 0.90ms
+[I 180713 11:01:08 web:2106] 200 GET /api/logout (127.0.0.1) 1.59ms
+[I 180713 11:01:16 web:2106] 304 GET /login.html (127.0.0.1) 7.36ms
+[I 180713 11:01:56 web:2106] 200 POST /api/login (127.0.0.1) 10.34ms
+[I 180713 11:01:57 web:2106] 200 GET /api/check_login (127.0.0.1) 1.74ms
+[W 180713 11:01:57 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.25ms
+[I 180713 11:01:59 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.25ms
+[W 180713 11:02:00 web:2106] 405 GET /api/profile (127.0.0.1) 0.92ms
+[I 180713 11:02:49 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180713 15:55:47 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180713 16:00:55 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180713 16:03:09 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[E 180713 16:05:01 session:27] Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180713 16:05:01 web:1621] Uncaught exception POST /api/profile/avatar (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/profile/avatar', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1520, in _execute
+        result = self.prepare()
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/BaseHandler.py", line 16, in prepare
+        self.xsrf_token
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1264, in xsrf_token
+        expires_days = 30 if self.current_user else None
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1184, in current_user
+        self._current_user = self.get_current_user()
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/BaseHandler.py", line 43, in get_current_user
+        self.session = Session(self)
+      File "/home/kiralacus/tornado/ihome_tornado/utils/session.py", line 28, in __init__
+        raise e
+    ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180713 16:05:01 web:2106] 500 POST /api/profile/avatar (127.0.0.1) 104.66ms
+[D 180713 16:05:50 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Fri, 13 Jul 2018 08:05:50 GMT
+    /kiralacus/f2535a08ebb84533a126e29dc6e4ca3a.jpg
+[D 180713 16:05:50 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180713 16:05:50 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /f2535a08ebb84533a126e29dc6e4ca3a.jpg HTTP/1.1" 200 0
+[E 180713 16:05:50 web:1621] Uncaught exception POST /api/profile/avatar (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/profile/avatar', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Profile.py", line 21, in post
+        url = pre_url + imageName
+    TypeError: cannot concatenate 'str' and 'NoneType' objects
+[E 180713 16:05:50 web:2106] 500 POST /api/profile/avatar (127.0.0.1) 453.57ms
+[I 180713 16:07:10 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[D 180713 16:07:11 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Fri, 13 Jul 2018 08:07:11 GMT
+    /kiralacus/c64330f5d465459f8134de7b6a210301.jpg
+[D 180713 16:07:11 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180713 16:07:12 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /c64330f5d465459f8134de7b6a210301.jpg HTTP/1.1" 200 0
+[E 180713 16:07:12 web:1621] Uncaught exception POST /api/profile/avatar (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/profile/avatar', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Profile.py", line 21, in post
+        url = pre_url + imageName
+    TypeError: cannot concatenate 'str' and 'NoneType' objects
+[E 180713 16:07:12 web:2106] 500 POST /api/profile/avatar (127.0.0.1) 233.95ms
+[I 180713 16:07:59 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[D 180713 16:08:15 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Fri, 13 Jul 2018 08:08:15 GMT
+    /kiralacus/d7cd40e1c7034050a6a149ee15534376.jpg
+[D 180713 16:08:15 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180713 16:08:15 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /d7cd40e1c7034050a6a149ee15534376.jpg HTTP/1.1" 200 0
+[E 180713 16:08:15 web:1621] Uncaught exception POST /api/profile/avatar (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/profile/avatar', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Profile.py", line 22, in post
+        url = pre_url + imageName
+    TypeError: cannot concatenate 'str' and 'NoneType' objects
+[E 180713 16:08:15 web:2106] 500 POST /api/profile/avatar (127.0.0.1) 1054.62ms
+[I 180713 16:08:50 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[D 180713 16:08:53 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Fri, 13 Jul 2018 08:08:53 GMT
+    /kiralacus/eea78a9735a746778564f9ad6be0b64f.jpg
+[D 180713 16:08:53 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180713 16:08:53 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /eea78a9735a746778564f9ad6be0b64f.jpg HTTP/1.1" 200 0
+[E 180713 16:08:53 web:1621] Uncaught exception POST /api/profile/avatar (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/profile/avatar', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Profile.py", line 23, in post
+        url = pre_url + imageName
+    TypeError: cannot concatenate 'str' and 'NoneType' objects
+[E 180713 16:08:53 web:2106] 500 POST /api/profile/avatar (127.0.0.1) 453.41ms
+[I 180713 16:09:09 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[D 180713 16:09:15 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Fri, 13 Jul 2018 08:09:15 GMT
+    /kiralacus/bb417edb90b3465aaf3d4eb211da3837.jpg
+[D 180713 16:09:15 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180713 16:09:16 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /bb417edb90b3465aaf3d4eb211da3837.jpg HTTP/1.1" 200 0
+[E 180713 16:09:16 web:1621] Uncaught exception POST /api/profile/avatar (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/profile/avatar', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Profile.py", line 23, in post
+        url = pre_url + imageName
+    TypeError: cannot concatenate 'str' and 'NoneType' objects
+[E 180713 16:09:16 web:2106] 500 POST /api/profile/avatar (127.0.0.1) 243.35ms
+[I 180713 16:10:17 autoreload:196] /home/kiralacus/tornado/ihome_tornado/utils/aliyun_storage.py modified; restarting server
+[D 180713 16:10:18 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Fri, 13 Jul 2018 08:10:18 GMT
+    /kiralacus/abc0c8787e1746ed89e382b51c8d401f.jpg
+[D 180713 16:10:18 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180713 16:10:19 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /abc0c8787e1746ed89e382b51c8d401f.jpg HTTP/1.1" 200 0
+[I 180713 16:10:19 web:2106] 200 POST /api/profile/avatar (127.0.0.1) 594.11ms
+[I 180713 16:13:39 autoreload:196] /home/kiralacus/tornado/ihome_tornado/utils/aliyun_storage.py modified; restarting server
+[D 180713 16:17:04 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Fri, 13 Jul 2018 08:17:04 GMT
+    /kiralacus/229921899ec643edaf922f69af1c70fa.jpg
+[D 180713 16:17:04 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180713 16:17:05 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /229921899ec643edaf922f69af1c70fa.jpg HTTP/1.1" 200 0
+[I 180713 16:17:05 web:2106] 200 POST /api/profile/avatar (127.0.0.1) 419.01ms
+[I 180713 16:48:39 autoreload:196] /home/kiralacus/tornado/ihome_tornado/constants.py modified; restarting server
+[I 180714 08:48:35 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[E 180714 08:48:47 session:27] Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180714 08:48:47 web:1621] Uncaught exception GET /api/profile (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/profile', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1520, in _execute
+        result = self.prepare()
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/BaseHandler.py", line 16, in prepare
+        self.xsrf_token
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1264, in xsrf_token
+        expires_days = 30 if self.current_user else None
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1184, in current_user
+        self._current_user = self.get_current_user()
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/BaseHandler.py", line 43, in get_current_user
+        self.session = Session(self)
+      File "/home/kiralacus/tornado/ihome_tornado/utils/session.py", line 28, in __init__
+        raise e
+    ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180714 08:48:47 web:2106] 500 GET /api/profile (127.0.0.1) 123.96ms
+[I 180714 08:49:25 web:2106] 200 GET /api/profile (127.0.0.1) 99.11ms
+[I 180714 08:50:07 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 08:50:08 web:2106] 200 GET /api/profile (127.0.0.1) 2.69ms
+[I 180714 09:03:50 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[E 180714 09:05:14 Profile:65] 'username'
+[I 180714 09:05:14 web:2106] 200 GET /api/profile (127.0.0.1) 33.57ms
+[I 180714 09:11:01 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[E 180714 09:11:16 Profile:66] 'username'
+[I 180714 09:11:16 web:2106] 200 GET /api/profile (127.0.0.1) 3.04ms
+[E 180714 09:11:27 Profile:66] 'username'
+[I 180714 09:11:27 web:2106] 200 GET /api/profile (127.0.0.1) 2.26ms
+[I 180714 09:11:49 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[E 180714 09:11:52 Profile:67] 'username'
+[I 180714 09:11:52 web:2106] 200 GET /api/profile (127.0.0.1) 3.09ms
+[I 180714 09:12:17 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[E 180714 09:12:18 Profile:66] 'username'
+[I 180714 09:12:18 web:2106] 200 GET /api/profile (127.0.0.1) 3.18ms
+[I 180714 09:12:42 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 09:12:44 web:2106] 200 GET /api/profile (127.0.0.1) 107.28ms
+[I 180714 09:22:09 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 09:22:24 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 488.66ms
+[I 180714 09:22:24 web:2106] 200 GET /api/profile (127.0.0.1) 2.46ms
+[I 180714 09:22:24 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 1.58ms
+[I 180714 09:22:43 web:2106] 200 POST /api/login (127.0.0.1) 5.67ms
+[I 180714 09:22:44 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 38.89ms
+[I 180714 09:22:44 web:2106] 304 GET /api/check_login (127.0.0.1) 1.78ms
+[I 180714 09:22:46 web:2106] 200 GET /api/profile (127.0.0.1) 2.48ms
+[I 180714 09:22:59 web:2106] 304 GET /api/profile (127.0.0.1) 2.70ms
+[I 180714 09:23:45 web:2106] 200 GET /profile.html (127.0.0.1) 39.57ms
+[I 180714 09:23:45 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 47.88ms
+[I 180714 09:23:45 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 34.32ms
+[I 180714 09:23:45 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 29.24ms
+[I 180714 09:23:45 web:2106] 200 GET /static/css/ihome/profile.css (127.0.0.1) 14.96ms
+[I 180714 09:23:45 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 70.74ms
+[I 180714 09:23:45 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 13.69ms
+[I 180714 09:23:45 web:2106] 200 GET /static/js/jquery.form.min.js (127.0.0.1) 25.01ms
+[I 180714 09:23:45 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 23.09ms
+[I 180714 09:23:45 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 21.07ms
+[I 180714 09:23:45 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 12.37ms
+[I 180714 09:23:45 web:2106] 200 GET /static/js/ihome/profile.js (127.0.0.1) 9.24ms
+[I 180714 09:23:45 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 49.51ms
+[I 180714 09:23:46 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 2.76ms
+[I 180714 09:23:46 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 11.30ms
+[I 180714 09:23:46 web:2106] 200 GET /api/profile (127.0.0.1) 2.42ms
+[I 180714 09:29:17 web:2106] 304 GET /profile.html (127.0.0.1) 1.37ms
+[I 180714 09:29:17 web:2106] 200 GET /static/js/ihome/profile.js (127.0.0.1) 1.53ms
+[I 180714 09:29:17 web:2106] 304 GET /api/profile (127.0.0.1) 2.45ms
+[D 180714 09:29:26 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Sat, 14 Jul 2018 01:29:26 GMT
+    /kiralacus/922a0f0d56734f159035918f2afaa2fc.jpg
+[D 180714 09:29:26 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180714 09:29:26 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /922a0f0d56734f159035918f2afaa2fc.jpg HTTP/1.1" 200 0
+[I 180714 09:29:26 web:2106] 200 POST /api/profile/avatar (127.0.0.1) 335.43ms
+[I 180714 10:04:17 autoreload:196] /home/kiralacus/tornado/ihome_tornado/urls.py modified; restarting server
+[I 180714 10:35:45 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 10:37:23 web:2106] 200 POST /api/profile/name (127.0.0.1) 232.08ms
+[I 180714 10:37:58 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 10:37:59 web:2106] 200 POST /api/profile/name (127.0.0.1) 3.19ms
+[I 180714 10:38:23 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 10:38:25 web:2106] 200 POST /api/profile/name (127.0.0.1) 2.44ms
+[I 180714 10:39:30 web:2106] 200 POST /api/profile/name (127.0.0.1) 315.68ms
+[I 180714 10:40:15 web:2106] 200 POST /api/profile/name (127.0.0.1) 172.30ms
+[I 180714 10:54:33 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 11:15:42 web:2106] 304 GET /profile.html (127.0.0.1) 144.04ms
+[I 180714 11:15:42 web:2106] 200 GET /static/js/ihome/profile.js (127.0.0.1) 2.30ms
+[I 180714 11:15:44 web:2106] 200 GET /api/profile (127.0.0.1) 1047.01ms
+[I 180714 11:15:46 web:2106] 304 GET /profile.html (127.0.0.1) 1.48ms
+[I 180714 11:15:46 web:2106] 304 GET /static/js/ihome/profile.js (127.0.0.1) 1.13ms
+[I 180714 11:15:47 web:2106] 304 GET /api/profile (127.0.0.1) 2.40ms
+[I 180714 11:17:10 web:2106] 304 GET /profile.html (127.0.0.1) 113.91ms
+[I 180714 11:17:10 web:2106] 304 GET /static/js/ihome/profile.js (127.0.0.1) 211.53ms
+[I 180714 11:17:12 web:2106] 304 GET /api/profile (127.0.0.1) 1268.74ms
+[I 180714 11:17:24 web:2106] 200 POST /api/profile/name (127.0.0.1) 2.71ms
+[I 180714 11:17:26 web:2106] 200 POST /api/profile/name (127.0.0.1) 3.00ms
+[I 180714 11:18:21 web:2106] 304 GET /profile.html (127.0.0.1) 1.39ms
+[I 180714 11:18:21 web:2106] 200 GET /static/js/ihome/profile.js (127.0.0.1) 2.07ms
+[I 180714 11:18:22 web:2106] 304 GET /api/profile (127.0.0.1) 3.35ms
+[I 180714 11:18:27 web:2106] 200 POST /api/profile/name (127.0.0.1) 346.67ms
+[I 180714 11:18:43 web:2106] 200 POST /api/profile/name (127.0.0.1) 98.10ms
+[I 180714 11:19:13 web:2106] 304 GET /profile.html (127.0.0.1) 2.14ms
+[I 180714 11:19:14 web:2106] 200 GET /static/js/ihome/profile.js (127.0.0.1) 1.57ms
+[I 180714 11:19:14 web:2106] 304 GET /api/profile (127.0.0.1) 2.52ms
+[I 180714 11:19:22 web:2106] 200 POST /api/profile/name (127.0.0.1) 2.43ms
+[I 180714 11:20:34 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 11:20:46 web:2106] 304 GET /profile.html (127.0.0.1) 75.77ms
+[I 180714 11:20:46 web:2106] 304 GET /static/js/ihome/profile.js (127.0.0.1) 1.22ms
+[I 180714 11:20:47 web:2106] 304 GET /api/profile (127.0.0.1) 28.84ms
+[I 180714 11:20:55 web:2106] 200 POST /api/profile/name (127.0.0.1) 3.40ms
+[I 180714 11:24:06 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 11:24:07 web:2106] 304 GET /profile.html (127.0.0.1) 6.53ms
+[I 180714 11:24:07 web:2106] 304 GET /static/js/ihome/profile.js (127.0.0.1) 1.14ms
+[I 180714 11:24:07 web:2106] 304 GET /api/profile (127.0.0.1) 3.23ms
+[I 180714 11:24:15 web:2106] 200 POST /api/profile/name (127.0.0.1) 3.55ms
+[I 180714 11:26:18 web:2106] 304 GET /profile.html (127.0.0.1) 1.38ms
+[I 180714 11:26:18 web:2106] 200 GET /static/js/ihome/profile.js (127.0.0.1) 1.52ms
+[I 180714 11:26:18 web:2106] 304 GET /api/profile (127.0.0.1) 2.53ms
+[I 180714 11:26:25 web:2106] 200 POST /api/profile/name (127.0.0.1) 3.44ms
+[I 180714 11:27:51 web:2106] 200 POST /api/profile/name (127.0.0.1) 100.48ms
+[I 180714 11:34:39 web:2106] 304 GET /profile.html (127.0.0.1) 1.42ms
+[I 180714 11:34:39 web:2106] 200 GET /static/js/ihome/profile.js (127.0.0.1) 1.52ms
+[E 180714 11:34:39 Profile:54] 'NoneType' object has no attribute '__getitem__'
+[I 180714 11:34:39 web:2106] 200 GET /api/profile (127.0.0.1) 2.62ms
+[I 180714 11:34:43 web:2106] 304 GET /profile.html (127.0.0.1) 1.58ms
+[I 180714 11:34:43 web:2106] 304 GET /static/js/ihome/profile.js (127.0.0.1) 1.32ms
+[E 180714 11:34:43 Profile:54] 'NoneType' object has no attribute '__getitem__'
+[I 180714 11:34:43 web:2106] 304 GET /api/profile (127.0.0.1) 3.22ms
+[I 180714 11:35:44 web:2106] 304 GET /static/js/ihome/profile.js (127.0.0.1) 1.20ms
+[E 180714 11:35:44 Profile:54] 'NoneType' object has no attribute '__getitem__'
+[I 180714 11:35:44 web:2106] 304 GET /api/profile (127.0.0.1) 3.55ms
+[E 180714 11:36:11 web:1621] Uncaught exception POST /api/profile/avatar (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/profile/avatar', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/utils/commons.py", line 20, in wrapper
+        return func(self, *args, **kwargs)
+      File "/home/kiralacus/tornado/ihome_tornado/Handler/Profile.py", line 22, in post
+        imageData = self.request.files['avatar'][0]['body']
+    KeyError: 'avatar'
+[E 180714 11:36:11 web:2106] 500 POST /api/profile/avatar (127.0.0.1) 92.32ms
+[D 180714 11:36:26 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Sat, 14 Jul 2018 03:36:26 GMT
+    /kiralacus/2b2762288dad46bea3eb2ca002586575.jpg
+[D 180714 11:36:26 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180714 11:36:26 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /2b2762288dad46bea3eb2ca002586575.jpg HTTP/1.1" 200 0
+[I 180714 11:36:26 web:2106] 200 POST /api/profile/avatar (127.0.0.1) 358.39ms
+[I 180714 11:36:31 web:2106] 304 GET /profile.html (127.0.0.1) 1.24ms
+[I 180714 11:36:31 web:2106] 304 GET /static/js/ihome/profile.js (127.0.0.1) 1.14ms
+[E 180714 11:36:31 Profile:54] 'NoneType' object has no attribute '__getitem__'
+[I 180714 11:36:31 web:2106] 304 GET /api/profile (127.0.0.1) 2.69ms
+[I 180714 11:36:32 web:2106] 200 GET /favicon.ico (127.0.0.1) 29.73ms
+[I 180714 11:37:17 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 11:37:19 web:2106] 304 GET /profile.html (127.0.0.1) 7.38ms
+[I 180714 11:37:19 web:2106] 304 GET /static/js/ihome/profile.js (127.0.0.1) 1.12ms
+[E 180714 11:37:19 Profile:55] 'NoneType' object has no attribute '__getitem__'
+[I 180714 11:37:19 web:2106] 304 GET /api/profile (127.0.0.1) 6.10ms
+[I 180714 11:37:19 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.90ms
+[I 180714 13:31:43 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 13:35:22 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 13:37:40 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 13:37:45 web:2106] 304 GET /static/js/ihome/profile.js (127.0.0.1) 476.37ms
+[I 180714 13:37:46 web:2106] 200 GET /api/profile (127.0.0.1) 693.18ms
+[I 180714 13:38:04 web:2106] 200 POST /api/profile/name (127.0.0.1) 2.81ms
+[I 180714 13:38:36 web:2106] 200 GET /profile.html (127.0.0.1) 43.98ms
+[I 180714 13:38:36 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 47.52ms
+[I 180714 13:38:36 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 33.83ms
+[I 180714 13:38:36 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 28.83ms
+[I 180714 13:38:36 web:2106] 200 GET /static/css/ihome/profile.css (127.0.0.1) 14.59ms
+[I 180714 13:38:36 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 79.57ms
+[I 180714 13:38:36 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 12.51ms
+[I 180714 13:38:36 web:2106] 200 GET /static/js/jquery.form.min.js (127.0.0.1) 26.30ms
+[I 180714 13:38:36 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 24.88ms
+[I 180714 13:38:36 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 8.12ms
+[I 180714 13:38:36 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 5.97ms
+[I 180714 13:38:36 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 35.33ms
+[I 180714 13:38:36 web:2106] 200 GET /static/js/ihome/profile.js (127.0.0.1) 4.69ms
+[I 180714 13:38:36 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 17.10ms
+[I 180714 13:38:36 web:2106] 200 GET /api/profile (127.0.0.1) 2.31ms
+[I 180714 13:38:36 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.63ms
+[I 180714 13:38:42 web:2106] 200 POST /api/profile/name (127.0.0.1) 2.73ms
+[I 180714 13:39:19 web:2106] 200 POST /api/profile/name (127.0.0.1) 1.52ms
+[I 180714 13:39:46 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 13:39:48 web:2106] 200 POST /api/profile/name (127.0.0.1) 2.87ms
+[I 180714 13:41:39 web:2106] 304 GET /profile.html (127.0.0.1) 8.51ms
+[I 180714 13:41:40 web:2106] 304 GET /api/profile (127.0.0.1) 2.69ms
+[I 180714 13:41:40 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.74ms
+[I 180714 13:41:46 web:2106] 200 POST /api/profile/name (127.0.0.1) 2.44ms
+[I 180714 13:43:57 web:2106] 200 GET /login.html (127.0.0.1) 54.70ms
+[I 180714 13:43:57 web:2106] 200 GET /static/css/ihome/login.css (127.0.0.1) 135.43ms
+[I 180714 13:43:57 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 101.68ms
+[I 180714 13:43:57 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 3.00ms
+[I 180714 13:44:05 web:2106] 200 POST /api/login (127.0.0.1) 2.39ms
+[I 180714 13:44:12 web:2106] 200 POST /api/login (127.0.0.1) 22.27ms
+[I 180714 13:44:24 web:2106] 200 POST /api/login (127.0.0.1) 32.33ms
+[I 180714 13:44:25 web:2106] 200 GET / (127.0.0.1) 25.10ms
+[I 180714 13:44:25 web:2106] 200 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 55.71ms
+[I 180714 13:44:25 web:2106] 200 GET /static/css/ihome/index.css (127.0.0.1) 15.34ms
+[I 180714 13:44:25 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 4.86ms
+[I 180714 13:44:26 web:2106] 200 GET /static/js/template.js (127.0.0.1) 10.84ms
+[I 180714 13:44:26 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 7.01ms
+[I 180714 13:44:26 web:2106] 200 GET /api/check_login (127.0.0.1) 1.70ms
+[I 180714 13:44:32 web:2106] 304 GET /api/profile (127.0.0.1) 2.68ms
+[I 180714 13:44:36 web:2106] 200 POST /api/profile/name (127.0.0.1) 358.57ms
+[I 180714 13:45:17 web:2106] 200 GET /profile.html (127.0.0.1) 1.77ms
+[I 180714 13:45:17 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 5.11ms
+[I 180714 13:45:17 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 2.76ms
+[I 180714 13:45:17 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 1.61ms
+[I 180714 13:45:17 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 1.80ms
+[I 180714 13:45:17 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 1.52ms
+[I 180714 13:45:17 web:2106] 200 GET /static/css/ihome/profile.css (127.0.0.1) 1.52ms
+[I 180714 13:45:17 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 2.36ms
+[I 180714 13:45:17 web:2106] 200 GET /static/js/jquery.form.min.js (127.0.0.1) 1.56ms
+[I 180714 13:45:17 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 1.63ms
+[I 180714 13:45:17 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 1.64ms
+[I 180714 13:45:17 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 1.61ms
+[I 180714 13:45:17 web:2106] 200 GET /static/js/ihome/profile.js (127.0.0.1) 1.63ms
+[I 180714 13:45:17 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 2.29ms
+[I 180714 13:45:17 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 37.01ms
+[I 180714 13:45:17 web:2106] 200 GET /api/profile (127.0.0.1) 2.30ms
+[I 180714 13:45:28 web:2106] 200 POST /api/profile/name (127.0.0.1) 144.19ms
+[I 180714 13:46:23 web:2106] 304 GET /profile.html (127.0.0.1) 1.40ms
+[I 180714 13:46:23 web:2106] 200 GET /static/js/ihome/profile.js (127.0.0.1) 1.59ms
+[I 180714 13:46:24 web:2106] 304 GET /api/profile (127.0.0.1) 2.37ms
+[I 180714 13:46:28 web:2106] 304 GET /profile.html (127.0.0.1) 1.45ms
+[I 180714 13:46:28 web:2106] 304 GET /static/js/ihome/profile.js (127.0.0.1) 1.18ms
+[I 180714 13:46:29 web:2106] 304 GET /api/profile (127.0.0.1) 2.39ms
+[I 180714 13:46:35 web:2106] 200 POST /api/profile/name (127.0.0.1) 1.89ms
+[I 180714 13:50:21 web:2106] 304 GET /profile.html (127.0.0.1) 1.33ms
+[I 180714 13:50:21 web:2106] 200 GET /static/js/ihome/profile.js (127.0.0.1) 1.53ms
+[I 180714 13:50:21 web:2106] 304 GET /api/profile (127.0.0.1) 2.38ms
+[I 180714 13:50:39 web:2106] 200 POST /api/profile/name (127.0.0.1) 4.94ms
+[I 180714 13:50:49 web:2106] 200 POST /api/profile/name (127.0.0.1) 123.06ms
+[I 180714 13:59:51 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 14:00:39 web:2106] 304 GET /profile.html (127.0.0.1) 7.40ms
+[I 180714 14:00:39 web:2106] 200 GET /static/js/ihome/profile.js (127.0.0.1) 1.59ms
+[I 180714 14:00:39 web:2106] 200 GET /api/profile (127.0.0.1) 23.71ms
+[I 180714 14:01:14 web:2106] 200 GET /my.html (127.0.0.1) 37.62ms
+[I 180714 14:01:15 web:2106] 200 GET /static/css/ihome/my.css (127.0.0.1) 43.73ms
+[I 180714 14:01:15 web:2106] 200 GET /static/js/ihome/my.js (127.0.0.1) 16.82ms
+[I 180714 14:01:15 web:2106] 304 GET /api/profile (127.0.0.1) 3.32ms
+[I 180714 14:12:30 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 14:15:09 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 14:15:11 web:2106] 304 GET /my.html (127.0.0.1) 7.80ms
+[I 180714 14:15:12 web:2106] 200 GET /api/profile (127.0.0.1) 3.11ms
+[I 180714 14:15:14 web:2106] 304 GET /my.html (127.0.0.1) 1.40ms
+[I 180714 14:15:14 web:2106] 304 GET /api/profile (127.0.0.1) 2.84ms
+[I 180714 14:15:40 web:2106] 200 GET /my.html (127.0.0.1) 1.82ms
+[I 180714 14:15:40 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 2.41ms
+[I 180714 14:15:40 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 1.72ms
+[I 180714 14:15:40 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 1.42ms
+[I 180714 14:15:40 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 1.53ms
+[I 180714 14:15:40 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 1.44ms
+[I 180714 14:15:40 web:2106] 200 GET /static/css/ihome/my.css (127.0.0.1) 3.55ms
+[I 180714 14:15:40 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 3.37ms
+[I 180714 14:15:40 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 1.93ms
+[I 180714 14:15:40 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 8.90ms
+[I 180714 14:15:40 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 5.34ms
+[I 180714 14:15:40 web:2106] 200 GET /static/js/ihome/my.js (127.0.0.1) 4.77ms
+[I 180714 14:15:40 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 2.42ms
+[I 180714 14:15:40 web:2106] 200 GET /api/profile (127.0.0.1) 2.36ms
+[I 180714 14:15:40 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 5.85ms
+[I 180714 14:16:19 web:2106] 304 GET /my.html (127.0.0.1) 1.50ms
+[I 180714 14:16:19 web:2106] 200 GET /static/js/ihome/my.js (127.0.0.1) 1.57ms
+[I 180714 14:16:19 web:2106] 304 GET /api/profile (127.0.0.1) 2.58ms
+[I 180714 14:16:24 web:2106] 200 GET /profile.html (127.0.0.1) 1.83ms
+[I 180714 14:16:24 web:2106] 200 GET /static/css/ihome/profile.css (127.0.0.1) 1.53ms
+[I 180714 14:16:24 web:2106] 200 GET /static/js/jquery.form.min.js (127.0.0.1) 3.09ms
+[I 180714 14:16:24 web:2106] 200 GET /static/js/ihome/profile.js (127.0.0.1) 2.22ms
+[I 180714 14:16:25 web:2106] 304 GET /api/profile (127.0.0.1) 2.30ms
+[D 180714 14:16:32 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Sat, 14 Jul 2018 06:16:32 GMT
+    /kiralacus/2a3437bf8afe48e5bba830affcc8b582.jpg
+[D 180714 14:16:32 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180714 14:16:32 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /2a3437bf8afe48e5bba830affcc8b582.jpg HTTP/1.1" 200 0
+[I 180714 14:16:32 web:2106] 200 POST /api/profile/avatar (127.0.0.1) 563.92ms
+[D 180714 14:16:34 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Sat, 14 Jul 2018 06:16:34 GMT
+    /kiralacus/eb6db5cd29b04c8cbb0ded06b8bde96c.jpg
+[D 180714 14:16:34 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180714 14:16:37 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /eb6db5cd29b04c8cbb0ded06b8bde96c.jpg HTTP/1.1" 200 0
+[I 180714 14:16:37 web:2106] 200 POST /api/profile/avatar (127.0.0.1) 2571.03ms
+[D 180714 14:16:37 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Sat, 14 Jul 2018 06:16:37 GMT
+    /kiralacus/e9426bed76694937ac9a55598a6e0750.jpg
+[D 180714 14:16:37 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180714 14:16:39 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /e9426bed76694937ac9a55598a6e0750.jpg HTTP/1.1" 200 0
+[I 180714 14:16:39 web:2106] 200 POST /api/profile/avatar (127.0.0.1) 2249.89ms
+[I 180714 14:16:49 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.10ms
+[I 180714 14:16:49 web:2106] 200 GET /api/profile (127.0.0.1) 2.29ms
+[I 180714 14:17:30 web:2106] 200 GET /auth.html (127.0.0.1) 55.77ms
+[I 180714 14:17:30 web:2106] 200 GET /static/js/ihome/auth.js (127.0.0.1) 25.16ms
+[W 180714 14:17:30 web:2106] 404 GET /api/profile/auth (127.0.0.1) 86.01ms
+[I 180714 14:21:48 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[W 180714 14:54:40 web:2106] 404 GET /api/profile/auth (127.0.0.1) 3.57ms
+[I 180714 14:56:34 autoreload:196] /home/kiralacus/tornado/ihome_tornado/urls.py modified; restarting server
+[I 180714 14:56:41 web:2106] 200 GET /api/profile/auth (127.0.0.1) 2.56ms
+[I 180714 14:56:57 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 14:56:59 web:2106] 200 GET /api/profile/auth (127.0.0.1) 2.68ms
+[I 180714 15:15:18 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 15:59:48 web:2106] 304 GET /auth.html (127.0.0.1) 167.51ms
+[I 180714 15:59:50 web:2106] 200 GET /api/profile/auth (127.0.0.1) 800.57ms
+[I 180714 16:00:01 web:2106] 304 GET /auth.html (127.0.0.1) 1.64ms
+[I 180714 16:00:01 web:2106] 304 GET /api/profile/auth (127.0.0.1) 2.36ms
+[I 180714 16:00:01 web:2106] 200 GET /favicon.ico (127.0.0.1) 39.85ms
+[I 180714 16:00:31 web:2106] 200 GET /auth.html (127.0.0.1) 1.67ms
+[I 180714 16:00:32 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 48.02ms
+[I 180714 16:00:32 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 34.45ms
+[I 180714 16:00:32 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 29.66ms
+[I 180714 16:00:32 web:2106] 200 GET /static/css/ihome/profile.css (127.0.0.1) 15.18ms
+[I 180714 16:00:32 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 75.07ms
+[I 180714 16:00:32 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 13.71ms
+[I 180714 16:00:32 web:2106] 200 GET /static/js/jquery.form.min.js (127.0.0.1) 36.88ms
+[I 180714 16:00:32 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 35.32ms
+[I 180714 16:00:32 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 10.62ms
+[I 180714 16:00:32 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 8.32ms
+[I 180714 16:00:32 web:2106] 200 GET /static/js/ihome/auth.js (127.0.0.1) 6.78ms
+[I 180714 16:00:32 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 56.19ms
+[I 180714 16:00:32 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 3.70ms
+[I 180714 16:00:32 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 26.04ms
+[I 180714 16:00:32 web:2106] 200 GET /api/profile/auth (127.0.0.1) 2.35ms
+[I 180714 16:15:15 autoreload:196] /home/kiralacus/tornado/ihome_tornado/Handler/Profile.py modified; restarting server
+[I 180714 16:30:43 web:2106] 304 GET /auth.html (127.0.0.1) 29.11ms
+[I 180714 16:30:43 web:2106] 200 GET /static/js/ihome/auth.js (127.0.0.1) 1.63ms
+[I 180714 16:30:43 web:2106] 304 GET /api/profile/auth (127.0.0.1) 49.18ms
+[I 180714 16:32:07 web:2106] 304 GET /auth.html (127.0.0.1) 1.70ms
+[I 180714 16:32:07 web:2106] 200 GET /static/js/ihome/auth.js (127.0.0.1) 1.57ms
+[I 180714 16:32:07 web:2106] 304 GET /api/profile/auth (127.0.0.1) 2.95ms
+[I 180714 16:32:15 web:2106] 304 GET /auth.html (127.0.0.1) 1.46ms
+[I 180714 16:32:15 web:2106] 304 GET /static/js/ihome/auth.js (127.0.0.1) 1.19ms
+[I 180714 16:32:15 web:2106] 304 GET /api/profile/auth (127.0.0.1) 2.65ms
+[I 180714 16:32:26 web:2106] 304 GET /auth.html (127.0.0.1) 1.56ms
+[I 180714 16:32:26 web:2106] 200 GET /static/js/ihome/auth.js (127.0.0.1) 1.68ms
+[I 180714 16:32:26 web:2106] 304 GET /api/profile/auth (127.0.0.1) 2.85ms
+[I 180714 16:34:15 web:2106] 200 POST /api/profile/auth (127.0.0.1) 2778.44ms
+[I 180714 16:34:15 web:2106] 200 POST /api/profile/auth (127.0.0.1) 15.50ms
+[I 180714 16:35:32 web:2106] 304 GET /auth.html (127.0.0.1) 134.60ms
+[I 180714 16:35:32 web:2106] 200 GET /static/js/ihome/auth.js (127.0.0.1) 8.75ms
+[I 180714 16:35:35 web:2106] 200 GET /api/profile/auth (127.0.0.1) 747.43ms
+[I 180714 16:36:40 web:2106] 304 GET /auth.html (127.0.0.1) 1.26ms
+[I 180714 16:36:40 web:2106] 304 GET /static/js/ihome/auth.js (127.0.0.1) 1.18ms
+[I 180714 16:36:41 web:2106] 200 GET /api/profile/auth (127.0.0.1) 3.33ms
+[I 180714 16:36:55 web:2106] 200 POST /api/profile/auth (127.0.0.1) 268.67ms

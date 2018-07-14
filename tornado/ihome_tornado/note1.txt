@@ -1,0 +1,145 @@
+1. 图片验证码接口
+
+url: /api/pitcode
+method: get
+传入参数：
+/api/pitcode/?codeid=123&precodeid=
+参数名     参数类型   是否必须    参数说明
+codeid    string    是         当前图片id
+precodeid string    可为空      上一次的图片id
+
+返回参数：
+验证码图片
+
+流程：
+1. 网页端加载时显示图片
+2. 点击验证码时刷新图片
+3. 输入手机号时验证验证码， 错误时刷新图片
+
+
+2. 短信验证码接口
+
+url: /api/smscode
+method: post,
+传入参数：
+param = {
+    'mobile':18351922521,(脚本提取)
+    'piccode': 'abcd',
+    'piccode_id': '',
+}
+
+参数名   参数类型    是否必须    参数说明
+mobile  string/int  是        用户手机号
+piccode  string     是        图片验证码
+piccode_id  string/int 是     图片验证码id
+
+返回参数：
+Json格式：
+ {'errcode': 0, 'errmsg': '', 'data':{}}
+ 参数名    参数类型    是否必须     参数说明
+ errcode   int       是          返回状态码
+ errmsg    string    是          状态描述
+ data      dict      否          附带数据
+
+ 流程：
+ 1. 接受客户端的数据
+ 2. 检查数据是否传递
+ 3. 判断手机格式是否正确
+ ***4. 检查图片验证码是否正确， 正确返回状态码, 向客户手机发送验证码
+ ***5. 不正确时重新刷新图片二维码，并返回错误的状态码，并显示验证码错误字样
+
+ 3. 登录接口
+ url: /api/login
+ 传入参数:
+ param = {
+    'mobile':
+    'password':
+ }
+
+ 参数名        参数类型       是否必须        参数说明
+ mobile       string        是             用户手机号
+ password     string        是             用户登录密码
+
+ 返回参数
+ Json格式
+ {'errcode':, 'errmsg':}
+
+
+4. 登录检查接口
+url: /api/check_login
+传入参数:
+无
+返回参数
+Json格式
+{'errcode':, 'errmsg': 'data':}
+
+
+5.头像上传操作
+url: /api/profile/avator
+传入参数：
+文件类型
+返回参数：
+url = 'https://kiralacus.oss-cn-beijing.aliyuncs.com/'+文件名
+{
+    'errcode':,
+    'errmsg':,
+    'data':{
+        'url':,
+        'up_name':,
+        'up_mobile':,
+    },
+}
+
+
+6. 登出操作
+url: /api/logout
+传入参数
+无
+返回参数：
+Json格式
+{
+    'errcode':,
+    'errmsg':,
+}
+
+7. 用户名修改
+url: /api/profile/name
+method: POST
+传入参数:
+参数名      参数类型           是否必须        参数说明
+name        string            是             用户姓名(up_name)
+返回参数
+Json格式
+{
+    'errcode':
+    'errmsg':
+}
+注：
+    get: 获取
+    post: 修改
+
+8. 身份验证
+url: /api/profile/auth
+
+1.
+身份信息获取
+method: GET,
+传入参数
+无
+返回参数
+Json格式
+{
+    'errcode':,
+    'errmsg':
+    'data':{
+        'up_real_name':
+        'up_id_card':
+    }
+}
+2.
+身份信息提交
+method: POST,
+传入参数
+参数名          参数类型          是否必须       参数说明
+real_name       string          是             真实姓名
+id_card         string          是             身份证
