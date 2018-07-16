@@ -24,4 +24,5 @@ log_level = 'debug'
 log_path = os.path.join(os.path.dirname(__file__), 'logs/log')
 
 session_expire_seconds = 86400 # session 数据有效期， 秒
+areainfo_expire_seconds = 86400 # 地域信息redis数据有效期， 秒, 为了避免mysql中数据更新后redis中数据不更新
 passwd_salt = 'ihome*^&'

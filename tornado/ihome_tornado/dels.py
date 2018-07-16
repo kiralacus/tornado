@@ -3,6 +3,8 @@ import oss2
 
 import uuid
 
+list = ['kira', 'lacus']
+list.insert(1, 'kiralacus')
 
-(uuid.uuid4() + uuid.uuid4()).h
 
+print list

@@ -143,3 +143,15 @@ method: POST,
 参数名          参数类型          是否必须       参数说明
 real_name       string          是             真实姓名
 id_card         string          是             身份证
+
+9. /api/house/index
+method: GET,
+传入参数：
+无
+返回参数
+Json格式
+{
+    'errcode':
+    'errmsg':
+    'data':{'id': ,'name':}
+}
