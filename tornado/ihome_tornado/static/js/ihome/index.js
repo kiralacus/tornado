@@ -67,4 +67,18 @@ $(document).ready(function(){
             $('.register-login').show();
         }
     })
+
+
+    $('.modal').on('show.bs.modal', centerModals);      //当模态框出现的时候
+    $(window).on('resize', centerModals);               //当窗口大小变化的时候
+    $("#start-date").datepicker({
+        language: "zh-CN",
+        keyboardNavigation: false,
+        startDate: "today",
+        format: "yyyy-mm-dd"
+    });
+    $("#start-date").on("changeDate", function() {
+        var date = $(this).datepicker("getFormattedDate");
+        $("#start-date-input").val(date);
+    });
 })
