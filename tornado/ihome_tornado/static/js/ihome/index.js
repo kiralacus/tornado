@@ -66,7 +66,36 @@ $(document).ready(function(){
         else{
             $('.register-login').show();
         }
-    })
+    });
+    // $.get("/api/house/index", function(e){
+    //     console.log(e);
+    //     alert(e.errcode);
+    //     if(e.errcode == 0){
+    //         alert('kiralacus');
+    //         // id name
+    //         $('.area-list').html(template('area-list-temp', {areas: e.data}))
+    //     }
+    // })
+    $.get("/api/house/index", function(data){
+        console.log(data.data);
+        if ("0" == data.errcode) {
+            // $(".swiper-wrapper").html(template("swiper-houses-tmpl", {houses:data.houses}));
+            $(".area-list").html(template("area-list-tmpl", {areas:data.data}));
+            var mySwiper = new Swiper ('.swiper-container', {
+                loop: true,
+                autoplay: 2000,
+                autoplayDisableOnInteraction: false,
+                pagination: '.swiper-pagination',
+                paginationClickable: true
+            });
+            $(".area-list a").click(function(e){
+                $("#area-btn").html($(this).html());
+                $(".search-btn").attr("area-id", $(this).attr("area-id"));
+                $(".search-btn").attr("area-name", $(this).html());
+                $("#area-modal").modal("hide");
+            });
+        }
+    });
 
 
     $('.modal').on('show.bs.modal', centerModals);      //当模态框出现的时候
