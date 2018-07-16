@@ -1,4 +1,5 @@
 #coding: utf-8
+
 from Handler.BaseHandler import BaseHandler
 
 from utils.response_code import RET
@@ -29,7 +30,9 @@ class IndexHandler(BaseHandler):
             self.write(dict(errcode=RET.DBERR, errmsg='数据查询错误'))
         else:
             if areaList:
-                self.write('"errcode":"0", "errmsg":"成功", "data": %s'%areaList)
+                # 这里前端解析出现问题当write中为字符串时（确保json格式无误）,前端无法正常解析
+                areaList = json.loads(areaList)
+                self.write(dict(errcode=RET.OK, errmsg='成功', data=areaList))
             else:
                 # 从Mysql中获取ih_area_info
                 try:
@@ -40,9 +43,11 @@ class IndexHandler(BaseHandler):
                     self.write(dict(errcode=RET.DBERR, errmsg='数据库查询错误o'))
                 else:
                     # ih_area_info是形如[{},{}], 中间是类字典, 需将其中数据拿出来重组
-                    areaInfo = {}
+                    # areaInfo = {}
                     areaList = []
                     for each in ih_area_info:
+                        # 列表这个东西和有意思，如果在外边初始化他甚至可以修改列表前面的几项相同key值的value
+                        areaInfo = {}
                         areaInfo['id']  = each['ai_area_id']
                         areaInfo['name'] = each['ai_name']
                         areaList.append(areaInfo)

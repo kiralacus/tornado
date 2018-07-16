@@ -3,8 +3,11 @@ import oss2
 
 import uuid
 
-list = ['kira', 'lacus']
-list.insert(1, 'kiralacus')
+import json
 
 
-print list
+test = {'name': 'kira'}
+
+test = json.dumps(test)
+print test
+
