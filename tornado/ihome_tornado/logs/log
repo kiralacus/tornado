@@ -2319,3 +2319,169 @@
 [I 180717 17:32:59 web:2106] 200 GET /newhouse.html (127.0.0.1) 2.33ms
 [I 180717 17:32:59 web:2106] 304 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.13ms
 [I 180717 17:33:00 web:2106] 304 GET /api/house/area (127.0.0.1) 1.57ms
+[I 180717 20:05:09 web:2106] 304 GET / (127.0.0.1) 7.68ms
+[I 180717 20:05:09 web:2106] 304 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 2.51ms
+[I 180717 20:05:09 web:2106] 304 GET /static/css/ihome/main.css (127.0.0.1) 2.47ms
+[I 180717 20:05:09 web:2106] 304 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 1.89ms
+[I 180717 20:05:09 web:2106] 304 GET /static/css/reset.css (127.0.0.1) 2.31ms
+[I 180717 20:05:09 web:2106] 304 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 1.89ms
+[I 180717 20:05:09 web:2106] 304 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 1.51ms
+[I 180717 20:05:09 web:2106] 304 GET /static/css/ihome/index.css (127.0.0.1) 1.80ms
+[I 180717 20:05:09 web:2106] 304 GET /static/js/jquery.min.js (127.0.0.1) 2.24ms
+[I 180717 20:05:09 web:2106] 304 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 2.79ms
+[I 180717 20:05:09 web:2106] 304 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 1.43ms
+[I 180717 20:05:09 web:2106] 304 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 1.36ms
+[I 180717 20:05:09 web:2106] 304 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 1.14ms
+[I 180717 20:05:09 web:2106] 304 GET /static/js/template.js (127.0.0.1) 1.36ms
+[I 180717 20:05:09 web:2106] 304 GET /static/images/logo@128x59.png (127.0.0.1) 1.39ms
+[I 180717 20:05:09 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 2.02ms
+[E 180717 20:05:09 session:27] Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180717 20:05:09 web:1621] Uncaught exception GET /api/check_login (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/check_login', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/Passport.py", line 111, in get
+        if self.get_current_user():
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/BaseHandler.py", line 49, in get_current_user
+        self.session = Session(self)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/utils/session.py", line 28, in __init__
+        raise e
+    ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180717 20:05:09 web:2106] 500 GET /api/check_login (127.0.0.1) 3.58ms
+[W 180717 20:05:09 web:2106] 404 GET /api/house/index (127.0.0.1) 4.55ms
+[W 180717 20:05:21 web:2106] 404 GET /myhouses.html (127.0.0.1) 1.15ms
+[I 180717 20:05:40 web:2106] 200 GET /myhouse.html (127.0.0.1) 2.17ms
+[I 180717 20:05:40 web:2106] 200 GET /static/css/ihome/myhouse.css (127.0.0.1) 5.24ms
+[I 180717 20:05:40 web:2106] 200 GET /static/js/ihome/myhouse.js (127.0.0.1) 2.40ms
+[E 180717 20:05:40 session:27] Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180717 20:05:40 web:1621] Uncaught exception GET /api/profile/auth (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/profile/auth', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/utils/commons.py", line 17, in wrapper
+        if not self.get_current_user():
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/BaseHandler.py", line 49, in get_current_user
+        self.session = Session(self)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/utils/session.py", line 28, in __init__
+        raise e
+    ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180717 20:05:40 web:2106] 500 GET /api/profile/auth (127.0.0.1) 1.60ms
+[I 180717 20:05:44 web:2106] 304 GET /myhouse.html (127.0.0.1) 1.20ms
+[E 180717 20:05:44 session:27] Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180717 20:05:44 web:1621] Uncaught exception GET /api/profile/auth (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/profile/auth', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/utils/commons.py", line 17, in wrapper
+        if not self.get_current_user():
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/BaseHandler.py", line 49, in get_current_user
+        self.session = Session(self)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/utils/session.py", line 28, in __init__
+        raise e
+    ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180717 20:05:44 web:2106] 500 GET /api/profile/auth (127.0.0.1) 1.54ms
+[I 180717 20:05:44 web:2106] 200 GET /favicon.ico (127.0.0.1) 2.64ms
+[I 180717 20:05:58 web:2106] 200 GET /newhouse.html (127.0.0.1) 1.48ms
+[I 180717 20:05:58 web:2106] 200 GET /static/css/ihome/newhouse.css (127.0.0.1) 4.71ms
+[I 180717 20:05:58 web:2106] 200 GET /static/js/jquery.form.min.js (127.0.0.1) 3.99ms
+[I 180717 20:05:58 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 2.60ms
+[E 180717 20:05:58 session:27] Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180717 20:05:58 web:1621] Uncaught exception GET /api/house/area (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/house/area', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/utils/commons.py", line 17, in wrapper
+        if not self.get_current_user():
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/BaseHandler.py", line 49, in get_current_user
+        self.session = Session(self)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/utils/session.py", line 28, in __init__
+        raise e
+    ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180717 20:05:58 web:2106] 500 GET /api/house/area (127.0.0.1) 1.47ms
+[I 180717 20:06:22 web:2106] 304 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 1.91ms
+[I 180717 20:07:19 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.13ms
+[I 180717 20:07:19 web:2106] 200 GET /api/house/area (127.0.0.1) 2.62ms
+[I 180717 20:07:19 web:2106] 200 GET /login.html (127.0.0.1) 2.33ms
+[I 180717 20:07:19 web:2106] 200 GET /static/css/ihome/login.css (127.0.0.1) 1.77ms
+[I 180717 20:07:19 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 1.69ms
+[I 180717 20:07:34 web:2106] 200 POST /api/login (127.0.0.1) 14.08ms
+[I 180717 20:07:34 web:2106] 200 GET /api/check_login (127.0.0.1) 1.69ms
+[W 180717 20:07:34 web:2106] 404 GET /api/house/index (127.0.0.1) 0.74ms
+[W 180717 20:07:34 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.45ms
+[I 180717 20:07:39 web:2106] 200 GET /my.html (127.0.0.1) 2.46ms
+[I 180717 20:07:39 web:2106] 200 GET /static/css/ihome/my.css (127.0.0.1) 3.38ms
+[I 180717 20:07:39 web:2106] 200 GET /static/js/ihome/my.js (127.0.0.1) 2.22ms
+[I 180717 20:07:39 web:2106] 200 GET /api/profile (127.0.0.1) 8.73ms
+[I 180717 20:07:49 web:2106] 200 GET /profile.html (127.0.0.1) 2.57ms
+[I 180717 20:07:49 web:2106] 200 GET /static/css/ihome/profile.css (127.0.0.1) 5.27ms
+[I 180717 20:07:49 web:2106] 200 GET /static/js/ihome/profile.js (127.0.0.1) 4.11ms
+[I 180717 20:07:49 web:2106] 304 GET /api/profile (127.0.0.1) 2.06ms
+[I 180717 20:08:03 web:2106] 304 GET /profile.html (127.0.0.1) 0.74ms
+[I 180717 20:08:03 web:2106] 304 GET /api/profile (127.0.0.1) 2.02ms
+[I 180717 20:08:06 web:2106] 200 POST /api/profile/name (127.0.0.1) 5.85ms
+[I 180717 20:08:13 web:2106] 200 POST /api/profile/name (127.0.0.1) 5.25ms
+[I 180717 20:08:17 web:2106] 200 GET /api/profile (127.0.0.1) 1.60ms
+[I 180717 20:08:19 web:2106] 200 GET /api/check_login (127.0.0.1) 2.38ms
+[W 180717 20:08:19 web:2106] 404 GET /api/house/index (127.0.0.1) 0.88ms
+[W 180717 20:08:19 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 2.41ms
+[I 180717 20:08:21 web:2106] 304 GET /api/profile (127.0.0.1) 2.65ms
+[I 180717 20:08:31 web:2106] 304 GET /static/js/ihome/newhouse.js (127.0.0.1) 0.94ms
+[I 180717 20:08:31 web:2106] 200 GET /api/house/area (127.0.0.1) 1.42ms
+[I 180717 20:16:44 web:2106] 200 GET /newhouse.html (127.0.0.1) 1.43ms
+[I 180717 20:16:44 web:2106] 304 GET /static/js/ihome/newhouse.js (127.0.0.1) 0.75ms
+[I 180717 20:16:44 web:2106] 304 GET /api/house/area (127.0.0.1) 1.25ms
+[I 180717 20:17:01 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.77ms
+[I 180717 20:17:01 web:2106] 304 GET /api/house/area (127.0.0.1) 2.20ms
+[I 180717 20:18:23 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.03ms
+[I 180717 20:18:23 web:2106] 304 GET /api/house/area (127.0.0.1) 2.02ms
+[I 180717 20:18:24 web:2106] 200 GET /newhouse.html (127.0.0.1) 0.87ms
+[I 180717 20:18:24 web:2106] 304 GET /api/house/area (127.0.0.1) 2.27ms
+[I 180717 20:18:25 web:2106] 304 GET /newhouse.html (127.0.0.1) 0.88ms
+[I 180717 20:18:25 web:2106] 304 GET /api/house/area (127.0.0.1) 1.18ms
+[I 180717 20:18:49 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.12ms
+[I 180717 20:18:49 web:2106] 304 GET /api/house/area (127.0.0.1) 1.15ms
+[I 180717 20:18:49 web:2106] 200 GET /newhouse.html (127.0.0.1) 1.43ms
+[I 180717 20:18:50 web:2106] 304 GET /api/house/area (127.0.0.1) 1.25ms
+[I 180717 20:25:49 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.09ms
+[I 180717 20:25:49 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.22ms
+[I 180717 20:25:50 web:2106] 304 GET /api/house/area (127.0.0.1) 1.02ms
+[I 180717 20:25:50 web:2106] 304 GET /newhouse.html (127.0.0.1) 0.66ms
+[I 180717 20:25:50 web:2106] 304 GET /static/js/ihome/newhouse.js (127.0.0.1) 0.63ms
+[I 180717 20:25:51 web:2106] 304 GET /api/house/area (127.0.0.1) 1.24ms
+[I 180717 20:25:51 web:2106] 304 GET /newhouse.html (127.0.0.1) 0.74ms
+[I 180717 20:25:51 web:2106] 304 GET /static/js/ihome/newhouse.js (127.0.0.1) 0.90ms
+[I 180717 20:25:51 web:2106] 304 GET /api/house/area (127.0.0.1) 1.30ms
+[I 180717 20:25:52 web:2106] 304 GET /newhouse.html (127.0.0.1) 0.83ms
+[I 180717 20:25:52 web:2106] 304 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.02ms
+[I 180717 20:25:52 web:2106] 304 GET /api/house/area (127.0.0.1) 2.25ms
+[I 180717 20:26:02 web:2106] 304 GET /newhouse.html (127.0.0.1) 0.75ms
+[I 180717 20:26:02 web:2106] 304 GET /static/js/ihome/newhouse.js (127.0.0.1) 0.70ms
+[I 180717 20:26:02 web:2106] 304 GET /api/house/area (127.0.0.1) 2.64ms
+[I 180717 20:26:02 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.67ms
+[I 180717 20:26:03 web:2106] 304 GET /api/house/area (127.0.0.1) 1.18ms
+[I 180717 20:30:18 web:2106] 304 GET /newhouse.html (127.0.0.1) 0.76ms
+[I 180717 20:30:18 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.79ms
+[I 180717 20:30:18 web:2106] 304 GET /api/house/area (127.0.0.1) 1.61ms
+[I 180717 21:58:32 web:2106] 304 GET /newhouse.html (127.0.0.1) 2.87ms
+[I 180717 21:58:32 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.41ms
+[I 180717 21:58:32 web:2106] 304 GET /api/house/area (127.0.0.1) 1.25ms
+[I 180717 22:00:51 web:2106] 304 GET /newhouse.html (127.0.0.1) 0.95ms
+[I 180717 22:00:51 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.55ms
+[I 180717 22:00:51 web:2106] 304 GET /api/house/area (127.0.0.1) 1.50ms
+[I 180717 22:01:32 web:2106] 304 GET /newhouse.html (127.0.0.1) 0.79ms
+[I 180717 22:01:32 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 3.16ms
+[I 180717 22:01:32 web:2106] 304 GET /api/house/area (127.0.0.1) 1.41ms
+[I 180717 22:02:32 web:2106] 304 GET /newhouse.html (127.0.0.1) 0.97ms
+[I 180717 22:02:32 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.02ms
+[I 180717 22:02:32 web:2106] 304 GET /api/house/area (127.0.0.1) 1.16ms
+[I 180717 22:05:35 web:2106] 304 GET /newhouse.html (127.0.0.1) 0.91ms
+[I 180717 22:05:35 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.33ms
+[I 180717 22:05:35 web:2106] 304 GET /api/house/area (127.0.0.1) 1.98ms
+[I 180717 22:19:42 web:2106] 200 GET /api/profile/auth (127.0.0.1) 4.80ms
+[I 180717 22:19:43 web:2106] 304 GET /api/profile (127.0.0.1) 2.67ms
+[I 180717 22:19:46 web:2106] 304 GET /api/profile/auth (127.0.0.1) 2.26ms
+[I 180717 22:25:24 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
