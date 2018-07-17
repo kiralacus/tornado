@@ -95,8 +95,7 @@ class LoginHandler(BaseHandler):
 
                     else:
                         # 密码错误
-                        if sql_password['up_passwd'] != sha256(config.passwd_salt+password).hexdigest():
-                            print sha256(password).hexdigest()
+                        if sql_password['up_passwd'] != sha256(password).hexdigest():
                             self.write(dict(errcode=RET.PWDERR, errmsg='密码错误'))
 
                         else:
@@ -110,9 +109,18 @@ class CheckLoginHandler(BaseHandler):
     '''检查是否登录'''
     def get(self):
         if self.get_current_user():
-            return self.write(dict(errcode=RET.OK, errmsg='用户已登录', data=self.get_current_user()['username']))
+            try:
+                mobile = self.get_current_user()['mobile']
+                # 获取用户昵称
+                sql = 'select up_name from ih_user_profile where up_mobile=%(mobile)s'
+                up_name = self.db.get(sql, mobile=mobile)
+            except Exception as e:
+                logging.error(e)
+                self.write(dict(errcode=RET.DBERR, errmsg='数据库查询错误'))
+            else:
+                self.write(dict(errcode=RET.OK, errmsg='用户已登录', data=up_name['up_name']))
         else:
-            return self.write(dict(errcode=RET.SESSIONERR, errmsg='用户未登录'))
+            self.write(dict(errcode=RET.SESSIONERR, errmsg='用户未登录'))
 
 
 class LogoutHandler(BaseHandler):

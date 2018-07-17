@@ -13,8 +13,9 @@ import logging
 import json
 
 
-class IndexHandler(BaseHandler):
+class AreaHandler(BaseHandler):
     '''获取地域信息'''
+    @require_login
     def get(self):
         '''
         先从redis中尝试获取地域信息
@@ -61,4 +62,8 @@ class IndexHandler(BaseHandler):
                     else:
                         self.write(dict(errcode=RET.OK, errmsg='成功', data=areaList))
 
+
+class MyHouseHandler(BaseHandler):
+    def post(self):
+        pass
 
