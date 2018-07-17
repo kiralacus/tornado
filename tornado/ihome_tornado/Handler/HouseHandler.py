@@ -64,6 +64,25 @@ class AreaHandler(BaseHandler):
 
 
 class MyHouseHandler(BaseHandler):
+    '''房屋信息处理'''
     def post(self):
-        pass
-
+        '''
+        :param {
+            'titile': --hi_title
+            'price': --hi_price
+            'area_id': --hi_area_id
+            'address': --hi_address
+            'room_count': --hi_room_count
+            'acreage': --hi_acreage
+            'unit': --hi_house_unit
+            'capacity': --hi_capacity
+            'beds':  --hi_beds
+            'deposity': --hi_deposity
+            'min_days': --hi_min_days
+            'max_days': --hi_max_days
+            'facility': --ih_house_facility
+                            hf_house_id
+                            hf_facility_id
+        }
+        :return:
+        '''
