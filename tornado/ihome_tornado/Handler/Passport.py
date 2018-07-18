@@ -87,7 +87,7 @@ class LoginHandler(BaseHandler):
                 # 用户存在
                 else:
                     try:
-                        passwd_sql = 'select up_passwd from ih_user_profile where up_mobile=%(mobile)s'
+                        passwd_sql = 'select up_passwd, up_user_id from ih_user_profile where up_mobile=%(mobile)s'
                         sql_password = self.db.get(passwd_sql, mobile=mobile)
                     except Exception as e:
                         logging.error(e)
@@ -101,6 +101,7 @@ class LoginHandler(BaseHandler):
                         else:
                             self.write(dict(errcode=RET.OK, errmsg='登陆成功'))
                             session = Session(self)
+                            session.data['userId'] = sql_password['up_user_id']
                             session.data['mobile'] = mobile
                             session.save()
 
