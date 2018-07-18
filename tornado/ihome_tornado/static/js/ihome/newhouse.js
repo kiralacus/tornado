@@ -11,7 +11,6 @@ $(document).ready(function(){
 
     $.get("/api/house/area", function (data) {
         if ("0" == data.errcode) {
-            console.log(data);
             $('#area-id').html(template('area-tmpl', {areas: data.data}))
         }
         else if('4101' == data.errcode){
@@ -27,11 +26,18 @@ $(document).ready(function(){
         }
         else{
             $('.error-msg').hide();
-            data = {};
+            var data = {};
+             var facility = [];
             $(this).serializeArray().map(function(x){
-                data[x,name] = data[x.value];
-                console.log(x);
+                if(x.name == 'facility'){
+                    facility.push(x.value);
+                }
+                else{
+                    data[x.name] = x.value;
+                }
             })
+            data['facility'] = facility;
+            console.log(JSON.stringify(data));
             $.ajax({
                 url: '/api/house/info',
                 method: 'POST',
@@ -42,6 +48,7 @@ $(document).ready(function(){
                     'X-XSRFTOKEN': getCookie('_xsrf'),
                 },
                 success: function(data){
+                    console.log(data)
                     if(data.errcode == 0){
                         $('#form-house-info').hide();
                         $('#form-house-image').show();

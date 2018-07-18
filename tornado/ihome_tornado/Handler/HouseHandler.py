@@ -65,10 +65,11 @@ class AreaHandler(BaseHandler):
 
 class MyHouseHandler(BaseHandler):
     '''房屋信息处理'''
+    @require_login
     def post(self):
         '''
         :param {
-            'titile': --hi_title
+            'title': --hi_title
             'price': --hi_price
             'area_id': --hi_area_id
             'address': --hi_address
@@ -77,12 +78,62 @@ class MyHouseHandler(BaseHandler):
             'unit': --hi_house_unit
             'capacity': --hi_capacity
             'beds':  --hi_beds
-            'deposity': --hi_deposity
+            'deposit': --hi_deposit
             'min_days': --hi_min_days
             'max_days': --hi_max_days
             'facility': --ih_house_facility
                             hf_house_id
                             hf_facility_id
+            facility 是列表形式
         }
         :return:
         '''
+        hi_user_id = self.get_current_user()['userId']
+        hi_title = self.json_dict['title']
+        hi_price = self.json_dict['price']
+        hi_area_id = self.json_dict['area_id']
+        hi_address = self.json_dict['address']
+        hi_room_count = self.json_dict['room_count']
+        hi_acreage = self.json_dict['acreage']
+        hi_house_unit = self.json_dict['unit']
+        hi_capacity = self.json_dict['capacity']
+        hi_beds = self.json_dict['beds']
+        hi_deposit = self.json_dict['deposit']
+        hi_min_days = self.json_dict['min_days']
+        hi_max_days = self.json_dict['max_days']
+        hf_facility_id = self.json_dict['facility']
+
+        # 存储入ih_house_info
+        print (hi_user_id, hi_title, hi_price, hi_area_id, hi_address, hi_room_count, hi_acreage, hi_house_unit, hi_capacity, hi_beds, hi_deposit, hi_max_days, hi_min_days, hf_facility_id)
+        if not all((hi_user_id, hi_title, hi_price, hi_area_id, hi_address, hi_room_count, hi_acreage, hi_house_unit, hi_capacity, hi_beds, hi_deposit, hi_max_days, hi_min_days, hf_facility_id)):
+            return self.write(dict(errcode=RET.PARAMERR, errmsg='参数缺省'))
+        try:
+            # 房屋信息写入
+            sql = 'insert into ih_house_info(hi_user_id, hi_title, hi_price, hi_area_id, hi_address, ' \
+                  'hi_room_count, hi_acreage, hi_house_unit, hi_capacity, hi_beds, hi_deposit, hi_min_days, hi_max_days) ' \
+                  'values(%(hi_user_id)s, %(hi_title)s, %(hi_price)s, %(hi_area_id)s, %(hi_address)s, %(hi_room_count)s, ' \
+                  '%(hi_acreage)s, %(hi_house_unit)s, %(hi_capacity)s, %(hi_beds)s, %(hi_deposit)s, %(hi_min_days)s, %(hi_max_days)s)'
+            ret = self.db.execute(sql, hi_user_id=hi_user_id, hi_title=hi_title, hi_price=hi_price, hi_area_id=hi_area_id, hi_address=hi_address,
+                            hi_room_count=hi_room_count, hi_acreage=hi_acreage, hi_house_unit=hi_house_unit, hi_capacity=hi_capacity, hi_beds=hi_beds,
+                            hi_deposit=hi_deposit, hi_min_days=hi_min_days, hi_max_days=hi_max_days)
+        except Exception as e:
+            logging.error(e)
+            self.write(dict(errcode=RET.DBERR, errmsg='数据库写入错误'))
+        else:
+            # 设备信息写入
+            try:
+                sql = 'insert into ih_house_facility(hf_house_id, hf_facility_id) values'
+                for each in hf_facility_id:
+                    af = '(%s,%s),'%(ret, each)
+                    sql += af
+                sql = sql.rstrip(',')
+                self.db.execute(sql)
+            except Exception as e:
+                logging.error(e)
+                self.write(dict(errcode=RET.DBERR, errmsg='数据库写入错误'))
+            else:
+                self.write(dict(errcode=RET.OK, errmsg='成功'))
+
+
+
+

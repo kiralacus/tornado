@@ -2485,3 +2485,137 @@
 [I 180717 22:19:43 web:2106] 304 GET /api/profile (127.0.0.1) 2.67ms
 [I 180717 22:19:46 web:2106] 304 GET /api/profile/auth (127.0.0.1) 2.26ms
 [I 180717 22:25:24 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180718 15:29:00 web:2106] 200 GET /newhouse.html (127.0.0.1) 243.04ms
+[I 180718 15:29:00 web:2106] 304 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 58.43ms
+[I 180718 15:29:01 web:2106] 304 GET /static/js/jquery.min.js (127.0.0.1) 102.51ms
+[I 180718 15:29:01 web:2106] 304 GET /static/css/ihome/newhouse.css (127.0.0.1) 39.64ms
+[I 180718 15:29:01 web:2106] 304 GET /static/css/ihome/main.css (127.0.0.1) 54.29ms
+[I 180718 15:29:01 web:2106] 304 GET /static/js/template.js (127.0.0.1) 28.06ms
+[I 180718 15:29:01 web:2106] 304 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 1.54ms
+[I 180718 15:29:01 web:2106] 304 GET /static/css/reset.css (127.0.0.1) 22.98ms
+[I 180718 15:29:01 web:2106] 304 GET /static/js/jquery.form.min.js (127.0.0.1) 61.10ms
+[I 180718 15:29:01 web:2106] 304 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 90.74ms
+[I 180718 15:29:01 web:2106] 304 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 27.93ms
+[I 180718 15:29:01 web:2106] 304 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 31.17ms
+[I 180718 15:29:01 web:2106] 304 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 3.64ms
+[I 180718 15:29:01 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 49.07ms
+[I 180718 15:29:01 web:2106] 200 GET /api/house/area (127.0.0.1) 4.53ms
+[I 180718 15:29:01 web:2106] 200 GET /login.html (127.0.0.1) 7.43ms
+[I 180718 15:29:01 web:2106] 200 GET /static/css/ihome/login.css (127.0.0.1) 1.72ms
+[I 180718 15:29:01 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 6.78ms
+[I 180718 15:29:01 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 2.61ms
+[I 180718 15:29:16 web:2106] 200 POST /api/login (127.0.0.1) 48.01ms
+[I 180718 15:29:16 web:2106] 200 GET / (127.0.0.1) 25.57ms
+[I 180718 15:29:16 web:2106] 200 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 22.79ms
+[I 180718 15:29:16 web:2106] 200 GET /static/css/ihome/index.css (127.0.0.1) 9.60ms
+[I 180718 15:29:16 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 8.25ms
+[I 180718 15:29:16 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 36.18ms
+[I 180718 15:29:16 web:2106] 200 GET /api/check_login (127.0.0.1) 2.72ms
+[W 180718 15:29:16 web:2106] 404 GET /api/house/index (127.0.0.1) 272.90ms
+[I 180718 15:29:17 web:2106] 200 GET /my.html (127.0.0.1) 27.26ms
+[I 180718 15:29:17 web:2106] 200 GET /static/css/ihome/my.css (127.0.0.1) 76.87ms
+[I 180718 15:29:17 web:2106] 200 GET /static/js/ihome/my.js (127.0.0.1) 48.54ms
+[I 180718 15:29:18 web:2106] 200 GET /api/profile (127.0.0.1) 2.40ms
+[I 180718 15:29:24 web:2106] 200 GET /api/house/area (127.0.0.1) 2.73ms
+[I 180718 15:29:33 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 69.36ms
+[I 180718 15:29:54 web:2106] 200 POST /api/house/info (127.0.0.1) 1.57ms
+[I 180718 15:31:34 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.41ms
+[I 180718 15:31:34 web:2106] 304 GET /api/house/area (127.0.0.1) 1.70ms
+[I 180718 15:31:36 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.93ms
+[I 180718 15:31:37 web:2106] 304 GET /api/house/area (127.0.0.1) 1.76ms
+[I 180718 15:32:01 web:2106] 200 GET /newhouse.html (127.0.0.1) 1.94ms
+[I 180718 15:32:01 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 6.47ms
+[I 180718 15:32:01 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 3.31ms
+[I 180718 15:32:01 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 1.56ms
+[I 180718 15:32:01 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 1.78ms
+[I 180718 15:32:01 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 4.55ms
+[I 180718 15:32:01 web:2106] 200 GET /static/css/ihome/newhouse.css (127.0.0.1) 1.52ms
+[I 180718 15:32:01 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 2.28ms
+[I 180718 15:32:01 web:2106] 200 GET /static/js/jquery.form.min.js (127.0.0.1) 1.94ms
+[I 180718 15:32:01 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 1.86ms
+[I 180718 15:32:01 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 3.11ms
+[I 180718 15:32:01 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 2.17ms
+[I 180718 15:32:01 web:2106] 200 GET /static/js/template.js (127.0.0.1) 1.53ms
+[I 180718 15:32:01 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.76ms
+[I 180718 15:32:01 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 21.10ms
+[I 180718 15:32:01 web:2106] 200 GET /api/house/area (127.0.0.1) 1.62ms
+[I 180718 15:32:02 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 6.18ms
+[I 180718 15:32:24 web:2106] 200 POST /api/house/info (127.0.0.1) 1.53ms
+[I 180718 15:33:15 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.38ms
+[I 180718 15:33:15 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.81ms
+[I 180718 15:33:15 web:2106] 304 GET /api/house/area (127.0.0.1) 1.82ms
+[I 180718 15:33:39 web:2106] 200 POST /api/house/info (127.0.0.1) 1.51ms
+[I 180718 15:34:12 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.58ms
+[I 180718 15:34:12 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.58ms
+[I 180718 15:34:12 web:2106] 304 GET /api/house/area (127.0.0.1) 1.74ms
+[I 180718 15:34:34 web:2106] 200 POST /api/house/info (127.0.0.1) 1.51ms
+[I 180718 15:36:09 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.87ms
+[I 180718 15:36:09 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.60ms
+[I 180718 15:36:09 web:2106] 304 GET /api/house/area (127.0.0.1) 1.79ms
+[I 180718 15:36:30 web:2106] 200 POST /api/house/info (127.0.0.1) 1.59ms
+[I 180718 15:41:49 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.52ms
+[I 180718 15:41:49 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.63ms
+[I 180718 15:41:49 web:2106] 304 GET /api/house/area (127.0.0.1) 1.68ms
+[I 180718 15:42:10 web:2106] 200 POST /api/house/info (127.0.0.1) 1.40ms
+[I 180718 15:44:55 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.45ms
+[I 180718 15:44:55 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.89ms
+[I 180718 15:44:56 web:2106] 304 GET /api/house/area (127.0.0.1) 1.68ms
+[I 180718 15:53:04 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.87ms
+[I 180718 15:53:04 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.55ms
+[I 180718 15:53:05 web:2106] 304 GET /api/house/area (127.0.0.1) 1.75ms
+[I 180718 15:53:26 web:2106] 200 POST /api/house/info (127.0.0.1) 1.46ms
+[I 180718 16:01:40 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180718 16:02:06 web:2106] 304 GET /newhouse.html (127.0.0.1) 8.50ms
+[I 180718 16:02:06 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.80ms
+[I 180718 16:02:07 web:2106] 304 GET /api/house/area (127.0.0.1) 2.23ms
+[I 180718 16:02:23 web:2106] 200 POST /api/house/info (127.0.0.1) 1.49ms
+[I 180718 16:03:23 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.55ms
+[I 180718 16:03:23 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.61ms
+[I 180718 16:03:23 web:2106] 304 GET /api/house/area (127.0.0.1) 1.64ms
+[I 180718 16:03:41 web:2106] 200 POST /api/house/info (127.0.0.1) 1.57ms
+[I 180718 16:04:13 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180718 17:24:04 web:2106] 304 GET /newhouse.html (127.0.0.1) 116.82ms
+[I 180718 17:24:05 web:2106] 304 GET /static/js/ihome/newhouse.js (127.0.0.1) 33.14ms
+[I 180718 17:24:05 web:2106] 304 GET /api/house/area (127.0.0.1) 94.47ms
+[E 180718 17:24:52 web:1621] Uncaught exception POST /api/house/info (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/house/info', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/utils/commons.py", line 20, in wrapper
+        return func(self, *args, **kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py", line 104, in post
+        hf_facility_id = self.json_dict['hf_facility_id']
+    KeyError: 'hf_facility_id'
+[E 180718 17:24:52 web:2106] 500 POST /api/house/info (127.0.0.1) 35.65ms
+[I 180718 17:25:44 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180718 17:25:45 web:2106] 200 POST /api/house/info (127.0.0.1) 5.49ms
+[I 180718 17:26:04 web:2106] 304 GET /newhouse.html (127.0.0.1) 8.48ms
+[I 180718 17:26:04 web:2106] 304 GET /api/house/area (127.0.0.1) 1.74ms
+[I 180718 17:26:21 web:2106] 200 POST /api/house/info (127.0.0.1) 1.85ms
+[I 180718 17:28:42 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.43ms
+[I 180718 17:28:43 web:2106] 304 GET /api/house/area (127.0.0.1) 1.82ms
+[I 180718 17:29:46 web:2106] 200 GET /newhouse.html (127.0.0.1) 1.80ms
+[I 180718 17:29:46 web:2106] 200 GET /static/css/reset.css (127.0.0.1) 41.74ms
+[I 180718 17:29:46 web:2106] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 30.90ms
+[I 180718 17:29:46 web:2106] 200 GET /static/css/ihome/main.css (127.0.0.1) 16.11ms
+[I 180718 17:29:46 web:2106] 200 GET /static/css/ihome/newhouse.css (127.0.0.1) 14.07ms
+[I 180718 17:29:46 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 98.56ms
+[I 180718 17:29:46 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 13.40ms
+[I 180718 17:29:46 web:2106] 200 GET /static/js/jquery.form.min.js (127.0.0.1) 27.34ms
+[I 180718 17:29:46 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 25.61ms
+[I 180718 17:29:46 web:2106] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 7.56ms
+[I 180718 17:29:46 web:2106] 200 GET /static/js/template.js (127.0.0.1) 6.08ms
+[I 180718 17:29:46 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 35.40ms
+[I 180718 17:29:46 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 5.27ms
+[I 180718 17:29:46 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 9.55ms
+[I 180718 17:29:46 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 34.33ms
+[I 180718 17:29:46 web:2106] 200 GET /api/house/area (127.0.0.1) 1.59ms
+[I 180718 17:29:46 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 13.25ms
+[I 180718 17:30:11 web:2106] 200 POST /api/house/info (127.0.0.1) 2.36ms
+[I 180718 17:31:14 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180718 17:31:17 web:2106] 200 POST /api/house/info (127.0.0.1) 3.06ms
+[I 180718 17:31:42 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[E 180718 17:31:53 HouseHandler:132] (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'values1,1,1,2' at line 1")
+[I 180718 17:31:53 web:2106] 200 POST /api/house/info (127.0.0.1) 419.29ms
+[I 180718 17:32:24 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
