@@ -15,5 +15,6 @@ for each in l:
     afsql = '(%s, %s)'%(1, each) + ','
     sql += afsql
 
-print sql.rstrip(',')
+def printf(sql,*args, **kwargs):
+    pass
 

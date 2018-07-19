@@ -12,6 +12,10 @@ import logging
 
 import json
 
+from utils.aliyun_storage import storage
+
+import constants
+
 
 class AreaHandler(BaseHandler):
     '''获取地域信息'''
@@ -104,9 +108,18 @@ class MyHouseHandler(BaseHandler):
         hf_facility_id = self.json_dict['facility']
 
         # 存储入ih_house_info
+
         print (hi_user_id, hi_title, hi_price, hi_area_id, hi_address, hi_room_count, hi_acreage, hi_house_unit, hi_capacity, hi_beds, hi_deposit, hi_max_days, hi_min_days, hf_facility_id)
         if not all((hi_user_id, hi_title, hi_price, hi_area_id, hi_address, hi_room_count, hi_acreage, hi_house_unit, hi_capacity, hi_beds, hi_deposit, hi_max_days, hi_min_days, hf_facility_id)):
             return self.write(dict(errcode=RET.PARAMERR, errmsg='参数缺省'))
+
+        try:
+            hi_price = int(hi_price)
+            hi_deposit = int(hi_deposit)
+        except Exception as e:
+            logging.error(e)
+            return self.write(dict(errcode=RET.PARAMERR, errmsg='参数错误'))
+
         try:
             # 房屋信息写入
             sql = 'insert into ih_house_info(hi_user_id, hi_title, hi_price, hi_area_id, hi_address, ' \
@@ -122,7 +135,7 @@ class MyHouseHandler(BaseHandler):
         else:
             # 设备信息写入
             try:
-                sql = 'insert into ih_house_facility(hf_house_id, hf_facility_id) values'
+                sql = 'insert into ih_house_facility(hf_house_id, hf_fac) values'
                 for each in hf_facility_id:
                     af = '(%s,%s),'%(ret, each)
                     sql += af
@@ -132,7 +145,40 @@ class MyHouseHandler(BaseHandler):
                 logging.error(e)
                 self.write(dict(errcode=RET.DBERR, errmsg='数据库写入错误'))
             else:
-                self.write(dict(errcode=RET.OK, errmsg='成功'))
+                self.write(dict(errcode=RET.OK, errmsg='成功' , data=dict(houseID=ret)))
+
+
+class ImageHandler(BaseHandler):
+    '''处理上传照片'''
+    @require_login
+    def post(self):
+        '''
+        :param 传入参数： 文件数据流写入 house-image
+         url传入          house-id
+
+        :return:
+        '''
+        hi_house_image = self.request.files['house_image'][0]['body']
+        # 使用ajax设置url后面带参数出错
+        # 這裏採用<input type='hidden'>中的value
+        hi_house_id = self.get_argument('house_id')
+        # hi_house_id = self.json_dict['houseID']
+
+        try:
+            imageName = storage(hi_house_image)
+        except Exception as e:
+            logging.error(e)
+            return self.write(dict(errcode=RET.THIRDERR, errmsg='阿里云上传头像出错'))
+        # 图片的完整url
+        url = constants.PRE_URL + imageName
+        try:
+            sql = 'update ih_house_info set hi_index_image_url=%(url)s where hi_house_id=%(hi_house_id)s'
+            self.db.execute(sql, url=url, hi_house_id=hi_house_id)
+        except Exception as e:
+            logging.error(e)
+            self.write(dict(errcode=RET.DBERR, errmsg='数据库出错'))
+        else:
+            self.write(dict(errcode=RET.OK, errmsg='成功'))
 
 
 
