@@ -135,7 +135,7 @@ class MyHouseHandler(BaseHandler):
         else:
             # 设备信息写入
             try:
-                sql = 'insert into ih_house_facility(hf_house_id, hf_fac) values'
+                sql = 'insert into ih_house_facility(hf_house_id, hf_facility_id) values'
                 for each in hf_facility_id:
                     af = '(%s,%s),'%(ret, each)
                     sql += af
@@ -161,14 +161,16 @@ class ImageHandler(BaseHandler):
         hi_house_image = self.request.files['house_image'][0]['body']
         # 使用ajax设置url后面带参数出错
         # 這裏採用<input type='hidden'>中的value
-        hi_house_id = self.get_argument('house_id')
+        hi_house_id = self.get_argument('houseid')
         # hi_house_id = self.json_dict['houseID']
 
         try:
             imageName = storage(hi_house_image)
+            print 'i am ok'
         except Exception as e:
             logging.error(e)
             return self.write(dict(errcode=RET.THIRDERR, errmsg='阿里云上传头像出错'))
+        print imageName
         # 图片的完整url
         url = constants.PRE_URL + imageName
         try:
@@ -178,7 +180,7 @@ class ImageHandler(BaseHandler):
             logging.error(e)
             self.write(dict(errcode=RET.DBERR, errmsg='数据库出错'))
         else:
-            self.write(dict(errcode=RET.OK, errmsg='成功'))
+            self.write(dict(errcode=RET.OK, errmsg='成功', data=dict(url=url)))
 
 
 

@@ -17,7 +17,7 @@ $(document).ready(function() {
             window.location.href = '/login.html';
         }
     })
-    var houseID = '';
+    var houseID = 0;
     $('#form-house-info').submit(function (e) {
         e.preventDefault();
         // 由于浏览器可以帮助我们控制除了两个选项外的input不能为空， 因此我们只需要判断那两个选项是否为空
@@ -54,7 +54,7 @@ $(document).ready(function() {
                     if (data.errcode == 0) {
                         $('#form-house-info').hide();
                         $('#form-house-image').show();
-                        $('#house-id').val(data.data.houseID)
+                        houseID = data.data.houseID;
                     }
                     else if (data.errcode == '4101') {
                         window.location.href = '/login.html';
@@ -66,41 +66,36 @@ $(document).ready(function() {
                 }
             })
         }
-
     })
-    $('.form-house-image').submit(function (e) {
+
+    $("#form-house-image").submit(function(e){
         e.preventDefault();
-        //     var content = {
-        //         url: '/api/house/image',
-        //         method: 'POST',
-        //         dataType: 'json',
-        //         headers: {
-        //            'X-XSRFTOKEN': getCookie('_xsrf')
-        //         },
-        //         success: function(e){
-        //             alert(e.errcode);
-        //         }
-        //     }
-        //     $(this).ajaxSubmit(content);
-        // })
-        // $('.popup_con').fadeIn('fast');
+        $('#loadwaiting').fadeIn();
         var options = {
-            url:"/api/house/image",
-            type:"POST",
-            headers:{
-                "X-XSRFTOKEN":getCookie("_xsrf"),
+            url: '/api/house/image?houseid='+houseID,
+            method: 'POST',
+            dataType: 'json',
+            headers: {
+               'X-XSRFTOKEN': getCookie('_xsrf')
             },
-            success: function(data){
-                if ("4101" == data.errcode) {
-                    location.href = "/login.html";
-                } else if ("0" == data.errcode) {
-                    alert(1);
-                    // $('.popup_con').fadeOut('fast');
+            success: function(e){
+                if(e.errcode == '0'){
+                    $('#loadwaiting').fadeOut();
+                    $('#loadsuccess').fadeIn(function(){
+                        setTimeout(function(){
+                            $('#loadsuccess').fadeOut();
+                        }, 1000)
+                    })
+                    $('.house-image-cons').html('<img src='+e.data.url+'>')
+                }
+                else if(e.errcode == '4101'){
+                    window.location.href='/login.html';
                 }
             }
         };
         $(this).ajaxSubmit(options);
-    });
+    })
+
 })
 
 function checkFunc(){
