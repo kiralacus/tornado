@@ -3035,3 +3035,238 @@
 [D 180719 17:43:03 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
 [D 180719 17:43:04 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /b749af9587e943cbbb5a537821bafe29.jpg HTTP/1.1" 200 0
 [I 180719 17:43:04 web:2106] 200 POST /api/house/image (127.0.0.1) 285.26ms
+[I 180719 20:19:12 web:2106] 304 GET / (127.0.0.1) 8.98ms
+[I 180719 20:19:13 web:2106] 304 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 25.10ms
+[I 180719 20:19:13 web:2106] 304 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 2.30ms
+[I 180719 20:19:13 web:2106] 304 GET /static/css/reset.css (127.0.0.1) 1.76ms
+[I 180719 20:19:13 web:2106] 304 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 1.37ms
+[I 180719 20:19:13 web:2106] 304 GET /static/css/ihome/main.css (127.0.0.1) 1.41ms
+[I 180719 20:19:13 web:2106] 304 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 1.59ms
+[I 180719 20:19:13 web:2106] 304 GET /static/css/ihome/index.css (127.0.0.1) 1.27ms
+[I 180719 20:19:13 web:2106] 304 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 8.48ms
+[I 180719 20:19:13 web:2106] 304 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 2.20ms
+[I 180719 20:19:13 web:2106] 304 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 1.57ms
+[I 180719 20:19:13 web:2106] 304 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 1.77ms
+[I 180719 20:19:13 web:2106] 304 GET /static/js/template.js (127.0.0.1) 1.22ms
+[I 180719 20:19:13 web:2106] 304 GET /static/images/logo@128x59.png (127.0.0.1) 1.33ms
+[I 180719 20:19:13 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 1.07ms
+[I 180719 20:19:13 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 40.37ms
+[E 180719 20:19:13 session:27] Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180719 20:19:13 web:1621] Uncaught exception GET /api/check_login (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/check_login', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/Passport.py", line 112, in get
+        if self.get_current_user():
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/BaseHandler.py", line 49, in get_current_user
+        self.session = Session(self)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/utils/session.py", line 28, in __init__
+        raise e
+    ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180719 20:19:13 web:2106] 500 GET /api/check_login (127.0.0.1) 4.05ms
+[W 180719 20:19:13 web:2106] 404 GET /api/house/index (127.0.0.1) 5.64ms
+[I 180719 20:19:34 web:2106] 304 GET / (127.0.0.1) 0.87ms
+[I 180719 20:19:34 web:2106] 200 GET /api/check_login (127.0.0.1) 1.53ms
+[W 180719 20:19:34 web:2106] 404 GET /api/house/index (127.0.0.1) 1.03ms
+[I 180719 20:19:34 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.46ms
+[I 180719 20:19:36 web:2106] 304 GET /login.html (127.0.0.1) 1.70ms
+[I 180719 20:19:36 web:2106] 304 GET /static/css/ihome/login.css (127.0.0.1) 1.33ms
+[I 180719 20:19:36 web:2106] 304 GET /static/js/ihome/login.js (127.0.0.1) 1.70ms
+[I 180719 20:19:46 web:2106] 200 POST /api/login (127.0.0.1) 14.71ms
+[W 180719 20:19:46 web:2106] 404 GET /api/house/index (127.0.0.1) 0.83ms
+[I 180719 20:19:46 web:2106] 200 GET /api/check_login (127.0.0.1) 2.03ms
+[I 180719 20:19:49 web:2106] 304 GET /my.html (127.0.0.1) 1.39ms
+[I 180719 20:19:49 web:2106] 304 GET /static/css/ihome/my.css (127.0.0.1) 7.16ms
+[I 180719 20:19:49 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 1.41ms
+[I 180719 20:19:49 web:2106] 304 GET /api/profile (127.0.0.1) 1.80ms
+[I 180719 20:20:20 web:2106] 200 GET /newhouse.html (127.0.0.1) 1.43ms
+[I 180719 20:20:20 web:2106] 304 GET /static/css/ihome/newhouse.css (127.0.0.1) 1.82ms
+[I 180719 20:20:20 web:2106] 304 GET /static/js/jquery.form.min.js (127.0.0.1) 2.11ms
+[I 180719 20:20:20 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.01ms
+[I 180719 20:20:20 web:2106] 304 GET /api/house/area (127.0.0.1) 9.32ms
+[I 180719 20:20:23 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 5.09ms
+[E 180719 20:28:24 torndb:236] Error connecting to MySQL on 127.0.0.1
+[E 180719 20:28:24 HouseHandler:145] (1054, "Unknown column 'hf_fac' in 'field list'")
+[I 180719 20:28:24 web:2106] 200 POST /api/house/info (127.0.0.1) 9.56ms
+[I 180719 20:29:14 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180719 20:32:10 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180719 20:32:30 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180719 20:32:34 web:2106] 200 POST /api/house/info (127.0.0.1) 17.65ms
+[D 180719 20:34:23 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Thu, 19 Jul 2018 12:34:23 GMT
+    /kiralacus/cd8f25a6a14e4a968b884b89d60feaa0.jpg
+[E 180719 20:34:23 HouseHandler:170] {'status': -2, 'request-id': '', 'details': 'RequestError: Missing dependencies for SOCKS support.'}
+[I 180719 20:34:23 web:2106] 200 POST /api/house/image?houseid=2 (127.0.0.1) 26.40ms
+[I 180719 20:35:10 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.45ms
+[I 180719 20:35:10 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.28ms
+[I 180719 20:35:10 web:2106] 304 GET /api/house/area (127.0.0.1) 1.48ms
+[I 180719 20:36:43 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/utils/aliyun_storage.py modified; restarting server
+[I 180719 20:36:52 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/utils/aliyun_storage.py modified; restarting server
+[I 180719 20:42:32 web:2106] 200 POST /api/house/info (127.0.0.1) 6.18ms
+[D 180719 20:42:43 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Thu, 19 Jul 2018 12:42:43 GMT
+    /kiralacus/53d807c9662f4dea99a8d48fecbbb236.jpg
+[E 180719 20:42:43 HouseHandler:170] {'status': -2, 'request-id': '', 'details': 'RequestError: Missing dependencies for SOCKS support.'}
+[I 180719 20:42:43 web:2106] 200 POST /api/house/image?houseid=3 (127.0.0.1) 13.60ms
+[I 180719 20:50:51 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[D 180719 20:51:22 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Thu, 19 Jul 2018 12:51:22 GMT
+    /kiralacus/adac52e453404c7e8f550d2a6902cb28.jpg
+[E 180719 20:51:22 HouseHandler:171] {'status': -2, 'request-id': '', 'details': 'RequestError: Missing dependencies for SOCKS support.'}
+[I 180719 20:51:22 web:2106] 200 POST /api/house/image?houseid=3 (127.0.0.1) 183.50ms
+[I 180719 20:51:54 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[D 180719 20:52:06 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Thu, 19 Jul 2018 12:52:06 GMT
+    /kiralacus/08e2b642e5c041a991147ee42b378ab8.jpg
+[E 180719 20:52:06 HouseHandler:172] {'status': -2, 'request-id': '', 'details': 'RequestError: Missing dependencies for SOCKS support.'}
+[I 180719 20:52:06 web:2106] 200 POST /api/house/image?houseid=3 (127.0.0.1) 98.93ms
+[I 180719 20:53:32 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/utils/aliyun_storage.py modified; restarting server
+[I 180719 20:56:39 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/utils/aliyun_storage.py modified; restarting server
+[D 180719 20:56:49 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Thu, 19 Jul 2018 12:56:49 GMT
+    /kiralacus/a4b30151d43d47d89433d832cc060779.jpg
+[E 180719 20:56:49 HouseHandler:172] {'status': -2, 'request-id': '', 'details': 'RequestError: Missing dependencies for SOCKS support.'}
+[I 180719 20:56:49 web:2106] 200 POST /api/house/image?houseid=3 (127.0.0.1) 101.43ms
+[I 180719 20:57:23 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[D 180719 20:57:27 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Thu, 19 Jul 2018 12:57:27 GMT
+    /kiralacus/1c9e9f4e2ce748828c46e4996a22f569.jpg
+[E 180719 20:57:27 HouseHandler:171] {'status': -2, 'request-id': '', 'details': 'RequestError: Missing dependencies for SOCKS support.'}
+[I 180719 20:57:27 web:2106] 200 POST /api/house/image?houseid=3 (127.0.0.1) 18.48ms
+[I 180719 20:58:00 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/utils/aliyun_storage.py modified; restarting server
+[D 180719 20:58:04 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Thu, 19 Jul 2018 12:58:04 GMT
+    /kiralacus/1e2d457624dd4a23bbec83d83f066cf4.jpg
+[E 180719 20:58:04 HouseHandler:171] {'status': -2, 'request-id': '', 'details': 'RequestError: Missing dependencies for SOCKS support.'}
+[I 180719 20:58:04 web:2106] 200 POST /api/house/image?houseid=3 (127.0.0.1) 108.05ms
+[I 180719 20:58:22 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/utils/aliyun_storage.py modified; restarting server
+[D 180719 20:58:27 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Thu, 19 Jul 2018 12:58:27 GMT
+    /kiralacus/8e242cacb9f94deb966d1846bc1246f4.jpg
+[E 180719 20:58:27 HouseHandler:171] {'status': -2, 'request-id': '', 'details': 'RequestError: Missing dependencies for SOCKS support.'}
+[I 180719 20:58:27 web:2106] 200 POST /api/house/image?houseid=3 (127.0.0.1) 16.78ms
+[W 180719 21:01:01 web:2106] 404 GET /api/house/index (127.0.0.1) 2.55ms
+[I 180719 21:01:01 web:2106] 304 GET /api/check_login (127.0.0.1) 3.83ms
+[I 180719 21:01:03 web:2106] 304 GET /api/profile (127.0.0.1) 2.49ms
+[I 180719 21:01:05 web:2106] 304 GET /profile.html (127.0.0.1) 11.77ms
+[I 180719 21:01:05 web:2106] 304 GET /static/css/ihome/profile.css (127.0.0.1) 4.50ms
+[I 180719 21:01:05 web:2106] 304 GET /static/js/ihome/profile.js (127.0.0.1) 1.77ms
+[I 180719 21:01:05 web:2106] 304 GET /api/profile (127.0.0.1) 2.17ms
+[E 180719 21:01:06 web:1621] Uncaught exception POST /api/profile/avatar (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/profile/avatar', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/utils/commons.py", line 20, in wrapper
+        return func(self, *args, **kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/Profile.py", line 22, in post
+        imageData = self.request.files['avatar'][0]['body']
+    KeyError: 'avatar'
+[E 180719 21:01:06 web:2106] 500 POST /api/profile/avatar (127.0.0.1) 2.20ms
+[I 180719 21:01:14 web:2106] 304 GET /profile.html (127.0.0.1) 1.08ms
+[I 180719 21:01:14 web:2106] 304 GET /api/profile (127.0.0.1) 2.19ms
+[I 180719 21:01:14 web:2106] 200 GET /favicon.ico (127.0.0.1) 0.97ms
+[D 180719 21:01:23 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Thu, 19 Jul 2018 13:01:23 GMT
+    /kiralacus/6a5cabaa02fd4a8b951c7d63593fce28.jpg
+[E 180719 21:01:23 Profile:27] {'status': -2, 'request-id': '', 'details': 'RequestError: Missing dependencies for SOCKS support.'}
+[I 180719 21:01:23 web:2106] 200 POST /api/profile/avatar (127.0.0.1) 6.55ms
+[I 180719 21:02:03 web:2106] 304 GET /api/profile (127.0.0.1) 1.92ms
+[D 180719 21:02:08 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Thu, 19 Jul 2018 13:02:08 GMT
+    /kiralacus/a162639b8f7e44e6aeb1458c000c5773.jpg
+[E 180719 21:02:08 Profile:27] {'status': -2, 'request-id': '', 'details': 'RequestError: Missing dependencies for SOCKS support.'}
+[I 180719 21:02:08 web:2106] 200 POST /api/profile/avatar (127.0.0.1) 4.50ms
+[I 180719 21:04:15 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/utils/aliyun_storage.py modified; restarting server
+[I 180719 21:08:23 web:2106] 304 GET /profile.html (127.0.0.1) 3.96ms
+[I 180719 21:08:23 web:2106] 304 GET /api/profile (127.0.0.1) 2.24ms
+[D 180719 21:08:28 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Thu, 19 Jul 2018 13:08:28 GMT
+    /kiralacus/f9234e466f7445e589962b14f09efef3.jpg
+[E 180719 21:08:28 Profile:27] {'status': -2, 'request-id': '', 'details': 'RequestError: Missing dependencies for SOCKS support.'}
+[I 180719 21:08:28 web:2106] 200 POST /api/profile/avatar (127.0.0.1) 7.49ms
+[I 180719 23:45:48 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/utils/aliyun_storage.py modified; restarting server
+[D 180720 00:14:55 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Thu, 19 Jul 2018 16:14:55 GMT
+    /kiralacus/704c8bb0b2f24479a229daf3c324a476.jpg
+[D 180720 00:14:55 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180720 00:14:55 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /704c8bb0b2f24479a229daf3c324a476.jpg HTTP/1.1" 200 0
+[E 180720 00:14:55 web:1670] Uncaught exception POST /api/house/image?houseid=3 (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/house/image?houseid=3', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/newpy2env/py2/local/lib/python2.7/site-packages/tornado/web.py", line 1590, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/utils/commons.py", line 20, in wrapper
+        return func(self, *args, **kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py", line 174, in post
+        url = constants.PRE_URL + imageName
+    TypeError: cannot concatenate 'str' and 'NoneType' objects
+[E 180720 00:14:55 web:2162] 500 POST /api/house/image?houseid=3 (127.0.0.1) 480.90ms
+[I 180720 00:16:31 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180720 00:16:59 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/utils/aliyun_storage.py modified; restarting server
+[D 180720 00:17:06 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Thu, 19 Jul 2018 16:17:06 GMT
+    /kiralacus/589ba92b7afb42b0b4028f60d1a966d0.jpg
+[D 180720 00:17:06 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180720 00:17:06 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /589ba92b7afb42b0b4028f60d1a966d0.jpg HTTP/1.1" 200 0
+[I 180720 00:17:06 web:2162] 200 POST /api/house/image?houseid=3 (127.0.0.1) 385.35ms
+[I 180720 00:22:08 web:2162] 304 GET /newhouse.html (127.0.0.1) 1.33ms
+[I 180720 00:22:08 web:2162] 304 GET /static/js/ihome/newhouse.js (127.0.0.1) 0.73ms
+[I 180720 00:22:08 web:2162] 304 GET /api/house/area (127.0.0.1) 3.19ms
+[I 180720 00:22:08 web:2162] 200 GET /favicon.ico (127.0.0.1) 1.01ms
+[I 180720 00:39:35 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180720 00:39:59 web:2162] 304 GET /newhouse.html (127.0.0.1) 3.28ms
+[I 180720 00:39:59 web:2162] 304 GET /api/house/area (127.0.0.1) 1.69ms
+[I 180720 00:40:09 web:2162] 200 GET /newhouse.html (127.0.0.1) 2.44ms
+[I 180720 00:40:09 web:2162] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 3.60ms
+[I 180720 00:40:09 web:2162] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 4.54ms
+[I 180720 00:40:09 web:2162] 200 GET /static/css/reset.css (127.0.0.1) 5.92ms
+[I 180720 00:40:09 web:2162] 200 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 5.11ms
+[I 180720 00:40:09 web:2162] 200 GET /static/css/ihome/main.css (127.0.0.1) 5.16ms
+[I 180720 00:40:09 web:2162] 200 GET /static/css/ihome/newhouse.css (127.0.0.1) 4.05ms
+[I 180720 00:40:09 web:2162] 200 GET /static/js/jquery.min.js (127.0.0.1) 15.00ms
+[I 180720 00:40:09 web:2162] 200 GET /static/js/jquery.form.min.js (127.0.0.1) 12.23ms
+[I 180720 00:40:09 web:2162] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 11.08ms
+[I 180720 00:40:09 web:2162] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 9.87ms
+[I 180720 00:40:09 web:2162] 200 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 7.39ms
+[I 180720 00:40:09 web:2162] 200 GET /static/js/template.js (127.0.0.1) 5.43ms
+[I 180720 00:40:09 web:2162] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 3.46ms
+[I 180720 00:40:09 web:2162] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 1.08ms
+[I 180720 00:40:09 web:2162] 200 GET /api/house/area (127.0.0.1) 1.01ms
+[I 180720 00:40:09 web:2162] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 6.63ms
+[I 180720 00:40:53 web:2162] 200 POST /api/house/info (127.0.0.1) 7.12ms
+[D 180720 00:40:59 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Thu, 19 Jul 2018 16:40:59 GMT
+    /kiralacus/8772b66a8da4457c891674bbf11b7e48.jpg
+[D 180720 00:40:59 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180720 00:41:00 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /8772b66a8da4457c891674bbf11b7e48.jpg HTTP/1.1" 200 0
+[I 180720 00:41:00 web:2162] 200 POST /api/house/image?houseid=4 (127.0.0.1) 329.95ms
