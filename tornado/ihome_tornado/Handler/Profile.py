@@ -21,8 +21,11 @@ class AvatarHandler(BaseHandler):
     def post(self):
         imageData = self.request.files['avatar'][0]['body']
         # print imageData
-        imageName = storage(imageData)
-        print imageName
+        try:
+            imageName = storage(imageData)
+        except Exception as e:
+            logging.error(e)
+            return self.write(dict(errcode=RET.THIRDERR, errmsg='阿里云上传头像出错'))
         # 图片的完整url
         url = constants.PRE_URL + imageName
 
