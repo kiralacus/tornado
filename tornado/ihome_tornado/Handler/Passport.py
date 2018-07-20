@@ -62,7 +62,6 @@ class RegisterHandler(BaseHandler):
                             else:
                                 self.write(dict(errcode=RET.OK, errmsg='成功'))
 
-
 class LoginHandler(BaseHandler):
     '''用户登录'''
     def post(self):
@@ -105,7 +104,6 @@ class LoginHandler(BaseHandler):
                             session.data['mobile'] = mobile
                             session.save()
 
-
 class CheckLoginHandler(BaseHandler):
     '''检查是否登录'''
     def get(self):
@@ -122,7 +120,6 @@ class CheckLoginHandler(BaseHandler):
                 self.write(dict(errcode=RET.OK, errmsg='用户已登录', data=up_name['up_name']))
         else:
             self.write(dict(errcode=RET.SESSIONERR, errmsg='用户未登录'))
-
 
 class LogoutHandler(BaseHandler):
     '''登出操作'''

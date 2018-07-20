@@ -1,15 +1,15 @@
 $(document).ready(function(){
-    $.get("/api/profile/auth", function(data){
-        if ("4101" == data.errcode) {
-            location.href = "/login.html";
-        } else if ("0" == data.errcode) {
-            if ("" == data.data.real_name || "" == data.data.id_card || null == data.data.real_name || null == data.data.id_card) {
-                $(".auth-warn").show();
-                return;
-            }
-            $.get("/api/house/my", function(result){
-                $("#houses-list").html(template("houses-list-tmpl", {houses:result.houses}));
-            });
+    $.get('/api/house/myhouse', function(data){
+        if(data.errcode == '0'){
+            console.log(data);
+            $('.houses-list').html(template('house-list-tmpl', {houses: data.data}))
         }
-    });
+        else if(data.errcode == '4101'){
+            window.location.href = '/login.html';
+        }
+        else if(data.errcode == '4101'){
+            $('.house-list .auth-warn').show();
+            $('#houses-list').hide();
+        }
+    })
 })

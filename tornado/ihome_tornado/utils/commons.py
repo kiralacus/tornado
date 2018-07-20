@@ -6,6 +6,8 @@ import functools
 
 from utils.response_code import RET
 
+import logging
+
 
 def require_login(func):
     '''
@@ -21,8 +23,26 @@ def require_login(func):
     return wrapper
 
 
-
-
+def require_auth(func):
+    '''
+        验证用户身份信息是否通过审核
+    '''
+    @functools.wraps(func)
+    def wrapper(self, *args, **kwargs):
+        user_id = self.get_current_user()['userId']
+        try:
+            sql = 'select up_auth from ih_user_profile where up_user_id=%(user_id)s'
+            ret = self.db.get(sql, user_id=user_id)
+            print ret['up_auth']
+        except Exception as e:
+            logging.error(e)
+            self.write(dict(errcode=RET.DBERR, errmsg='数据库查询错误'))
+        else:
+            if ret['up_auth']:
+                return func(self, *args, **kwargs)
+            else:
+                return self.write(dict(errcode=RET.USERERR, errmsg='用户尚未通过审核'))
+    return wrapper
 
 
 

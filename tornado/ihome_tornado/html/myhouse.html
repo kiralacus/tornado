@@ -33,24 +33,24 @@
             </ul>
             <ul id="houses-list" class="houses-list">
             </ul>
-            <script id="houses-list-tmpl" type="text/html">
-                <li>
+            <script id="house-list-tmpl" type="text/html">
+                 <li>
                     <div class="new-house">
                         <a href="/newhouse.html">发布新房源</a>
                     </div>
                 </li>
                 {{each houses as house}}
                 <li>
-                    <a href="/detail.html?id={{house.house_id}}&f=my">
+                    <a href="/detail.html?id={{house_id}}">
                         <div class="house-title">
-                            <h3>房屋ID:{{house.house_id}} —— {{house.title}}</h3>
+                            <h3>房屋ID:{{house.house_id}} —— 房屋名称:{{house.title}}</h3>
                         </div>
                         <div class="house-content">
-                            <img src="{{house.img_url}}">
+                            <img src="{{house.imageUrl}}">
                             <div class="house-text">
                                 <ul>
                                     <li>位于：{{house.area_name}}</li>
-                                    <li>价格：￥{{(house.price/100.0).toFixed(0)}}/晚</li>
+                                    <li>价格：{{house.price}}/晚</li>
                                     <li>发布时间：{{house.ctime}}</li>
                                 </ul>
                             </div>
@@ -58,7 +58,7 @@
                     </a>
                 </li>
                 {{/each}}
-            </script>
+             </script>
         </div>
         <div class="footer">
             <p><span><i class="fa fa-copyright"></i></span>爱家租房&nbsp;&nbsp;享受家的温馨</p>
