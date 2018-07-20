@@ -24,6 +24,19 @@
         <div class="swiper-container">
         </div>
         <script id="house-image-tmpl" type="text/html">
+            <form id="form-house-image" action="/api/house/image" method="post" enctype="multipart/form-data">
+                <li>
+                    <div class="house-title">
+                        <h3>添加图片</h3>
+                    </div>
+                    <div class="house-content " style="height:50px;">
+                        <div class="form-group" >
+                            <input type="file" accept="image/*" name="house_image" id="house-image" style="float: left;">
+                            <input type="submit" class="btn btn-success" style='padding:1px 12px;' value="上传">
+                        </div>
+                    </div>
+                </li>
+            </form>
             <ul class="swiper-wrapper">
                 {{each img_urls as img_url}}
                 <li class="swiper-slide"><img src="{{img_url}}"></li>
@@ -31,7 +44,7 @@
             </ul>
             <div class="swiper-pagination"></div>
             <div class="house-price">￥<span>{{(price/100.0).toFixed(0)}}</span>/晚</div>
-        </script>
+         </script>
         <div class="detail-con">
         </div>
         <script id="house-detail-tmpl" type="text/html">

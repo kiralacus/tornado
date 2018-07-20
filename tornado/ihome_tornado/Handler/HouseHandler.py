@@ -4,7 +4,7 @@ from Handler.BaseHandler import BaseHandler
 
 from utils.response_code import RET
 
-from utils.commons import require_login
+from utils.commons import require_login, require_auth
 
 import config
 
@@ -15,6 +15,8 @@ import json
 from utils.aliyun_storage import storage
 
 import constants
+
+import datetime
 
 
 class AreaHandler(BaseHandler):
@@ -67,7 +69,7 @@ class AreaHandler(BaseHandler):
                         self.write(dict(errcode=RET.OK, errmsg='成功', data=areaList))
 
 
-class MyHouseHandler(BaseHandler):
+class NewHouseHandler(BaseHandler):
     '''房屋信息处理'''
     @require_login
     def post(self):
@@ -109,7 +111,6 @@ class MyHouseHandler(BaseHandler):
 
         # 存储入ih_house_info
 
-        print (hi_user_id, hi_title, hi_price, hi_area_id, hi_address, hi_room_count, hi_acreage, hi_house_unit, hi_capacity, hi_beds, hi_deposit, hi_max_days, hi_min_days, hf_facility_id)
         if not all((hi_user_id, hi_title, hi_price, hi_area_id, hi_address, hi_room_count, hi_acreage, hi_house_unit, hi_capacity, hi_beds, hi_deposit, hi_max_days, hi_min_days, hf_facility_id)):
             return self.write(dict(errcode=RET.PARAMERR, errmsg='参数缺省'))
 
@@ -148,7 +149,7 @@ class MyHouseHandler(BaseHandler):
                 self.write(dict(errcode=RET.OK, errmsg='成功' , data=dict(houseID=ret)))
 
 
-class ImageHandler(BaseHandler):
+class HouseImageHandler(BaseHandler):
     '''处理上传照片'''
     @require_login
     def post(self):
@@ -166,22 +167,108 @@ class ImageHandler(BaseHandler):
 
         try:
             imageName = storage(hi_house_image)
-            print 'i am ok'
         except Exception as e:
             logging.error(e)
             return self.write(dict(errcode=RET.THIRDERR, errmsg='阿里云上传头像出错'))
-        print imageName
         # 图片的完整url
         url = constants.PRE_URL + imageName
         try:
             sql = 'update ih_house_info set hi_index_image_url=%(url)s where hi_house_id=%(hi_house_id)s'
-            self.db.execute(sql, url=url, hi_house_id=hi_house_id)
+            self.db.execute(sql, url=imageName, hi_house_id=hi_house_id)
         except Exception as e:
             logging.error(e)
             self.write(dict(errcode=RET.DBERR, errmsg='数据库出错'))
         else:
             self.write(dict(errcode=RET.OK, errmsg='成功', data=dict(url=url)))
 
+
+class MyHouseHandler(BaseHandler):
+    '''单个房主的房屋管理'''
+    @require_login
+    @require_auth
+    def get(self):
+        '''
+        :param
+        从ih_house_info中获取
+        hi_house_id
+        hi_title
+        hi_area_id + hi_address
+        hi_price
+        hi_ctime
+        :return:
+        '''
+        user_id = self.get_current_user()['userId']
+        try:
+            sql = 'select ai_name, hi_house_id, hi_title, hi_price, hi_address, hi_ctime, hi_index_image_url from ih_house_info left join ih_area_info ' \
+                  'on ih_area_info.ai_area_id = ih_house_info.hi_area_id where hi_user_id=%(user_id)s'
+            myhouseinfo = self.db.query(sql, user_id=user_id)
+        except Exception as e:
+            logging.error(e)
+            self.write(dict(errcode=RET.DBERR, errmsg='数据库查询错误'))
+        else:
+            # 获取hi_area_id对应信息
+            houseList = []
+            for each in myhouseinfo:
+                myhouse = {}
+                myhouse['area_name'] = each['ai_name'] + ' ' + each['hi_address']
+                myhouse['house_id'] = each['hi_house_id']
+                myhouse['title'] = each['hi_title']
+                myhouse['price'] = each['hi_price']
+                myhouse['ctime'] = str(each['hi_ctime'])
+                if not each['hi_index_image_url']:
+                    each['hi_index_image_url'] = constants.DEFAULT_HOUSE_IMG
+                myhouse['imageUrl'] = constants.PRE_URL + each['hi_index_image_url']
+
+                houseList.append(myhouse)
+
+            self.write(dict(errcode=RET.OK, errmsg='成功', data=houseList))
+
+
+class HouseDetailHandler(BaseHandler):
+    '''处理详细房屋信息'''
+    def get(self):
+        '''
+        :param -> house_id
+               <- hi_acreage
+                  hi_unit
+                  hi_room_count
+                  hi_capacity
+                  hi_beds
+                  hi_deposit
+                  hi_min_days
+                  hi_max_days
+                  通过house_id在ih_house_facility中检索
+        :return:
+        '''
+        house_id = self.get_argument()
+        try:
+            sql = 'select hi_acreage, hi_unit, hi_room_count, hi_capacity, hi_beds, hi_deposit, hi_min_days, hi_max_days ' \
+                  'from ih_house_info where house_id=%(house_id)s'
+            houseDetail = self.db.get(sql, house_id=house_id)
+        except Exception as e:
+            logging.error(e)
+            self.write(dict(errcode=RET.DBERR, errmsg='数据库查询错误'))
+        else:
+            try:
+                sql = 'select hf_facility_id from ih_house_facility where hf_house_id=%(house_id)s'
+                facility = self.db.query(sql, house_id)
+            except Exception as e:
+                logging.error(e)
+                self.write(dict(errcode=RET.DBERR, errmsg='数据库查询错误'))
+            else:
+                house_detail = {}
+                house_detail['acreage'] = houseDetail['hi_acreage']
+                house_detail['unit'] = houseDetail['hi_unit']
+                house_detail['room_count'] = houseDetail['hi_room_count']
+                house_detail['capacity'] = houseDetail['hi_capacity']
+                house_detail['beds'] = houseDetail['hi_beds']
+                house_detail['deposit'] = houseDetail['hi_deposit']
+                house_detail['min_days'] = houseDetail['hi_min_days']
+                house_detail['max_days'] = houseDetail['hi_max_days']
+                house_detail['facility'] = []
+                for each in facility:
+                    house_detail['facility'].append(each['hf_facility_id'])
+                self.write(dict(errcode=RET.OK, errmsg='ok', data=house_detail))
 
 
 
