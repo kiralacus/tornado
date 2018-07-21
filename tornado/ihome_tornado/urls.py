@@ -20,5 +20,6 @@ handler = [
     (r'/api/house/info', HouseHandler.NewHouseHandler),
     (r'/api/house/image', HouseHandler.HouseImageHandler),
     (r'/api/house/myhouse', HouseHandler.MyHouseHandler),
+    (r'/api/house/detail',HouseHandler.HouseDetailHandler),
     (r'/(.*)', BaseHandler.StaticFileHandler, {'path': os.path.join(os.path.dirname(__file__), 'html'), 'default_filename': 'index.html'}),
 ]

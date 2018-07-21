@@ -230,7 +230,7 @@ class HouseDetailHandler(BaseHandler):
         '''
         :param -> house_id
                <- hi_acreage
-                  hi_unit
+                  hi_house_unit
                   hi_room_count
                   hi_capacity
                   hi_beds
@@ -240,10 +240,10 @@ class HouseDetailHandler(BaseHandler):
                   通过house_id在ih_house_facility中检索
         :return:
         '''
-        house_id = self.get_argument()
+        house_id = self.get_argument('id')
         try:
-            sql = 'select hi_acreage, hi_unit, hi_room_count, hi_capacity, hi_beds, hi_deposit, hi_min_days, hi_max_days ' \
-                  'from ih_house_info where house_id=%(house_id)s'
+            sql = 'select hi_acreage, hi_house_unit, hi_room_count, hi_capacity, hi_beds, hi_deposit, hi_min_days, hi_max_days ' \
+                  'from ih_house_info where hi_house_id=%(house_id)s'
             houseDetail = self.db.get(sql, house_id=house_id)
         except Exception as e:
             logging.error(e)
@@ -251,14 +251,14 @@ class HouseDetailHandler(BaseHandler):
         else:
             try:
                 sql = 'select hf_facility_id from ih_house_facility where hf_house_id=%(house_id)s'
-                facility = self.db.query(sql, house_id)
+                facility = self.db.query(sql, house_id=house_id)
             except Exception as e:
                 logging.error(e)
                 self.write(dict(errcode=RET.DBERR, errmsg='数据库查询错误'))
             else:
                 house_detail = {}
                 house_detail['acreage'] = houseDetail['hi_acreage']
-                house_detail['unit'] = houseDetail['hi_unit']
+                house_detail['unit'] = houseDetail['hi_house_unit']
                 house_detail['room_count'] = houseDetail['hi_room_count']
                 house_detail['capacity'] = houseDetail['hi_capacity']
                 house_detail['beds'] = houseDetail['hi_beds']

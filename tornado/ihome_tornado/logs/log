@@ -3942,3 +3942,154 @@
 [I 180720 20:48:28 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
 [I 180720 21:02:34 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
 [I 180720 21:08:19 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180721 15:27:23 web:2106] 200 GET /newhouse.html (127.0.0.1) 356.82ms
+[I 180721 15:27:24 web:2106] 304 GET /static/js/jquery.form.min.js (127.0.0.1) 25.99ms
+[I 180721 15:27:24 web:2106] 304 GET /static/css/ihome/main.css (127.0.0.1) 36.01ms
+[I 180721 15:27:24 web:2106] 304 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 20.04ms
+[I 180721 15:27:24 web:2106] 304 GET /static/css/ihome/newhouse.css (127.0.0.1) 2.28ms
+[I 180721 15:27:24 web:2106] 304 GET /static/css/reset.css (127.0.0.1) 2.58ms
+[I 180721 15:27:24 web:2106] 304 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 18.93ms
+[I 180721 15:27:24 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 328.26ms
+[I 180721 15:27:24 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 207.79ms
+[I 180721 15:27:24 web:2106] 304 GET /static/js/template.js (127.0.0.1) 67.19ms
+[I 180721 15:27:24 web:2106] 304 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 27.82ms
+[I 180721 15:27:24 web:2106] 304 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 10.53ms
+[I 180721 15:27:24 web:2106] 304 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 17.22ms
+[I 180721 15:27:24 web:2106] 200 GET /static/js/ihome/newhouse.js (127.0.0.1) 6.71ms
+[I 180721 15:27:24 web:2106] 200 GET /api/house/area (127.0.0.1) 12.29ms
+[I 180721 15:27:24 web:2106] 200 GET /login.html (127.0.0.1) 8.59ms
+[I 180721 15:27:24 web:2106] 200 GET /static/css/ihome/login.css (127.0.0.1) 21.85ms
+[I 180721 15:27:24 web:2106] 200 GET /static/images/logo@128x59.png (127.0.0.1) 20.71ms
+[I 180721 15:27:24 web:2106] 200 GET /static/js/ihome/login.js (127.0.0.1) 3.52ms
+[I 180721 15:27:34 web:2106] 200 POST /api/login (127.0.0.1) 4.05ms
+[I 180721 15:27:34 web:2106] 200 GET / (127.0.0.1) 25.89ms
+[I 180721 15:27:34 web:2106] 200 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 29.07ms
+[I 180721 15:27:34 web:2106] 200 GET /static/css/ihome/index.css (127.0.0.1) 12.85ms
+[I 180721 15:27:34 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 10.44ms
+[I 180721 15:27:34 web:2106] 200 GET /static/js/ihome/index.js (127.0.0.1) 19.59ms
+[I 180721 15:27:34 web:2106] 200 GET /api/check_login (127.0.0.1) 2.36ms
+[W 180721 15:27:34 web:2106] 404 GET /api/house/index (127.0.0.1) 35.65ms
+[I 180721 15:27:36 web:2106] 304 GET /my.html (127.0.0.1) 9.20ms
+[I 180721 15:27:36 web:2106] 304 GET /static/css/ihome/my.css (127.0.0.1) 6.25ms
+[I 180721 15:27:36 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 13.07ms
+[I 180721 15:27:36 web:2106] 200 GET /api/profile (127.0.0.1) 2.38ms
+[I 180721 15:27:47 web:2106] 200 GET /myhouse.html (127.0.0.1) 9.67ms
+[I 180721 15:27:47 web:2106] 304 GET /static/css/ihome/myhouse.css (127.0.0.1) 19.92ms
+[I 180721 15:27:47 web:2106] 200 GET /static/js/ihome/myhouse.js (127.0.0.1) 5.82ms
+[I 180721 15:27:48 web:2106] 200 GET /api/house/myhouse (127.0.0.1) 3.52ms
+[I 180721 15:27:49 web:2106] 200 GET /api/house/area (127.0.0.1) 2.52ms
+[E 180721 15:29:09 torndb:236] Error connecting to MySQL on 127.0.0.1
+[E 180721 15:29:09 HouseHandler:146] (1054, "Unknown column 'hf_facility_id' in 'field list'")
+[I 180721 15:29:09 web:2106] 200 POST /api/house/info (127.0.0.1) 162.21ms
+[E 180721 15:33:44 torndb:236] Error connecting to MySQL on 127.0.0.1
+[E 180721 15:33:44 HouseHandler:146] (1054, "Unknown column 'hf_facility_id' in 'field list'")
+[I 180721 15:33:44 web:2106] 200 POST /api/house/info (127.0.0.1) 41.11ms
+[I 180721 15:34:36 web:2106] 200 POST /api/house/info (127.0.0.1) 117.34ms
+[D 180721 15:34:56 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Sat, 21 Jul 2018 07:34:56 GMT
+    /kiralacus/f40cf726ccfc4079af11df5e2d59ec10.jpg
+[E 180721 15:34:56 HouseHandler:171] {'status': -2, 'request-id': '', 'details': 'RequestError: Missing dependencies for SOCKS support.'}
+[I 180721 15:34:56 web:2106] 200 POST /api/house/image?houseid=1 (127.0.0.1) 71.95ms
+[I 180721 15:35:39 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 42.41ms
+[D 180721 15:35:53 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Sat, 21 Jul 2018 07:35:53 GMT
+    /kiralacus/59fdf4541fe54d538ada4fbfd965f400.jpg
+[E 180721 15:35:53 HouseHandler:171] {'status': -2, 'request-id': '', 'details': 'RequestError: Missing dependencies for SOCKS support.'}
+[I 180721 15:35:53 web:2106] 200 POST /api/house/image?houseid=1 (127.0.0.1) 42.50ms
+[I 180721 15:36:49 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/utils/aliyun_storage.py modified; restarting server
+[I 180721 15:37:15 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/utils/aliyun_storage.py modified; restarting server
+[I 180721 15:37:33 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/utils/aliyun_storage.py modified; restarting server
+[I 180721 16:14:38 web:2106] 304 GET /newhouse.html (127.0.0.1) 33.95ms
+[I 180721 16:14:39 web:2106] 304 GET /static/js/ihome/newhouse.js (127.0.0.1) 304.11ms
+[E 180721 16:14:40 session:27] Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180721 16:14:40 web:1621] Uncaught exception GET /api/house/area (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/house/area', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/utils/commons.py", line 19, in wrapper
+        if not self.get_current_user():
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/BaseHandler.py", line 49, in get_current_user
+        self.session = Session(self)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/utils/session.py", line 28, in __init__
+        raise e
+    ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180721 16:14:40 web:2106] 500 GET /api/house/area (127.0.0.1) 132.86ms
+[I 180721 16:18:31 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.67ms
+[I 180721 16:18:31 web:2106] 200 GET /api/house/area (127.0.0.1) 1.67ms
+[I 180721 16:18:32 web:2106] 200 GET /favicon.ico (127.0.0.1) 10.78ms
+[I 180721 16:18:52 web:2106] 200 POST /api/login (127.0.0.1) 4.12ms
+[I 180721 16:18:52 web:2106] 304 GET /api/check_login (127.0.0.1) 2.43ms
+[W 180721 16:18:52 web:2106] 404 GET /api/house/index (127.0.0.1) 1.43ms
+[I 180721 16:18:54 web:2106] 304 GET /api/profile (127.0.0.1) 2.21ms
+[I 180721 16:18:58 web:2106] 304 GET /myhouse.html (127.0.0.1) 9.04ms
+[I 180721 16:18:58 web:2106] 304 GET /static/js/ihome/myhouse.js (127.0.0.1) 12.50ms
+[I 180721 16:18:58 web:2106] 304 GET /api/house/myhouse (127.0.0.1) 20.67ms
+[I 180721 16:18:59 web:2106] 200 GET /api/house/area (127.0.0.1) 2.59ms
+[I 180721 16:19:48 web:2106] 200 POST /api/house/info (127.0.0.1) 159.91ms
+[D 180721 16:19:55 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Sat, 21 Jul 2018 08:19:55 GMT
+    /kiralacus/b1f02c4c9a1446718709e18eb32993a0.jpg
+[D 180721 16:19:55 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180721 16:19:55 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /b1f02c4c9a1446718709e18eb32993a0.jpg HTTP/1.1" 200 0
+[I 180721 16:19:55 web:2106] 200 POST /api/house/image?houseid=1 (127.0.0.1) 302.56ms
+[I 180721 16:20:03 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.38ms
+[I 180721 16:20:03 web:2106] 304 GET /api/house/area (127.0.0.1) 1.65ms
+[I 180721 16:20:03 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.55ms
+[I 180721 16:21:57 web:2106] 200 POST /api/house/info (127.0.0.1) 390.08ms
+[D 180721 16:23:34 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Sat, 21 Jul 2018 08:23:34 GMT
+    /kiralacus/e340fe58573f4e5b9b5b74fd8b1286be.jpg
+[D 180721 16:23:34 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180721 16:23:35 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /e340fe58573f4e5b9b5b74fd8b1286be.jpg HTTP/1.1" 200 0
+[I 180721 16:23:35 web:2106] 200 POST /api/house/image?houseid=2 (127.0.0.1) 275.54ms
+[I 180721 16:23:39 web:2106] 304 GET /newhouse.html (127.0.0.1) 1.59ms
+[I 180721 16:23:39 web:2106] 304 GET /static/js/ihome/newhouse.js (127.0.0.1) 1.14ms
+[I 180721 16:23:39 web:2106] 304 GET /api/house/area (127.0.0.1) 1.58ms
+[I 180721 16:23:39 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.85ms
+[I 180721 16:24:30 web:2106] 200 POST /api/house/info (127.0.0.1) 270.75ms
+[D 180721 16:24:38 auth:95] string_to_sign=PUT
+    
+    image/jpeg
+    Sat, 21 Jul 2018 08:24:38 GMT
+    /kiralacus/4c6a68c87c8f45a4a7e1609cc09c463f.jpg
+[D 180721 16:24:38 connectionpool:205] Starting new HTTP connection (1): kiralacus.oss-cn-beijing.aliyuncs.com:80
+[D 180721 16:24:38 connectionpool:393] http://kiralacus.oss-cn-beijing.aliyuncs.com:80 "PUT /4c6a68c87c8f45a4a7e1609cc09c463f.jpg HTTP/1.1" 200 0
+[I 180721 16:24:38 web:2106] 200 POST /api/house/image?houseid=3 (127.0.0.1) 278.26ms
+[I 180721 16:30:32 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[W 180721 16:30:41 web:2106] 405 POST /api/house/myhouse?id=1 (127.0.0.1) 2.76ms
+[I 180721 16:31:06 web:2106] 200 GET /api/house/myhouse?id=1 (127.0.0.1) 1.94ms
+[I 180721 16:32:01 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/urls.py modified; restarting server
+[E 180721 16:32:12 torndb:236] Error connecting to MySQL on 127.0.0.1
+[E 180721 16:32:12 HouseHandler:249] (1054, "Unknown column 'hi_unit' in 'field list'")
+[I 180721 16:32:12 web:2106] 200 GET /api/house/detail?id=1 (127.0.0.1) 3.68ms
+[I 180721 16:33:42 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[E 180721 16:33:43 torndb:236] Error connecting to MySQL on 127.0.0.1
+[E 180721 16:33:43 HouseHandler:249] (1054, "Unknown column 'house_id' in 'where clause'")
+[I 180721 16:33:43 web:2106] 200 GET /api/house/detail?id=1 (127.0.0.1) 3.60ms
+[E 180721 16:33:45 torndb:236] Error connecting to MySQL on 127.0.0.1
+[E 180721 16:33:45 HouseHandler:249] (1054, "Unknown column 'house_id' in 'where clause'")
+[I 180721 16:33:45 web:2106] 200 GET /api/house/detail?id=1 (127.0.0.1) 3.98ms
+[I 180721 16:35:14 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[E 180721 16:35:15 HouseHandler:256] format requires a mapping
+[I 180721 16:35:15 web:2106] 200 GET /api/house/detail?id=1 (127.0.0.1) 3.37ms
+[I 180721 16:35:48 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[E 180721 16:35:51 web:1621] Uncaught exception GET /api/house/detail?id=1 (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/house/detail?id=1', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py", line 261, in get
+        house_detail['unit'] = houseDetail['hi_unit']
+    KeyError: 'hi_unit'
+[E 180721 16:35:51 web:2106] 500 GET /api/house/detail?id=1 (127.0.0.1) 92.62ms
+[I 180721 16:36:16 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180721 16:36:18 web:2106] 200 GET /api/house/detail?id=1 (127.0.0.1) 3.80ms
