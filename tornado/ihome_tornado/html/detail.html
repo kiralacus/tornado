@@ -25,6 +25,7 @@
         </div>
         <script id="house-image-tmpl" type="text/html">
             <form id="form-house-image" action="/api/house/image" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="house_id" id="house-id" value="">
                 <li>
                     <div class="house-title">
                         <h3>添加图片</h3>
@@ -132,6 +133,21 @@
             </div>
             {{/if}}
         </script>
+        <div class="popup_con" id="loadwaiting">
+            <div class="popup">
+                <p><i class="fa fa-spinner fa-spin fa-3x fa-fw"></i></p>
+            </div>
+            <div class="mask"></div>
+        </div>
+
+        <div class="popup_con" id="loadsuccess">
+            <div class="popup">
+                <p>保存成功！</p>
+            </div>
+
+            <div class="mask"></div>
+        </div>
+
         <a class="book-house" href="">即刻预定</a>
         <div class="footer">
             <p><span><i class="fa fa-copyright"></i></span>爱家租房&nbsp;&nbsp;享受家的温馨</p>

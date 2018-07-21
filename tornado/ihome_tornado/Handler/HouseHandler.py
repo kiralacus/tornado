@@ -226,6 +226,8 @@ class MyHouseHandler(BaseHandler):
 
 class HouseDetailHandler(BaseHandler):
     '''处理详细房屋信息'''
+    # @require_login
+    # @require_auth
     def get(self):
         '''
         :param -> house_id
@@ -269,6 +271,48 @@ class HouseDetailHandler(BaseHandler):
                 for each in facility:
                     house_detail['facility'].append(each['hf_facility_id'])
                 self.write(dict(errcode=RET.OK, errmsg='ok', data=house_detail))
+
+
+class HouseImageDetailHandler(BaseHandler):
+    '''获取所有的照片'''
+    def get(self):
+        house_id = self.get_argument('id')
+        try:
+            sql = 'select hi_url from ih_house_iamge where hi_house_id=%(house_id)s'
+            url = self.db.query(sql, house_id=house_id)
+        except Exception as e:
+            logging.error(e)
+            self.write(dict(errcode=RET.DBERR, errmsg='数据库查询出错'))
+        else:
+            imageList = []
+            for each in url:
+                imageList.append(each['hi_url'])
+            self.write(dict(errcode=RET.OK, errmsg='成功', data=imageList))
+
+
+class AddHouseImageHandler(BaseHandler):
+    '''添加房屋照片'''
+    @require_login
+    @require_auth
+    def post(self):
+        try:
+            house_id = self.get_argument('house_id')
+            ImageData = self.request.files['house_image'][0]['body']
+            ImageName = storage(ImageData)
+        except Exception as e:
+            logging.error(e)
+            self.write(dict(errcode=RET.THIRDERR, errmsg='阿里云上传出错'))
+        else:
+            try:
+                sql = 'insert into ih_house_image(hi_house_id, hi_url) values(%(house_id)s, %(url)s)'
+                self.db.execute(sql, house_id=house_id, url=ImageName)
+            except Exception as e:
+                logging.error(e)
+                self.write(dict(errcode=RET.DBERR, errmsg='数据库查询出错'))
+            else:
+                url = constants.PRE_URL + ImageName
+                self.write(dict(errcode=RET.OK, errmsg='成功', data=url))
+
 
 
 
