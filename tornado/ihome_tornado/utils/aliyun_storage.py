@@ -14,7 +14,7 @@ def storage(imageData):
     return imageName
 
 if __name__ == '__main__':
-    f = open('/home/kiralacus/Desktop/default.jpg', 'rb')
+    f = open('/home/kiralacus/桌面/home01.jpg', 'rb')
     imageData = f.read()
     storage(imageData)
     f.close()
