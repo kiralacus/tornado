@@ -21,7 +21,84 @@
                 <a class="nav-btn fl" href="#" onclick="hrefBack();"><span><i class="fa fa-angle-left fa-2x"></i></span></a>
             </div>
         </div>
-        <form id="form-house-image" method="post" enctype="multipart/form-data" style="position: absolute; top: 10px">
+
+        <div class="swiper-container">
+        </div>
+        <script id="house-image-tmpl" type="text/html">
+
+            <ul class="swiper-wrapper">
+                {{each img_urls as img_url}}
+                <li class="swiper-slide"><img src="{{img_url}}"></li>
+                {{/each}}
+            </ul>
+            <div class="swiper-pagination"></div>
+            <div class="house-price">￥<span>{{(price)}}</span>/晚</div>
+         </script>
+        <div class="detail-con">
+        </div>
+        <script id="house-detail-tmpl" type="text/x-template">
+            <div class="detail-header layout-style">
+                <h2 class="house-title">{{house.title}}</h2>
+                <div class="landlord-pic"><img src="{{house.user_avatar}}"></div>
+                <h2 class="landlord-name">房东： <span>{{house.user_name}}</span></h2>
+            </div>
+            <div class="house-info layout-style">
+               <h3>房屋地址</h3>
+               <ul class="house-info-list text-center">
+                    <li>{{house.address}}</li>
+               </ul>
+            </div>
+            <ul class="house-type layout-style">
+                <li>
+                    <span class="icon-house"></span>
+                    <div class="icon-text">
+                        <h3>出租{{house.room_count}}间</h3>
+                        <p>房屋面积:{{house.acreage}}平米</p>
+                        <p>房屋户型:{{house.unit}}</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="icon-user"></span>
+                    <div class="icon-text">
+                        <h3>宜住{{house.capacity}}人</h3>
+                    </div>
+                </li>
+                <li>
+                    <span class="icon-bed"></span>
+                    <div class="icon-text">
+                        <h3>卧床配置</h3>
+                        <p>{{house.beds}}</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="house-info layout-style">
+                <h3>房间详情</h3>
+                <ul class="house-info-list">
+                    <li>收取押金<span>{{house.deposit}}</span></li>
+                    <li>最少入住天数<span>{{house.min_days}}</span></li>
+                    <li>最多入住天数<span>{{if house.max_days==0}}无限制{{else}}{{house.max_days}}{{/if}}</span></li>
+                </ul>
+            </div>
+            <div class="house-facility layout-style">
+                    <h3>配套设施</h3>
+                    <ul class="house-facility-list clearfix">
+                    </ul>
+            </div>
+        </script>
+
+        <div class="house-info layout-style">
+                <h3>评价信息</h3>
+                <ul class="house-comment-list">
+                    {{ each house.comments as comment}}
+                    <li>
+                        <p>{{comment.user_name}}<span class="fr">{{comment.ctime}}</span></p>
+                        <p>{{comment.content}}</p>
+                    </li>
+                    {{/each}}
+                </ul>
+        </div>
+
+        <form id="form-house-image" method="post" enctype="multipart/form-data" >
             <input type="hidden" name="house_id" id="house-id" value="">
             <li>
                 <div class="house-title">
@@ -35,66 +112,8 @@
                 </div>
             </li>
         </form>
-        <div class="swiper-container">
-        </div>
-        <script id="house-image-tmpl" type="text/html">
-
-            <ul class="swiper-wrapper">
-                {{each img_urls as img_url}}
-                <li class="swiper-slide"><img src="{{img_url}}"></li>
-                {{/each}}
-            </ul>
-            <div class="swiper-pagination"></div>
-            <div class="house-price">￥<span>{{(price)}}</span>/晚</div>
-         </script>
-        <!--<div class="detail-con">-->
-        <!--</div>-->
-        <!--<script id="house-detail-tmpl" type="text/x-template">-->
-            <!--<div class="detail-header layout-style">-->
-                <!--<h2 class="house-title">{{house.title}}</h2>-->
-                <!--<div class="landlord-pic"><img src="{{house.user_avatar}}"></div>-->
-                <!--<h2 class="landlord-name">房东： <span>{{house.user_name}}</span></h2>-->
-            <!--</div>-->
-            <!--<div class="house-info layout-style">-->
-               <!--<h3>房屋地址</h3>-->
-               <!--<ul class="house-info-list text-center">-->
-                    <!--<li>{{house.address}}</li>-->
-               <!--</ul>-->
-            <!--</div>-->
-            <!--<ul class="house-type layout-style">-->
-                <!--<li>-->
-                    <!--<span class="icon-house"></span>-->
-                    <!--<div class="icon-text">-->
-                        <!--<h3>出租{{house.room_count}}间</h3>-->
-                        <!--<p>房屋面积:{{house.acreage}}平米</p>-->
-                        <!--<p>房屋户型:{{house.unit}}</p>-->
-                    <!--</div>-->
-                <!--</li>-->
-                <!--<li>-->
-                    <!--<span class="icon-user"></span>-->
-                    <!--<div class="icon-text">-->
-                        <!--<h3>宜住{{house.capacity}}人</h3>-->
-                    <!--</div>-->
-                <!--</li>-->
-                <!--<li>-->
-                    <!--<span class="icon-bed"></span>-->
-                    <!--<div class="icon-text">-->
-                        <!--<h3>卧床配置</h3>-->
-                        <!--<p>{{house.beds}}</p>-->
-                    <!--</div>-->
-                <!--</li>-->
-            <!--</ul>-->
-            <!--<div class="house-info layout-style">-->
-                <!--<h3>房间详情</h3>-->
-                <!--<ul class="house-info-list">-->
-                    <!--<li>收取押金<span>{{(house.deposit/100.0).toFixed(0)}}</span></li>-->
-                    <!--<li>最少入住天数<span>{{house.min_days}}</span></li>-->
-                    <!--<li>最多入住天数<span>{{if house.max_days==0}}无限制{{else}}{{house.max_days}}{{/if}}</span></li>-->
-                <!--</ul>-->
-            <!--</div>-->
 
 
-        <!--</script>-->
         <div class="popup_con" id="loadwaiting">
             <div class="popup">
                 <p><i class="fa fa-spinner fa-spin fa-3x fa-fw"></i></p>
