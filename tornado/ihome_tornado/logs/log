@@ -5218,3 +5218,6 @@
 [I 180723 17:21:06 web:2106] 304 GET /api/check_login (127.0.0.1) 164.20ms
 [W 180723 17:21:06 web:2106] 404 GET /api/house/index (127.0.0.1) 1.55ms
 [I 180723 17:25:35 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/urls.py modified; restarting server
+[I 180724 16:39:33 web:2106] 200 GET /api/house/myhouse (127.0.0.1) 159.25ms
+[D 180724 16:40:07 HouseHandler:298] hit the redis
+[I 180724 16:40:07 web:2106] 200 GET /api/house/myhouse (127.0.0.1) 1.86ms

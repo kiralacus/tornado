@@ -19,9 +19,9 @@ class RegisterHandler(BaseHandler):
     '''存储用户信息'''
     def post(self):
         # 接受用户信息
-        up_mobile = self.json_dict['mobile']
-        phonecode = self.json_dict['phonecode']
-        up_password = self.json_dict['password']
+        up_mobile = self.json_dict.get('mobile')
+        phonecode = self.json_dict.get('phonecode')
+        up_password = self.json_dict.get('password')
         # 判断数据是否完整
         if not all((up_mobile, phonecode, up_password)):
             self.write(dict(errcode=RET.DATAERR, errmsg='参数缺少'))
@@ -67,7 +67,6 @@ class LoginHandler(BaseHandler):
     def post(self):
         mobile = self.json_dict.get('mobile')
         password = self.json_dict.get('password')
-        print password
         if not all((mobile, password)):
             self.write(dict(errcode=RET.DATAERR, errmsg='参数缺少'))
         else:
