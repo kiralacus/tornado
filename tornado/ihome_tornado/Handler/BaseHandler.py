@@ -17,7 +17,8 @@ class BaseHandler(tornado.web.RequestHandler):
         if self.request.headers.get('Content-Type','').startswith('application/json'):
             self.json_dict = json.loads(self.request.body)
         else:
-            self.json_dict = None
+            # self.json_dict = None
+            self.json_dict = {} # 这样.get 就不会出错
 
     def write_error(self, *args, **kwargs):
         pass

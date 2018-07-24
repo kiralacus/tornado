@@ -95,19 +95,19 @@ class NewHouseHandler(BaseHandler):
         :return:
         '''
         hi_user_id = self.get_current_user()['userId']
-        hi_title = self.json_dict['title']
-        hi_price = self.json_dict['price']
-        hi_area_id = self.json_dict['area_id']
-        hi_address = self.json_dict['address']
-        hi_room_count = self.json_dict['room_count']
-        hi_acreage = self.json_dict['acreage']
-        hi_house_unit = self.json_dict['unit']
-        hi_capacity = self.json_dict['capacity']
-        hi_beds = self.json_dict['beds']
-        hi_deposit = self.json_dict['deposit']
-        hi_min_days = self.json_dict['min_days']
-        hi_max_days = self.json_dict['max_days']
-        hf_facility_id = self.json_dict['facility']
+        hi_title = self.json_dict.get('title')
+        hi_price = self.json_dict.get('price')
+        hi_area_id = self.json_dict.get('area_id')
+        hi_address = self.json_dict.get('address')
+        hi_room_count = self.json_dict.get('room_count')
+        hi_acreage = self.json_dict.get('acreage')
+        hi_house_unit = self.json_dict.get('unit')
+        hi_capacity = self.json_dict.get('capacity')
+        hi_beds = self.json_dict.get('beds')
+        hi_deposit = self.json_dict.get('deposit')
+        hi_min_days = self.json_dict.get('min_days')
+        hi_max_days = self.json_dict.get('max_days')
+        hf_facility_id = self.json_dict.get('facility')
 
         # 存储入ih_house_info
 
@@ -162,11 +162,14 @@ class NewHouseHandler(BaseHandler):
                   通过house_id在ih_house_facility中检索
         :return:
         '''
-        house_id = self.get_argument('id')
+        try:
+            house_id = self.get_argument('id')
+        except:
+            return self.write(dict(errcode=RET.PARAMERR, errmsg='参数缺省'))
         try:
             sql = 'select up_name, up_avatar, ai_name, hi_price, hi_address, hi_title, hi_acreage, hi_house_unit, hi_room_count, hi_capacity, hi_beds, hi_deposit, hi_min_days, hi_max_days ' \
                   'from ih_house_info inner join ih_area_info on ih_area_info.ai_area_id=ih_house_info.hi_area_id ' \
-                  'inner join ih_user_profile on ih_user_profile.up_user_id=ih_house_info.hi_user_id where hi_house_id=%(house_id)s';
+                  'inner join ih_user_profile on ih_user_profile.up_user_id=ih_house_info.hi_user_id where hi_house_id=%(house_id)s;'
 
             houseDetail = self.db.get(sql, house_id=house_id)
         except Exception as e:
@@ -242,10 +245,13 @@ class HouseImageHandler(BaseHandler):
 
         :return:
         '''
-        hi_house_image = self.request.files['house_image'][0]['body']
+        try:
+            hi_house_image = self.request.files['house_image'][0]['body']
         # 使用ajax设置url后面带参数出错
         # 這裏採用<input type='hidden'>中的value
-        hi_house_id = self.get_argument('houseid')
+            hi_house_id = self.get_argument('houseid')
+        except:
+            return self.write(dict(errcode=RET.PARAMERR, errmsg='参数缺省'))
         # hi_house_id = self.json_dict['houseID']
 
         try:
@@ -267,8 +273,8 @@ class HouseImageHandler(BaseHandler):
 
 class MyHouseHandler(BaseHandler):
     '''单个房主的房屋管理'''
-    @require_login
-    @require_auth
+    # @require_login
+    # @require_auth
     def get(self):
         '''
         :param
@@ -280,10 +286,21 @@ class MyHouseHandler(BaseHandler):
         hi_ctime
         :return:
         '''
-        user_id = self.get_current_user()['userId']
+        # user_id = self.get_current_user()['userId']
+        user_id = 1
+        # 房屋认证默认最长时间为一天， 我们队房屋信息进行缓存, 以减少数据库查询次数
+        try:
+            houseList = self.redis.get('%s_house_info'%user_id)
+        except Exception as e:
+            logging.error(e)
+            return self.write(dict(errcode=RET.DBERR, errmsg='redis查询出错'))
+        if houseList:
+            logging.debug('hit the redis')
+            houseList = json.loads(houseList)
+            return self.write(dict(errcode=RET.OK, errmsg='成功', data=houseList))
         try:
             sql = 'select ai_name, hi_house_id, hi_title, hi_price, hi_address, hi_ctime, hi_index_image_url from ih_house_info left join ih_area_info ' \
-                  'on ih_area_info.ai_area_id = ih_house_info.hi_area_id where hi_user_id=%(user_id)s'
+                  'on ih_area_info.ai_area_id = ih_house_info.hi_area_id where hi_user_id=%(user_id)s and (hi_verify_status, hi_online_status)=(1,1)'
             myhouseinfo = self.db.query(sql, user_id=user_id)
         except Exception as e:
             logging.error(e)
@@ -303,6 +320,12 @@ class MyHouseHandler(BaseHandler):
                 myhouse['imageUrl'] = constants.PRE_URL + each['hi_index_image_url']
 
                 houseList.append(myhouse)
+            try:
+                houseList = json.dumps(houseList)
+                self.redis.setex('%s_house_info'%user_id, config.houseinfo_expire_seconds, houseList)
+            except Exception as e:
+                logging.error(e)
+                return self.write(dict(errcode=RET.DBERR, errmsg='redis数据插入出错'))
 
             self.write(dict(errcode=RET.OK, errmsg='成功', data=houseList))
 
@@ -315,6 +338,8 @@ class AddHouseImageHandler(BaseHandler):
         try:
             house_id = self.get_argument('house_id')
             ImageData = self.request.files['house_image'][0]['body']
+            if not all((house_id, ImageData)):
+                return self.write(dict(errcode=RET.PARAMERR, errmsg='参数缺省'))
             ImageName = storage(ImageData)
         except Exception as e:
             logging.error(e)

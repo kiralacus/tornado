@@ -38,9 +38,9 @@ class PicCodeHandler(BaseHandler):
 class SMSCodeHandler(BaseHandler):
     '''手机验证码'''
     def post(self):
-        mobile = self.json_dict['mobile']
-        piccode = self.json_dict['piccode']
-        piccode_id = self.json_dict['piccode_id']
+        mobile = self.json_dict.get('mobile')
+        piccode = self.json_dict.get('piccode')
+        piccode_id = self.json_dict.get('piccode_id')
         # 判断数据是否存在
         if not all((mobile, piccode, piccode_id)):
             self.write(dict(errcode=RET.NODATA, errmsg='数据不完整'))

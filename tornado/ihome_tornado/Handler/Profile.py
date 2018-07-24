@@ -78,8 +78,9 @@ class NameHandler(BaseHandler):
     '''修改up_name'''
     # @require_login
     def post(self):
-        print 'i am in NameHandler'
-        up_name = self.json_dict['name']
+        up_name = self.json_dict.get('name')
+        if not up_name:
+            return self.write(dict(errcode=RET.PARAMERR, errmsg='参数缺省'))
         up_mobile = self.get_current_user()['mobile']
         # up_mobile = '18351922521'
         # 判断数据库中是否已存在该数据
@@ -130,7 +131,7 @@ class AuthHandler(BaseHandler):
             else:
                 self.write(dict(errcode=RET.OK, errmsg='成功', data=dict(up_real_name=up_real_name, up_id_card=up_id_card)))
 
-    # @require_login
+    @require_login
     def post(self):
         '''
             想数据库存储
@@ -141,10 +142,11 @@ class AuthHandler(BaseHandler):
                 up_real_name
                 up_id_card
         '''
-        # mobile = self.get_current_user()['mobile']
-        mobile = '18351922521'
-        up_real_name = self.json_dict['real_name']
-        up_id_card = self.json_dict['id_card']
+        mobile = self.get_current_user()['mobile']
+        up_real_name = self.json_dict.get('real_name')
+        up_id_card = self.json_dict.get('id_card')
+        if not all((up_real_name, up_id_card)):
+            return self.write(dict(errcode=RET.PARAMERR, errmsg='参数缺省'))
         try:
             sql = 'update ih_user_profile set up_real_name=%(up_real_name)s, up_id_card=%(up_id_card)s where up_mobile=%(up_mobile)s'
             self.db.execute(sql, up_real_name=up_real_name, up_id_card=up_id_card, up_mobile=mobile)
