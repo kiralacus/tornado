@@ -102,8 +102,6 @@ $(document).ready(function(){
                     $('.house-facility-list').append('<li><span class="jinzhi-ico"></span>'+dictionary[i]+'</li>')
                 }
             }
-
-
         }
     }, "json");
 
@@ -117,6 +115,12 @@ $(document).ready(function(){
                 alert('请添加照片');
                 return;
             }
+            if($('.swiper-container li').length >= 5){
+                alert('已达照片上限');
+                $('#form-house-image').hide();
+                return;
+            }
+
             $('#loadwaiting').fadeIn();
             var options = {
                 url: '/api/house/addimage',
