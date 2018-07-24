@@ -92,7 +92,6 @@ class NameHandler(BaseHandler):
             self.write(dict(errcode=RET.DBERR, errmsg='用户姓名查询出错'))
         else:
             if result:
-                print 1
                 self.write(dict(errcode=RET.DATAEXIST, errmsg='用户姓名已存在'))
             else:
                 try:

@@ -26,4 +26,6 @@ log_path = os.path.join(os.path.dirname(__file__), 'logs/log')
 session_expire_seconds = 86400 # session 数据有效期， 秒
 areainfo_expire_seconds = 86400 # 地域信息redis数据有效期， 秒, 为了避免mysql中数据更新后redis中数据不更新
 houseinfo_expire_seconds = 43200 # 房屋信息redis数据有效期， 秒，
+detailinfo_expire_seconds = 43200 # 具体信息redis 数据有效期, 秒
+indexinfo_expire_seconds = 86400 # 首页信息数据有效期, 秒
 passwd_salt = 'ihome*^&'

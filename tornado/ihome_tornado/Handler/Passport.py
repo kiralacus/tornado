@@ -129,9 +129,7 @@ class LogoutHandler(BaseHandler):
         session.clear()
         # 判断是否删除session数据
         user = self.redis.get('sess_id_%s'%sess_id)
-        print user
         if not user:
-            print 'logout'
             self.write(dict(errcode=RET.OK, errmsg='登出成功'))
         else:
             self.write(dict(errcode=RET.DBERR, errmsg='登出失败'))

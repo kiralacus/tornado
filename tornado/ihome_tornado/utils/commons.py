@@ -33,7 +33,6 @@ def require_auth(func):
         try:
             sql = 'select up_auth from ih_user_profile where up_user_id=%(user_id)s'
             ret = self.db.get(sql, user_id=user_id)
-            print ret['up_auth']
         except Exception as e:
             logging.error(e)
             self.write(dict(errcode=RET.DBERR, errmsg='数据库查询错误'))
