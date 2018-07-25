@@ -148,7 +148,7 @@ class NewHouseHandler(BaseHandler):
             else:
                 self.write(dict(errcode=RET.OK, errmsg='成功' , data=dict(houseID=ret)))
 
-    @require_login
+    # @require_login
     def get(self):
         '''
         :param -> house_id
@@ -163,13 +163,13 @@ class NewHouseHandler(BaseHandler):
                   通过house_id在ih_house_facility中检索
         :return:
         '''
-        user_id = self.get_current_user()['user_id']
+        # user_id = self.get_current_user()['user_id']
         try:
             house_id = self.get_argument('id')
         except:
             return self.write(dict(errcode=RET.PARAMERR, errmsg='参数缺省'))
         try:
-            house_detail_json = self.redis.get('userID_%s_houseID_%s_houseDetail'%(user_id, house_id))
+            house_detail_json = self.redis.get('houseID_%s_houseDetail'%house_id)
         except Exception as e:
             logging.error(e)
         else:
@@ -245,7 +245,7 @@ class NewHouseHandler(BaseHandler):
                         self.write(dict(errcode=RET.OK, errmsg='ok', data=house_detail))
                         house_detail_json = json.dumps(house_detail)
                         try:
-                            self.redis.setex('userID_%s_houseID_%s_houseDetail'%(user_id, house_id), config.houseinfo_expire_seconds, house_detail_json)
+                            self.redis.setex('userID_%s_houseID_%s_houseDetail'% house_id, config.houseinfo_expire_seconds, house_detail_json)
                         except Exception as e:
                             logging.error(e)
 
@@ -315,7 +315,7 @@ class MyHouseHandler(BaseHandler):
             return self.write(dict(errcode=RET.OK, errmsg='成功', data=houseList))
         try:
             sql = 'select ai_name, hi_house_id, hi_title, hi_price, hi_address, hi_ctime, hi_index_image_url from ih_house_info left join ih_area_info ' \
-                  'on ih_area_info.ai_area_id = ih_house_info.hi_area_id where hi_user_id=%(user_id)s and (hi_verify_status, hi_online_status)=(1,1)'
+                  'on ih_area_info.ai_area_id = ih_house_info.hi_area_id where hi_user_id=%(user_id)s and (hi_verify_status, hi_online_status)=(2,1)'
             myhouseinfo = self.db.query(sql, user_id=user_id)
         except Exception as e:
             logging.error(e)
@@ -406,16 +406,18 @@ class AddHouseImageHandler(BaseHandler):
 
 
 class HouseIndexHandler(BaseHandler):
+    '''首页信息处理'''
     def get(self):
+        '''地域信息和首页图片的查询'''
         try:
-            areaList = self.redis.get('areaList')
+            areaList_json = self.redis.get('areaList')
         except Exception as e:
             logging.error(e)
             self.write(dict(errcode=RET.DBERR, errmsg='数据查询错误'))
         else:
-            if areaList:
+            if areaList_json:
                 # 这里前端解析出现问题当write中为字符串时（确保json格式无误）,前端无法正常解析
-                areaList = json.loads(areaList)
+                areaList = json.loads(areaList_json)
             else:
                 # 从Mysql中获取ih_area_info
                 try:
@@ -423,24 +425,24 @@ class HouseIndexHandler(BaseHandler):
                     ih_area_info = self.db.query(sql)
                 except Exception as e:
                     logging.error(e)
-                    self.write(dict(errcode=RET.DBERR, errmsg='数据库查询错误'))
-                else:
-                    # ih_area_info是形如[{},{}], 中间是类字典, 需将其中数据拿出来重组
-                    # areaInfo = {}
-                    areaList = []
-                    for each in ih_area_info:
-                        # 列表这个东西和有意思，如果在外边初始化他甚至可以修改列表前面的几项相同key值的value
-                        areaInfo = {}
-                        areaInfo['id'] = each['ai_area_id']
-                        areaInfo['name'] = each['ai_name']
-                        areaList.append(areaInfo)
-                    # 将areaList字符串之后以hash形式存储在redis之中
-                    areaList_json = json.dumps(areaList)
-                    try:
-                        self.redis.setex('areaList', config.areainfo_expire_seconds, areaList_json)
-                    except Exception as e:
-                        logging.error(e)
-                        self.write(dict(errcode=RET.DBERR, errmsg='redis数据存储出错'))
+                    return self.write(dict(errcode=RET.DBERR, errmsg='数据库查询错误'))
+                # ih_area_info是形如[{},{}], 中间是类字典, 需将其中数据拿出来重组
+                # areaInfo = {}
+                areaList = []
+                for each in ih_area_info:
+                    # 列表这个东西和有意思，如果在外边初始化他甚至可以修改列表前面的几项相同key值的value
+                    areaInfo = {}
+                    areaInfo['id'] = each['ai_area_id']
+                    areaInfo['name'] = each['ai_name']
+                    areaList.append(areaInfo)
+                # 将areaList字符串之后以hash形式存储在redis之中
+                areaList_json = json.dumps(areaList)
+                try:
+                    self.redis.setex('areaList', config.areainfo_expire_seconds, areaList_json)
+                except Exception as e:
+                    logging.error(e)
+                    self.write(dict(errcode=RET.DBERR, errmsg='redis数据存储出错'))
+
             try:
                 imagesList_json = self.redis.get('imageIndex')
             except Exception as e:
@@ -453,15 +455,17 @@ class HouseIndexHandler(BaseHandler):
                     return self.write(dict(errcode=RET.OK, errmsg='成功', data=dataList))
                 else:
                     try:
-                        sql = 'select hi_index_image_url from ih_house_info order by hi_order_count limit 3;'
-                        image_url = self.db.query(sql)
+                        sql = 'select hi_house_id, hi_index_image_url, hi_title from ih_house_info order by hi_order_count limit 3;'
+                        imageinfo = self.db.query(sql)
                     except Exception as e:
                         logging.error(e)
                         return self.write(dict(errcode=RET.DBERR, errmsg='数据库查询出错'))
 
                     imagesList = []
-                    for each in image_url:
-                        imagesList.append(each['hi_index_image_url'])
+                    for each in imageinfo:
+                        imagesList.append(dict(image_URL=(constants.PRE_URL + each['hi_index_image_url']),
+                                               house_id=each['hi_house_id'], title=each['hi_title']))
+
                     dataList = dict(images=imagesList, areas=areaList)
                     self.write(dict(errcode=RET.OK, errmsg='成功', data=dataList))
                     try:
@@ -469,6 +473,10 @@ class HouseIndexHandler(BaseHandler):
                         self.redis.set('imageIndex', config.indexinfo_expire_seconds, imagesList_json)
                     except Exception as e:
                         logging.error(e)
+
+    def post(self):
+        '''根据入住新信息和离开信息选择住房'''
+        pass
 
 
 

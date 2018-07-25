@@ -67,20 +67,10 @@ $(document).ready(function(){
             $('.register-login').show();
         }
     });
-    // $.get("/api/house/index", function(e){
-    //     console.log(e);
-    //     alert(e.errcode);
-    //     if(e.errcode == 0){
-    //         alert('kiralacus');
-    //         // id name
-    //         $('.area-list').html(template('area-list-temp', {areas: e.data}))
-    //     }
-    // })
-    $.get("/api/house/index", function(data){
-        console.log(data.data);
+   $.get("/api/house/index", function(data){
         if ("0" == data.errcode) {
-            // $(".swiper-wrapper").html(template("swiper-houses-tmpl", {houses:data.houses}));
-            $(".area-list").html(template("area-list-tmpl", {areas:data.data}));
+            $(".swiper-wrapper").html(template("swiper-houses-tmpl", {images :data.data.images}));
+            $(".area-list").html(template("area-list-tmpl", {areas:data.data.areas}));
             var mySwiper = new Swiper ('.swiper-container', {
                 loop: true,
                 autoplay: 2000,
