@@ -425,24 +425,23 @@ class HouseIndexHandler(BaseHandler):
                     ih_area_info = self.db.query(sql)
                 except Exception as e:
                     logging.error(e)
-                    self.write(dict(errcode=RET.DBERR, errmsg='数据库查询错误'))
-                else:
-                    # ih_area_info是形如[{},{}], 中间是类字典, 需将其中数据拿出来重组
-                    # areaInfo = {}
-                    areaList = []
-                    for each in ih_area_info:
-                        # 列表这个东西和有意思，如果在外边初始化他甚至可以修改列表前面的几项相同key值的value
-                        areaInfo = {}
-                        areaInfo['id'] = each['ai_area_id']
-                        areaInfo['name'] = each['ai_name']
-                        areaList.append(areaInfo)
-                    # 将areaList字符串之后以hash形式存储在redis之中
-                    areaList_json = json.dumps(areaList)
-                    try:
-                        self.redis.setex('areaList', config.areainfo_expire_seconds, areaList_json)
-                    except Exception as e:
-                        logging.error(e)
-                        self.write(dict(errcode=RET.DBERR, errmsg='redis数据存储出错'))
+                    return self.write(dict(errcode=RET.DBERR, errmsg='数据库查询错误'))
+                # ih_area_info是形如[{},{}], 中间是类字典, 需将其中数据拿出来重组
+                # areaInfo = {}
+                areaList = []
+                for each in ih_area_info:
+                    # 列表这个东西和有意思，如果在外边初始化他甚至可以修改列表前面的几项相同key值的value
+                    areaInfo = {}
+                    areaInfo['id'] = each['ai_area_id']
+                    areaInfo['name'] = each['ai_name']
+                    areaList.append(areaInfo)
+                # 将areaList字符串之后以hash形式存储在redis之中
+                areaList_json = json.dumps(areaList)
+                try:
+                    self.redis.setex('areaList', config.areainfo_expire_seconds, areaList_json)
+                except Exception as e:
+                    logging.error(e)
+                    self.write(dict(errcode=RET.DBERR, errmsg='redis数据存储出错'))
 
             try:
                 imagesList_json = self.redis.get('imageIndex')
