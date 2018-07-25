@@ -245,7 +245,7 @@ class NewHouseHandler(BaseHandler):
                         self.write(dict(errcode=RET.OK, errmsg='ok', data=house_detail))
                         house_detail_json = json.dumps(house_detail)
                         try:
-                            self.redis.setex('userID_%s_houseID_%s_houseDetail'%(user_id, house_id), config.houseinfo_expire_seconds, house_detail_json)
+                            self.redis.setex('userID_%s_houseID_%s_houseDetail'% house_id, config.houseinfo_expire_seconds, house_detail_json)
                         except Exception as e:
                             logging.error(e)
 
