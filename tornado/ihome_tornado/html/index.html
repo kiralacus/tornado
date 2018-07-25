@@ -27,10 +27,10 @@
             <div class="swiper-wrapper">
             </div>
             <script id="swiper-houses-tmpl" type="text/html">
-                {{each houses as house}}
+                {{each images as image}}
                 <div class="swiper-slide">
-                    <a href="/detail.html?id={{house.house_id}}"><img src="{{house.img_url}}"></a>
-                    <div class="slide-title">{{house.title}}</div>
+                    <a href="/detail.html?id={{image.house_id}}&preurl=index"><img src="{{image.image_URL}}"></a>
+                    <div class="slide-title">{{image.title}}</div>
                 </div>
                 {{/each}}
             </script>

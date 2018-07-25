@@ -152,7 +152,7 @@ $(document).ready(function(){
     }
     else{
         $('#form-house-image').hide();
-        $('.swiper-container').removeAttr('position');
-        $('.swiper-container').removeAttr('top');
+        $('.book-house').fadeIn();
+
     }
 })
