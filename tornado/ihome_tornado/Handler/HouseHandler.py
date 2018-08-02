@@ -487,6 +487,19 @@ class ListHandler(BaseHandler):
         sortKey = self.get_argument('sk', None)
         nextpage = self.get_argument('p', 1)
         # 如果全为空返回最新上线的房屋信息
+        if areaId:
+            sql_areaid = 'inner join ih_area_info on ih_area_info.ai_area_id = ih_house_info.hi_area_id where ih_house_info.hi_area_id=%(areaId)s;'
+        elif sortKey in ('booking', 'price-inc', 'price-des'):
+            if sortKey == 'booking':
+                sql_sortKey = 'order by ih_house_info.hi_room_count desc'
+            elif sortKey == 'price-inc':
+                sql_sortKey = 'order by ih_house_info.hi_price'
+            else:
+                sql_sortKey = 'order by ih_house_info.hi_price desc'
+        elif startDate or endDate:
+            if startDate:
+                sql_startDate = ''
+
         if not {areaId, startDate, endDate, sortKey}.pop():
             try:
                 latest = self.redis.hgetall('latesthouse')
@@ -505,13 +518,18 @@ class ListHandler(BaseHandler):
                         houses['image_url'] = each['hi_iamge_url']
                         houses['price'] = each['hi_price']
                         houses['title'] = each['hi_title']
-                        houses['room_count'] = each
+                        houses['room_count'] = each['hi_room_count']
+                        houses['order_count'] = each['hi_order_count']
+                        houses['address'] = each['hi_address']
+                        houses['avatar'] = each['up_avatar']
                 except Exception as e:
                     logging.error(e)
                     return self.write(errcode=RET.DBERR, errmsg='MySQL获取房源信息出错')
                 try:
-                    self.redis.hset()
-
+                    self.redis.hset('latesthouses', houses)
+                except Exception as e:
+                    logging.error(e)
+                    self.write()
 
 
 class OrderInfoHandler(BaseHandler):
