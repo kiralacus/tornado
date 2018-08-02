@@ -479,5 +479,45 @@ class HouseIndexHandler(BaseHandler):
         pass
 
 
+class ListHandler(BaseHandler):
+    def get(self):
+        areaId = self.get_argument('aid', None)
+        startDate = self.get_argument('sd', None)
+        endDate = self.get_argument('ed', None)
+        sortKey = self.get_argument('sk', None)
+        nextpage = self.get_argument('p', 1)
+        # 如果全为空返回最新上线的房屋信息
+        if not {areaId, startDate, endDate, sortKey}.pop():
+            try:
+                latest = self.redis.hgetall('latesthouse')
+            except Exception as e:
+                logging.error(e)
+                self.write(dict(errcode=RET.DBERR, errmsg='redis获取最新房源出错'))
+                latest = None
+            if not latest:
+                try:
+                    sql = 'select hi_house_id, hi_index_image_url, hi_price, hi_title, hi_room_count, hi_order_count, hi_address, up_avatar from ih_house_info ' \
+                          'inner join ih_user_profile on ih_user_profile.up_user_id=ih_house_info.hi_user_id order by ih_house_info.hi_ctime desc limit 100;'
+                    houseInfo = self.db.query(sql)
+                    houses = {}
+                    for each in houses:
+                        houses['house_id'] = each['hi_house_id']
+                        houses['image_url'] = each['hi_iamge_url']
+                        houses['price'] = each['hi_price']
+                        houses['title'] = each['hi_title']
+                        houses['room_count'] = each
+                except Exception as e:
+                    logging.error(e)
+                    return self.write(errcode=RET.DBERR, errmsg='MySQL获取房源信息出错')
+                try:
+                    self.redis.hset()
+
+
+
+class OrderInfoHandler(BaseHandler):
+    def post(self):
+        pass
+
+
 
 
