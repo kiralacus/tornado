@@ -5544,3 +5544,70 @@
 [I 180725 15:38:26 web:2106] 304 GET /api/house/info?id=1 (127.0.0.1) 1.52ms
 [W 180725 15:38:26 web:2106] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 1.31ms
 [I 180725 17:44:52 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180803 09:42:37 web:2106] 200 GET / (127.0.0.1) 86.20ms
+[I 180803 09:42:37 web:2106] 304 GET /static/css/ihome/main.css (127.0.0.1) 12.50ms
+[I 180803 09:42:37 web:2106] 304 GET /static/css/reset.css (127.0.0.1) 1.74ms
+[I 180803 09:42:37 web:2106] 304 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 11.05ms
+[I 180803 09:42:37 web:2106] 304 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 31.92ms
+[I 180803 09:42:37 web:2106] 200 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 178.23ms
+[I 180803 09:42:37 web:2106] 200 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 96.53ms
+[I 180803 09:42:37 web:2106] 304 GET /static/css/ihome/index.css (127.0.0.1) 2.94ms
+[I 180803 09:42:37 web:2106] 200 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 20.47ms
+[I 180803 09:42:37 web:2106] 200 GET /static/js/jquery.min.js (127.0.0.1) 12.98ms
+[I 180803 09:42:37 web:2106] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 10.54ms
+[I 180803 09:42:37 web:2106] 200 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 19.27ms
+[I 180803 09:42:37 web:2106] 304 GET /static/js/ihome/index.js (127.0.0.1) 6.97ms
+[I 180803 09:42:37 web:2106] 304 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 10.71ms
+[I 180803 09:42:37 web:2106] 200 GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 (127.0.0.1) 6.05ms
+[I 180803 09:42:37 web:2106] 304 GET /static/images/logo@128x59.png (127.0.0.1) 14.95ms
+[I 180803 09:42:37 web:2106] 304 GET /static/js/template.js (127.0.0.1) 1.55ms
+[E 180803 09:42:38 session:27] Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180803 09:42:38 web:1621] Uncaught exception GET /api/check_login (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/check_login', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/Passport.py", line 109, in get
+        if self.get_current_user():
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/BaseHandler.py", line 50, in get_current_user
+        self.session = Session(self)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/utils/session.py", line 28, in __init__
+        raise e
+    ConnectionError: Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[E 180803 09:42:38 web:2106] 500 GET /api/check_login (127.0.0.1) 39.83ms
+[E 180803 09:42:38 HouseHandler:415] Error 111 connecting to 127.0.0.1:6379. Connection refused.
+[I 180803 09:42:38 web:2106] 200 GET /api/house/index (127.0.0.1) 1.98ms
+[I 180803 09:42:38 web:2106] 200 GET /favicon.ico (127.0.0.1) 20.66ms
+[I 180803 09:42:51 web:2106] 304 GET / (127.0.0.1) 1.51ms
+[I 180803 09:42:51 web:2106] 200 GET /api/check_login (127.0.0.1) 1.65ms
+[D 180803 09:42:51 HouseHandler:451] hit the redis
+[E 180803 09:42:51 HouseHandler:475] value is not an integer or out of range
+[I 180803 09:42:51 web:2106] 200 GET /api/house/index (127.0.0.1) 4.94ms
+[I 180803 09:42:52 web:2106] 200 GET /favicon.ico (127.0.0.1) 1.60ms
+[I 180803 09:42:59 web:2106] 304 GET /login.html (127.0.0.1) 97.43ms
+[I 180803 09:42:59 web:2106] 304 GET /static/css/ihome/login.css (127.0.0.1) 50.38ms
+[I 180803 09:42:59 web:2106] 304 GET /static/js/ihome/login.js (127.0.0.1) 28.31ms
+[I 180803 09:43:27 web:2106] 200 POST /api/login (127.0.0.1) 3.60ms
+[I 180803 09:43:28 web:2106] 200 GET /api/check_login (127.0.0.1) 2.43ms
+[D 180803 09:43:28 HouseHandler:451] hit the redis
+[E 180803 09:43:28 HouseHandler:475] value is not an integer or out of range
+[I 180803 09:43:28 web:2106] 304 GET /api/house/index (127.0.0.1) 4.25ms
+[I 180803 09:43:31 web:2106] 304 GET /my.html (127.0.0.1) 9.36ms
+[I 180803 09:43:31 web:2106] 304 GET /static/css/ihome/my.css (127.0.0.1) 1.33ms
+[I 180803 09:43:31 web:2106] 304 GET /static/js/ihome/my.js (127.0.0.1) 11.21ms
+[I 180803 09:43:31 web:2106] 304 GET /api/profile (127.0.0.1) 2.71ms
+[I 180803 09:43:38 web:2106] 304 GET /myhouse.html (127.0.0.1) 49.61ms
+[I 180803 09:43:38 web:2106] 304 GET /static/css/ihome/myhouse.css (127.0.0.1) 60.93ms
+[I 180803 09:43:38 web:2106] 304 GET /static/js/ihome/myhouse.js (127.0.0.1) 82.97ms
+[I 180803 09:43:38 web:2106] 200 GET /api/house/myhouse (127.0.0.1) 7.31ms
+[I 180803 09:43:42 web:2106] 200 GET /newhouse.html (127.0.0.1) 26.20ms
+[I 180803 09:43:42 web:2106] 304 GET /static/css/ihome/newhouse.css (127.0.0.1) 19.30ms
+[I 180803 09:43:42 web:2106] 304 GET /static/js/ihome/newhouse.js (127.0.0.1) 20.17ms
+[I 180803 09:43:42 web:2106] 304 GET /static/js/jquery.form.min.js (127.0.0.1) 12.67ms
+[I 180803 09:43:42 web:2106] 304 GET /api/house/area (127.0.0.1) 1.68ms
+[E 180803 09:45:08 HouseHandler:146] (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(4,5)(4,8)(4,10)(4,20)' at line 1")
+[I 180803 09:45:08 web:2106] 200 POST /api/house/info (127.0.0.1) 144.74ms
+[E 180803 09:45:19 HouseHandler:146] (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(5,5)(5,8)(5,10)(5,20)' at line 1")
+[I 180803 09:45:19 web:2106] 200 POST /api/house/info (127.0.0.1) 60.48ms
+[I 180803 09:49:36 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180803 09:51:01 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
