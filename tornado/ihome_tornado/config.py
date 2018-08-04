@@ -28,4 +28,5 @@ areainfo_expire_seconds = 86400 # 地域信息redis数据有效期， 秒, 为�
 houseinfo_expire_seconds = 43200 # 房屋信息redis数据有效期， 秒，
 detailinfo_expire_seconds = 43200 # 具体信息redis 数据有效期, 秒
 indexinfo_expire_seconds = 86400 # 首页信息数据有效期, 秒
+searchinfo_expire_seconds = 3600
 passwd_salt = 'ihome*^&'

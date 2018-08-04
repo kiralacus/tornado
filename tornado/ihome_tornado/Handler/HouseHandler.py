@@ -487,7 +487,7 @@ class HouseIndexHandler(BaseHandler):
 
 class ListHandler(BaseHandler):
     def get(self):
-        areaId = self.get_argument('aid', None)
+        areaid = self.get_argument('aid', None)
         startDate = self.get_argument('sd', None)
         endDate = self.get_argument('ed', None)
         sortKey = self.get_argument('sk', None)
@@ -496,8 +496,9 @@ class ListHandler(BaseHandler):
         sql_where = []
         sql_param = {}
         sql_order = ''
-        if areaId:
-            sql_areaid = ' ih_house_info.hi_area_id=%(areaId)s;'
+        houses = {}
+        if areaid:
+            sql_areaid = 'ih_house_info.hi_area_id=%(areaid)s '
             sql_where.append(sql_areaid)
             sql_param['areaid'] = areaId
 
@@ -505,16 +506,15 @@ class ListHandler(BaseHandler):
             if sortKey not in ('booking', 'price-inc', 'price-des'):
                 return self.write(dict(errcode=RET.DBERR, errmsg='the sortKey not exist'))
             elif sortKey == 'booking':
-                sql_order= 'order by ih_house_info.hi_room_count desc'
+                sql_order= 'order by ih_house_info.hi_room_count desc '
             elif sortKey == 'price-inc':
-                sql_order = 'order by ih_house_info.hi_price'
+                sql_order = 'order by ih_house_info.hi_price '
             elif sortKey == 'new':
-                sql_order = 'order by hi_ctime'
+                sql_order = 'order by hi_ctime '
             else:
-                sql_order = 'order by ih_house_info.hi_price desc'
+                sql_order = 'order by ih_house_info.hi_price desc '
 
         elif startDate or endDate:
-            # 一定要记得加 or num is null
             if startDate and endDate:
                 if startDate > endDate:
                     return self.write(dict(errcode=RET.DATAEXIST, errmsg='endDate must bigger than startDate'))
@@ -532,51 +532,77 @@ class ListHandler(BaseHandler):
                 sql_where.append(sql_Date)
 
         else:
-            sql_sortKey = 'or num is null order by hi_ctime'
+            sql_sortKey = 'order by hi_ctime '
             sql_order = sql_sortKey
+            print 'i am in'
 
         sql_pre = "select ih_house_info.hi_house_id, hi_index_image_url, hi_price, hi_title, hi_room_count, hi_order_count, hi_address, up_avatar, num, hi_capacity from ih_house_info left join " \
                   "(select hi_house_id, count(*)as num from ih_house_info inner join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id group by hi_house_id) order_count " \
                   "on ih_house_info.hi_house_id=order_count.hi_house_id " \
-                  "inner join ih_user_profile on ih_user_profile.up_user_id=ih_house_info.hi_user_id" \
+                  "inner join ih_user_profile on ih_user_profile.up_user_id=ih_house_info.hi_user_id " \
                   "left join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id " \
                   "inner join ih_area_info on ih_area_info.ai_area_id = ih_house_info.hi_area_id "
 
-        sql_where.insert(0, 'ih_house_info.hi_capacity>order_count.num ')
-        sql_where.append('or num is null ')
+        sql_where.insert(0, '(ih_house_info.hi_capacity>order_count.num or num is null)')
+
+        while 1:
+            try:
+                houses = self.redis.hgetall('hi_%s_%s_%s_%s'%(areaid, startDate, endDate, sortKey))
+            except Exception as e:
+                logging.error(e)
+                break
+            if not houses:
+                break
+            if not houses.get(int(nextpage)):
+                break
+            else:
+                cur_houses = houses[int(nextpage)]
+                return self.write(dict(errcode=RET.OK, errmsg='成功', houses=cur_houses))
+
         try:
-            latest = self.redis.hgetall('house_search')
+            sql_where = ' and '.join(sql_where)
+            if nextpage == 1:
+                sql_limit = 'limit ' + str(constants.HOUSE_LIST_CACHE_NUM * constants.HOUSE_LIST_PAGE_CAPACITY)
+            else:
+                sql_limit = 'limit ' + str((nextpage/constants.HOUSE_LIST_CACHE_NUM)*constants.HOUSE_LIST_PAGE_CAPACITY)+','+str(constants.HOUSE_LIST_CACHE_NUM * constants.HOUSE_LIST_PAGE_CAPACITY)
+            sql = sql_pre + 'where ' + sql_where + sql_order + sql_limit
+            logging.debug(sql)
+            logging.debug(sql_param)
+            houseInfo = self.db.query(sql, **sql_param)
+
         except Exception as e:
             logging.error(e)
-            self.write(dict(errcode=RET.DBERR, errmsg='redis获取最新房源出错'))
-            latest = None
-        if not latest:
+            return self.write(dict(errcode=RET.DBERR, errmsg='MySQL获取房源信息出错'))
+
+        houselist = []
+        for each in houseInfo:
+            new = {}
+            new['house_id'] = each['hi_house_id']
+            new['image_url'] = each['hi_index_image_url']
+            new['price'] = each['hi_price']
+            new['title'] = each['hi_title']
+            new['room_count'] = each['hi_room_count']
+            new['order_count'] = each['hi_order_count']
+            new['address'] = each['hi_address']
+            new['avatar'] = each['up_avatar']
+            houselist.append(new)
+            if not (houseInfo.index(each)+1)%constants.HOUSE_LIST_PAGE_CAPACITY:
+                houses[(houseInfo.index(each)+1)/constants.HOUSE_LIST_PAGE_CAPACITY] = houselist
+                houselist = []
+                continue
+        try:
+            self.redis.hmset('hi_%s_%s_%s_%s'%(areaid, startDate, endDate, sortKey), houses)
+        except Exception as e:
+            logging.error(e)
+            self.write(dict(errcode=RET.DBERR, errmsg='fail in store data of house_search'))
+        else:
             try:
-                sql_where = ','.join(sql_where)
-
-                sql = sql_pre + sql_where + sql_order + 'limit 100'
-                logging.debug(sql)
-                logging.debug(sql_param)
-                houseInfo = self.db.query(sql, **sql_param)
-                houses = {}
-                for each in houseInfo:
-                    houses['house_id'] = each['hi_house_id']
-                    houses['image_url'] = each['hi_iamge_url']
-                    houses['price'] = each['hi_price']
-                    houses['title'] = each['hi_title']
-                    houses['room_count'] = each['hi_room_count']
-                    houses['order_count'] = each['hi_order_count']
-                    houses['address'] = each['hi_address']
-                    houses['avatar'] = each['up_avatar']
-
+                self.redis.expire('house_search', config.searchinfo_expire_seconds)
             except Exception as e:
                 logging.error(e)
-                return self.write(errcode=RET.DBERR, errmsg='MySQL获取房源信息出错')
-            try:
-                self.redis.hset('house_search', houses)
-            except Exception as e:
-                logging.error(e)
-                self.write()
+                self.redis.delete('house_search')
+        cur_houses = houses[int(nextpage)]
+        return self.write(dict(errcode=RET.OK, errmsg='成功', houses=cur_houses))
 
 
 class OrderInfoHandler(BaseHandler):
