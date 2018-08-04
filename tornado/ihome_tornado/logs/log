@@ -6060,3 +6060,64 @@
 [D 180804 17:29:40 HouseHandler:569] select distinct ih_house_info.hi_house_id, hi_index_image_url, hi_price, hi_title, hi_room_count, hi_order_count, hi_address, up_avatar, num, hi_capacity from ih_house_info left join (select hi_house_id, count(*)as num from ih_house_info inner join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id where %(startDate)s between oi_begin_date and oi_end_date group by hi_house_id) order_count on ih_house_info.hi_house_id=order_count.hi_house_id inner join ih_user_profile on ih_user_profile.up_user_id=ih_house_info.hi_user_id left join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id inner join ih_area_info on ih_area_info.ai_area_id = ih_house_info.hi_area_id where (ih_house_info.hi_capacity>order_count.num or num is null) order by ih_house_info.hi_room_count desc limit 6;
 [D 180804 17:29:40 HouseHandler:573] [{'up_avatar': u'e9426bed76694937ac9a55598a6e0750.jpg', 'hi_room_count': 4, 'hi_capacity': 1L, 'num': None, 'hi_index_image_url': u'480a41814c0241bba6bec79cfeda0261.jpg', 'hi_price': 400L, 'hi_title': u'\u5bb6\u56db\u53f7', 'hi_address': u'\u5929\u4e0a\u4eba\u95f4\uff14', 'hi_house_id': 4L, 'hi_order_count': 0L}, {'up_avatar': u'e9426bed76694937ac9a55598a6e0750.jpg', 'hi_room_count': 3, 'hi_capacity': 1L, 'num': None, 'hi_index_image_url': u'480a41814c0241bba6bec79cfeda0261.jpg', 'hi_price': 300L, 'hi_title': u'\u4e09\u53f7\u5bb6', 'hi_address': u'\u5929\u4e0a\u4eba\u95f43', 'hi_house_id': 3L, 'hi_order_count': 0L}, {'up_avatar': u'e9426bed76694937ac9a55598a6e0750.jpg', 'hi_room_count': 2, 'hi_capacity': 1L, 'num': None, 'hi_index_image_url': u'480a41814c0241bba6bec79cfeda0261.jpg', 'hi_price': 200L, 'hi_title': u'\u4e8c\u53f7\u5bb6', 'hi_address': u'\u5929\u4e0a\u4eba\u95f42', 'hi_house_id': 2L, 'hi_order_count': 0L}]
 [I 180804 17:29:40 web:2106] 200 GET /api/house/list?sk=booking (127.0.0.1) 780.55ms
+[D 180804 20:02:53 HouseHandler:459] hit the redis
+[E 180804 20:02:53 HouseHandler:483] value is not an integer or out of range
+[I 180804 20:02:53 web:2162] 200 GET /api/house/index (127.0.0.1) 10.77ms
+[I 180804 20:06:38 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/urls.py modified; restarting server
+[I 180804 21:55:19 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/urls.py modified; restarting server
+[I 180804 21:56:18 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[I 180804 21:58:06 web:2162] 200 POST /api/order/book (127.0.0.1) 2.37ms
+[I 180804 21:58:21 web:2162] 200 POST /api/order/book (127.0.0.1) 3.24ms
+[I 180804 21:58:21 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[I 180804 21:58:22 web:2162] 200 POST /api/order/book (127.0.0.1) 1.09ms
+[I 180804 21:59:01 web:2162] 200 POST /api/order/book (127.0.0.1) 2.83ms
+[I 180804 21:59:01 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[I 180804 21:59:03 web:2162] 200 POST /api/order/book (127.0.0.1) 1.51ms
+[E 180804 21:59:14 web:1670] Uncaught exception POST /api/order/book (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/order/book', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/newpy2env/py2/local/lib/python2.7/site-packages/tornado/web.py", line 1569, in _execute
+        result = self.prepare()
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/BaseHandler.py", line 18, in prepare
+        self.json_dict = json.loads(self.request.body)
+      File "/usr/lib/python2.7/json/__init__.py", line 339, in loads
+        return _default_decoder.decode(s)
+      File "/usr/lib/python2.7/json/decoder.py", line 364, in decode
+        obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+      File "/usr/lib/python2.7/json/decoder.py", line 380, in raw_decode
+        obj, end = self.scan_once(s, idx)
+    ValueError: Expecting property name: line 5 column 1 (char 83)
+[E 180804 21:59:14 web:2162] 500 POST /api/order/book (127.0.0.1) 5.95ms
+[E 180804 21:59:15 web:1670] Uncaught exception POST /api/order/book (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='POST', uri='/api/order/book', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/newpy2env/py2/local/lib/python2.7/site-packages/tornado/web.py", line 1569, in _execute
+        result = self.prepare()
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/BaseHandler.py", line 18, in prepare
+        self.json_dict = json.loads(self.request.body)
+      File "/usr/lib/python2.7/json/__init__.py", line 339, in loads
+        return _default_decoder.decode(s)
+      File "/usr/lib/python2.7/json/decoder.py", line 364, in decode
+        obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+      File "/usr/lib/python2.7/json/decoder.py", line 380, in raw_decode
+        obj, end = self.scan_once(s, idx)
+    ValueError: Expecting property name: line 5 column 1 (char 83)
+[E 180804 21:59:15 web:2162] 500 POST /api/order/book (127.0.0.1) 1.80ms
+[E 180804 21:59:31 OrderHandler:55] 'days'
+[I 180804 21:59:31 web:2162] 200 POST /api/order/book (127.0.0.1) 4.95ms
+[E 180804 22:00:20 OrderHandler:55] 'days'
+[I 180804 22:00:20 web:2162] 200 POST /api/order/book (127.0.0.1) 2.87ms
+[I 180804 22:00:20 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[E 180804 22:00:21 torndb:236] Error connecting to MySQL on 127.0.0.1
+[E 180804 22:00:21 OrderHandler:55] (1054, "Unknown column 'oi_user_id' in 'field list'")
+[I 180804 22:00:21 web:2162] 200 POST /api/order/book (127.0.0.1) 7.67ms
+[E 180804 22:00:22 torndb:236] Error connecting to MySQL on 127.0.0.1
+[E 180804 22:00:22 OrderHandler:55] (1054, "Unknown column 'oi_user_id' in 'field list'")
+[I 180804 22:00:22 web:2162] 200 POST /api/order/book (127.0.0.1) 5.51ms
+[I 180804 22:01:17 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[E 180804 22:01:18 OrderHandler:55] (1452, 'Cannot add or update a child row: a foreign key constraint fails (`ihome`.`ih_order_info`, CONSTRAINT `ih_order_info_ibfk_1` FOREIGN KEY (`oi_user_id`) REFERENCES `ih_user_profile` (`up_user_id`))')
+[I 180804 22:01:18 web:2162] 200 POST /api/order/book (127.0.0.1) 17.83ms
+[I 180804 22:02:13 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[I 180804 22:02:14 web:2162] 200 POST /api/order/book (127.0.0.1) 8.30ms
+[I 180804 22:05:01 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[I 180804 22:05:11 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server

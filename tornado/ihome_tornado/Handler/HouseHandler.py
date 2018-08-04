@@ -487,7 +487,7 @@ class HouseIndexHandler(BaseHandler):
         pass
 
 
-class ListHandler(BaseHandler):
+class HouseListHandler(BaseHandler):
     def get(self):
         areaid = self.get_argument('aid', None)
         startDate = self.get_argument('sd', None)
@@ -608,9 +608,7 @@ class ListHandler(BaseHandler):
         return self.write(dict(errcode=RET.OK, errmsg='成功', houses=cur_houses))
 
 
-class OrderInfoHandler(BaseHandler):
-    def post(self):
-        pass
+
 
 
 

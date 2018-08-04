@@ -1,4 +1,4 @@
-from Handler import Verifycode, BaseHandler, Passport, Profile, HouseHandler
+from Handler import Verifycode, BaseHandler, Passport, Profile, HouseHandler,OrderHandler
 
 from tornado.web import RequestHandler
 
@@ -22,7 +22,7 @@ handler = [
     (r'/api/house/myhouse', HouseHandler.MyHouseHandler),
     (r'/api/house/addimage', HouseHandler.AddHouseImageHandler),
     (r'/api/house/index', HouseHandler.HouseIndexHandler),
-    (r'/api/house/list', HouseHandler.ListHandler),
-    (r'/api/house/order', HouseHandler.OrderInfoHandler),
+    (r'/api/house/list', HouseHandler.HouseListHandler),
+    (r'/api/order/book', OrderHandler.OrderBookHandler),
     (r'/(.*)', BaseHandler.StaticFileHandler, {'path': os.path.join(os.path.dirname(__file__), 'html'), 'default_filename': 'index.html'}),
 ]
