@@ -18,6 +18,10 @@ import constants
 
 import datetime
 
+import math
+
+import datetime
+
 
 class AreaHandler(BaseHandler):
     '''获取地域信息'''
@@ -336,8 +340,6 @@ class MyHouseHandler(BaseHandler):
                 myhouse['title'] = each['hi_title']
                 myhouse['price'] = each['hi_price']
                 myhouse['ctime'] = str(each['hi_ctime'])
-                if not each['hi_index_image_url']:
-                    each['hi_index_image_url'] = constants.DEFAULT_HOUSE_IMG
                 myhouse['imageUrl'] = constants.PRE_URL + each['hi_index_image_url']
 
                 houseList.append(myhouse)
@@ -491,16 +493,18 @@ class ListHandler(BaseHandler):
         startDate = self.get_argument('sd', None)
         endDate = self.get_argument('ed', None)
         sortKey = self.get_argument('sk', None)
-        nextpage = self.get_argument('p', 1)
+        nextpage = int(self.get_argument('p', 1))
         # 如果全为空返回最新上线的房屋信息
         sql_where = []
         sql_param = {}
+        # default startDate
+        sql_param['startDate'] = datetime.datetime.now().strftime('%Y-%m-%d')
         sql_order = ''
         houses = {}
         if areaid:
             sql_areaid = 'ih_house_info.hi_area_id=%(areaid)s '
             sql_where.append(sql_areaid)
-            sql_param['areaid'] = areaId
+            sql_param['areaid'] = areaid
 
         elif sortKey:
             if sortKey not in ('booking', 'price-inc', 'price-des'):
@@ -519,44 +523,39 @@ class ListHandler(BaseHandler):
                 if startDate > endDate:
                     return self.write(dict(errcode=RET.DATAEXIST, errmsg='endDate must bigger than startDate'))
                 else:
-                    sql_Date = '%(endDate)s<=oi_begin_data or %(startDate)s>=oi_end_date '
-                    sql_where.append(sql_Date)
-                    sql_param['startDate']=startDate
-                    sql_param['endDate']=endDate
+                    startdate= datetime.datetime.strptime(startDate, '%Y-%m-%d')
+                    enddate = datetime.datetime.strptime(endDate, '%Y-%m-%d')
+                    delta = (enddate - startdate).days
+                    sql_param['startDate'] = startDate
+                    sql_param['delta'] = str(delta)
+                    sql_where.append('hi_min_days<=%(delta)s and %(delta)s<=hi_max_days ')
             elif startDate:
-                sql_Date = '%(startDate)s not between oi_begin_date and oi_end_date '
-                sql_where.append(sql_Date)
-                sql_param['startDate']=startDate
+                sql_param['startDate'] = startDate
             elif endDate:
-                sql_Date = '%(endDate)s not between oi_begin_date and oi_end_date '
-                sql_where.append(sql_Date)
+                return self.write(dict(errcode=RET.OK, errmsg='succeed but no data'))
 
         else:
             sql_sortKey = 'order by hi_ctime '
             sql_order = sql_sortKey
-            print 'i am in'
 
-        sql_pre = "select ih_house_info.hi_house_id, hi_index_image_url, hi_price, hi_title, hi_room_count, hi_order_count, hi_address, up_avatar, num, hi_capacity from ih_house_info left join " \
-                  "(select hi_house_id, count(*)as num from ih_house_info inner join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id group by hi_house_id) order_count " \
+        sql_pre = "select distinct ih_house_info.hi_house_id, hi_index_image_url, hi_price, hi_title, hi_room_count, hi_order_count, hi_address, up_avatar, num, hi_capacity from ih_house_info left join " \
+                  "(select hi_house_id, count(*)as num from ih_house_info inner join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id where %(startDate)s between oi_begin_date and oi_end_date group by hi_house_id) order_count " \
                   "on ih_house_info.hi_house_id=order_count.hi_house_id " \
                   "inner join ih_user_profile on ih_user_profile.up_user_id=ih_house_info.hi_user_id " \
                   "left join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id " \
                   "inner join ih_area_info on ih_area_info.ai_area_id = ih_house_info.hi_area_id "
 
-        sql_where.insert(0, '(ih_house_info.hi_capacity>order_count.num or num is null)')
+        sql_where.append('(ih_house_info.hi_capacity>order_count.num ')
+        sql_or = 'or num is null) '
 
-        while 1:
+        if not (nextpage-1)%constants.HOUSE_LIST_CACHE_NUM:
             try:
                 houses = self.redis.hgetall('hi_%s_%s_%s_%s'%(areaid, startDate, endDate, sortKey))
             except Exception as e:
                 logging.error(e)
-                break
-            if not houses:
-                break
-            if not houses.get(int(nextpage)):
-                break
-            else:
-                cur_houses = houses[int(nextpage)]
+                houses = None
+            cur_houses = houses.get(nextpage)
+            if houses and cur_houses:
                 return self.write(dict(errcode=RET.OK, errmsg='成功', houses=cur_houses))
 
         try:
@@ -564,11 +563,11 @@ class ListHandler(BaseHandler):
             if nextpage == 1:
                 sql_limit = 'limit ' + str(constants.HOUSE_LIST_CACHE_NUM * constants.HOUSE_LIST_PAGE_CAPACITY)
             else:
-                sql_limit = 'limit ' + str((nextpage/constants.HOUSE_LIST_CACHE_NUM)*constants.HOUSE_LIST_PAGE_CAPACITY)+','+str(constants.HOUSE_LIST_CACHE_NUM * constants.HOUSE_LIST_PAGE_CAPACITY)
-            sql = sql_pre + 'where ' + sql_where + sql_order + sql_limit
+                sql_limit = 'limit ' + str((nextpage-1)*constants.HOUSE_LIST_PAGE_CAPACITY)+','+str(constants.HOUSE_LIST_CACHE_NUM * constants.HOUSE_LIST_PAGE_CAPACITY)
+            sql = sql_pre + 'where ' + sql_where + sql_or + sql_order + sql_limit+';'
             logging.debug(sql)
-            logging.debug(sql_param)
             houseInfo = self.db.query(sql, **sql_param)
+            logging.debug(houseInfo)
 
         except Exception as e:
             logging.error(e)
@@ -578,19 +577,23 @@ class ListHandler(BaseHandler):
         for each in houseInfo:
             new = {}
             new['house_id'] = each['hi_house_id']
-            new['image_url'] = each['hi_index_image_url']
+            new['image_url'] = constants.PRE_URL + each['hi_index_image_url']
             new['price'] = each['hi_price']
             new['title'] = each['hi_title']
             new['room_count'] = each['hi_room_count']
             new['order_count'] = each['hi_order_count']
             new['address'] = each['hi_address']
-            new['avatar'] = each['up_avatar']
+            new['avatar'] = constants.PRE_URL + each['up_avatar']
             houselist.append(new)
             if not (houseInfo.index(each)+1)%constants.HOUSE_LIST_PAGE_CAPACITY:
-                houses[(houseInfo.index(each)+1)/constants.HOUSE_LIST_PAGE_CAPACITY] = houselist
+                houses[houseInfo.index(each)/constants.HOUSE_LIST_PAGE_CAPACITY+nextpage] = houselist
                 houselist = []
                 continue
+        if houselist:
+            houses[len(houseInfo)/constants.HOUSE_LIST_PAGE_CAPACITY+nextpage]=houselist
         try:
+            if not houses:
+                houses[1] = {}
             self.redis.hmset('hi_%s_%s_%s_%s'%(areaid, startDate, endDate, sortKey), houses)
         except Exception as e:
             logging.error(e)
@@ -601,7 +604,7 @@ class ListHandler(BaseHandler):
             except Exception as e:
                 logging.error(e)
                 self.redis.delete('house_search')
-        cur_houses = houses[int(nextpage)]
+        cur_houses = houses.get(nextpage,{})
         return self.write(dict(errcode=RET.OK, errmsg='成功', houses=cur_houses))
 
 

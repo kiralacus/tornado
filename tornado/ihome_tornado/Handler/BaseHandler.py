@@ -3,12 +3,12 @@ import tornado
 
 import json
 
-from tornado import web
-
 from utils.session import Session
 
+from tornado import web
 
-class BaseHandler(tornado.web.RequestHandler):
+
+class BaseHandler(web.RequestHandler):
 
     def prepare(self):
         ''''''
