@@ -6121,3 +6121,114 @@
 [I 180804 22:02:14 web:2162] 200 POST /api/order/book (127.0.0.1) 8.30ms
 [I 180804 22:05:01 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
 [I 180804 22:05:11 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[I 180806 14:49:57 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[I 180806 14:51:24 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/urls.py modified; restarting server
+[I 180806 14:51:35 web:2106] 200 GET /api/order/myorder (127.0.0.1) 3.12ms
+[I 180806 14:51:42 web:2106] 200 GET /api/order/myorder (127.0.0.1) 1.68ms
+[I 180806 14:51:42 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[E 180806 14:51:48 web:1621] Uncaught exception GET /api/order/myorder (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/order/myorder', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py", line 91, in get
+        return self.write(dict(errcode=RET.OK, errmsg='成功', order=order))
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 741, in write
+        chunk = escape.json_encode(chunk)
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/escape.py", line 81, in json_encode
+        return json.dumps(value).replace("</", "<\\/")
+      File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+        return _default_encoder.encode(obj)
+      File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+        chunks = self.iterencode(o, _one_shot=True)
+      File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+        return _iterencode(o, 0)
+      File "/usr/lib/python2.7/json/encoder.py", line 184, in default
+        raise TypeError(repr(o) + " is not JSON serializable")
+    TypeError: datetime.datetime(2018, 8, 3, 9, 11, 55) is not JSON serializable
+[E 180806 14:51:48 web:2106] 500 GET /api/order/myorder (127.0.0.1) 343.76ms
+[I 180806 14:59:34 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[E 180806 14:59:37 web:1621] Uncaught exception GET /api/order/myorder (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/order/myorder', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py", line 92, in get
+        return self.write(dict(errcode=RET.OK, errmsg='成功', order=order))
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 741, in write
+        chunk = escape.json_encode(chunk)
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/escape.py", line 81, in json_encode
+        return json.dumps(value).replace("</", "<\\/")
+      File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+        return _default_encoder.encode(obj)
+      File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+        chunks = self.iterencode(o, _one_shot=True)
+      File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+        return _iterencode(o, 0)
+      File "/usr/lib/python2.7/json/encoder.py", line 184, in default
+        raise TypeError(repr(o) + " is not JSON serializable")
+    TypeError: datetime.datetime(2018, 8, 3, 9, 11, 55) is not JSON serializable
+[E 180806 14:59:37 web:2106] 500 GET /api/order/myorder (127.0.0.1) 5.25ms
+[I 180806 15:02:17 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[E 180806 15:02:18 web:1621] Uncaught exception GET /api/order/myorder (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/order/myorder', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py", line 92, in get
+        return self.write(dict(errcode=RET.OK, errmsg='成功', order=order))
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 741, in write
+        chunk = escape.json_encode(chunk)
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/escape.py", line 81, in json_encode
+        return json.dumps(value).replace("</", "<\\/")
+      File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+        return _default_encoder.encode(obj)
+      File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+        chunks = self.iterencode(o, _one_shot=True)
+      File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+        return _iterencode(o, 0)
+      File "/usr/lib/python2.7/json/encoder.py", line 184, in default
+        raise TypeError(repr(o) + " is not JSON serializable")
+    TypeError: datetime.date(2018, 5, 9) is not JSON serializable
+[E 180806 15:02:18 web:2106] 500 GET /api/order/myorder (127.0.0.1) 5.20ms
+[E 180806 15:02:19 web:1621] Uncaught exception GET /api/order/myorder (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:8000', method='GET', uri='/api/order/myorder', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 1541, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py", line 92, in get
+        return self.write(dict(errcode=RET.OK, errmsg='成功', order=order))
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/web.py", line 741, in write
+        chunk = escape.json_encode(chunk)
+      File "/home/kiralacus/pyenv/py2env/local/lib/python2.7/site-packages/tornado/escape.py", line 81, in json_encode
+        return json.dumps(value).replace("</", "<\\/")
+      File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+        return _default_encoder.encode(obj)
+      File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+        chunks = self.iterencode(o, _one_shot=True)
+      File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+        return _iterencode(o, 0)
+      File "/usr/lib/python2.7/json/encoder.py", line 184, in default
+        raise TypeError(repr(o) + " is not JSON serializable")
+    TypeError: datetime.date(2018, 5, 9) is not JSON serializable
+[E 180806 15:02:19 web:2106] 500 GET /api/order/myorder (127.0.0.1) 3.16ms
+[I 180806 15:04:48 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[I 180806 15:04:49 web:2106] 200 GET /api/order/myorder (127.0.0.1) 3.36ms
+[I 180806 15:08:37 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[I 180806 15:10:34 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[E 180806 15:16:25 OrderHandler:105] 'user_id'
+[I 180806 15:16:25 web:2106] 200 POST /api/order/myorder (127.0.0.1) 2.56ms
+[E 180806 15:18:00 OrderHandler:105] 'user_id'
+[I 180806 15:18:00 web:2106] 200 POST /api/order/myorder (127.0.0.1) 1.75ms
+[I 180806 15:18:00 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[I 180806 15:18:02 web:2106] 200 POST /api/order/myorder (127.0.0.1) 108.07ms
+[I 180806 15:24:45 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[I 180806 15:25:29 web:2106] 200 POST /api/order/guestorder (127.0.0.1) 29.50ms
+[I 180806 15:26:02 web:2106] 200 GET /api/order/guestorder (127.0.0.1) 34.79ms
+[I 180806 15:40:05 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[I 180806 15:46:02 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180806 16:36:21 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180806 17:24:16 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/OrderHandler.py modified; restarting server
+[I 180806 17:25:42 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180806 17:26:29 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180806 17:27:47 autoreload:196] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
