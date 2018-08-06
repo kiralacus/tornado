@@ -37,7 +37,7 @@ class BookOrderHandler(BaseHandler):
         capacity = int(house['hi_capacity'])
         price = int(house['hi_price'])
         deposit = int(house['hi_deposit'])
-        amount = price*delta + deposit
+        amount = price*delta
         if not(delta >= min_days and delta <= max_days):
             if delta < min_days:
                 return self.write(dict(errcode=RET.DATAERR, errmsg='住房时间过短'))
@@ -77,16 +77,17 @@ class MyOrderHandler(BaseHandler):
         for each in order_info:
             order_dict = {}
             order_dict['order_id'] = each['oi_order_id']
-            order_dict['start_date'] = each['oi_begin_date']
-            order_dict['end_date'] = each['oi_end_date']
+            order_dict['start_date'] = str(each['oi_begin_date'])
+            order_dict['end_date'] = str(each['oi_end_date'])
             order_dict['status'] = each['oi_status']
-            order_dict['ctime'] = each['oi_ctime']
+            order_dict['ctime'] = str(each['oi_ctime'])
             order_dict['days'] = each['oi_days']
             order_dict['title'] = each['hi_title']
             order_dict['img_url'] = each['hi_index_image_url']
             order_dict['amount'] = each['oi_house_price']
             order_dict['comment'] = each['oi_comment']
             order.append(order_dict)
+        print order
         return self.write(dict(errcode=RET.OK, errmsg='成功', order=order))
 
     def post(self):
@@ -95,8 +96,10 @@ class MyOrderHandler(BaseHandler):
         comment = self.json_dict.get('comment')
         if not all((comment, order_id)):
             return self.write(dict(errcode=RET.PARAMERR, errmsg='缺少参数'))
+        if len(comment) <= 5:
+            return self.write(dict(errcode=RET.PARAMERR, errmsg='评论字数必须大于５'))
         try:
-            sql = 'insert into ih_order_info(oi_comment) values(%(comment)s) where oi_order_id=%(order_id);'
+            sql = 'update ih_order_info set oi_comment=%(comment)s where oi_order_id=%(order_id)s'
             self.db.execute(sql, comment=comment, order_id=order_id)
         except Exception as e:
             logging.error(e)
@@ -121,6 +124,7 @@ class GuestOrderHandler(BaseHandler):
 
         '''
         user_id = self.get_current_user().get('userId')
+        # user_id = 1
         try:
             sql = 'select oi_order_id, oi_status, hi_title, oi_ctime, oi_begin_date, oi_end_date, oi_amount, oi_days, oi_comment from ih_house_info ' \
                   'inner join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id where hi_user_id=%(user_id)s;'
@@ -135,9 +139,9 @@ class GuestOrderHandler(BaseHandler):
             order_dict['order_id'] = each['oi_order_id']
             order_dict['status'] = each['oi_status']
             order_dict['title'] = each['hi_title']
-            order_dict['ctime'] = each['oi_ctime']
-            order_dict['begin_date'] = each['oi_begin_date']
-            order_dict['end_date'] = each['oi_end_date']
+            order_dict['ctime'] = str(each['oi_ctime'])
+            order_dict['begin_date'] = str(each['oi_begin_date'])
+            order_dict['end_date'] = str(each['oi_end_date'])
             order_dict['amount'] = each['oi_amount']
             order_dict['days'] = each['oi_days']
             order_dict['comment'] = each['oi_comment']
@@ -151,7 +155,7 @@ class GuestOrderHandler(BaseHandler):
         if not all((order_id, comment)):
             return self.write(dict(errcode=RET.PARAMERR, errmsg='缺少参数'))
         try:
-            sql = 'insert into ih_order_info(oi_comment) values(%(comment)s) where oi_order_id=%(order_id)s'
+            sql = 'update ih_order_info set oi_comment=%(comment)s where oi_order_id=%(order_id)s'
             self.db.execute(sql, order_id=order_id, comment=comment)
         except Exception as e:
             logging.error(e)

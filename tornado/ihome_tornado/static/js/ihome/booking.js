@@ -17,79 +17,98 @@ function decodeQuery(){
 }
 
 function showErrorMsg(msg) {
-    $(".popup>p").html(msg);
-    $('.popup_con').fadeIn('fast', function() {
-        setTimeout(function(){
-            $('.popup_con').fadeOut('fast',function(){}); 
-        },1000) 
-    });
+    if(msg) {
+        $('.popup_con .popup p').html(msg);
+    }
+    $('.popup_con').fadeIn();
+    setTimeout(function(){
+        $('.popup_con').fadeOut('fast');
+    }, 1000)
+
 }
 
 $(document).ready(function(){
-    $.get("/api/check_login", function(data) {
-        if ("0" != data.errcode) {
-            location.href = "/login.html";
+    var days = 0;
+    var sd = '';
+    var ed = '';
+    $.get('/api/check_login', function(e){
+        if(e.errcode == '4101'){
+            window.location.href = '/login.html';
         }
-    }, "json");
+    });
+
     $(".input-daterange").datepicker({
         format: "yyyy-mm-dd",
         startDate: "today",
         language: "zh-CN",
         autoclose: true
     });
-    $(".input-daterange").on("changeDate", function(){
-        var startDate = $("#start-date").val();
-        var endDate = $("#end-date").val();
+    // 判断时间选择是否正确
+    $('.input-daterange').click(function(){
+        sd = $('#start-date').val();
+        ed = $('#end-date').val();
+        if(!(sd || ed || sd <= ed )){
+            showErrorMsg();
+            return;
+        }
+        else{
+            var start = new Date(sd);
+            var end = new Date(ed);
+            days = (end - start)/(1000*3600*24) + 1;
+        }
+    })
 
-        if (startDate && endDate && startDate > endDate) {
-            showErrorMsg("日期有误，请重新选择！");
-        } else {
-            var sd = new Date(startDate);
-            var ed = new Date(endDate);
-            days = (ed - sd)/(1000*3600*24) + 1;
-            var price = $(".house-text>p>span").html();
-            var amount = days * parseFloat(price);
-            $(".order-amount>span").html(amount.toFixed(2) + "(共"+ days +"晚)");
+    var houseID = decodeQuery()['houseid'];
+    $.get('/api/house/info?id='+houseID, function(e){
+        console.log(e);
+        if(e.errcode == '0'){
+            $('.house-info img').attr('src', e.data.index_image);
+            $('.house-text h3').html(e.data.title);
+            $('.house-text span').html(e.data.price);
+            var amount = parseFloat(e.data.price) * days;
+            $('.order-amount span').html(amount.toFixed(2 + "(共"+ days +"晚)");
         }
     });
-    var queryData = decodeQuery();
-    var houseId = queryData["hid"];
-    $.get("/api/house/info?house_id=" + houseId, function(data){
-        if ("0" == data.errcode) {
-            $(".house-info>img").attr("src", data.data.images[0]);
-            $(".house-text>h3").html(data.data.title);
-            $(".house-text>p>span").html((data.data.price/100.0).toFixed(0));
+    $('.submit-btn').click(function(){
+        if(!amount){
+            showErrorMsg('请填写入住时间');
+            return;
         }
-    });
-    $(".submit-btn").on("click", function(e) {
-        if ($(".order-amount>span").html()) {
-            $(this).prop("disabled", true);
-            var startDate = $("#start-date").val();
-            var endDate = $("#end-date").val();
-            var data = {
-                "house_id":houseId,
-                "start_date":startDate,
-                "end_date":endDate
-            };
-            $.ajax({
-                url:"/api/order",
-                type:"POST",
-                data: JSON.stringify(data), 
-                contentType: "application/json",
-                dataType: "json",
-                headers:{
-                    "X-XSRFTOKEN":getCookie("_xsrf"),
-                },
-                success: function (data) {
-                    if ("4101" == data.errcode) {
-                        location.href = "/login.html";
-                    } else if ("4004" == data.errcode) {
-                        showErrorMsg("房间已被抢定，请重新选择日期！"); 
-                    } else if ("0" == data.errcode) {
-                        location.href = "/orders.html";
-                    }
+        // 防止重复提交
+        if(amount) {
+            $(this).prop('disable', true);
+        }
+        var content = {
+            'start_date': sd,
+            'end_date': ed,
+           'house_id': houseID
+        };
+        $.ajax({
+            url: '/api/order/book',
+            method: 'POST',
+            headers: {
+                'X-XSRFTOKEN': getCookie('＿xsrf'),
+            }
+            data: JSON.stringify(content),
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(e){
+                if(e.errcode=='4101'){
+                    window.location.href = '/login.html';
                 }
-            });
-        }
-    });
+                else if(e.errcode=='4004'){
+                    showErrorMsg(e.errmsg);
+                    $('.submit-btn').prop('disable', false);
+                }
+                else if(e.errcode=='0'){
+                    window.location.href = '/orders.html';
+                }
+                else{
+                    showErrorMsg('网络问题, 请重新提交');
+                    window.location.reload();
+                }
+            }
+        })
+
+    })
 })

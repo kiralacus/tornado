@@ -173,11 +173,11 @@ class NewHouseHandler(BaseHandler):
                   通过house_id在ih_house_facility中检索
         :return:
         '''
-        # user_id = self.get_current_user()['user_id']
-        try:
-            house_id = self.get_argument('id')
-        except:
+        # user_id = self.get_current_user()['userId']
+        house_id = self.get_argument('id', None)
+        if not house_id:
             return self.write(dict(errcode=RET.PARAMERR, errmsg='参数缺省'))
+
         try:
             house_detail_json = self.redis.get('houseID_%s_houseDetail'%house_id)
         except Exception as e:
@@ -187,7 +187,7 @@ class NewHouseHandler(BaseHandler):
                 house_detail = json.loads(house_detail_json)
                 return self.write(dict(errcode=RET.OK, errmsg='ok', data=house_detail))
         try:
-            sql = 'select up_name, up_avatar, ai_name, hi_price, hi_address, hi_title, hi_acreage, hi_house_unit, hi_room_count, hi_capacity, hi_beds, hi_deposit, hi_min_days, hi_max_days ' \
+            sql = 'select up_name, up_avatar, ai_name, hi_price, hi_index_image_url, hi_address, hi_title, hi_acreage, hi_house_unit, hi_room_count, hi_capacity, hi_beds, hi_deposit, hi_min_days, hi_max_days ' \
                   'from ih_house_info inner join ih_area_info on ih_area_info.ai_area_id=ih_house_info.hi_area_id ' \
                   'inner join ih_user_profile on ih_user_profile.up_user_id=ih_house_info.hi_user_id where hi_house_id=%(house_id)s;'
 
@@ -216,6 +216,7 @@ class NewHouseHandler(BaseHandler):
                 house_detail['deposit'] = houseDetail['hi_deposit']
                 house_detail['min_days'] = houseDetail['hi_min_days']
                 house_detail['max_days'] = houseDetail['hi_max_days']
+                house_detail['index_image'] = houseDetail['hi_index_image_url']
                 house_detail['facility'] = []
                 for each in facility:
                     house_detail['facility'].append(each['hf_facility_id'])
