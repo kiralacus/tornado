@@ -30,13 +30,12 @@ class BookOrderHandler(BaseHandler):
         except Exception as e:
             logging.error(e)
             return self.write(dict(errcode=RET.DBERR, errmsg='获取房屋信息出错'))
-        delta = (datetime.datetime.strptime(end_date, '%Y-%m-%d') - datetime.datetime.strptime(start_date, '%Y-%m-%d')).days
+        delta = ((datetime.datetime.strptime(end_date, '%Y-%m-%d') - datetime.datetime.strptime(start_date, '%Y-%m-%d')).days)+1
         min_days = int(house['hi_min_days'])
         max_days = int(house['hi_max_days'])
         cur_orderNum = int(house['num'])
         capacity = int(house['hi_capacity'])
         price = int(house['hi_price'])
-        deposit = int(house['hi_deposit'])
         amount = price*delta
         if not(delta >= min_days and delta <= max_days):
             if delta < min_days:

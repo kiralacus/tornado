@@ -31,6 +31,7 @@ $(document).ready(function(){
     var days = 0;
     var sd = '';
     var ed = '';
+    var amount = 0;
     $.get('/api/check_login', function(e){
         if(e.errcode == '4101'){
             window.location.href = '/login.html';
@@ -44,19 +45,25 @@ $(document).ready(function(){
         autoclose: true
     });
     // 判断时间选择是否正确
-    $('.input-daterange').click(function(){
-        sd = $('#start-date').val();
-        ed = $('#end-date').val();
-        if(!(sd || ed || sd <= ed )){
-            showErrorMsg();
-            return;
-        }
-        else{
-            var start = new Date(sd);
-            var end = new Date(ed);
-            days = (end - start)/(1000*3600*24) + 1;
-        }
-    })
+    // $('.input-daterange').click(function(){
+    //     alert(2);
+    //     sd = $('#start-date').val();
+    //     ed = $('#end-date').val();
+    //     if(!(sd || ed || sd <= ed )){
+    //         console.log(sd, ed);
+    //         console.log(sd || ed || sd <= ed);
+    //         showErrorMsg();
+    //         return;
+    //     }
+    //     else{
+    //         start = new Date(sd);
+    //         end = new Date(ed);
+    //         days = (end - start)/(3600*24) + 1;
+    //
+    //     }
+    // });
+
+
 
     var houseID = decodeQuery()['houseid'];
     $.get('/api/house/info?id='+houseID, function(e){
@@ -65,10 +72,29 @@ $(document).ready(function(){
             $('.house-info img').attr('src', e.data.index_image);
             $('.house-text h3').html(e.data.title);
             $('.house-text span').html(e.data.price);
-            var amount = parseFloat(e.data.price) * days;
-            $('.order-amount span').html(amount.toFixed(2 + "(共"+ days +"晚)");
         }
     });
+
+    $('#end-date').change(function(){
+        sd = $('#start-date').val();
+        ed = $('#end-date').val();
+        if(!(sd || ed || sd <= ed )) {
+            console.log(sd, ed);
+            console.log(sd || ed || sd <= ed);
+            showErrorMsg();
+            return;
+        }
+        else{
+            start = new Date(sd);
+            end = new Date(ed);
+        }
+        var price = $('.house-text span').html();
+        days = (end - start)/(1000*3600*24)+1;
+        amount = days * price;
+        console.log(amount);
+        $('.order-amount span').html(amount.toFixed(2) + "(共"+ days +"晚)");
+    });
+
     $('.submit-btn').click(function(){
         if(!amount){
             showErrorMsg('请填写入住时间');
@@ -88,7 +114,7 @@ $(document).ready(function(){
             method: 'POST',
             headers: {
                 'X-XSRFTOKEN': getCookie('＿xsrf'),
-            }
+            },
             data: JSON.stringify(content),
             contentType: 'application/json',
             dataType: 'json',

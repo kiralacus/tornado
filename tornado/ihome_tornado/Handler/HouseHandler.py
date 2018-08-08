@@ -216,7 +216,7 @@ class NewHouseHandler(BaseHandler):
                 house_detail['deposit'] = houseDetail['hi_deposit']
                 house_detail['min_days'] = houseDetail['hi_min_days']
                 house_detail['max_days'] = houseDetail['hi_max_days']
-                house_detail['index_image'] = houseDetail['hi_index_image_url']
+                house_detail['index_image'] = constants.PRE_URL + houseDetail['hi_index_image_url']
                 house_detail['facility'] = []
                 for each in facility:
                     house_detail['facility'].append(each['hf_facility_id'])
@@ -249,7 +249,7 @@ class NewHouseHandler(BaseHandler):
                             innerdict = {}
                             innerdict['content'] = each['oi_comment']
                             innerdict['user_name'] = each['up_name']
-                            innerdict['ctime'] = each['oi_ctime']
+                            innerdict['ctime'] = str(each['oi_ctime'])
                             commentList.append(innerdict)
 
                         house_detail['comments'] = commentList
@@ -539,6 +539,8 @@ class HouseListHandler(BaseHandler):
             sql_sortKey = 'order by hi_ctime '
             sql_order = sql_sortKey
 
+
+
         sql_pre = "select distinct ih_house_info.hi_house_id, hi_index_image_url, hi_price, hi_title, hi_room_count, hi_order_count, hi_address, up_avatar, num, hi_capacity from ih_house_info left join " \
                   "(select hi_house_id, count(*)as num from ih_house_info inner join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id where %(startDate)s between oi_begin_date and oi_end_date group by hi_house_id) order_count " \
                   "on ih_house_info.hi_house_id=order_count.hi_house_id " \
@@ -547,6 +549,7 @@ class HouseListHandler(BaseHandler):
                   "inner join ih_area_info on ih_area_info.ai_area_id = ih_house_info.hi_area_id "
 
         sql_where.append('(ih_house_info.hi_capacity>order_count.num ')
+        print sql_where
         sql_or = 'or num is null) '
 
         if not (nextpage-1)%constants.HOUSE_LIST_CACHE_NUM:
@@ -556,11 +559,26 @@ class HouseListHandler(BaseHandler):
                 logging.error(e)
                 houses = None
             cur_houses = houses.get(nextpage)
+            total_page = houses.get('total_page')
             if houses and cur_houses:
-                return self.write(dict(errcode=RET.OK, errmsg='成功', houses=cur_houses))
+                return self.write(dict(errcode=RET.OK, errmsg='成功', houses=cur_houses, total_page=total_page))
 
+        sql_where = ' and '.join(sql_where)
+        # 获取数据库中总数据
         try:
-            sql_where = ' and '.join(sql_where)
+            sql_count_pre = "select count(*) as total_num from ih_house_info left join " \
+                  "(select hi_house_id, count(*) as num from ih_house_info inner join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id where %(startDate)s between oi_begin_date and oi_end_date group by hi_house_id) order_count " \
+                  "on ih_house_info.hi_house_id=order_count.hi_house_id " \
+                  "inner join ih_user_profile on ih_user_profile.up_user_id=ih_house_info.hi_user_id " \
+                  "left join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id " \
+                  "inner join ih_area_info on ih_area_info.ai_area_id = ih_house_info.hi_area_id "
+            sql_count = sql_count_pre + 'where ' + sql_where + sql_or
+            print sql_count
+            ret_num = self.db.get(sql_count, **sql_param)
+        except Exception as e:
+            logging.error(e)
+            return self.write(dict(errcode=RET.DBERR, errmsg='查询总数时出错'))
+        try:
             if nextpage == 1:
                 sql_limit = 'limit ' + str(constants.HOUSE_LIST_CACHE_NUM * constants.HOUSE_LIST_PAGE_CAPACITY)
             else:
@@ -595,6 +613,9 @@ class HouseListHandler(BaseHandler):
         try:
             if not houses:
                 houses[1] = {}
+                houses['total_page'] = 0
+            else:
+                houses['total_page'] = float(ret_num['total_num'])/constants.HOUSE_LIST_PAGE_CAPACITY
             self.redis.hmset('hi_%s_%s_%s_%s'%(areaid, startDate, endDate, sortKey), houses)
         except Exception as e:
             logging.error(e)
@@ -605,8 +626,9 @@ class HouseListHandler(BaseHandler):
             except Exception as e:
                 logging.error(e)
                 self.redis.delete('house_search')
-        cur_houses = houses.get(nextpage,{})
-        return self.write(dict(errcode=RET.OK, errmsg='成功', houses=cur_houses))
+        cur_houses = houses.get(nextpage, {})
+        total_page = houses.get('total_page')
+        return self.write(dict(errcode=RET.OK, errmsg='成功', houses=cur_houses, total_page=total_page))
 
 
 
