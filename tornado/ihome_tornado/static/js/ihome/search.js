@@ -13,79 +13,52 @@ function decodeQuery(){
 }
 
 function updateFilterDateDisplay() {
-    var startDate = $("#start-date").val();
-    var endDate = $("#end-date").val();
-    var $filterDateTitle = $(".filter-title-bar>.filter-title").eq(0).children("span").eq(0);
-    if (startDate) {
-        var text = startDate.substr(5) + "/" + endDate.substr(5);
-        $filterDateTitle.html(text);
-    } else {
-        $filterDateTitle.html("入住日期");
+    var sd = $('#start-date').value();
+    var ed = $('#end-date').value();
+    if(sd){
+        $('.filter-title-bar .filter-title').eq(0).children().eq(0).html(sd + ' | ' + ed)
     }
 }
-
+// 更新页面信息
 function updateHouseData(action="append") {
-    var areaId = $(".filter-area>li.active").attr("area-id");
-    if (undefined == areaId) areaId = "";
-    var startDate = $("#start-date").val();
-    var endDate = $("#end-date").val();
-    var sortKey = $(".filter-sort>li.active").attr("sort-key");
-    var params = {
-        aid:areaId,
-        sd:startDate,
-        ed:endDate,
-        sk:sortKey,
-        p:next_page
+    var sd = $('#start-date').value();
+    var ed = $('#end-date').value();
+    var aid = $('.filter-area .active').attr('area-id');
+    var sk = $('.filter-sort .active').html();
+    var p = next_page;
+    var param = {
+        sd: sd,
+        ed: ed,
+        aid: aid,
+        sk: sk,
+        p: p
     };
-    $.get("/api/house/list2", params, function(data){
-        house_data_querying = false;
-        if ("0" == data.errcode) {
-            if (0 == data.total_page) {
-                $(".house-list").html("暂时没有符合您查询的房屋信息。");
-            } else {
-                total_page = data.total_page;
-                if ("append" == action) {
-                    cur_page = next_page;
-                    $(".house-list").append(template("house-list-tmpl", {houses:data.data}));
-                } else if ("renew" == action) {
-                    cur_page = 1;
-                    $(".house-list").html(template("house-list-tmpl", {houses:data.data}));
+
+    $.get('/api/house/list', param, function(e){
+        if(e.errcode == '0'){
+            if(e.total_page){
+                if(action == 'renew'){
+                    $('.house-list').html(template('house-list-tmpl', {houses: e.houses}));
                 }
+                else if(action == 'append'){
+                    $('.house-list').append(template('house-list-tmpl', {houses: e.houses}));
+                }
+            }
+            else{
+                $('.house-list').html('没有符合要求的住房')
             }
         }
     })
 }
 
 $(document).ready(function(){
-    var queryData = decodeQuery();
-    var startDate = queryData["sd"];
-    var endDate = queryData["ed"];
-    $("#start-date").val(startDate);
-    $("#end-date").val(endDate);
-    updateFilterDateDisplay();
-    var areaName = queryData["aname"];
-    if (!areaName) areaName = "位置区域";
-    $(".filter-title-bar>.filter-title").eq(1).children("span").eq(0).html(areaName);
-
+    var param = decodeQuery();
+    sd = param['sd'];
+    ed = param['ed'];
+    aid = param['aid'];
     $.get("/api/house/area", function(data){
-        if ("0" == data.errcode) {
-            var areaId = queryData["aid"];
-            if (areaId) {
-                for (var i=0; i<data.data.length; i++) {
-                    areaId = parseInt(areaId);
-                    if (data.data[i].area_id == areaId) {
-                        $(".filter-area").append('<li area-id="'+ data.data[i].area_id+'" class="active">'+ data.data[i].name+'</li>');
-                    } else {
-                        $(".filter-area").append('<li area-id="'+ data.data[i].area_id+'">'+ data.data[i].name+'</li>');
-                    }
-                }
-            } else {
-                for (var i=0; i<data.data.length; i++) {
-                    $(".filter-area").append('<li area-id="'+ data.data[i].area_id+'">'+ data.data[i].name+'</li>');
-                }
-            }
-            updateHouseData("renew");
-            var windowHeight = $(window).height()
+
+            var windowHeight = $(window).height();
             window.onscroll=function(){
                 // var a = document.documentElement.scrollTop==0? document.body.clientHeight : document.documentElement.clientHeight;
                 var b = document.documentElement.scrollTop==0? document.body.scrollTop : document.documentElement.scrollTop;

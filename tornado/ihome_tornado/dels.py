@@ -1,4 +1,6 @@
 import datetime
+import math
 
-print len('kira')
+print math.ceil(1.0/2)
 
+print float(3)
