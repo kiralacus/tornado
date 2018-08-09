@@ -45,6 +45,15 @@
                 </div>
                 <ul class="filter-item filter-area">
                 </ul>
+                <script id="filter-area-tmpl" type="text/html">
+                    {{ each areas as area }}
+                        {{ if active_id == area.id }}
+                            <li area-id="{{area.id}}" class="active">{{area.name}}</li>
+                        {else}}
+                            <li area-id="{{area.id}}">{{area.name}}</li>
+                        {{/if}}
+                    {{/each}}
+                </script>
                 <ul class="filter-item filter-sort">
                     <li class="active" sort-key="new">最新上线</li>
                     <li sort-key="booking">入住最多</li>

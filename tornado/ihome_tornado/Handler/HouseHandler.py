@@ -25,7 +25,6 @@ import datetime
 
 class AreaHandler(BaseHandler):
     '''获取地域信息'''
-    @require_login
     def get(self):
         '''
         先从redis中尝试获取地域信息
