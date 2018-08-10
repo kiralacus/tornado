@@ -13,8 +13,8 @@ function decodeQuery(){
 }
 
 function updateFilterDateDisplay() {
-    var sd = $('#start-date').value();
-    var ed = $('#end-date').value();
+    var sd = $('#start-date').val().substr(5);
+    var ed = $('#end-date').val().substr(5);
     if(sd){
         $('.filter-title-bar .filter-title').eq(0).children().eq(0).html(sd + ' | ' + ed)
     }
@@ -23,8 +23,8 @@ function updateFilterDateDisplay() {
 function updateHouseData(action="append") {
     var sd = $('#start-date').val();
     var ed = $('#end-date').val();
-    var aid = $('.filter-area .active').attr('area-id');
-    var sk = $('.filter-sort .active').html();
+    var aid = $('.filter-area li').filter('.active').attr('area-id');
+    var sk = $('.filter-sort li').filter('.active').attr('sort-key');
     var p = next_page;
     var param = {
         sd: sd,
@@ -36,6 +36,7 @@ function updateHouseData(action="append") {
 
     $.get('/api/house/list', param, function(e){
         if(e.errcode == '0'){
+            console.log(e);
             if(e.total_page){
                 if(action == 'renew'){
                     $('.house-list').html(template('house-list-tmpl', {houses: e.houses}));
@@ -66,13 +67,38 @@ $(document).ready(function(){
     updateFilterDateDisplay();
     $.get("/api/house/area", function(data){
         if(data.errcode == '0'){
-            updateHouseData('renew');
+            console.log(data);
             if(aid) {
                 $('.filter-area').html(template('filter-area-tmpl', {areas: data.data, active_id: aid}));
             }
             else{
                 $('.filter-area').html(template('filter-area-tmpl', {areas: data.data}));
             }
+            updateHouseData('renew');
+            $('.filter-area li').on('click', function(){
+                if(!$(this).hasClass('active')){
+                    $(this).addClass('active').siblings().removeClass('active');
+                }
+                else{
+                    $(this).removeClass('active');
+                    $('.filter-title').eq(1).children('span').eq(0).html('位置区域')
+                }
+            });
+            var windowHeight = $(window).height();
+            window.onscroll=function(){
+            // var a = document.documentElement.scrollTop==0? document.body.clientHeight : document.documentElement.clientHeight;
+            var b = document.documentElement.scrollTop==0? document.body.scrollTop : document.documentElement.scrollTop;
+            var c = document.documentElement.scrollTop==0? document.body.scrollHeight : document.documentElement.scrollHeight;
+            if(c-b<windowHeight+50){
+                if (!house_data_querying) {
+                    house_data_querying = true;
+                    if(cur_page < total_page) {
+                            next_page = cur_page + 1;
+                            updateHouseData();
+                        }
+                    }
+                }
+            };
         }
     });
     $('filter-title').eq(1).click(function(){
@@ -80,21 +106,7 @@ $(document).ready(function(){
 
     });
 
-    var windowHeight = $(window).height();
-    window.onscroll=function(){
-        // var a = document.documentElement.scrollTop==0? document.body.clientHeight : document.documentElement.clientHeight;
-        var b = document.documentElement.scrollTop==0? document.body.scrollTop : document.documentElement.scrollTop;
-        var c = document.documentElement.scrollTop==0? document.body.scrollHeight : document.documentElement.scrollHeight;
-        if(c-b<windowHeight+50){
-            if (!house_data_querying) {
-                house_data_querying = true;
-                if(cur_page < total_page) {
-                    next_page = cur_page + 1;
-                    updateHouseData();
-                }
-            }
-        }
-    };
+
 
     $(".input-daterange").datepicker({
         format: "yyyy-mm-dd",
@@ -106,15 +118,15 @@ $(document).ready(function(){
     $('.filter-title-bar').on('click', '.filter-title', function(e){
         var index = $(this).index();
         var $filter_item = $('.filter-item');
-        if($filter_item.index(index).hasClass('active')){
-            $filter_item.index(index).removeClass('active');
-            $filter_item.index(index).children('span').children('i').attr('class', 'fa fa-angle-down');
+        if($filter_item.eq(index).hasClass('active')){
+            $filter_item.eq(index).removeClass('active');
+            $filter_item.eq(index).children('span').children('i').attr('class', 'fa fa-angle-down');
             $('.display-mask').hide();
         }
         else{
-            $filter_item.index(index).addClass('active').siblings().removeClass('active');
-            $filter_item.index(index).children('span').children('i').attr('class', 'fa fa-angle-up');
-            $filter_item.index(index).siblings().children('span').children('i').attr('class', 'fa fa-angle-down');
+            $filter_item.eq(index).addClass('active').siblings().removeClass('active');
+            $filter_item.eq(index).children('span').children('i').attr('class', 'fa fa-angle-up');
+            $filter_item.eq(index).siblings().children('span').children('i').attr('class', 'fa fa-angle-down');
             $('.display-mask').show();
         }
     });
@@ -126,15 +138,7 @@ $(document).ready(function(){
         updateHouseData('renew');
     });
 
-    $('.filter-area li').on('click', function(){
-        if(!$(this).hasClass('active')){
-            $(this).addClass('active').siblings().removeClass('active');
-        }
-        else{
-            $(this).removeClass('active');
-            $('.filter-title').eq(1).children('span').eq(0).html('位置区域')
-        }
-    });
+
 
     $('.filter-sort li').on('click', function(){
         if(!$(this).hasClass('active')) {
