@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bd4dd02-943a-4d66-9ca8-4d90271a2d29" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tornado.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tornado.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,10 +11,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/tornado$dels.coverage" NAME="dels Coverage Results" MODIFIED="1531917076861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ihome_tornado" />
     <SUITE FILE_PATH="coverage/tornado$dels__1_.coverage" NAME="dels (1) Coverage Results" MODIFIED="1531917239739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tornado$aliyun_storage.coverage" NAME="aliyun_storage Coverage Results" MODIFIED="1532266006421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ihome_tornado/utils" />
-    <SUITE FILE_PATH="coverage/tornado$dels.coverage" NAME="dels Coverage Results" MODIFIED="1531917076861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ihome_tornado" />
-    <SUITE FILE_PATH="coverage/tornado$dels__2_.coverage" NAME="dels (2) Coverage Results" MODIFIED="1533893525587" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ihome_tornado" />
+    <SUITE FILE_PATH="coverage/tornado$dels__2_.coverage" NAME="dels (2) Coverage Results" MODIFIED="1533908421041" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ihome_tornado" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -32,12 +30,31 @@
     <expand />
     <select />
   </component>
+  <component name="DockManager">
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/ihome_tornado/html/index.html">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="1792">
+                    <caret line="87" column="57" selection-start-line="87" selection-start-column="57" selection-end-line="87" selection-end-column="57" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1384447785">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="4" />
-          <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.13" value="1" />
@@ -47,39 +64,39 @@
           <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.50" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="50" />
           <entry key="html" value="796" />
-          <entry key="js" value="12758" />
-          <entry key="py" value="33077" />
+          <entry key="js" value="13329" />
+          <entry key="py" value="34975" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="796" />
-          <entry key="JavaScript" value="12758" />
-          <entry key="Python" value="33127" />
+          <entry key="JavaScript" value="13329" />
+          <entry key="Python" value="35025" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="5" />
-          <entry key="html" value="20" />
-          <entry key="js" value="7" />
-          <entry key="py" value="47" />
+          <entry key="html" value="22" />
+          <entry key="js" value="9" />
+          <entry key="py" value="48" />
           <entry key="ts" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="5" />
-          <entry key="HTML" value="20" />
-          <entry key="JavaScript" value="7" />
-          <entry key="Python" value="47" />
+          <entry key="HTML" value="22" />
+          <entry key="JavaScript" value="9" />
+          <entry key="Python" value="48" />
           <entry key="TypeScript" value="1" />
         </counts>
       </usages-collector>
@@ -130,94 +147,17 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.15629742">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/ihome_tornado/dels.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="220">
-                  <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-                  <folding>
-                    <element signature="e#0#15#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ihome_tornado/static/js/ihome/booking.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2340">
-                  <caret line="117" column="31" selection-start-line="117" selection-start-column="31" selection-end-line="117" selection-end-column="31" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ihome_tornado/Handler/Passport.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2160">
-                  <caret line="120" column="46" selection-start-line="120" selection-start-column="46" selection-end-line="120" selection-end-column="46" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ihome_tornado/static/js/ihome/search.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="81" selection-start-line="81" selection-end-line="81" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ihome_tornado/config.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="13" selection-start-column="13" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ihome_tornado/static/js/ihome/orders.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="560">
-                  <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ihome_tornado/html/search.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="844">
-                  <caret line="81" column="16" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/ihome_tornado/Handler/HouseHandler.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1760">
-                  <caret line="632" column="43" selection-start-line="632" selection-start-column="43" selection-end-line="632" selection-end-column="43" />
-                  <folding>
-                    <element signature="e#16#59#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ihome_tornado/static/js/ihome/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="67" column="8" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -237,7 +177,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ihome_tornado/static/js/ihome/index.js" />
         <option value="$USER_HOME$/pyenv/py2env/local/lib/python2.7/site-packages/torndb.py" />
         <option value="$PROJECT_DIR$/dels.py" />
         <option value="$PROJECT_DIR$/ihome_tornado/server.py" />
@@ -259,9 +198,10 @@
         <option value="$PROJECT_DIR$/ihome_tornado/Handler/OrderHandler.py" />
         <option value="$PROJECT_DIR$/ihome_tornado/html/index.html" />
         <option value="$PROJECT_DIR$/ihome_tornado/html/search.html" />
-        <option value="$PROJECT_DIR$/ihome_tornado/static/js/ihome/search.js" />
         <option value="$PROJECT_DIR$/ihome_tornado/dels.py" />
         <option value="$PROJECT_DIR$/ihome_tornado/Handler/HouseHandler.py" />
+        <option value="$PROJECT_DIR$/ihome_tornado/static/js/ihome/search.js" />
+        <option value="$PROJECT_DIR$/ihome_tornado/static/js/ihome/index.js" />
       </list>
     </option>
   </component>
@@ -272,10 +212,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="116" />
-    <option name="y" value="409" />
-    <option name="width" value="1163" />
-    <option name="height" value="698" />
+    <option name="x" value="2406" />
+    <option name="y" value="259" />
+    <option name="width" value="1165" />
+    <option name="height" value="720" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -283,7 +223,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -367,6 +306,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -514,15 +454,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-7" width="1366" height="775" extended-state="6" />
+    <frame x="1960" y="-4" width="1881" height="1085" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.23520486" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.23474437" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36858475" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36794356" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39919356" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -741,13 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ihome_tornado/html/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="87" column="57" selection-start-line="87" selection-start-column="57" selection-end-line="87" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ihome_tornado/static/css/ihome/search.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
@@ -783,17 +716,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ihome_tornado/urls.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ihome_tornado/html/orders.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ihome_tornado/DBInit.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/ihome_tornado/static/js/ihome/booking.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2340">
+        <state relative-caret-position="185">
           <caret line="117" column="31" selection-start-line="117" selection-start-column="31" selection-end-line="117" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ihome_tornado/dels.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ihome_tornado/static/js/ihome/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="53" column="12" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ihome_tornado/html/search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="844">
+          <caret line="81" column="16" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ihome_tornado/html/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1792">
+          <caret line="87" column="57" selection-start-line="87" selection-start-column="57" selection-end-line="87" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ihome_tornado/Handler/HouseHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3368">
+          <caret line="637" column="9" lean-forward="true" selection-start-line="637" selection-start-column="9" selection-end-line="637" selection-end-column="9" />
+          <folding>
+            <element signature="e#16#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ihome_tornado/Handler/Passport.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2160">
+        <state relative-caret-position="866">
           <caret line="120" column="46" selection-start-line="120" selection-start-column="46" selection-end-line="120" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ihome_tornado/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -805,59 +796,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ihome_tornado/static/js/ihome/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihome_tornado/urls.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihome_tornado/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihome_tornado/html/orders.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihome_tornado/html/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="844">
-          <caret line="81" column="16" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihome_tornado/DBInit.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihome_tornado/static/js/ihome/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="81" selection-start-line="81" selection-end-line="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihome_tornado/dels.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihome_tornado/Handler/HouseHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1760">
-          <caret line="632" column="43" selection-start-line="632" selection-start-column="43" selection-end-line="632" selection-end-column="43" />
-          <folding>
-            <element signature="e#16#59#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="280">
+          <caret line="67" column="8" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="8" />
         </state>
       </provider>
     </entry>

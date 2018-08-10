@@ -49,7 +49,7 @@ function goToSearchPage(th) {
     url += "&";
     var areaName = $(th).attr("area-name");
     if (undefined == areaName) areaName="";
-    url += ("aname=" + areaName);
+    url += ("aid=" + areaName);
     url += "&";
     url += ("sd=" + $(th).attr("start-date"));
     url += "&";
