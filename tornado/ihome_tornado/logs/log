@@ -6878,3 +6878,53 @@
 [D 180808 20:53:37 HouseHandler:587] select distinct ih_house_info.hi_house_id, hi_index_image_url, hi_price, hi_title, hi_room_count, hi_order_count, hi_address, up_avatar, num, hi_capacity from ih_house_info left join (select hi_house_id, count(*)as num from ih_house_info inner join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id where %(startDate)s between oi_begin_date and oi_end_date group by hi_house_id) order_count on ih_house_info.hi_house_id=order_count.hi_house_id inner join ih_user_profile on ih_user_profile.up_user_id=ih_house_info.hi_user_id left join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id inner join ih_area_info on ih_area_info.ai_area_id = ih_house_info.hi_area_id where (ih_house_info.hi_capacity>order_count.num or num is null) order by hi_ctime limit 6;
 [D 180808 20:53:37 HouseHandler:589] [{'up_avatar': u'bf94f713816d4fafa3c5d334aa3318c1.jpg', 'hi_room_count': 3, 'hi_capacity': 2L, 'num': None, 'hi_index_image_url': u'589ba92b7afb42b0b4028f60d1a966d0.jpg', 'hi_price': 200L, 'hi_title': u'\u4e8c\u53f7\u5bb6', 'hi_address': u'\u5929\u4e0a\u4eba\u95f42\u53f7', 'hi_house_id': 3L, 'hi_order_count': 2L}, {'up_avatar': u'bf94f713816d4fafa3c5d334aa3318c1.jpg', 'hi_room_count': 3, 'hi_capacity': 3L, 'num': None, 'hi_index_image_url': u'995d927cccf04f6cad78fb995f578dad.jpg', 'hi_price': 300L, 'hi_title': u'\u4e09\u53f7\u5bb6', 'hi_address': u'\u5929\u4e0a\u4eba\u95f43\u53f7', 'hi_house_id': 4L, 'hi_order_count': 1L}, {'up_avatar': u'bf94f713816d4fafa3c5d334aa3318c1.jpg', 'hi_room_count': 4, 'hi_capacity': 4L, 'num': None, 'hi_index_image_url': u'e7f268a23e1042e3b486392870c483bf.jpg', 'hi_price': 400L, 'hi_title': u'\u5bb6\u56db\u53f7', 'hi_address': u'\u5929\u4e0a\u4eba\u95f44\u53f7', 'hi_house_id': 5L, 'hi_order_count': 0L}]
 [I 180808 20:53:37 web:2162] 200 GET /api/house/list (127.0.0.1) 10.26ms
+[I 180809 19:33:17 autoreload:199] /home/kiralacus/tornado/tornado/ihome_tornado/Handler/HouseHandler.py modified; restarting server
+[I 180809 19:33:24 web:2162] 200 GET /api/house/area (127.0.0.1) 81.45ms
+[I 180809 19:52:40 web:2162] 200 GET / (127.0.0.1) 7.70ms
+[I 180809 19:52:40 web:2162] 304 GET /static/plugins/bootstrap/css/bootstrap.min.css (127.0.0.1) 2.53ms
+[I 180809 19:52:40 web:2162] 304 GET /static/plugins/font-awesome/css/font-awesome.min.css (127.0.0.1) 1.89ms
+[I 180809 19:52:40 web:2162] 304 GET /static/css/reset.css (127.0.0.1) 1.47ms
+[I 180809 19:52:40 web:2162] 304 GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css (127.0.0.1) 2.99ms
+[I 180809 19:52:40 web:2162] 200 GET /static/plugins/swiper/css/swiper.min.css (127.0.0.1) 20.89ms
+[I 180809 19:52:40 web:2162] 200 GET /static/css/ihome/index.css (127.0.0.1) 15.67ms
+[I 180809 19:52:40 web:2162] 304 GET /static/css/ihome/main.css (127.0.0.1) 1.35ms
+[I 180809 19:52:40 web:2162] 304 GET /static/js/jquery.min.js (127.0.0.1) 2.37ms
+[I 180809 19:52:40 web:2162] 200 GET /static/images/logo@128x59.png (127.0.0.1) 8.02ms
+[I 180809 19:52:40 web:2162] 304 GET /static/js/template.js (127.0.0.1) 1.09ms
+[I 180809 19:52:40 web:2162] 304 GET /static/plugins/bootstrap/js/bootstrap.min.js (127.0.0.1) 1.63ms
+[I 180809 19:52:40 web:2162] 304 GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js (127.0.0.1) 3.04ms
+[I 180809 19:52:40 web:2162] 304 GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js (127.0.0.1) 2.91ms
+[I 180809 19:52:40 web:2162] 200 GET /static/js/ihome/index.js (127.0.0.1) 12.26ms
+[I 180809 19:52:40 web:2162] 200 GET /static/plugins/swiper/js/swiper.jquery.min.js (127.0.0.1) 17.52ms
+[D 180809 19:52:40 HouseHandler:459] hit the redis
+[E 180809 19:52:40 HouseHandler:483] value is not an integer or out of range
+[I 180809 19:52:40 web:2162] 200 GET /api/house/index (127.0.0.1) 10.87ms
+[I 180809 19:52:40 web:2162] 200 GET /api/check_login (127.0.0.1) 0.83ms
+[I 180809 19:52:42 web:2162] 200 GET /login.html (127.0.0.1) 3.31ms
+[I 180809 19:52:42 web:2162] 200 GET /static/css/ihome/login.css (127.0.0.1) 4.84ms
+[I 180809 19:52:42 web:2162] 200 GET /static/js/ihome/login.js (127.0.0.1) 2.91ms
+[I 180809 19:52:55 web:2162] 200 POST /api/login (127.0.0.1) 6.76ms
+[I 180809 19:52:55 web:2162] 200 GET /api/check_login (127.0.0.1) 1.39ms
+[D 180809 19:52:55 HouseHandler:459] hit the redis
+[E 180809 19:52:55 HouseHandler:483] value is not an integer or out of range
+[I 180809 19:52:55 web:2162] 304 GET /api/house/index (127.0.0.1) 3.68ms
+[I 180809 19:53:10 web:2162] 200 GET /search.html (127.0.0.1) 1.18ms
+[I 180809 19:53:10 web:2162] 200 GET /static/css/ihome/search.css (127.0.0.1) 4.26ms
+[I 180809 19:53:10 web:2162] 200 GET /static/js/ihome/search.js (127.0.0.1) 2.98ms
+[I 180809 19:53:10 web:2162] 304 GET /api/house/area (127.0.0.1) 0.91ms
+[I 180809 19:54:38 web:2162] 200 GET /search.html (127.0.0.1) 1.26ms
+[I 180809 19:54:38 web:2162] 304 GET /static/js/ihome/search.js (127.0.0.1) 0.65ms
+[I 180809 19:54:38 web:2162] 304 GET /api/house/area (127.0.0.1) 1.01ms
+[I 180809 19:54:38 web:2162] 200 GET /favicon.ico (127.0.0.1) 3.41ms
+[I 180809 19:55:51 web:2162] 304 GET /static/plugins/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 3.25ms
+[I 180809 20:55:24 web:2162] 304 GET /api/check_login (127.0.0.1) 3.26ms
+[D 180809 20:55:24 HouseHandler:459] hit the redis
+[E 180809 20:55:24 HouseHandler:483] value is not an integer or out of range
+[I 180809 20:55:24 web:2162] 304 GET /api/house/index (127.0.0.1) 5.13ms
+[W 180809 20:55:24 web:2162] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 6.75ms
+[I 180809 20:56:12 web:2162] 200 GET / (127.0.0.1) 1.10ms
+[I 180809 20:56:12 web:2162] 304 GET /api/check_login (127.0.0.1) 3.64ms
+[D 180809 20:56:12 HouseHandler:459] hit the redis
+[E 180809 20:56:12 HouseHandler:483] value is not an integer or out of range
+[I 180809 20:56:12 web:2162] 304 GET /api/house/index (127.0.0.1) 3.13ms
+[W 180809 20:56:12 web:2162] 404 GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map (127.0.0.1) 2.24ms
