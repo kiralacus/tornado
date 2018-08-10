@@ -26,6 +26,9 @@ function updateHouseData(action="append") {
     var aid = $('.filter-area li').filter('.active').attr('area-id');
     var sk = $('.filter-sort li').filter('.active').attr('sort-key');
     var p = next_page;
+    if(action == 'renew'){
+        p = 1;
+    }
     var param = {
         sd: sd,
         ed: ed,
@@ -42,6 +45,7 @@ function updateHouseData(action="append") {
                     $('.house-list').html(template('house-list-tmpl', {houses: e.houses}));
                     cur_page = 1;
                     next_page = 1;
+                    total_page = e.total_page;
                 }
                 else if(action == 'append'){
                     cur_page = next_page;
@@ -66,6 +70,7 @@ $(document).ready(function(){
     }
     updateFilterDateDisplay();
     $.get("/api/house/area", function(data){
+        house_data_querying = false;
         if(data.errcode == '0'){
             console.log(data);
             if(aid) {
@@ -93,6 +98,7 @@ $(document).ready(function(){
                 if (!house_data_querying) {
                     house_data_querying = true;
                     if(cur_page < total_page) {
+
                             next_page = cur_page + 1;
                             updateHouseData();
                         }
@@ -105,8 +111,6 @@ $(document).ready(function(){
         $(this).children('span').children('i').attr('class', 'fa fa-angle-up');
 
     });
-
-
 
     $(".input-daterange").datepicker({
         format: "yyyy-mm-dd",

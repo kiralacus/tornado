@@ -490,7 +490,7 @@ class HouseIndexHandler(BaseHandler):
 class HouseListHandler(BaseHandler):
     def get(self):
         areaid = self.get_argument('aid', None)
-        startDate = self.get_argument('sd', datetime.datetime.now().strftime('%Y-%m-%d'))
+        startDate = self.get_argument('sd', None)
         endDate = self.get_argument('ed', None)
         sortKey = self.get_argument('sk', None)
         nextpage = int(self.get_argument('p', 1))
@@ -498,7 +498,9 @@ class HouseListHandler(BaseHandler):
         sql_where = []
         sql_param = {}
         # default startDate
-        sql_param['startDate'] = startDate
+        if not startDate:
+            startDate = datetime.datetime.now().strftime('%Y-%m-%d')
+            sql_param['startDate'] = startDate
         sql_order = ''
         houses = {}
         if areaid:
@@ -506,7 +508,7 @@ class HouseListHandler(BaseHandler):
             sql_where.append(sql_areaid)
             sql_param['areaid'] = areaid
 
-        elif sortKey:
+        if sortKey:
             if sortKey not in ('booking', 'price-inc', 'price-des', 'new'):
                 return self.write(dict(errcode=RET.DBERR, errmsg='the sortKey not exist'))
             elif sortKey == 'booking':
@@ -518,23 +520,29 @@ class HouseListHandler(BaseHandler):
             else:
                 sql_order = 'order by ih_house_info.hi_price desc '
 
-        elif startDate or endDate:
+        if startDate or endDate:
+            print 'hello'
             if startDate and endDate:
                 if startDate > endDate:
                     return self.write(dict(errcode=RET.DATAEXIST, errmsg='endDate must bigger than startDate'))
                 else:
-                    startdate= datetime.datetime.strptime(startDate, '%Y-%m-%d')
-                    enddate = datetime.datetime.strptime(endDate, '%Y-%m-%d')
+                    try:
+                        startdate= datetime.datetime.strptime(startDate, '%Y-%m-%d')
+                        enddate = datetime.datetime.strptime(endDate, '%Y-%m-%d')
+                    except ValueError as e:
+                        logging.error(e)
+                        return self.write(dict(errcode=RET.PARAMERR, errmsg='日期格式出错'))
                     delta = (enddate - startdate).days
                     sql_param['startDate'] = startDate
                     sql_param['delta'] = str(delta)
+                    print 'hello'
                     sql_where.append('hi_min_days<=%(delta)s and %(delta)s<=hi_max_days ')
             elif startDate:
                 sql_param['startDate'] = startDate
             elif endDate:
                 return self.write(dict(errcode=RET.OK, errmsg='succeed but no data'))
 
-        else:
+        if any((startDate, endDate, sortKey, areaid)):
             sql_sortKey = 'order by hi_ctime '
             sql_order = sql_sortKey
 
@@ -552,29 +560,29 @@ class HouseListHandler(BaseHandler):
         sql_or = 'or num is null) '
 
         try:
-            houses = self.redis.hgetall('hi_%s_%s_%s_%s'%(areaid, startDate, endDate, sortKey))
+            houses_json = self.redis.hmget('hi_%s_%s_%s_%s'%(areaid, startDate, endDate, sortKey), str(nextpage), 'total_page')
         except Exception as e:
             logging.error(e)
-            houses = None
-        cur_houses = houses.get(str(nextpage))
-        print cur_houses
-        total_page = houses.get('total_page')
-        if cur_houses:
+            houses_json = None
+
+        if houses_json[0]:
             print 'hit the redis'
+            cur_houses = json.loads(houses_json[0])
+            total_page = houses_json[1]
             return self.write(dict(errcode=RET.OK, errmsg='成功', houses=cur_houses, total_page=total_page))
 
         sql_where = ' and '.join(sql_where)
         # 获取数据库中总数据
         try:
             sql_count_pre = "select count(distinct ih_house_info.hi_house_id) as total_num from ih_house_info left join " \
-                  "(select hi_house_id, count(*) as num from ih_house_info inner join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id where %(startDate)s between oi_begin_date and oi_end_date group by hi_house_id) order_count " \
-                  "on ih_house_info.hi_house_id=order_count.hi_house_id " \
-                  "inner join ih_user_profile on ih_user_profile.up_user_id=ih_house_info.hi_user_id " \
-                  "left join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id " \
-                  "inner join ih_area_info on ih_area_info.ai_area_id = ih_house_info.hi_area_id "
+                            "(select hi_house_id, count(*) as num from ih_house_info inner join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id where %(startDate)s between oi_begin_date and oi_end_date group by hi_house_id) order_count " \
+                            "on ih_house_info.hi_house_id=order_count.hi_house_id " \
+                            "inner join ih_user_profile on ih_user_profile.up_user_id=ih_house_info.hi_user_id " \
+                            "left join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id " \
+                            "inner join ih_area_info on ih_area_info.ai_area_id = ih_house_info.hi_area_id "
             sql_count = sql_count_pre + 'where ' + sql_where + sql_or
+            print sql_param
             ret_num = self.db.get(sql_count, **sql_param)
-            logging.debug(sql_count)
         except Exception as e:
             logging.error(e)
             return self.write(dict(errcode=RET.DBERR, errmsg='查询总数时出错'))
@@ -584,10 +592,9 @@ class HouseListHandler(BaseHandler):
             else:
                 sql_limit = 'limit ' + str((nextpage-1)*constants.HOUSE_LIST_PAGE_CAPACITY)+','+str(constants.HOUSE_LIST_CACHE_NUM * constants.HOUSE_LIST_PAGE_CAPACITY)
             sql = sql_pre + 'where ' + sql_where + sql_or + sql_order + sql_limit+';'
-            logging.debug(sql)
             houseInfo = self.db.query(sql, **sql_param)
-            logging.debug(houseInfo)
-
+            print sql_param
+            logging.debug(sql)
         except Exception as e:
             logging.error(e)
             return self.write(dict(errcode=RET.DBERR, errmsg='MySQL获取房源信息出错'))
@@ -628,7 +635,8 @@ class HouseListHandler(BaseHandler):
             except Exception as e:
                 logging.error(e)
                 self.redis.delete('house_search')
-        cur_houses = houses.get(nextpage, [])
+        cur_houses_json = houses.get(nextpage, '[]')
+        cur_houses = json.loads(cur_houses_json)
         total_page = houses.get('total_page')
         return self.write(dict(errcode=RET.OK, errmsg='成功', houses=cur_houses, total_page=total_page))
 
