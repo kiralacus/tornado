@@ -203,22 +203,22 @@ class NewHouseHandler(BaseHandler):
                 self.write(dict(errcode=RET.DBERR, errmsg='数据库查询错误'))
             else:
                 house_detail = {}
-                house_detail['user_name'] = houseDetail['up_name']
-                house_detail['user_avatar'] = constants.PRE_URL + houseDetail['up_avatar']
-                house_detail['address'] = houseDetail['ai_name'] + ' ' + houseDetail['hi_address']
-                house_detail['title'] = houseDetail['hi_title']
-                house_detail['acreage'] = houseDetail['hi_acreage']
-                house_detail['unit'] = houseDetail['hi_house_unit']
-                house_detail['room_count'] = houseDetail['hi_room_count']
-                house_detail['capacity'] = houseDetail['hi_capacity']
-                house_detail['beds'] = houseDetail['hi_beds']
-                house_detail['deposit'] = houseDetail['hi_deposit']
-                house_detail['min_days'] = houseDetail['hi_min_days']
-                house_detail['max_days'] = houseDetail['hi_max_days']
-                house_detail['index_image'] = constants.PRE_URL + houseDetail['hi_index_image_url']
+                house_detail['user_name'] = houseDetail.get('up_name')
+                house_detail['user_avatar'] = constants.PRE_URL + houseDetail.get('up_avatar', constants.DEFAULT_IMG)
+                house_detail['address'] = houseDetail['ai_name'] + ' ' + houseDetail.get('hi_address')
+                house_detail['title'] = houseDetail.get('hi_title')
+                house_detail['acreage'] = houseDetail.get('hi_acreage')
+                house_detail['unit'] = houseDetail.get('hi_house_unit')
+                house_detail['room_count'] = houseDetail.get('hi_room_count')
+                house_detail['capacity'] = houseDetail.get('hi_capacity')
+                house_detail['beds'] = houseDetail.get('hi_beds')
+                house_detail['deposit'] = houseDetail.get('hi_deposit')
+                house_detail['min_days'] = houseDetail.get('hi_min_days')
+                house_detail['max_days'] = houseDetail.get('hi_max_days')
+                house_detail['index_image'] = constants.PRE_URL + houseDetail.get('hi_index_image_url', constants.DEFAULT_HOUSE_IMG)
                 house_detail['facility'] = []
                 for each in facility:
-                    house_detail['facility'].append(each['hf_facility_id'])
+                    house_detail['facility'].append(each.get('hf_facility_id'))
                 # 获取房屋的图片地址
 
                 try:
@@ -228,6 +228,7 @@ class NewHouseHandler(BaseHandler):
                     logging.error(e)
                     self.write(dict(errcode=RET.DBERR, errmsg='数据库查询出错'))
                 else:
+
                     # 读取房屋评价
                     try:
                         sql = 'select oi_comment, up_name, oi_ctime from ih_order_info ' \
@@ -312,7 +313,7 @@ class MyHouseHandler(BaseHandler):
         :return:
         '''
         user_id = self.get_current_user()['userId']
-        # user_id = 1
+        # user_id = 3
         # 房屋认证默认最长时间为一天， 我们队房屋信息进行缓存, 以减少数据库查询次数
         try:
             houseList_json = self.redis.get('userID_%s_houseinfo'%user_id)

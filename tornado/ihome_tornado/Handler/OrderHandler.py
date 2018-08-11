@@ -11,31 +11,36 @@ from utils.commons import require_login, require_auth
 
 class BookOrderHandler(BaseHandler):
     '''订单信息存储'''
-    @require_login
+    # @require_login
     def post(self):
         start_date = self.json_dict.get('start_date')
         end_date = self.json_dict.get('end_date')
         house_id = self.json_dict.get('house_id')
-        user_id = self.get_current_user().get('userId')
+        # user_id = self.get_current_user().get('userId')
+        user_id = 5
         if not all((start_date, end_date, house_id)):
             return self.write(dict(errcode=RET.PARAMERR, errmsg='miss the param'))
         if start_date > end_date:
             return self.write(dict(errcode=RET.DATAEXIST, errmsg='start_date must be smaller'))
         # 获取房屋信息
+        print type(start_date), end_date, house_id
         try:
             sql = 'select hi_deposit, hi_price, hi_max_days, hi_min_days, hi_capacity, num from ih_house_info ' \
-                  'right join (select count(*) as num, oi_house_id from ih_order_info where %(start_date)s between oi_begin_date and oi_end_date and oi_house_id=%(house_id)s group by oi_house_id) t ' \
-                  'on t.oi_house_id=ih_house_info.hi_house_id;'
+                  'left join (select count(*) as num, oi_house_id from ih_order_info where %(start_date)s between oi_begin_date and oi_end_date and oi_house_id=%(house_id)s ) t ' \
+                  'on t.oi_house_id=ih_house_info.hi_house_id where hi_house_id=%(house_id)s;'
             house = self.db.get(sql, start_date=start_date, house_id=house_id)
+
         except Exception as e:
             logging.error(e)
             return self.write(dict(errcode=RET.DBERR, errmsg='获取房屋信息出错'))
         delta = ((datetime.datetime.strptime(end_date, '%Y-%m-%d') - datetime.datetime.strptime(start_date, '%Y-%m-%d')).days)+1
-        min_days = int(house['hi_min_days'])
-        max_days = int(house['hi_max_days'])
-        cur_orderNum = int(house['num'])
-        capacity = int(house['hi_capacity'])
-        price = int(house['hi_price'])
+        if not house:
+            return self.write(dict(errcode=RET.NODATA, errmsg='不存在此房屋'))
+        min_days = house.get('hi_min_days')
+        max_days = house.get('hi_max_days')
+        cur_orderNum = house.get('num')
+        capacity = house.get('hi_capacity')
+        price = house.get('hi_price')
         amount = price*delta
         if not(delta >= min_days and delta <= max_days):
             if delta < min_days:
@@ -72,6 +77,7 @@ class MyOrderHandler(BaseHandler):
         except Exception as e:
             logging.error(e)
             return self.write(dict(errcode=RET.DBERR, errmsg='数据库查询订单信息出错'))
+
         order = []
         for each in order_info:
             order_dict = {}

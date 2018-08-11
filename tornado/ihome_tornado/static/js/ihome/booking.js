@@ -65,7 +65,7 @@ $(document).ready(function(){
 
 
 
-    var houseID = decodeQuery()['houseid'];
+    var houseID = decodeQuery()['id'];
     $.get('/api/house/info?id='+houseID, function(e){
         console.log(e);
         if(e.errcode == '0'){
