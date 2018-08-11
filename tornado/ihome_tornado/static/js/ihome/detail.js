@@ -24,7 +24,9 @@ $(document).ready(function(){
     // 获取房屋详细信息
     $.get("/api/house/info?id="+house_id, function (data) {
         if ("0" == data.errcode) {
-            if(!data.data.comments.length){
+            $('.book-house').attr('href', '/booking.html?id='+ house_id);
+            console.log(data);
+            if(!data.data.comments.content){
                 $('.house-info').hide();
             };
 
@@ -33,6 +35,7 @@ $(document).ready(function(){
                 "price": data.data.price
             }));
             $(".detail-con").html(template("house-detail-tmpl", {"house":data.data}));
+            $('.house-comment-list').html(template('house-comment-list-tmpl', {"comment": data.data.comments}));
             var mySwiper = new Swiper('.swiper-container', {
                 loop: true,
                 autoplay: 2000,

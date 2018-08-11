@@ -89,13 +89,15 @@
         <div class="house-info layout-style">
                 <h3>评价信息</h3>
                 <ul class="house-comment-list">
-                    {{ each house.comments as comment}}
+                </ul>
+            <script id="house-comment-list-tmpl" type="text/html">
+                {{ each comments as comment}}
                     <li>
                         <p>{{comment.user_name}}<span class="fr">{{comment.ctime}}</span></p>
                         <p>{{comment.content}}</p>
                     </li>
-                    {{/each}}
-                </ul>
+                {{/each}}
+            </script>
         </div>
 
         <form id="form-house-image" method="post" enctype="multipart/form-data" >

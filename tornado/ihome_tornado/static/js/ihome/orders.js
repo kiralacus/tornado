@@ -17,41 +17,9 @@ function getCookie(name) {
 $(document).ready(function(){
     $('.modal').on('show.bs.modal', centerModals);      //当模态框出现的时候
     $(window).on('resize', centerModals);
-    $.get("/api/order/my?role=custom", function(data){
-        if ("0" == data.errcode) {
-            $(".orders-list").html(template("orders-list-tmpl", {orders:data.orders}));
-            $(".order-comment").on("click", function(){
-                var orderId = $(this).parents("li").attr("order-id");
-                $(".modal-comment").attr("order-id", orderId);
-            });
-            $(".modal-comment").on("click", function(){
-                var orderId = $(this).attr("order-id");
-                var comment = $("#comment").val()
-                if (!comment) return;
-                var data = {
-                    order_id:orderId,
-                    comment:comment
-                };
-                $.ajax({
-                    url:"/api/order/comment",
-                    type:"POST",
-                    data:JSON.stringify(data),
-                    contentType:"application/json",
-                    dataType:"json",
-                    headers:{
-                        "X-XSRFTOKEN":getCookie("_xsrf"),
-                    },
-                    success:function (data) {
-                        if ("4101" == data.errcode) {
-                            location.href = "/login.html";
-                        } else if ("0" == data.errcode) {
-                            $(".orders-list>li[order-id="+ orderId +"]>div.order-content>div.order-text>ul li:eq(4)>span").html("已完成");
-                            $(".order-operate").hide();
-                            $("#comment-modal").modal("hide");
-                        }
-                    }
-                });
-            });
+    $.get('/api/order/myorder', function(e){
+        if(e.errcode=='0'){
+
         }
-    });
+    })
 });
