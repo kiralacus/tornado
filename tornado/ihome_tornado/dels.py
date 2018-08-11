@@ -1,6 +1,8 @@
 import datetime
 import math
 import json
-if None > 1:
-    print 1
+
+n = '2018-08-04 14:02:14'
+n = n.split(' ')
+print n
 

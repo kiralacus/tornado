@@ -9,6 +9,9 @@ import logging
 
 from utils.commons import require_login, require_auth
 
+import constants
+
+
 class BookOrderHandler(BaseHandler):
     '''订单信息存储'''
     # @require_login
@@ -63,13 +66,14 @@ class BookOrderHandler(BaseHandler):
 
 class MyOrderHandler(BaseHandler):
     '''處理我的訂單內容'''
-    @require_login
+    # @require_login
     def get(self):
         '''
         :return:
         param 1.order_id 2.order_status 3.image_url 4.order_title 5.order_ctime 6.order_start_date 7.order_end_date 8.order_amount 9.order_days 10. order_comment
         '''
-        user_id = self.get_current_user().get('userId')
+        # user_id = self.get_current_user().get('userId')
+        user_id = 3
         try:
             sql = 'select oi_order_id, oi_begin_date, oi_status, oi_end_date, oi_days, oi_ctime, oi_house_price, hi_title, hi_index_image_url, oi_comment from ih_order_info ' \
                   'inner join ih_house_info on ih_order_info.oi_house_id = ih_house_info.hi_house_id where oi_user_id=%(user_id)s'
@@ -85,14 +89,13 @@ class MyOrderHandler(BaseHandler):
             order_dict['start_date'] = str(each['oi_begin_date'])
             order_dict['end_date'] = str(each['oi_end_date'])
             order_dict['status'] = each['oi_status']
-            order_dict['ctime'] = str(each['oi_ctime'])
+            order_dict['ctime'] = str(each['oi_ctime']).strip(' ')[0]
             order_dict['days'] = each['oi_days']
             order_dict['title'] = each['hi_title']
-            order_dict['img_url'] = each['hi_index_image_url']
+            order_dict['img_url'] = constants.PRE_URL + each['hi_index_image_url']
             order_dict['amount'] = each['oi_house_price']
             order_dict['comment'] = each['oi_comment']
             order.append(order_dict)
-        print order
         return self.write(dict(errcode=RET.OK, errmsg='成功', order=order))
 
     def post(self):
@@ -104,12 +107,13 @@ class MyOrderHandler(BaseHandler):
         if len(comment) <= 5:
             return self.write(dict(errcode=RET.PARAMERR, errmsg='评论字数必须大于５'))
         try:
-            sql = 'update ih_order_info set oi_comment=%(comment)s where oi_order_id=%(order_id)s'
+            sql = 'update ih_order_info set oi_comment=%(comment)s, oi_status=4 where oi_order_id=%(order_id)s'
             self.db.execute(sql, comment=comment, order_id=order_id)
         except Exception as e:
             logging.error(e)
             return self.write(dict(errcode=RET.DBERR, errmsg='向数据库写入数据出错'))
         return self.write(dict(errcode=RET.OK, errmsg='成功'))
+
 
 class GuestOrderHandler(BaseHandler):
     @require_login
@@ -131,7 +135,7 @@ class GuestOrderHandler(BaseHandler):
         user_id = self.get_current_user().get('userId')
         # user_id = 1
         try:
-            sql = 'select oi_order_id, oi_status, hi_title, oi_ctime, oi_begin_date, oi_end_date, oi_amount, oi_days, oi_comment from ih_house_info ' \
+            sql = 'select oi_order_id, oi_status, hi_index_image_url, hi_title, oi_ctime, oi_begin_date, oi_end_date, oi_amount, oi_days, oi_comment from ih_house_info ' \
                   'inner join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id where hi_user_id=%(user_id)s;'
             order_info = self.db.query(sql, user_id=user_id)
         except Exception as e:
@@ -144,12 +148,13 @@ class GuestOrderHandler(BaseHandler):
             order_dict['order_id'] = each['oi_order_id']
             order_dict['status'] = each['oi_status']
             order_dict['title'] = each['hi_title']
-            order_dict['ctime'] = str(each['oi_ctime'])
+            order_dict['ctime'] = str(each['oi_ctime']).strip(' ')[0]
             order_dict['begin_date'] = str(each['oi_begin_date'])
             order_dict['end_date'] = str(each['oi_end_date'])
             order_dict['amount'] = each['oi_amount']
             order_dict['days'] = each['oi_days']
             order_dict['comment'] = each['oi_comment']
+            order_dict['img_url'] = constants.PRE_URL + each['hi_index_image_url']
             order.append(order_dict)
 
         return self.write(dict(errcode=RET.OK, errmsg='成功', order=order))
@@ -160,7 +165,7 @@ class GuestOrderHandler(BaseHandler):
         if not all((order_id, comment)):
             return self.write(dict(errcode=RET.PARAMERR, errmsg='缺少参数'))
         try:
-            sql = 'update ih_order_info set oi_comment=%(comment)s where oi_order_id=%(order_id)s'
+            sql = 'update ih_order_info set oi_comment=%(comment)s, oi_status=4 where oi_order_id=%(order_id)s'
             self.db.execute(sql, order_id=order_id, comment=comment)
         except Exception as e:
             logging.error(e)
