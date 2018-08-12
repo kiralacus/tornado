@@ -89,7 +89,7 @@ class MyOrderHandler(BaseHandler):
             order_dict['start_date'] = str(each['oi_begin_date'])
             order_dict['end_date'] = str(each['oi_end_date'])
             order_dict['status'] = each['oi_status']
-            order_dict['ctime'] = str(each['oi_ctime']).strip(' ')[0]
+            order_dict['ctime'] = str(each['oi_ctime']).split(' ')[0]
             order_dict['days'] = each['oi_days']
             order_dict['title'] = each['hi_title']
             order_dict['img_url'] = constants.PRE_URL + each['hi_index_image_url']
@@ -148,28 +148,40 @@ class GuestOrderHandler(BaseHandler):
             order_dict['order_id'] = each['oi_order_id']
             order_dict['status'] = each['oi_status']
             order_dict['title'] = each['hi_title']
-            order_dict['ctime'] = str(each['oi_ctime']).strip(' ')[0]
-            order_dict['begin_date'] = str(each['oi_begin_date'])
+            order_dict['ctime'] = str(each['oi_ctime']).split(' ')[0]
+            order_dict['start_date'] = str(each['oi_begin_date'])
             order_dict['end_date'] = str(each['oi_end_date'])
             order_dict['amount'] = each['oi_amount']
             order_dict['days'] = each['oi_days']
             order_dict['comment'] = each['oi_comment']
             order_dict['img_url'] = constants.PRE_URL + each['hi_index_image_url']
             order.append(order_dict)
+            print order_dict
 
         return self.write(dict(errcode=RET.OK, errmsg='成功', order=order))
 
     def post(self):
         order_id = self.json_dict.get('order_id')
         comment = self.json_dict.get('comment')
-        if not all((order_id, comment)):
-            return self.write(dict(errcode=RET.PARAMERR, errmsg='缺少参数'))
-        try:
-            sql = 'update ih_order_info set oi_comment=%(comment)s, oi_status=4 where oi_order_id=%(order_id)s'
-            self.db.execute(sql, order_id=order_id, comment=comment)
-        except Exception as e:
-            logging.error(e)
-            return self.write(dict(errcode=RET.DBERR, errmsg='数据库写入失败'))
+        accept_or_not = self.json_dict.get('y_o_n')
+        if accept_or_not == 6:
+            if not all((order_id, comment)):
+                return self.write(dict(errcode=RET.PARAMERR, errmsg='缺少参数'))
+            try:
+                sql = 'update ih_order_info set oi_comment=%(comment)s, oi_status=6 where oi_order_id=%(order_id)s'
+                self.db.execute(sql, order_id=order_id, comment=comment)
+            except Exception as e:
+                logging.error(e)
+                return self.write(dict(errcode=RET.DBERR, errmsg='数据库写入失败'))
+        elif accept_or_not == 1:
+            if not order_id:
+                return self.write(dict(errcode=RET.PARAMERR, errmsg='缺少参数'))
+            try:
+                sql = 'update ih_order_info set oi_status=1 where oi_order_id=%(order_id)s'
+                self.db.execute(sql, order_id=order_id)
+            except Exception as e:
+                logging.error(e)
+                return self.write(dict(errcode=RET.DBERR, errmsg='数据库写入失败'))
         return self.write(dict(errcode=RET.OK, errmsg='成功'))
 
 
