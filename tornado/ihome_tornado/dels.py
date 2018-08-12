@@ -2,7 +2,7 @@ import datetime
 import math
 import json
 
-n = '2018-08-04 14:02:14'
-n = n.split(' ')
-print n
+data = '2018-08-06 12:36:50'
+print data.split(' ')
+
 

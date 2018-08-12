@@ -17,67 +17,60 @@ function getCookie(name) {
 $(document).ready(function(){
     $('.modal').on('show.bs.modal', centerModals);      //当模态框出现的时候
     $(window).on('resize', centerModals);
-    $.get("/api/order/my?role=landlord", function(data){
-        if ("0" == data.errcode) {
-            $(".orders-list").html(template("orders-list-tmpl", {orders:data.orders}));
-            $(".order-accept").on("click", function(){
-                var orderId = $(this).parents("li").attr("order-id");
-                $(".modal-accept").attr("order-id", orderId);
-            });
-            $(".modal-accept").on("click", function(){
-                var orderId = $(this).attr("order-id");
-                $.ajax({
-                    url:"/api/order/accept",
-                    type:"POST",
-                    data:'{"order_id":'+ orderId +'}',
-                    contentType:"application/json",
-                    headers:{
-                        "X-XSRFTOKEN":getCookie("_xsrf"),
-                    },
-                    dataType:"json",
-                    success:function (data) {
-                        if ("4101" == data.errcode) {
-                            location.href = "/login.html";
-                        } else if ("0" == data.errcode) {
-                            $(".orders-list>li[order-id="+ orderId +"]>div.order-content>div.order-text>ul li:eq(4)>span").html("已接单");
-                            $("ul.orders-list>li[order-id="+ orderId +"]>div.order-title>div.order-operate").hide();
-                            $("#accept-modal").modal("hide");
-                        }
-                    }
-                })
-            });
-            $(".order-reject").on("click", function(){
-                var orderId = $(this).parents("li").attr("order-id");
-                $(".modal-reject").attr("order-id", orderId);
-            });
-            $(".modal-reject").on("click", function(){
-                var orderId = $(this).attr("order-id");
-                var reject_reason = $("#reject-reason").val()
-                if (!reject_reason) return;
-                var data = {
-                    order_id:orderId,
-                    reject_reason:reject_reason
-                };
-                $.ajax({
-                    url:"/api/order/reject",
-                    type:"POST",
-                    data:JSON.stringify(data),
-                    contentType:"application/json",
-                    dataType:"json",
-                    headers: {
-                        "X-XSRFTOKEN":getCookie("_xsrf"),
-                    },
-                    success:function (data) {
-                        if ("4101" == data.errcode) {
-                            location.href = "/login.html";
-                        } else if ("0" == data.errcode) {
-                            $(".orders-list>li[order-id="+ orderId +"]>div.order-content>div.order-text>ul li:eq(4)>span").html("已拒单");
-                            $(".order-operate").hide();
-                            $("#reject-modal").modal("hide");
-                        }
-                    }
-                });
-            })
+    $.get('/api/check_login', function(e){
+        if(e.errcode=='0'){
+            if(e.errmsg != '用户已通过验证') {
+                window.location.href = '/auth.html';
+            }
+        }
+        else if(e.errcode=='4101'){
+            window.location.href = '/login.html';
         }
     });
+    $.get("/api/order/guest", function(data){
+        if(data.errcode == '0'){
+            console.log(data);
+            if(!data.order.length){
+                $('.orders-list').html(template('orders-list-tmpl', {'orders': 0}));
+            }
+            else{
+                $('.orders-list').html(template('orders-list-tmpl', {'orders': data.order}));
+            }
+        }
+    });
+    $('.order-accept').click(function(){
+        alert(2);
+        $this = $(this);
+        var house_id = $(this).parent().parent().parent().attr('order-id');
+        $('.modal-accept').on('click', function(){
+            alert(1);
+            var y_o_n = 1;
+            var param = {
+                y_o_n: y_o_n,
+                house_id: house_id
+            };
+            $.ajax({
+                url: '/api/order/guest',
+                method: 'POST',
+                headers: {
+                    'X-XSRFTOKEN': getCookie('_xsrf'),
+                },
+                contentType: 'application/json',
+                data: JSON.stringify(param),
+                dataType: 'json',
+                success: function(e){
+                    if(e.errcode == '4101'){
+                        window.location.href = '/login.html';
+                    }
+                    else if(e.errcode=='4104'){
+                        window.location.href = '/auth.html';
+                    }
+                    else if(e.errcode == '0'){
+                        $this.parent().hide();
+                        $('#accept-modal').modal('hide');
+                    }
+                }
+            })
+        })
+    })
 });

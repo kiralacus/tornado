@@ -108,15 +108,18 @@ class CheckLoginHandler(BaseHandler):
     def get(self):
         if self.get_current_user():
             try:
-                mobile = self.get_current_user()['mobile']
+                user_id = self.get_current_user()['userId']
                 # 获取用户昵称
-                sql = 'select up_name from ih_user_profile where up_mobile=%(mobile)s'
-                up_name = self.db.get(sql, mobile=mobile)
+                sql = 'select up_name , up_auth from ih_user_profile where up_user_id=%(user_id)s'
+                user_info = self.db.get(sql, user_id=user_id)
             except Exception as e:
                 logging.error(e)
                 self.write(dict(errcode=RET.DBERR, errmsg='数据库查询错误'))
             else:
-                self.write(dict(errcode=RET.OK, errmsg='用户已登录', data=up_name['up_name']))
+                if not user_info['up_auth']:
+                    return self.write(dict(errcode=RET.OK, errmsg='用户已登录', data=user_info['up_name']))
+                else:
+                    return self.write(dict(errcode=RET.OK, errmsg='用户已通过验证'))
         else:
             self.write(dict(errcode=RET.SESSIONERR, errmsg='用户未登录'))
 
