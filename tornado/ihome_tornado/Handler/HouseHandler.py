@@ -575,8 +575,9 @@ class HouseListHandler(BaseHandler):
         sql_where = ' and '.join(sql_where)
         # 获取数据库中总数据
         try:
+            # 只有当oi_status=1or2时才对订单数量有影响
             sql_count_pre = "select count(distinct ih_house_info.hi_house_id) as total_num from ih_house_info left join " \
-                            "(select hi_house_id, count(*) as num from ih_house_info inner join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id where %(startDate)s between oi_begin_date and oi_end_date group by hi_house_id) order_count " \
+                            "(select hi_house_id, count(*) as num from ih_house_info inner join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id where %(startDate)s between oi_begin_date and oi_end_date and oi_status in (1, 2) group by hi_house_id) order_count " \
                             "on ih_house_info.hi_house_id=order_count.hi_house_id " \
                             "inner join ih_user_profile on ih_user_profile.up_user_id=ih_house_info.hi_user_id " \
                             "left join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id " \

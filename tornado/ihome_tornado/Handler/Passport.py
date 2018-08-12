@@ -119,7 +119,7 @@ class CheckLoginHandler(BaseHandler):
                 if not user_info['up_auth']:
                     return self.write(dict(errcode=RET.OK, errmsg='用户已登录', data=user_info['up_name']))
                 else:
-                    return self.write(dict(errcode=RET.OK, errmsg='用户已通过验证'))
+                    return self.write(dict(errcode=RET.OK, errmsg='用户已通过验证', data=user_info['up_name']))
         else:
             self.write(dict(errcode=RET.SESSIONERR, errmsg='用户未登录'))
 

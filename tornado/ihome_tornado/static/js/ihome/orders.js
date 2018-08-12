@@ -23,7 +23,6 @@ $(document).ready(function(){
         }
     });
     $.get('/api/order/my', function(e){
-        console.log(e);
         if(e.errcode == '0'){
             if(e.order.length){
                 $('.orders-list').html(template('orders-list-tmpl', {'orders': e.order}));

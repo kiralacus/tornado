@@ -36,41 +36,78 @@ $(document).ready(function(){
             else{
                 $('.orders-list').html(template('orders-list-tmpl', {'orders': data.order}));
             }
+
+            $('.order-accept').on('click', function(){
+                $this = $(this);
+                var order_id = $(this).parent('div').parent('div').parent('li').attr('order-id');
+                var begin_date = $(this).parent('div').parent('div').next().children().children().children('li').eq(1).attr('begin-date');
+                $('.modal-accept').on('click', function(){
+                    var y_o_n = 1;
+                    var param = {
+                        begin_date: begin_date,
+                        y_o_n: y_o_n,
+                        order_id: order_id,
+                    };
+                    $.ajax({
+                        url: '/api/order/guest',
+                        method: 'POST',
+                        headers: {
+                            'X-XSRFTOKEN': getCookie('_xsrf'),
+                        },
+                        contentType: 'application/json',
+                        data: JSON.stringify(param),
+                        dataType: 'json',
+                        success: function(e){
+                            if(e.errcode == '4101'){
+                                window.location.href = '/login.html';
+                            }
+                            else if(e.errcode=='4104'){
+                                window.location.href = '/auth.html';
+                            }
+                            else if(e.errcode == '0'){
+                                $this.parent().hide();
+                                $('#accept-modal').modal('hide');
+                            }
+                        }
+                    })
+                })
+            })
+            $('.order-reject').on('click', function(){
+                $this = $(this);
+                var order_id = $(this).parent('div').parent('div').parent('li').attr('order-id');
+                $('.modal-reject').on('click', function(){
+                    var y_o_n = 6;
+                    var comment = $('#reject-reason').val();
+                    var param = {
+                        y_o_n: y_o_n,
+                        order_id: order_id,
+                        comment: comment,
+                    };
+                    $.ajax({
+                        url: '/api/order/guest',
+                        method: 'POST',
+                        headers: {
+                            'X-XSRFTOKEN': getCookie('_xsrf'),
+                        },
+                        contentType: 'application/json',
+                        data: JSON.stringify(param),
+                        dataType: 'json',
+                        success: function(e){
+                            if(e.errcode == '4101'){
+                                window.location.href = '/login.html';
+                            }
+                            else if(e.errcode=='4104'){
+                                window.location.href = '/auth.html';
+                            }
+                            else if(e.errcode == '0'){
+                                $this.parent().hide();
+                                $('#reject-modal').modal('hide');
+                            }
+                        }
+                    })
+                })
+            })
         }
     });
-    $('.order-accept').click(function(){
-        alert(2);
-        $this = $(this);
-        var house_id = $(this).parent().parent().parent().attr('order-id');
-        $('.modal-accept').on('click', function(){
-            alert(1);
-            var y_o_n = 1;
-            var param = {
-                y_o_n: y_o_n,
-                house_id: house_id
-            };
-            $.ajax({
-                url: '/api/order/guest',
-                method: 'POST',
-                headers: {
-                    'X-XSRFTOKEN': getCookie('_xsrf'),
-                },
-                contentType: 'application/json',
-                data: JSON.stringify(param),
-                dataType: 'json',
-                success: function(e){
-                    if(e.errcode == '4101'){
-                        window.location.href = '/login.html';
-                    }
-                    else if(e.errcode=='4104'){
-                        window.location.href = '/auth.html';
-                    }
-                    else if(e.errcode == '0'){
-                        $this.parent().hide();
-                        $('#accept-modal').modal('hide');
-                    }
-                }
-            })
-        })
-    })
+
 });

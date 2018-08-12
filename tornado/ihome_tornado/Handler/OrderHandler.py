@@ -26,7 +26,6 @@ class BookOrderHandler(BaseHandler):
         if start_date > end_date:
             return self.write(dict(errcode=RET.DATAEXIST, errmsg='start_date must be smaller'))
         # 获取房屋信息
-        print type(start_date), end_date, house_id
         try:
             sql = 'select hi_deposit, hi_price, hi_max_days, hi_min_days, hi_capacity, num from ih_house_info ' \
                   'left join (select count(*) as num, oi_house_id from ih_order_info where %(start_date)s between oi_begin_date and oi_end_date and oi_house_id=%(house_id)s ) t ' \
@@ -156,14 +155,15 @@ class GuestOrderHandler(BaseHandler):
             order_dict['comment'] = each['oi_comment']
             order_dict['img_url'] = constants.PRE_URL + each['hi_index_image_url']
             order.append(order_dict)
-            print order_dict
 
         return self.write(dict(errcode=RET.OK, errmsg='成功', order=order))
 
     def post(self):
         order_id = self.json_dict.get('order_id')
         comment = self.json_dict.get('comment')
+        begin_date = self.json_dict.get('begin_date')
         accept_or_not = self.json_dict.get('y_o_n')
+        print order_id, comment, accept_or_not
         if accept_or_not == 6:
             if not all((order_id, comment)):
                 return self.write(dict(errcode=RET.PARAMERR, errmsg='缺少参数'))
@@ -176,12 +176,26 @@ class GuestOrderHandler(BaseHandler):
         elif accept_or_not == 1:
             if not order_id:
                 return self.write(dict(errcode=RET.PARAMERR, errmsg='缺少参数'))
+            # 先获取当前预定时间下的订单数量（oi_status in (1,2))
             try:
-                sql = 'update ih_order_info set oi_status=1 where oi_order_id=%(order_id)s'
-                self.db.execute(sql, order_id=order_id)
+                order_sql = 'select b.hi_capacity,t.num from (select count(*) as num, oi_house_id, oi_order_id from ih_order_info where %(begin_date)s between oi_begin_date and oi_end_date and oi_order_id=%(order_id) and oi_status in (1,2)) t,' \
+                            '(select hi_capacity from ih_house_info inner join ih_order_info on ih_order_info.oi_house_id=ih_house_info.hi_house_id where oi_order_id=%(order_id)s) b;'
+                order_info = self.db.get(order_sql, begin_date=begin_date, order_id=order_id)
             except Exception as e:
                 logging.error(e)
-                return self.write(dict(errcode=RET.DBERR, errmsg='数据库写入失败'))
+                return self.write(dict(errcode=RET.DBERR, erromsg='数据库查询错误'))
+            order_num = order_info['num']
+            order_capacity = order_info['hi_capacity']
+            # 判断订单数量是否达到上限
+            if order_num >= order_capacity:
+                return self.write(dict(errcode=RET.DATAERR, errmsg='客户已达上线'))
+            else:
+                try:
+                    sql = 'update ih_order_info set oi_status=1 where oi_order_id=%(order_id)s'
+                    self.db.execute(sql, order_id=order_id)
+                except Exception as e:
+                    logging.error(e)
+                    return self.write(dict(errcode=RET.DBERR, errmsg='数据库写入失败'))
         return self.write(dict(errcode=RET.OK, errmsg='成功'))
 
 
